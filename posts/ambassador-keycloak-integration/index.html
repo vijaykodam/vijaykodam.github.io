@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests.">
+    <meta name="keywords" content="blog,cloud,architect,SRE,kubernetes,personal,aws,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Ambassador API GW and Keycloak integration"/>
+<meta name="twitter:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests."/>
+
+    <meta property="og:title" content="Ambassador API GW and Keycloak integration" />
+<meta property="og:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijaykodam.github.io/posts/ambassador-keycloak-integration/" />
+<meta property="article:published_time" content="2018-12-23T00:00:00+00:00" />
+<meta property="article:modified_time" content="2018-12-23T00:00:00+00:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+    
+      <base href="https://vijaykodam.github.io/posts/ambassador-keycloak-integration/">
+    
+    <title>
+  Ambassador API GW and Keycloak integration · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijaykodam.github.io/posts/ambassador-keycloak-integration/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijaykodam.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijaykodam.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijaykodam.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijaykodam.github.io/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijaykodam.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijaykodam.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Ambassador API GW and Keycloak integration</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2018-12-23T00:00:00Z'>
+                December 23, 2018
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijaykodam.github.io/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/categories/api-gw/">API GW</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/categories/open-id-connect/">Open ID Connect</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijaykodam.github.io/tags/ambassador/">ambassador</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/tags/api-gateway/">api gateway</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/tags/keycloak/">keycloak</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/tags/authentication/">authentication</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="https://vijaykodam.github.io/images/cloud.jpg" alt=""></p>
+<p><a href="https://www.getambassador.io/">Ambassador API GW</a> is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.</p>
+<p><a href="https://www.keycloak.org/">Keycloak</a> is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.</p>
+<p>Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.</p>
+<p>In this blog we will be using Keycloak as our IAM solution and integrating it with Ambassador API GW. After integrating Keycloak with Ambassador, incoming API requests will be redirected to Keycloak login page for authentication before allowing access to those APIs.</p>
+<h3 id="prerequisites">Prerequisites:</h3>
+<ol>
+<li>Ambassador API GW is deployed and listening for API requests. Follow the <a href="https://www.getambassador.io/user-guide/getting-started">official instructions</a>.</li>
+<li>httpbin example application is configured for the URL: <code>http://&lt;Ambassador URL&gt;/httpbin</code>
+You can follow the instructions mentioned <a href="https://www.getambassador.io/user-guide/getting-started/#3-creating-your-first-route">here</a>.</li>
+<li>Make sure <code>http://&lt;Ambassador URL&gt;/httpbin</code> is routed through Ambassador API GW and it should open <code>httpbin.org</code> website.</li>
+</ol>
+<p><strong>Note:</strong> In some of the commands below, you need to substitute relevant IP or URL for Keycloak and Ambassador. You will find them in this notation: <code>&lt;Ambassador IP-or-URL&gt;</code>, <code>&lt;Your-Keycloak-IP-or-URL&gt;</code>.       Similarly there are other variables in <code>&lt; &gt;</code> which you need to substitute before running those commands.</p>
+<h2 id="set-up-keycloak">Set up Keycloak</h2>
+<p>Use your existing keycloak setup if you already have. If not you can start one quicky using below instructions.</p>
+<p><em>Please note that below keycloak setup is not secure and is used only for testing the Ambassador-Keycloak integration. Do not use this in production. Use it at your own risk.</em></p>
+<p>For testing purposes docker version of keycloak will be used for this demo.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -e KEYCLOAK_USER=&lt;add-your-keycloak-user&gt; \
+            -e KEYCLOAK_PASSWORD=&lt;keycloak-password&gt; \
+                                  -p 0.0.0.0:80:8080 \
+                                -itd --name keycloak \
+                                      jboss/keycloak
+</code></pre></div><p>Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&rsquo;s default H2 DB, which should not be used in production. Note your IP address.</p>
+<p>Login to Keycloak by visiting <code>http://&lt;your-ip&gt;</code> in your browser. Use the username and password supplied in the docker run command to login to Keycloak.</p>
+<p>Use the existing &ldquo;master&rdquo; realm. Create a client and a user for our testing purposes.
+Click on <code>Clients -&gt; Create</code>. Create button is on the right side of the page.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture6.JPG" alt=""></p>
+<p>Add <code>Client ID</code> as <code>test</code>. Select &ldquo;<code>Client Protocol</code>&rdquo; as &ldquo;openid-connect&rdquo;. You can leave other fields empty. Click Save.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture1.JPG" alt=""></p>
+<p>After saving, a new window will open with more details. Turn On <code>Authorization Enabled</code> option. It will automatically turn On <code>Service Accounts Enabled</code> option. Leave it like that.</p>
+<p>Fill <code>Valid Redirect URIs</code> with <code>http://&lt;Ambassador URL&gt;/*</code>. Click Save.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture2.JPG" alt=""></p>
+<p><img src="https://vijaykodam.github.io/images/Capture8.JPG" alt=""></p>
+<p>On the same page, go to <code>Credentials</code> tab as shown below. Note the secret which is needed when creating &ldquo;ambassador-auth-client-secret&rdquo; in the next section. Use it wherever <code>&lt;YOUR_OIDC_CLIENT_SECRET&gt;</code> is mentioned.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture4.JPG" alt=""></p>
+<p>Click Users section on the keycloak page, to create users. Add username, email and select email verified. Click Save.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture9.JPG" alt=""></p>
+<p>In the same page, go to Credentials tab.  Set the new password, and turn Temporary to Off.<br>
+Click Reset Password.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture10.JPG" alt=""></p>
+<p>When dialog window opens click Change Password.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture11.JPG" alt=""></p>
+<p><strong>Note:</strong> Please note that this is done only for testing ambassador-keycloak integration. 
+Please do not do this in production or in any setup. Follow these instructions at your own risk.</p>
+<p>Now go back and click Users section in Keycloak. In the Users page, click &ldquo;View all Users&rdquo; and you should see the newly created user.</p>
+<p><img src="https://vijaykodam.github.io/images/Capture12.JPG" alt=""></p>
+<h2 id="setup-oidc-auth-integration-with-keycloak">Setup OIDC Auth integration with Keycloak</h2>
+<p>Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.</p>
+<p>Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&rsquo;t run both.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
+cd ambassador-auth-oidc/
+</code></pre></div><h3 id="running-ambassador-auth-in-docker">Running ambassador auth In Docker</h3>
+<p>Use these instructions if your Ambassador API gateway is running as docker container and not in k8s.</p>
+<p>Above setup is running keycloak as docker container and listening on port 80. Below ambassador-auth-oidc docker container will listen on port 8080.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -p 0.0.0.0:8080:8080 \
+      -e OIDC_PROVIDER=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34; \
+      -e SELF_URL=&#34;http://&lt;Ambassador IP-or-URL&gt;:8080&#34; \
+      -e OIDC_SCOPES=&#34;profile email&#34; \
+      -e CLIENT_ID=&#34;test&#34; \
+      -e CLIENT_SECRET=&#34;&lt;YOUR_OIDC_CLIENT_SECRET&gt;&#34; \
+      ajmyyra/ambassador-auth-oidc:1.3
+</code></pre></div><h3 id="running-ambassador-auth-in-kubernetes">Running Ambassador Auth in Kubernetes</h3>
+<p>Use this setup if you are already running Ambassador API GW in K8s.
+Make sure Ambassador API GW is up and running before creating secrets.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &#39;\n &#39;)
+kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
+kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34;
+kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&#34;http://&lt;Ambassador IP-or-URL&gt;&#34;
+kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&#34;test&#34;
+kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&lt;YOUR_OIDC_CLIENT_SECRET&gt;
+kubectl get secrets # To confirm they&#39;ve been created
+</code></pre></div><p>Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.</p>
+<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cd ambassador-auth-oidc/
+cp misc/auth-deployment.yaml.example auth-deployment.yaml
+cp misc/auth-service.yaml.example auth-service.yaml
+
+kubectl create -f auth-deployment.yaml
+kubectl create -f auth-service.yaml
+</code></pre></div><p>Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.</p>
+<p>Now go to <code>http://&lt;Ambassador IP-or-URL&gt;/httpbin</code>.</p>
+<p>It should automatically redirect you to Keycloak page for logging in.
+Enter your &ldquo;test&rdquo; user credentials. After successful login it should automatically redirect you to <code>http://&lt;Ambassador IP-or-URL&gt;/httpbin</code> page.</p>
+<p>We have successfully integrated Keycloak with Ambassador API GW and tested API Authentication.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

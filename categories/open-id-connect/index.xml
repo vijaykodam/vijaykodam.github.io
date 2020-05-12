@@ -1,0 +1,107 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Open ID Connect on Vijay Kodam</title>
+    <link>https://vijaykodam.github.io/categories/open-id-connect/</link>
+    <description>Recent content in Open ID Connect on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://vijaykodam.github.io/categories/open-id-connect/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Ambassador API GW and Keycloak integration</title>
+      <link>https://vijaykodam.github.io/posts/ambassador-keycloak-integration/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/posts/ambassador-keycloak-integration/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/cloud.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.getambassador.io/&#34;&gt;Ambassador API GW&lt;/a&gt; is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.&lt;/p&gt;
+&lt;p&gt;Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.&lt;/p&gt;
+&lt;p&gt;In this blog we will be using Keycloak as our IAM solution and integrating it with Ambassador API GW. After integrating Keycloak with Ambassador, incoming API requests will be redirected to Keycloak login page for authentication before allowing access to those APIs.&lt;/p&gt;
+&lt;h3 id=&#34;prerequisites&#34;&gt;Prerequisites:&lt;/h3&gt;
+&lt;ol&gt;
+&lt;li&gt;Ambassador API GW is deployed and listening for API requests. Follow the &lt;a href=&#34;https://www.getambassador.io/user-guide/getting-started&#34;&gt;official instructions&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;httpbin example application is configured for the URL: &lt;code&gt;http://&amp;lt;Ambassador URL&amp;gt;/httpbin&lt;/code&gt;
+You can follow the instructions mentioned &lt;a href=&#34;https://www.getambassador.io/user-guide/getting-started/#3-creating-your-first-route&#34;&gt;here&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Make sure &lt;code&gt;http://&amp;lt;Ambassador URL&amp;gt;/httpbin&lt;/code&gt; is routed through Ambassador API GW and it should open &lt;code&gt;httpbin.org&lt;/code&gt; website.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; In some of the commands below, you need to substitute relevant IP or URL for Keycloak and Ambassador. You will find them in this notation: &lt;code&gt;&amp;lt;Ambassador IP-or-URL&amp;gt;&lt;/code&gt;, &lt;code&gt;&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;&lt;/code&gt;.       Similarly there are other variables in &lt;code&gt;&amp;lt; &amp;gt;&lt;/code&gt; which you need to substitute before running those commands.&lt;/p&gt;
+&lt;h2 id=&#34;set-up-keycloak&#34;&gt;Set up Keycloak&lt;/h2&gt;
+&lt;p&gt;Use your existing keycloak setup if you already have. If not you can start one quicky using below instructions.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Please note that below keycloak setup is not secure and is used only for testing the Ambassador-Keycloak integration. Do not use this in production. Use it at your own risk.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;For testing purposes docker version of keycloak will be used for this demo.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;docker run -e KEYCLOAK_USER=&amp;lt;add-your-keycloak-user&amp;gt; \
+            -e KEYCLOAK_PASSWORD=&amp;lt;keycloak-password&amp;gt; \
+                                  -p 0.0.0.0:80:8080 \
+                                -itd --name keycloak \
+                                      jboss/keycloak
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&amp;rsquo;s default H2 DB, which should not be used in production. Note your IP address.&lt;/p&gt;
+&lt;p&gt;Login to Keycloak by visiting &lt;code&gt;http://&amp;lt;your-ip&amp;gt;&lt;/code&gt; in your browser. Use the username and password supplied in the docker run command to login to Keycloak.&lt;/p&gt;
+&lt;p&gt;Use the existing &amp;ldquo;master&amp;rdquo; realm. Create a client and a user for our testing purposes.
+Click on &lt;code&gt;Clients -&amp;gt; Create&lt;/code&gt;. Create button is on the right side of the page.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Add &lt;code&gt;Client ID&lt;/code&gt; as &lt;code&gt;test&lt;/code&gt;. Select &amp;ldquo;&lt;code&gt;Client Protocol&lt;/code&gt;&amp;rdquo; as &amp;ldquo;openid-connect&amp;rdquo;. You can leave other fields empty. Click Save.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture1.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;After saving, a new window will open with more details. Turn On &lt;code&gt;Authorization Enabled&lt;/code&gt; option. It will automatically turn On &lt;code&gt;Service Accounts Enabled&lt;/code&gt; option. Leave it like that.&lt;/p&gt;
+&lt;p&gt;Fill &lt;code&gt;Valid Redirect URIs&lt;/code&gt; with &lt;code&gt;http://&amp;lt;Ambassador URL&amp;gt;/*&lt;/code&gt;. Click Save.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture2.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;On the same page, go to &lt;code&gt;Credentials&lt;/code&gt; tab as shown below. Note the secret which is needed when creating &amp;ldquo;ambassador-auth-client-secret&amp;rdquo; in the next section. Use it wherever &lt;code&gt;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&lt;/code&gt; is mentioned.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture4.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Click Users section on the keycloak page, to create users. Add username, email and select email verified. Click Save.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture9.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In the same page, go to Credentials tab.  Set the new password, and turn Temporary to Off.&lt;br&gt;
+Click Reset Password.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;When dialog window opens click Change Password.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration. 
+Please do not do this in production or in any setup. Follow these instructions at your own risk.&lt;/p&gt;
+&lt;p&gt;Now go back and click Users section in Keycloak. In the Users page, click &amp;ldquo;View all Users&amp;rdquo; and you should see the newly created user.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijaykodam.github.io/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;setup-oidc-auth-integration-with-keycloak&#34;&gt;Setup OIDC Auth integration with Keycloak&lt;/h2&gt;
+&lt;p&gt;Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.&lt;/p&gt;
+&lt;p&gt;Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&amp;rsquo;t run both.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
+cd ambassador-auth-oidc/
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;running-ambassador-auth-in-docker&#34;&gt;Running ambassador auth In Docker&lt;/h3&gt;
+&lt;p&gt;Use these instructions if your Ambassador API gateway is running as docker container and not in k8s.&lt;/p&gt;
+&lt;p&gt;Above setup is running keycloak as docker container and listening on port 80. Below ambassador-auth-oidc docker container will listen on port 8080.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;docker run -p 0.0.0.0:8080:8080 \
+      -e OIDC_PROVIDER=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34; \
+      -e SELF_URL=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;:8080&amp;#34; \
+      -e OIDC_SCOPES=&amp;#34;profile email&amp;#34; \
+      -e CLIENT_ID=&amp;#34;test&amp;#34; \
+      -e CLIENT_SECRET=&amp;#34;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&amp;#34; \
+      ajmyyra/ambassador-auth-oidc:1.3
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;running-ambassador-auth-in-kubernetes&#34;&gt;Running Ambassador Auth in Kubernetes&lt;/h3&gt;
+&lt;p&gt;Use this setup if you are already running Ambassador API GW in K8s.
+Make sure Ambassador API GW is up and running before creating secrets.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &amp;#39;\n &amp;#39;)
+kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
+kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34;
+kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;&amp;#34;
+kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&amp;#34;test&amp;#34;
+kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;
+kubectl get secrets # To confirm they&amp;#39;ve been created
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;cd ambassador-auth-oidc/
+cp misc/auth-deployment.yaml.example auth-deployment.yaml
+cp misc/auth-service.yaml.example auth-service.yaml
+
+kubectl create -f auth-deployment.yaml
+kubectl create -f auth-service.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.&lt;/p&gt;
+&lt;p&gt;Now go to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt;.&lt;/p&gt;
+&lt;p&gt;It should automatically redirect you to Keycloak page for logging in.
+Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login it should automatically redirect you to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt; page.&lt;/p&gt;
+&lt;p&gt;We have successfully integrated Keycloak with Ambassador API GW and tested API Authentication.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

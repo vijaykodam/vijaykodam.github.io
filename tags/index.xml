@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Tags on Vijay Kodam</title>
+    <link>https://vijaykodam.github.io/tags/</link>
+    <description>Recent content in Tags on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 May 2020 14:42:15 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijaykodam.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>amazon</title>
+      <link>https://vijaykodam.github.io/tags/amazon/</link>
+      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EC2</title>
+      <link>https://vijaykodam.github.io/tags/ec2/</link>
+      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ssh</title>
+      <link>https://vijaykodam.github.io/tags/ssh/</link>
+      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/ssh/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ambassador</title>
+      <link>https://vijaykodam.github.io/tags/ambassador/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/ambassador/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>api gateway</title>
+      <link>https://vijaykodam.github.io/tags/api-gateway/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/api-gateway/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>authentication</title>
+      <link>https://vijaykodam.github.io/tags/authentication/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/authentication/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>keycloak</title>
+      <link>https://vijaykodam.github.io/tags/keycloak/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/tags/keycloak/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).
+There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.
+When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication.">
+    <meta name="keywords" content="blog,cloud,architect,SRE,kubernetes,personal,aws,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to login securely to your Amazon EC2 Instance?"/>
+<meta name="twitter:description" content="Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).
+There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.
+When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication."/>
+
+    <meta property="og:title" content="How to login securely to your Amazon EC2 Instance?" />
+<meta property="og:description" content="Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).
+There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.
+When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijaykodam.github.io/posts/how-to-login-securely-to-amazon-ec2/" />
+<meta property="article:published_time" content="2020-05-12T14:42:15+03:00" />
+<meta property="article:modified_time" content="2020-05-12T14:42:15+03:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+    
+      <base href="https://vijaykodam.github.io/posts/how-to-login-securely-to-amazon-ec2/">
+    
+    <title>
+  How to login securely to your Amazon EC2 Instance? · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijaykodam.github.io/posts/how-to-login-securely-to-amazon-ec2/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijaykodam.github.io/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijaykodam.github.io/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijaykodam.github.io/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.69.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijaykodam.github.io/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijaykodam.github.io/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijaykodam.github.io/posts/">Blog</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">How to login securely to your Amazon EC2 Instance?</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2020-05-12T14:42:15&#43;03:00'>
+                May 12, 2020
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijaykodam.github.io/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/categories/aws-ec2/">AWS EC2</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijaykodam.github.io/tags/amazon/">amazon</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/tags/ssh/">ssh</a>
+      <span class="separator">•</span>
+    <a href="https://vijaykodam.github.io/tags/ec2/">EC2</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="https://vijaykodam.github.io/images/secure-ec2.jpeg" alt=""></p>
+<p>Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).</p>
+<p>There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.</p>
+<p>When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication. Secure your SSH port to allow traffic from specific subnet (Ex., 3.2.132.0/24) or your own IP address (Eg., 3.2.132.23/32) by setting security group rules.</p>
+<blockquote>
+<p>A <a href="https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html">*security group</a>* acts as a virtual firewall for your instance to control inbound and outbound traffic.</p>
+</blockquote>
+<p>Problem with this method is that whenever your IP address or subnet changes you have to update your security group rules. Managing SSH keys is another task, which can get quite tricky when there are more than few EC2 instances. How to store the SSH keys safely? How to grant or revoke accesses to specific users?</p>
+<p>Another way is to use bastion host, run it in Public subnet and expose it to Internet using security group rules. Create your EC2 instances in a private subnet where there is no access from Internet and no one from outside can access it. Use security group rules to allow SSH traffic into your instance only from the bastion. This way your EC2 instance traffic is secured and only from bastion host you can access your EC2 instance.</p>
+<p>However, the same problem exists as before. How will you secure your SSH/RDP port on the bastion host. You will still have to manage the SSH keys to your bastion host and open inbound ports on the instance.</p>
+<h2 id="aws-systems-manager-session-manager">AWS Systems Manager Session Manager</h2>
+<p>Session Manager is part of AWS Systems Manager service. It gives you a browser-based CLI window to access your Windows and Linux EC2 instances without opening inbound SSH/RDP port. No need to create a bastion host. No need to manage SSH keys. Access can be granted or revoked using AWS IAM.</p>
+<p>AWS Systems Manager uses SSM agent running on the EC2 instance to manage the login and other tasks.</p>
+<p>SSM Agent is preinstalled, by default, on the following Amazon Machine Images (AMIs):</p>
+<ul>
+<li>
+<p>Windows Server 2008-2012 R2 AMIs published in November 2016 or later</p>
+</li>
+<li>
+<p>Windows Server 2016 and 2019</p>
+</li>
+<li>
+<p>Amazon Linux</p>
+</li>
+<li>
+<p>Amazon Linux 2</p>
+</li>
+<li>
+<p>Ubuntu Server 16.04</p>
+</li>
+<li>
+<p>Ubuntu Server 18.04</p>
+</li>
+<li>
+<p>Amazon ECS-Optimized</p>
+</li>
+</ul>
+<p>You need to create relevant IAM permissions, install or enable SSM agent on the EC2 instances. Once you do it you can either acces your instance from AWS Console or AWS CLI.</p>
+<p>For detailed instructions, refer to <a href="https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager-getting-started.html">the documentation</a>.</p>
+<p>AWS Systems Manager Sessions Manager lets you manage your entire fleet of EC2 instances, audit the access, grant or revoke access for each instance.</p>
+<h3 id="notes">Notes</h3>
+<p>Beware of pressing CTRL-W if you are used to it on the bash shell. It will close your browser window. Change the keyboard shortcuts to update the shortcut.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2020
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo</a> & <a href="https://github.com/luizdepra/hugo-coder/">Coder</a>.
+      
+      
+        
+      
+    </section>
+  </footer>
+
+    </main>
+
+    
+
+    
+
+    
+
+  </body>
+
+</html>

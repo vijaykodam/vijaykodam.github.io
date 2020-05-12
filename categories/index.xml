@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on Vijay Kodam</title>
+    <link>https://vijaykodam.github.io/categories/</link>
+    <description>Recent content in Categories on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Tue, 12 May 2020 14:42:15 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijaykodam.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>AWS EC2</title>
+      <link>https://vijaykodam.github.io/categories/aws-ec2/</link>
+      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      
+      <guid>https://vijaykodam.github.io/categories/aws-ec2/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>https://vijaykodam.github.io/categories/cloud/</link>
+      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      
+      <guid>https://vijaykodam.github.io/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>API GW</title>
+      <link>https://vijaykodam.github.io/categories/api-gw/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/categories/api-gw/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Open ID Connect</title>
+      <link>https://vijaykodam.github.io/categories/open-id-connect/</link>
+      <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijaykodam.github.io/categories/open-id-connect/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>
