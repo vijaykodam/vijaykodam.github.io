@@ -59,6 +59,11 @@
 &lt;p&gt;AWS Systems Manager Sessions Manager lets you manage your entire fleet of EC2 instances, audit the access, grant or revoke access for each instance.&lt;/p&gt;
 &lt;h3 id=&#34;notes&#34;&gt;Notes&lt;/h3&gt;
 &lt;p&gt;Beware of pressing CTRL-W if you are used to it on the bash shell. It will close your browser window. Change the keyboard shortcuts to update the shortcut.&lt;/p&gt;
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;p&gt;Send your feedback or comments on my tweet below:
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;How to login securely to Amazon EC2 without opening SSH port to 0.0.0.0/0.&lt;a href=&#34;https://t.co/iAPvnoawwN&#34;&gt;https://t.co/iAPvnoawwN&lt;/a&gt;&lt;br&gt;&lt;br&gt;This tweet is used for allowing readers to comment on my blogpost. &lt;br&gt;Since it is hosted as static pages using Hugo thought this is a good way to include commenting on my blogpost.&lt;/p&gt;&amp;mdash; Vijay Kodam (@vijaykodam) &lt;a href=&#34;https://twitter.com/vijaykodam/status/1260837110812155904?ref_src=twsrc%5Etfw&#34;&gt;May 14, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+&lt;/p&gt;
 </description>
     </item>
     
