@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 12 May 2020 14:42:15 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 17 May 2020 01:00:19 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,63 @@
     <item>
       <title>amazon</title>
       <link>https://vijay.eu/tags/amazon/</link>
-      <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/amazon/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Azure</title>
+      <link>https://vijay.eu/tags/azure/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/azure/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>https://vijay.eu/tags/eks/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GKE</title>
+      <link>https://vijay.eu/tags/gke/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/gke/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Openshift</title>
+      <link>https://vijay.eu/tags/openshift/</link>
+      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/openshift/</guid>
       <description></description>
     </item>
     
