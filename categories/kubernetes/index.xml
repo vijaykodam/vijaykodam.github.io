@@ -67,8 +67,11 @@
 &lt;p&gt;In this blog post I have tried to cover different ways you can deploy your kubernetes cluster. This list is not exhaustive and I might have missed some options.&lt;/p&gt;
 &lt;p&gt;Kubernetes has become the industry standard for running containers and all the major public cloud providers have K8s services.&lt;/p&gt;
 &lt;p&gt;Purpose of writing this blog post is to showcase the variety of K8s deployment options you have, be it on a bare metal server, or virtual machine or managed solution like this week&amp;rsquo;s announcement of Amazon Red Hat Openshift.&lt;/p&gt;
-&lt;h2 id=&#34;comments&#34;&gt;Comments&lt;/h2&gt;
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
 &lt;p&gt;Send your feedback by commenting on my tweet below.&lt;/p&gt;
+&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Where should I deploy my K8s cluster?&lt;br&gt;My new blog post on this topic.&lt;a href=&#34;https://t.co/sflPzY3Rnt&#34;&gt;https://t.co/sflPzY3Rnt&lt;/a&gt;&lt;br&gt;&lt;br&gt;Do read it and give me feedback.&lt;/p&gt;&amp;mdash; Vijay Kodam (@vijaykodam) &lt;a href=&#34;https://twitter.com/vijaykodam/status/1261783876596350976?ref_src=twsrc%5Etfw&#34;&gt;May 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
+
 </description>
     </item>
     
