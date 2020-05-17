@@ -138,8 +138,9 @@
 
       <div>
         
-        <p>This week there was an <a href="https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift">announcement</a> about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.</p>
-<p>There are several ways to deploy your application and this brings us to the question: <strong>Where should I deploy my K8s cluster?</strong></p>
+        <p><img src="https://vijay.eu/images/K8s.png" alt="Kubernetes"></p>
+<p>This week there was an <a href="https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift">announcement</a> about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.</p>
+<p>This brings us to the question: <strong>Where should I deploy my K8s cluster?</strong></p>
 <p>As always, the answer is: <strong>It Depends</strong></p>
 <p><strong>It depends</strong> on:</p>
 <ul>
@@ -161,14 +162,14 @@
 <h3 id="on-premises">On Premises</h3>
 <p>If you already own datacenters or if you have strict privacy/security requirements for making sure the data does not leave your premises then <em>On Premises</em> solution is the way to go.</p>
 <p>Install host operating system on the bare metal servers and then install K8s on top of it. Kubeadm is one option. However, be aware that this is a bare bones solution. You have to build/integrate authentication, authorization, dashboard, security, networking plugins, service mesh, storage, the list goes on.</p>
-<p>You could choose Openshift or Rancher. These come fully loaded.</p>
-<p>On Premises solutions are usually the slowest one to complete the installation as you are dealing with hardware. It takes time to order, ship, install and configure them.</p>
+<p>You could choose to install Openshift or Rancher. These come fully loaded.</p>
+<p>On Premises solutions are usually the slowest ones  to complete the installation as you have to deal  with hardware. It takes time to order, ship, install and configure them.</p>
 <h3 id="hybrid-cloud">Hybrid Cloud</h3>
-<p>Amazon Outposts, Google Anthos and Azure Stack provide rack full of servers which you can install in your datacenter. It is connected to their Public cloud and you manage it just like VMs on public cloud.</p>
+<p>Amazon Outposts, Google Anthos and Azure Stack provide rack full of servers which you can install in your datacenter. These racks are connected to their Public cloud and you manage it just like VMs on public cloud.</p>
 <p>This option gives you the flexibility of cloud deployment with the advantage of not managing the hardware.</p>
 <p>Keep in mind that this is the most costliest option. Bill can run into millions easily.</p>
-<p>Once you have Outposts, Anthos or Azure Stack rack on premises, you can use their managed K8s solution on top of it.</p>
-<p>This option timeline depends on the cloud provider and honestly I have no idea about it.</p>
+<p>Once you have Outposts, Anthos or Azure Stack rack on premises, you can use their managed K8s solution on top of it. Google Anthos GKE is one such option.</p>
+<p>The timeline depends on the cloud provider and honestly I have no idea about it.</p>
 <h3 id="iaas">IaaS</h3>
 <p>If you need full control of the K8s cluster and you are a pro in managing K8s then this is the option to go.</p>
 <p>You install K8s on top of Amazon EC2 or Google Compute Engine or Azure Virtual Machine.</p>
@@ -184,6 +185,7 @@
 <h3 id="others">Others</h3>
 <p>Minikube, kind, k3s are for developments purposes. These software are light weight and are designed to run on your laptop.</p>
 <p>These solutions can be used for learning about k8s, for local testing of your applications.</p>
+<p>K8s distributions like Red Hat Openshift or Rancher can be installed on bare metal, IaaS, and  PaaS. Usually this option is useful if you have more than one type of infrastructure and you want to use the same K8s distribution everywhere. You could build automation on top of it and deploy it any where you want.</p>
 <h2 id="conclusion">Conclusion</h2>
 <p>In this blog post I have tried to cover different ways you can deploy your kubernetes cluster. This list is not exhaustive and I might have missed some options.</p>
 <p>Kubernetes has become the industry standard for running containers and all the major public cloud providers have K8s services.</p>
