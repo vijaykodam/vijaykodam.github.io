@@ -51,6 +51,7 @@
             max-width: 300px;
             box-sizing: border-box;
             text-align: center;
+            width: 100%;
         }
         .medal-box h2 {
             margin-top: 0;
