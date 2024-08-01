@@ -2,10 +2,9 @@ document.addEventListener('DOMContentLoaded', function() {
     const finlandTableBody = document.getElementById('finland-medal-tally').getElementsByTagName('tbody')[0];
     const indiaTableBody = document.getElementById('india-medal-tally').getElementsByTagName('tbody')[0];
 
-    const USER_AGENT = "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36";
     const apiUrl = "https://olympics.com/OG2024/data/CIS_MedalNOCs~lang=ENG~comp=OG2024.json";
 
-    fetch(apiUrl, { headers: { "User-Agent": USER_AGENT } })
+    fetch(apiUrl)
         .then(response => {
             if (!response.ok) {
                 throw new Error(`HTTP error! Status: ${response.status}`);
@@ -44,10 +43,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const finlandRow = finlandTableBody.insertRow();
             finlandRow.insertCell(0).textContent = finlandMedals.rank;
-            finlandRow.insertCell(1).textContent = 'Total';
-            finlandRow.insertCell(2).textContent = finlandMedals.gold;
-            finlandRow.insertCell(3).textContent = finlandMedals.silver;
-            finlandRow.insertCell(4).textContent = finlandMedals.bronze;
+            finlandRow.insertCell(1).textContent = finlandMedals.gold;
+            finlandRow.insertCell(2).textContent = finlandMedals.silver;
+            finlandRow.insertCell(3).textContent = finlandMedals.bronze;
 
             // Find and display India's medals
             const indiaData = sortedNocs.find(record => record[0] === 'IND');
@@ -56,10 +54,10 @@ document.addEventListener('DOMContentLoaded', function() {
 
             const indiaRow = indiaTableBody.insertRow();
             indiaRow.insertCell(0).textContent = indiaMedals.rank;
-            indiaRow.insertCell(1).textContent = 'Total';
-            indiaRow.insertCell(2).textContent = indiaMedals.gold;
-            indiaRow.insertCell(3).textContent = indiaMedals.silver;
-            indiaRow.insertCell(4).textContent = indiaMedals.bronze;
+            indiaRow.insertCell(1).textContent = indiaMedals.gold;
+            indiaRow.insertCell(2).textContent = indiaMedals.silver;
+            indiaRow.insertCell(3).textContent = indiaMedals.bronze;
         })
         .catch(error => console.error('Error fetching data:', error));
 });
+
