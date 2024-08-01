@@ -47,7 +47,7 @@
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
             margin: 10px;
             padding: 20px;
-            flex: 1 1 calc(50% - 40px);  
+            flex: 1 1 300px;
             max-width: 300px;
             box-sizing: border-box;
             text-align: center;
@@ -78,13 +78,14 @@
                 justify-content: center;
             }
             .medal-box {
-                flex: 1 1 calc(50% - 20px);  
-                max-width: calc(50% - 20px);
+                flex: 1 1 calc(50% - 40px);
+                max-width: calc(50% - 40px);
             }
         }
     &lt;/style&gt;
 &lt;/head&gt;
 &lt;body&gt;
+    &lt;h1&gt;Medal Tally&lt;/h1&gt;
     &lt;div class=&#34;container&#34;&gt;
         &lt;div class=&#34;medal-box&#34;&gt;
             &lt;h2&gt;Finland&lt;/h2&gt;
@@ -92,7 +93,6 @@
                 &lt;thead&gt;
                     &lt;tr&gt;
                         &lt;th&gt;Rank&lt;/th&gt;
-                        &lt;th&gt;Event&lt;/th&gt;
                         &lt;th&gt;Gold&lt;/th&gt;
                         &lt;th&gt;Silver&lt;/th&gt;
                         &lt;th&gt;Bronze&lt;/th&gt;
@@ -109,7 +109,6 @@
                 &lt;thead&gt;
                     &lt;tr&gt;
                         &lt;th&gt;Rank&lt;/th&gt;
-                        &lt;th&gt;Event&lt;/th&gt;
                         &lt;th&gt;Gold&lt;/th&gt;
                         &lt;th&gt;Silver&lt;/th&gt;
                         &lt;th&gt;Bronze&lt;/th&gt;
