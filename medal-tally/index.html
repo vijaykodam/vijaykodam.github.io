@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medal Tally - Olympics 2024</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+        }
+        .medal-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            width: 90%;
+            max-width: 300px;
+            text-align: center;
+        }
+        .medal-box h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .container {
+                justify-content: center;
+            }
+            .medal-box {
+                width: 45%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Medal Tally - Olympics 2024</h1>
+    <div class="container">
+        <div class="medal-box">
+            <h2>Finland</h2>
+            <table id="finland-medal-tally">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Event</th>
+                        <th>Gold</th>
+                        <th>Silver</th>
+                        <th>Bronze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- Finland medals data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+        <div class="medal-box">
+            <h2>India</h2>
+            <table id="india-medal-tally">
+                <thead>
+                    <tr>
+                        <th>Rank</th>
+                        <th>Event</th>
+                        <th>Gold</th>
+                        <th>Silver</th>
+                        <th>Bronze</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- India medals data will be inserted here -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

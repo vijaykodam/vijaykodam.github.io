@@ -23,9 +23,10 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
 Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
 Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests." />
 <meta property="og:type" content="article" />
-<meta property="og:url" content="https://vijay.eu/posts/ambassador-keycloak-integration/" />
+<meta property="og:url" content="https://vijay.eu/posts/ambassador-keycloak-integration/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2018-12-23T00:00:00+00:00" />
 <meta property="article:modified_time" content="2018-12-23T00:00:00+00:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
 
 
     
@@ -60,7 +61,7 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.70.0" />
+    <meta name="generator" content="Hugo 0.104.2" />
   </head>
 
   
@@ -84,6 +85,10 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
         
           <li class="navigation-item">
             <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
           </li>
         
       
@@ -155,12 +160,12 @@ You can follow the instructions mentioned <a href="https://www.getambassador.io/
 <p>Use your existing keycloak setup if you already have. If not you can start one quicky using below instructions.</p>
 <p><em>Please note that below keycloak setup is not secure and is used only for testing the Ambassador-Keycloak integration. Do not use this in production. Use it at your own risk.</em></p>
 <p>For testing purposes docker version of keycloak will be used for this demo.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -e KEYCLOAK_USER=&lt;add-your-keycloak-user&gt; \
-            -e KEYCLOAK_PASSWORD=&lt;keycloak-password&gt; \
-                                  -p 0.0.0.0:80:8080 \
-                                -itd --name keycloak \
-                                      jboss/keycloak
-</code></pre></div><p>Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&rsquo;s default H2 DB, which should not be used in production. Note your IP address.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -e KEYCLOAK_USER=&lt;add-your-keycloak-user&gt; \
+</span></span><span style="display:flex;"><span>            -e KEYCLOAK_PASSWORD=&lt;keycloak-password&gt; \
+</span></span><span style="display:flex;"><span>                                  -p 0.0.0.0:80:8080 \
+</span></span><span style="display:flex;"><span>                                -itd --name keycloak \
+</span></span><span style="display:flex;"><span>                                      jboss/keycloak
+</span></span></code></pre></div><p>Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&rsquo;s default H2 DB, which should not be used in production. Note your IP address.</p>
 <p>Login to Keycloak by visiting <code>http://&lt;your-ip&gt;</code> in your browser. Use the username and password supplied in the docker run command to login to Keycloak.</p>
 <p>Use the existing &ldquo;master&rdquo; realm. Create a client and a user for our testing purposes.
 Click on <code>Clients -&gt; Create</code>. Create button is on the right side of the page.</p>
@@ -187,36 +192,36 @@ Please do not do this in production or in any setup. Follow these instructions a
 <h2 id="setup-oidc-auth-integration-with-keycloak">Setup OIDC Auth integration with Keycloak</h2>
 <p>Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.</p>
 <p>Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&rsquo;t run both.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
-cd ambassador-auth-oidc/
-</code></pre></div><h3 id="running-ambassador-auth-in-docker">Running ambassador auth In Docker</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
+</span></span><span style="display:flex;"><span>cd ambassador-auth-oidc/
+</span></span></code></pre></div><h3 id="running-ambassador-auth-in-docker">Running ambassador auth In Docker</h3>
 <p>Use these instructions if your Ambassador API gateway is running as docker container and not in k8s.</p>
 <p>Above setup is running keycloak as docker container and listening on port 80. Below ambassador-auth-oidc docker container will listen on port 8080.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">docker run -p 0.0.0.0:8080:8080 \
-      -e OIDC_PROVIDER=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34; \
-      -e SELF_URL=&#34;http://&lt;Ambassador IP-or-URL&gt;:8080&#34; \
-      -e OIDC_SCOPES=&#34;profile email&#34; \
-      -e CLIENT_ID=&#34;test&#34; \
-      -e CLIENT_SECRET=&#34;&lt;YOUR_OIDC_CLIENT_SECRET&gt;&#34; \
-      ajmyyra/ambassador-auth-oidc:1.3
-</code></pre></div><h3 id="running-ambassador-auth-in-kubernetes">Running Ambassador Auth in Kubernetes</h3>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>docker run -p 0.0.0.0:8080:8080 \
+</span></span><span style="display:flex;"><span>      -e OIDC_PROVIDER=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34; \
+</span></span><span style="display:flex;"><span>      -e SELF_URL=&#34;http://&lt;Ambassador IP-or-URL&gt;:8080&#34; \
+</span></span><span style="display:flex;"><span>      -e OIDC_SCOPES=&#34;profile email&#34; \
+</span></span><span style="display:flex;"><span>      -e CLIENT_ID=&#34;test&#34; \
+</span></span><span style="display:flex;"><span>      -e CLIENT_SECRET=&#34;&lt;YOUR_OIDC_CLIENT_SECRET&gt;&#34; \
+</span></span><span style="display:flex;"><span>      ajmyyra/ambassador-auth-oidc:1.3
+</span></span></code></pre></div><h3 id="running-ambassador-auth-in-kubernetes">Running Ambassador Auth in Kubernetes</h3>
 <p>Use this setup if you are already running Ambassador API GW in K8s.
 Make sure Ambassador API GW is up and running before creating secrets.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &#39;\n &#39;)
-kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
-kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34;
-kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&#34;http://&lt;Ambassador IP-or-URL&gt;&#34;
-kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&#34;test&#34;
-kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&lt;YOUR_OIDC_CLIENT_SECRET&gt;
-kubectl get secrets # To confirm they&#39;ve been created
-</code></pre></div><p>Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.</p>
-<div class="highlight"><pre style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-fallback" data-lang="fallback">cd ambassador-auth-oidc/
-cp misc/auth-deployment.yaml.example auth-deployment.yaml
-cp misc/auth-service.yaml.example auth-service.yaml
-
-kubectl create -f auth-deployment.yaml
-kubectl create -f auth-service.yaml
-</code></pre></div><p>Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &#39;\n &#39;)
+</span></span><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
+</span></span><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&#34;http://&lt;Your-Keycloak-IP-or-URL&gt;/auth/realms/master&#34;
+</span></span><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&#34;http://&lt;Ambassador IP-or-URL&gt;&#34;
+</span></span><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&#34;test&#34;
+</span></span><span style="display:flex;"><span>kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&lt;YOUR_OIDC_CLIENT_SECRET&gt;
+</span></span><span style="display:flex;"><span>kubectl get secrets # To confirm they&#39;ve been created
+</span></span></code></pre></div><p>Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-fallback" data-lang="fallback"><span style="display:flex;"><span>cd ambassador-auth-oidc/
+</span></span><span style="display:flex;"><span>cp misc/auth-deployment.yaml.example auth-deployment.yaml
+</span></span><span style="display:flex;"><span>cp misc/auth-service.yaml.example auth-service.yaml
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>kubectl create -f auth-deployment.yaml
+</span></span><span style="display:flex;"><span>kubectl create -f auth-service.yaml
+</span></span></code></pre></div><p>Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.</p>
 <p>Now go to <code>http://&lt;Ambassador IP-or-URL&gt;/httpbin</code>.</p>
 <p>It should automatically redirect you to Keycloak page for logging in.
 Enter your &ldquo;test&rdquo; user credentials. After successful login it should automatically redirect you to <code>http://&lt;Ambassador IP-or-URL&gt;/httpbin</code> page.</p>
@@ -247,7 +252,7 @@ Enter your &ldquo;test&rdquo; user credentials. After successful login it should
       
         ©
         
-        2020
+        2024
          Vijay Kodam 
       
       
@@ -277,7 +282,6 @@ if (!doNotTrack) {
 	ga('send', 'pageview');
 }
 </script>
-
 
     
 

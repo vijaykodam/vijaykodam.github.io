@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Projects on Vijay Kodam</title>
+    <link>https://vijay.eu/projects/</link>
+    <description>Recent content in Projects on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Aug 2024 16:49:32 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Paris 2024 Olympics</title>
+      <link>https://vijay.eu/projects/medal-tally/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/medal-tally/</guid>
+      <description>&lt;p&gt;Real time medal tally for Finland and India.&lt;/p&gt;
+&lt;!DOCTYPE html&gt;
+&lt;html lang=&#34;en&#34;&gt;
+&lt;head&gt;
+    &lt;meta charset=&#34;UTF-8&#34;&gt;
+    &lt;meta name=&#34;viewport&#34; content=&#34;width=device-width, initial-scale=1.0&#34;&gt;
+    &lt;title&gt;Medal Tally&lt;/title&gt;
+    &lt;style&gt;
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f9;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .container {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .medal-box {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            margin: 10px;
+            padding: 20px;
+            flex: 1 1 calc(50% - 40px);  
+            max-width: 300px;
+            box-sizing: border-box;
+            text-align: center;
+        }
+        .medal-box h2 {
+            margin-top: 0;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 10px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            word-wrap: break-word;
+        }
+        th {
+            background-color: #f2f2f2;
+            text-align: center;
+        }
+        td {
+            text-align: center;
+        }
+        @media (min-width: 600px) {
+            .container {
+                justify-content: center;
+            }
+            .medal-box {
+                flex: 1 1 calc(50% - 20px);  
+                max-width: calc(50% - 20px);
+            }
+        }
+    &lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+    &lt;div class=&#34;container&#34;&gt;
+        &lt;div class=&#34;medal-box&#34;&gt;
+            &lt;h2&gt;Finland&lt;/h2&gt;
+            &lt;table id=&#34;finland-medal-tally&#34;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Rank&lt;/th&gt;
+                        &lt;th&gt;Event&lt;/th&gt;
+                        &lt;th&gt;Gold&lt;/th&gt;
+                        &lt;th&gt;Silver&lt;/th&gt;
+                        &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;medal-box&#34;&gt;
+            &lt;h2&gt;India&lt;/h2&gt;
+            &lt;table id=&#34;india-medal-tally&#34;&gt;
+                &lt;thead&gt;
+                    &lt;tr&gt;
+                        &lt;th&gt;Rank&lt;/th&gt;
+                        &lt;th&gt;Event&lt;/th&gt;
+                        &lt;th&gt;Gold&lt;/th&gt;
+                        &lt;th&gt;Silver&lt;/th&gt;
+                        &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;/tr&gt;
+                &lt;/thead&gt;
+                &lt;tbody&gt;
+                    
+                &lt;/tbody&gt;
+            &lt;/table&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;script src=&#34;https://vijay.eu/medal-tally/script.js&#34;&gt;&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+
+
+&lt;p&gt;Created on 01 Aug 2024.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
