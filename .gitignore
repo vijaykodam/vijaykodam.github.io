@@ -4,3 +4,4 @@ _site/
 .jekyll-metadata
 posts/.DS_Store
 posts/page/.DS_Store
+.DS_Store
