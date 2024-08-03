@@ -195,6 +195,7 @@ const flags = [
     { name: "Zimbabwe", code: "zw" }
 ];
 
+
 // Get HTML elements
 const gameContainer = document.getElementById('quiz-mini-image');
 const optionsContainer = document.getElementById('quiz-mini-options');
@@ -233,6 +234,7 @@ function pickRandomFlags() {
         }
     }
 
+    console.log(selected);  // Debug: Check the selected flags
     return selected;
 }
 
@@ -260,6 +262,7 @@ function showQuestion() {
     const img = document.createElement('img');
     img.src = `/flags/${flag.code}.png`;
     img.alt = flag.name;
+    img.style.height = '120px';  // Ensure the height is fixed
     gameContainer.innerHTML = '';
     gameContainer.appendChild(img);
 
@@ -274,6 +277,7 @@ function showQuestion() {
     });
 
     counterSpan.textContent = `${currentQuestionIndex + 1}`;
+    console.log(`Question ${currentQuestionIndex + 1} displayed`);  // Debug: Verify question display
 }
 
 // Handle the answer selected by the user
@@ -302,6 +306,7 @@ function handleAnswer(selectedOption) {
         gameFinished = true;
         displayFinalScore();
     }
+    console.log(`Answer handled, score: ${score}, wrong: ${wrong}`);  // Debug: Verify answer handling
 }
 
 // Display the final score and show the "Restart Game" button
@@ -321,6 +326,10 @@ function displayFinalScore() {
     resultContainer.style.display = 'block';
     refreshButton.textContent = 'Restart Game';
     refreshButton.style.display = 'inline-block';  // Ensure the button is displayed
+    refreshButton.style.visibility = 'visible';  // Ensure visibility
+    refreshButton.style.opacity = '1';  // Ensure opacity
+    refreshButton.style.zIndex = '1000';  // Ensure it is on top
+    console.log('Final score displayed, refreshButton style:', refreshButton.style.display);  // Debug: Verify final score display and button visibility
 }
 
 // Reset the game to start a new session
@@ -335,6 +344,7 @@ refreshButton.onclick = () => {
     refreshButton.style.display = 'none';
     selectedFlags = pickRandomFlags();
     showQuestion();
+    console.log('Game restarted');  // Debug: Verify game restart
 };
 
 // Initialize the game when the DOM is loaded
