@@ -6,18 +6,35 @@
     <description>Recent content on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 03 Aug 2024 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Thu, 08 Aug 2024 07:00:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Guess the Flag Game</title>
+      <title>Flag Game</title>
       <link>https://vijay.eu/projects/flag-game/</link>
-      <pubDate>Sat, 03 Aug 2024 00:00:00 +0000</pubDate>
+      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
       
       <guid>https://vijay.eu/projects/flag-game/</guid>
-      <description>&lt;p&gt;Welcome to the &amp;ldquo;Guess the Flag&amp;rdquo; game! Test your knowledge of the flags of the 193 UN Member states.&lt;/p&gt;
+      <description>&lt;div class=&#34;container&#34;&gt;
+    &lt;div class=&#34;status&#34;&gt;
+        &lt;div class=&#34;counter&#34;&gt;&lt;strong id=&#34;quiz-mini-counter&#34;&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
+        &lt;div class=&#34;correct&#34;&gt;&lt;strong id=&#34;quiz-mini-correct&#34;&gt;0&lt;/strong&gt; correctly&lt;/div&gt;
+        &lt;div class=&#34;wrong&#34;&gt;&lt;strong id=&#34;quiz-mini-wrong&#34;&gt;0&lt;/strong&gt; wrong&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-image&#34; class=&#34;image&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-options&#34; class=&#34;options&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-result&#34; class=&#34;result&#34; style=&#34;display: none;&#34;&gt;
+        &lt;small&gt;
+            &lt;strong&gt;&lt;span id=&#34;quiz-mini-result-correct&#34;&gt;Well done!&lt;/span&gt;&lt;/strong&gt;
+            &lt;span id=&#34;quiz-mini-result-wrong&#34;&gt;False, it is &lt;strong id=&#34;quiz-mini-result-wrong-name&#34;&gt;*&lt;/strong&gt;&lt;/span&gt;
+        &lt;/small&gt;
+        &lt;button id=&#34;quiz-mini-refresh&#34; style=&#34;display: none;&#34;&gt;Restart Game&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
 </description>
     </item>
     
@@ -27,7 +44,7 @@
       <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
       
       <guid>https://vijay.eu/projects/medal-tally/</guid>
-      <description>&lt;p&gt;Real time medal tally for Finland and India.&lt;/p&gt;
+      <description>&lt;p&gt;Real time medal tally for Finland and India. Created on 01 Aug 2024.&lt;/p&gt;
 &lt;!DOCTYPE html&gt;
 &lt;html lang=&#34;en&#34;&gt;
 &lt;head&gt;
@@ -135,7 +152,6 @@
 &lt;/html&gt;
 
 
-&lt;p&gt;Created on 01 Aug 2024.&lt;/p&gt;
 </description>
     </item>
     
@@ -365,7 +381,7 @@ Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login i
 He is currently working as a Principal Engineer Cloud Technology at Nokia, Finland.&lt;/p&gt;
 &lt;p&gt;He started developing software for 2G CDMA in his first job, then moved onto 3G 1x-EVDO RNC development.
 After that he wrote code to deploy 4G/5G Virtual Network Functions on Telco Cloud using Openstack, Mesos and Docker.&lt;/p&gt;
-&lt;p&gt;Currently he is leading the Private 5G platform project which was built using AWS services, Kubernetes, Cassandra, Grafana, Prometheus,  Docker containers, and Harbor. He dons several hats as a Cloud Architect, SRE, DevOps and system architect.&lt;/p&gt;
+&lt;p&gt;Currently he is leading the Private 5G platform project which he built from scratch using AWS services, Kubernetes, Cassandra, Grafana, Prometheus, Docker containers, and Harbor. He dons several hats as a Cloud Architect, SRE, DevOps and system architect.&lt;/p&gt;
 &lt;p&gt;When he is not working in Cloud computing, he gets his hands dirty with AI/LLM hobby projects which are listed in projects section of this blog.&lt;/p&gt;
 &lt;p&gt;The views expressed in this blog are entirely his personal views and not his employer&amp;rsquo;s.&lt;/p&gt;
 </description>

@@ -15,8 +15,8 @@ body {
 }
 
 .image img {
-    width: auto; /* Maintain aspect ratio */
-    height: 120px; /* Fixed height */
+    height: 120px;  /* Fixed height */
+    width: auto;  /* Maintain aspect ratio */
     margin: 20px auto;
 }
 
@@ -49,7 +49,6 @@ button {
     cursor: pointer;
 }
 
-/* Ensure refreshButton is visible */
 #quiz-mini-refresh {
     display: none;  /* Initially hidden */
     visibility: visible !important;
