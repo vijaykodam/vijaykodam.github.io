@@ -12,7 +12,7 @@ document.addEventListener('DOMContentLoaded', function() {
             return response.json();
         })
         .then(data => {
-            console.log('Fetched data:', data); // Log the fetched data to see its structure
+            //console.log('Fetched data:', data); // Log the fetched data to see its structure
 
             const nocs = {};
 
@@ -39,7 +39,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Find and display Finland's medals
             const finlandData = sortedNocs.find(record => record[0] === 'FIN');
             const finlandMedals = finlandData ? finlandData[1] : { gold: 0, silver: 0, bronze: 0, rank: 'N/A' };
-            console.log('Finland medals:', finlandMedals); // Log Finland's medals
+            //console.log('Finland medals:', finlandMedals); // Log Finland's medals
 
             const finlandRow = finlandTableBody.insertRow();
             finlandRow.insertCell(0).textContent = finlandMedals.rank;
@@ -50,7 +50,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Find and display India's medals
             const indiaData = sortedNocs.find(record => record[0] === 'IND');
             const indiaMedals = indiaData ? indiaData[1] : { gold: 0, silver: 0, bronze: 0, rank: 'N/A' };
-            console.log('India medals:', indiaMedals); // Log India's medals
+            //console.log('India medals:', indiaMedals); // Log India's medals
 
             const indiaRow = indiaTableBody.insertRow();
             indiaRow.insertCell(0).textContent = indiaMedals.rank;
