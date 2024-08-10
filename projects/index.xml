@@ -6,7 +6,7 @@
     <description>Recent content in Projects on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 08 Aug 2024 12:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 09 Aug 2024 18:55:00 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/projects/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,13 +14,30 @@
     <item>
       <title>Fitness Calculator</title>
       <link>https://vijay.eu/projects/fitness-calculator/</link>
-      <pubDate>Thu, 08 Aug 2024 12:00:00 +0300</pubDate>
+      <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
       
       <guid>https://vijay.eu/projects/fitness-calculator/</guid>
       <description>&lt;h2 id=&#34;2-km-walk-test-fitness-calculator&#34;&gt;2 Km Walk Test Fitness Calculator&lt;/h2&gt;
-&lt;p&gt;The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. Please fill in the details below to calculate your fitness index.&lt;/p&gt;
 &lt;div class=&#34;container&#34;&gt;
+    
+    &lt;div id=&#34;intro-text&#34;&gt;
+        &lt;p&gt;
+            The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level.
+        &lt;/p&gt;
+        &lt;p&gt;
+            To ensure accurate results, please follow these steps before filling in the details below:
+        &lt;/p&gt;
+        &lt;ol&gt;
+            &lt;li&gt;&lt;strong&gt;Preparation:&lt;/strong&gt; Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Walk 2 Kilometers:&lt;/strong&gt; Find a flat, measured course (e.g., a track or a known distance on a path). Walk a total distance of 2 kilometers at a brisk, steady pace.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Collect Your Data:&lt;/strong&gt; As soon as you finish the 2 km walk, immediately measure your heart rate (beats per minute) and note the total time taken to complete the walk (in minutes and seconds).&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Enter Your Details:&lt;/strong&gt; Once you have completed the walk and collected the necessary data, fill in the information below to calculate your fitness index.&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/div&gt;
+
+    
     &lt;form id=&#34;fitness-form&#34;&gt;
+        
         &lt;div&gt;
             &lt;label for=&#34;age&#34;&gt;Age (years):&lt;/label&gt;
             &lt;input type=&#34;number&#34; id=&#34;age&#34; name=&#34;age&#34; required&gt;
@@ -60,6 +77,7 @@
         &lt;/p&gt;
     &lt;/form&gt;
 
+    
     &lt;div id=&#34;results&#34; style=&#34;display:none;&#34;&gt;
         &lt;h3&gt;Your Fitness Results&lt;/h3&gt;
         &lt;p&gt;&lt;strong&gt;Maximal Aerobic Power (VO2max):&lt;/strong&gt; &lt;span id=&#34;vo2max-result&#34;&gt;&lt;/span&gt; ml·min⁻¹·kg⁻¹&lt;/p&gt;

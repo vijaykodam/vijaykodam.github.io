@@ -7,22 +7,19 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Vijay Kodam">
-    <meta name="description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. Please fill in the details below to calculate your fitness index.
-Age (years): Gender: Male Female Weight (kg): Height (cm): Time to complete 2 km (minutes): Time to complete 2 km (seconds): Heart rate at the end of the walk (bpm): Calculate Fitness Disclaimer: This tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment.">
+    <meta name="description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. To ensure accurate results, please follow these steps before filling in the details below: Preparation: Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking. Walk 2 Kilometers: Find a flat, measured course (e.">
     <meta name="keywords" content="blog,cloud,architect,AWS,SRE,kubernetes,personal,bare metal">
 
     <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Fitness Calculator"/>
-<meta name="twitter:description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. Please fill in the details below to calculate your fitness index.
-Age (years): Gender: Male Female Weight (kg): Height (cm): Time to complete 2 km (minutes): Time to complete 2 km (seconds): Heart rate at the end of the walk (bpm): Calculate Fitness Disclaimer: This tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment."/>
+<meta name="twitter:description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. To ensure accurate results, please follow these steps before filling in the details below: Preparation: Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking. Walk 2 Kilometers: Find a flat, measured course (e."/>
 
     <meta property="og:title" content="Fitness Calculator" />
-<meta property="og:description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. Please fill in the details below to calculate your fitness index.
-Age (years): Gender: Male Female Weight (kg): Height (cm): Time to complete 2 km (minutes): Time to complete 2 km (seconds): Heart rate at the end of the walk (bpm): Calculate Fitness Disclaimer: This tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment." />
+<meta property="og:description" content="2 Km Walk Test Fitness Calculator The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. To ensure accurate results, please follow these steps before filling in the details below: Preparation: Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking. Walk 2 Kilometers: Find a flat, measured course (e." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://vijay.eu/projects/fitness-calculator/" /><meta property="article:section" content="projects" />
-<meta property="article:published_time" content="2024-08-08T12:00:00+03:00" />
-<meta property="article:modified_time" content="2024-08-08T12:00:00+03:00" /><meta property="og:site_name" content="Vijay Kodam" />
+<meta property="article:published_time" content="2024-08-09T18:55:00+03:00" />
+<meta property="article:modified_time" content="2024-08-09T18:55:00+03:00" /><meta property="og:site_name" content="Vijay Kodam" />
 
 
 
@@ -105,9 +102,26 @@ Age (years): Gender: Male Female Weight (kg): Height (cm): Time to complete 2 km
     </header>
 
     <h2 id="2-km-walk-test-fitness-calculator">2 Km Walk Test Fitness Calculator</h2>
-<p>The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level. Please fill in the details below to calculate your fitness index.</p>
 <div class="container">
+    
+    <div id="intro-text">
+        <p>
+            The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level.
+        </p>
+        <p>
+            To ensure accurate results, please follow these steps before filling in the details below:
+        </p>
+        <ol>
+            <li><strong>Preparation:</strong> Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking.</li>
+            <li><strong>Walk 2 Kilometers:</strong> Find a flat, measured course (e.g., a track or a known distance on a path). Walk a total distance of 2 kilometers at a brisk, steady pace.</li>
+            <li><strong>Collect Your Data:</strong> As soon as you finish the 2 km walk, immediately measure your heart rate (beats per minute) and note the total time taken to complete the walk (in minutes and seconds).</li>
+            <li><strong>Enter Your Details:</strong> Once you have completed the walk and collected the necessary data, fill in the information below to calculate your fitness index.</li>
+        </ol>
+    </div>
+
+    
     <form id="fitness-form">
+        
         <div>
             <label for="age">Age (years):</label>
             <input type="number" id="age" name="age" required>
@@ -147,6 +161,7 @@ Age (years): Gender: Male Female Weight (kg): Height (cm): Time to complete 2 km
         </p>
     </form>
 
+    
     <div id="results" style="display:none;">
         <h3>Your Fitness Results</h3>
         <p><strong>Maximal Aerobic Power (VO2max):</strong> <span id="vo2max-result"></span> ml·min⁻¹·kg⁻¹</p>
