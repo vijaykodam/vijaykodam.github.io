@@ -1,6 +1,7 @@
 document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('fitness-form');
     const results = document.getElementById('results');
+    const introText = document.getElementById('intro-text');
     const vo2maxResult = document.getElementById('vo2max-result');
     const bmiResult = document.getElementById('bmi-result');
     const fitnessIndexResult = document.getElementById('fitness-index-result');
@@ -8,12 +9,12 @@ document.addEventListener('DOMContentLoaded', () => {
     const calculationDetails = document.getElementById('calculation-details');
     const newCalculationButton = document.getElementById('new-calculation');
 
-    // Formula-based average VO2max calculation for men and women
+    // Define the calculateAverageVO2max function
     function calculateAverageVO2max(age, gender) {
         if (gender === 'male') {
             return -0.34 * age + 57.0;
         } else if (gender === 'female') {
-            return -0.286 * age + 45.92;  // Example values derived similarly to men's
+            return -0.286 * age + 45.92;
         }
     }
 
@@ -66,6 +67,9 @@ document.addEventListener('DOMContentLoaded', () => {
         fitnessIndexResult.textContent = fitnessIndex;
         fitnessClassResult.textContent = fitnessClass;
 
+        // Hide the introductory text
+        introText.style.display = 'none';
+
         // Conditionally display the guidance section only if the fitness level is below average
         if (vo2max < 0.9 * averageVO2max) {
             const targetVO2max = averageVO2max; // Use the age and gender-specific average as the target VO2max
@@ -93,6 +97,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     newCalculationButton.addEventListener('click', function() {
         form.reset();
+        introText.style.display = 'block'; // Show the introductory text again
         form.style.display = 'block';
         results.style.display = 'none';
     });
