@@ -2,13 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vijay.eu/projects/fitness-calculator/</loc>
-    <lastmod>2024-08-09T18:55:00+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/projects/</loc>
-    <lastmod>2024-08-09T18:55:00+03:00</lastmod>
+    <lastmod>2024-08-10T12:05:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/</loc>
+    <lastmod>2024-08-10T12:05:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/my-ip/</loc>
+    <lastmod>2024-08-10T12:05:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/fitness-calculator/</loc>
     <lastmod>2024-08-09T18:55:00+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/projects/flag-game/</loc>
