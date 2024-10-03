@@ -6,10 +6,29 @@
     <description>Recent content on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Aug 2024 12:05:32 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title>
+      <link>https://vijay.eu/posts/eks-upgrade-insights/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/eks-upgrade-insights/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;🚀 Save Hours During Amazon EKS Upgrades with This One Simple Step! 🚀&lt;/p&gt;
+&lt;p&gt;If you’ve ever managed EKS clusters in production, you know how crucial it is to keep them updated to leverage the latest features and maintain security.&lt;/p&gt;
+&lt;p&gt;🔄 But before starting an upgrade, have you checked the &amp;ldquo;Upgrade Insights&amp;rdquo; tab on the EKS cluster page?&lt;/p&gt;
+&lt;p&gt;Previously, our team had to manually check for deprecations and potential issues before every upgrade, spending hours in the process. Now, with the &amp;ldquo;Upgrade Insights&amp;rdquo; feature, EKS continuously monitors audit logs, detects deprecation errors, and updates the insights daily.&lt;/p&gt;
+&lt;p&gt;This small step has transformed our process and saved us countless hours of debugging and maintenance. 💡&lt;/p&gt;
+&lt;p&gt;✅ &lt;strong&gt;Pro tip&lt;/strong&gt;: Always review the &amp;ldquo;Upgrade Insights&amp;rdquo; tab before upgrading your clusters to ensure a smooth transition to newer Kubernetes versions.&lt;/p&gt;
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;p&gt;Send your feedback by commenting on my LinkedIn post below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&#34;&gt;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Your Public IP Address</title>
@@ -481,18 +500,16 @@ Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login i
     </item>
     
     <item>
-      <title>Vijay Kodam</title>
+      <title>About Me</title>
       <link>https://vijay.eu/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vijay.eu/about/</guid>
-      <description>&lt;p&gt;This is &lt;strong&gt;Vijay Kodam&lt;/strong&gt;&amp;rsquo;s personal blog.
-He is currently working as a Principal Engineer Cloud Technology at Nokia, Finland.&lt;/p&gt;
-&lt;p&gt;He started developing software for 2G CDMA in his first job, then moved onto 3G 1x-EVDO RNC development.
-After that he wrote code to deploy 4G/5G Virtual Network Functions on Telco Cloud using Openstack, Mesos and Docker.&lt;/p&gt;
-&lt;p&gt;Currently he is leading the Private 5G platform project which he built from scratch using AWS services, Kubernetes, Cassandra, Grafana, Prometheus, Docker containers, and Harbor. He dons several hats as a Cloud Architect, SRE, DevOps and system architect.&lt;/p&gt;
-&lt;p&gt;When he is not working in Cloud computing, he gets his hands dirty with AI/LLM hobby projects which are listed in projects section of this blog.&lt;/p&gt;
-&lt;p&gt;The views expressed in this blog are entirely his personal views and not his employer&amp;rsquo;s.&lt;/p&gt;
+      <description>&lt;p&gt;I’m &lt;strong&gt;Vijay Kodam&lt;/strong&gt;, a seasoned technology professional with deep expertise in Amazon Web Services, cloud architecture, software development, and system design. I currently work as a Principal Engineer in Cloud Technology at Nokia, Finland.&lt;/p&gt;
+&lt;p&gt;My career journey has been a blend of deep telecom expertise and cutting-edge cloud computing skills. I began by developing software for 2G CDMA systems, progressed to building 3G 1x-EVDO RNC solutions, and then transitioned to deploying 4G/5G Virtual Network Functions (VNFs) on Telco Cloud using platforms like AWS, containers and Kubernetes. Over the years, I’ve expanded my focus to &lt;strong&gt;Amazon Web Service(AWS), Systems Design, Solution Architecture and Kubernetes&lt;/strong&gt;, specializing in Amazon EKS to build scalable and resilient cloud-native solutions for telecom applications.&lt;/p&gt;
+&lt;p&gt;Today, I’m leading the development of a &lt;strong&gt;Private 5G platform&lt;/strong&gt;, which I built from scratch using AWS services, Kubernetes, Cassandra, Grafana, Prometheus, and containerized solutions. My role allows me to blend Cloud Architecture, SRE, DevOps, GitOps and Systems Design to deliver robust and scalable solutions.&lt;/p&gt;
+&lt;p&gt;In my spare time, I delve into &lt;strong&gt;AI and Large Language Model (LLM)&lt;/strong&gt; projects, which are documented in the Projects section of this blog.&lt;/p&gt;
+&lt;p&gt;The thoughts and opinions shared here are solely my own and do not reflect the views of my employer.&lt;/p&gt;
 </description>
     </item>
     
