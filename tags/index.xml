@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 May 2020 01:00:19 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Amazon EKS</title>
+      <link>https://vijay.eu/tags/amazon-eks/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/amazon-eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>amazon web services</title>
+      <link>https://vijay.eu/tags/amazon-web-services/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/amazon-web-services/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>aws</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>https://vijay.eu/tags/eks/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Upgrade</title>
+      <link>https://vijay.eu/tags/upgrade/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/upgrade/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>amazon</title>
@@ -17,15 +71,6 @@
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/amazon/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -39,29 +84,11 @@
     </item>
     
     <item>
-      <title>EKS</title>
-      <link>https://vijay.eu/tags/eks/</link>
-      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>GKE</title>
       <link>https://vijay.eu/tags/gke/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/gke/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
