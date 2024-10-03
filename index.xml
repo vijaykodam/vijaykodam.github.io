@@ -284,6 +284,26 @@
     </item>
     
     <item>
+      <title>Kubernetes 10th Birthday</title>
+      <link>https://vijay.eu/posts/kubernetes-10th-birthday/</link>
+      <pubDate>Thu, 06 Jun 2024 06:06:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/kubernetes-10th-birthday/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/k8s10.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Celebrating 10 Years of Kubernetes!&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;I&amp;rsquo;m thrilled to be part of the incredible Kubernetes journey that started 10 years ago!&lt;/p&gt;
+&lt;p&gt;Back in the early days, I was deep in the world of containers. Then came the chance to build Nokia&amp;rsquo;s Digital Automation Cloud and we chose Kubernetes as the foundation. Those were wild times – Kubernetes didn&amp;rsquo;t even had ingress yet, so we had to get creative to manage incoming traffic!&lt;/p&gt;
+&lt;p&gt;One of the biggest challenges we faced was managing the explosion of containers. Every company was moving workloads from VMs to containers, but there was no good way to orchestrate them. Several solutions emerged, like Docker Swarm, Mesos, and Red Hat&amp;rsquo;s Openshift (pre-Kubernetes).&lt;/p&gt;
+&lt;p&gt;However, Kubernetes, with its Apache v2 license and Google&amp;rsquo;s Borg experience backing it, gained the most traction. It offered a powerful, open-source platform that could handle complex container deployments.&lt;/p&gt;
+&lt;p&gt;Gradually, Kubernetes became the gold standard for container orchestration. Openshift, a visionary platform, even adopted Kubernetes as its engine early on, adding features like &amp;ldquo;routes&amp;rdquo; and multi-tenancy that Kubernetes later incorporated as Ingress and RBAC. This collaborative spirit, with everyone contributing back to the core project, is what truly fueled Kubernetes&amp;rsquo; success.&lt;/p&gt;
+&lt;p&gt;Today, cloud providers like AWS (EKS) and Microsoft (AKS) offer managed Kubernetes services, making it easier than ever to deploy and manage containerized applications.&lt;/p&gt;
+&lt;p&gt;The impact of Kubernetes is undeniable. Now, when companies build software, Kubernetes is the de-facto standard platform, regardless of cloud provider. It&amp;rsquo;s become the expected foundation for modern application development.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s to many more years of innovation with Kubernetes!&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#kubernetes #containerorchestration #cloudnative #devops #opensource&lt;/strong&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Where Should I Deploy My K8s Cluster?</title>
       <link>https://vijay.eu/posts/deploy-k8s/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
