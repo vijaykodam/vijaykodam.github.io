@@ -6,10 +6,29 @@
     <description>Recent content in Cloud on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 17 May 2020 01:00:19 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title>
+      <link>https://vijay.eu/posts/eks-upgrade-insights/</link>
+      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/eks-upgrade-insights/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;🚀 Save Hours During Amazon EKS Upgrades with This One Simple Step! 🚀&lt;/p&gt;
+&lt;p&gt;If you’ve ever managed EKS clusters in production, you know how crucial it is to keep them updated to leverage the latest features and maintain security.&lt;/p&gt;
+&lt;p&gt;🔄 But before starting an upgrade, have you checked the &amp;ldquo;Upgrade Insights&amp;rdquo; tab on the EKS cluster page?&lt;/p&gt;
+&lt;p&gt;Previously, our team had to manually check for deprecations and potential issues before every upgrade, spending hours in the process. Now, with the &amp;ldquo;Upgrade Insights&amp;rdquo; feature, EKS continuously monitors audit logs, detects deprecation errors, and updates the insights daily.&lt;/p&gt;
+&lt;p&gt;This small step has transformed our process and saved us countless hours of debugging and maintenance. 💡&lt;/p&gt;
+&lt;p&gt;✅ &lt;strong&gt;Pro tip&lt;/strong&gt;: Always review the &amp;ldquo;Upgrade Insights&amp;rdquo; tab before upgrading your clusters to ensure a smooth transition to newer Kubernetes versions.&lt;/p&gt;
+&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;p&gt;Send your feedback by commenting on my LinkedIn post below.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&#34;&gt;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Where Should I Deploy My K8s Cluster?</title>
