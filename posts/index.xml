@@ -6,10 +6,58 @@
     <description>Recent content in Posts on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2024 00:42:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/posts/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</title>
+      <link>https://vijay.eu/posts/s3-delete-millions-of-files/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/s3-delete-millions-of-files/</guid>
+      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Managing data in &lt;strong&gt;Amazon S3&lt;/strong&gt; can be a daunting task, especially when you&amp;rsquo;re faced with the need to delete millions of objects. Whether you’re dealing with old backups, temporary files, or simply restructuring your data, choosing the right method to delete these files is crucial. The right approach can save you time and money, ensuring that you maintain an efficient cloud environment.&lt;/p&gt;
+&lt;p&gt;In this post, we’ll explore various methods to delete files from an S3 bucket, highlighting the &lt;strong&gt;fastest&lt;/strong&gt; and &lt;strong&gt;cheapest&lt;/strong&gt; options available.&lt;/p&gt;
+&lt;h2 id=&#34;different-ways-to-delete-files-from-s3&#34;&gt;Different Ways to Delete Files from S3&lt;/h2&gt;
+&lt;h3 id=&#34;1-aws-management-console&#34;&gt;1. AWS Management Console&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;AWS Management Console&lt;/strong&gt; allows you to manually delete files through a user-friendly interface. While this method is straightforward and suitable for small batches, it becomes impractical for large datasets.&lt;/p&gt;
+&lt;h3 id=&#34;2-aws-cli&#34;&gt;2. AWS CLI&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;AWS Command Line Interface (CLI)&lt;/strong&gt; is a popular choice for users who prefer script-based operations. You can use the following command to delete files recursively:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 rm s3://bucket-name --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, it’s important to note that the AWS CLI is primarily &lt;strong&gt;single-threaded&lt;/strong&gt;, which can lead to slower performance when deleting large numbers of objects.&lt;/p&gt;
+&lt;h3 id=&#34;3-s3cmd&#34;&gt;3. s3cmd&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;s3cmd&lt;/strong&gt; is another command-line tool that offers more features than the AWS CLI. It allows for some level of parallelism, making it &lt;strong&gt;slightly faster&lt;/strong&gt; than the AWS CLI. The command for recursive deletion is:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s3cmd del s3://bucket-name --recursive
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While it provides a better performance boost, it still doesn’t match the speed of more advanced tools.&lt;/p&gt;
+&lt;h3 id=&#34;4-s3-batch-operations&#34;&gt;4. S3 Batch Operations&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;S3 Batch Operations&lt;/strong&gt; are designed for large-scale tasks and can delete billions of objects. However, this method incurs additional costs based on the number of objects processed, which may not be ideal for budget-conscious users.&lt;/p&gt;
+&lt;h3 id=&#34;5-s3-lifecycle-policies&#34;&gt;5. S3 Lifecycle Policies&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; are an excellent way to automate the deletion of files without incurring extra costs. You can set rules to automatically delete objects after a specified duration or based on specific conditions. However, deletions may take &lt;strong&gt;up to 24 hours&lt;/strong&gt; to execute.&lt;/p&gt;
+&lt;h3 id=&#34;6-s5cmd&#34;&gt;6. s5cmd&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;s5cmd&lt;/strong&gt; is a newer, highly parallelized tool that excels in speed. It can delete thousands of files per second and is particularly useful for massive deletions. To delete files using s5cmd, you can use the following command:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s5cmd rm s3://bucket-name/*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;comparing-methods-fastest-vs-cheapest&#34;&gt;Comparing Methods: Fastest vs. Cheapest&lt;/h2&gt;
+&lt;h3 id=&#34;fastest-method-s5cmd&#34;&gt;Fastest Method: s5cmd&lt;/h3&gt;
+&lt;p&gt;When it comes to speed, &lt;strong&gt;s5cmd&lt;/strong&gt; is the clear winner. It is designed for high-performance operations and leverages &lt;strong&gt;multi-threading&lt;/strong&gt; and &lt;strong&gt;batch processing&lt;/strong&gt; to maximize efficiency. With &lt;strong&gt;s5cmd&lt;/strong&gt;, you can expect deletion rates to be up to &lt;strong&gt;100x faster&lt;/strong&gt; than the AWS CLI, making it an excellent choice for scenarios where time is critical.&lt;/p&gt;
+&lt;h3 id=&#34;cheapest-method-s3-lifecycle-policies&#34;&gt;Cheapest Method: S3 Lifecycle Policies&lt;/h3&gt;
+&lt;p&gt;If minimizing costs is your primary concern, &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; are the way to go. This method allows you to automate deletions without incurring additional charges. You can set lifecycle rules that trigger deletions based on file age or other criteria, making it ideal for long-term data management. While it may take longer to process (up to 24 hours), it eliminates the need for any new costs, making it perfect for &lt;strong&gt;cost-conscious&lt;/strong&gt; environments.&lt;/p&gt;
+&lt;h2 id=&#34;why-these-methods-are-the-best&#34;&gt;Why These Methods Are the Best&lt;/h2&gt;
+&lt;h3 id=&#34;speed-considerations&#34;&gt;Speed Considerations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;For Speed&lt;/strong&gt;: When you need to delete millions of objects quickly, &lt;strong&gt;s5cmd&lt;/strong&gt; stands out due to its ability to handle multiple requests simultaneously. This is particularly advantageous in environments where data is frequently updated or removed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cost-considerations&#34;&gt;Cost Considerations&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;For Cost&lt;/strong&gt;: &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; allow you to automate data management tasks without incurring any additional charges. This is crucial for businesses looking to optimize their cloud costs while maintaining a clean and organized data structure.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Choosing the right method to delete millions of files from an S3 bucket depends on your specific use case. If speed is your priority, &lt;strong&gt;s5cmd&lt;/strong&gt; is the best tool for the job. Conversely, if you’re focused on minimizing costs, &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; offer an automated, no-cost solution for managing your data over time.&lt;/p&gt;
+&lt;p&gt;By understanding these options, you can make informed decisions that streamline your data management processes in AWS S3, saving both time and money in the long run.&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn at &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt;  where I post articles about AWS, Kubernetes and cloud computing in general.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title>

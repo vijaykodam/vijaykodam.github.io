@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2024 00:42:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,36 @@
     <item>
       <title>AWS</title>
       <link>https://vijay.eu/categories/aws/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Computing</title>
+      <link>https://vijay.eu/categories/cloud-computing/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/cloud-computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Management</title>
+      <link>https://vijay.eu/categories/data-management/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/data-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>https://vijay.eu/categories/s3/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/s3/</guid>
       <description></description>
     </item>
     
@@ -35,15 +62,6 @@
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud Computing</title>
-      <link>https://vijay.eu/categories/cloud-computing/</link>
-      <pubDate>Thu, 06 Jun 2024 06:06:36 +0300</pubDate>
-      
-      <guid>https://vijay.eu/categories/cloud-computing/</guid>
       <description></description>
     </item>
     
