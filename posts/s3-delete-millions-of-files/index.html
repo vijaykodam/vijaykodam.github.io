@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="How to delete millions of files from S3 bucket cheaply or faster?">
+    <meta name="keywords" content="blog,cloud,architect,AWS,SRE,kubernetes,personal,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3"/>
+<meta name="twitter:description" content="How to delete millions of files from S3 bucket cheaply or faster?"/>
+
+    <meta property="og:title" content="Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3" />
+<meta property="og:description" content="How to delete millions of files from S3 bucket cheaply or faster?" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/posts/s3-delete-millions-of-files/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-14T00:42:32+03:00" />
+<meta property="article:modified_time" content="2024-10-14T00:42:32+03:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+
+    
+      <base href="https://vijay.eu/posts/s3-delete-millions-of-files/">
+    
+    <title>
+  Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3 · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/s3-delete-millions-of-files/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.104.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijay.eu/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2024-10-14T00:42:32&#43;03:00'>
+                October 14, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              4-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijay.eu/categories/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/s3/">S3</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/cloud-computing/">Cloud Computing</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/data-management/">Data Management</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijay.eu/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/s3/">S3</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/cloud-computing/">Cloud Computing</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/data-management/">Data Management</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <h2 id="introduction">Introduction</h2>
+<p>Managing data in <strong>Amazon S3</strong> can be a daunting task, especially when you&rsquo;re faced with the need to delete millions of objects. Whether you’re dealing with old backups, temporary files, or simply restructuring your data, choosing the right method to delete these files is crucial. The right approach can save you time and money, ensuring that you maintain an efficient cloud environment.</p>
+<p>In this post, we’ll explore various methods to delete files from an S3 bucket, highlighting the <strong>fastest</strong> and <strong>cheapest</strong> options available.</p>
+<h2 id="different-ways-to-delete-files-from-s3">Different Ways to Delete Files from S3</h2>
+<h3 id="1-aws-management-console">1. AWS Management Console</h3>
+<p>The <strong>AWS Management Console</strong> allows you to manually delete files through a user-friendly interface. While this method is straightforward and suitable for small batches, it becomes impractical for large datasets.</p>
+<h3 id="2-aws-cli">2. AWS CLI</h3>
+<p>The <strong>AWS Command Line Interface (CLI)</strong> is a popular choice for users who prefer script-based operations. You can use the following command to delete files recursively:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 rm s3://bucket-name --recursive
+</span></span></code></pre></div><p>However, it’s important to note that the AWS CLI is primarily <strong>single-threaded</strong>, which can lead to slower performance when deleting large numbers of objects.</p>
+<h3 id="3-s3cmd">3. s3cmd</h3>
+<p><strong>s3cmd</strong> is another command-line tool that offers more features than the AWS CLI. It allows for some level of parallelism, making it <strong>slightly faster</strong> than the AWS CLI. The command for recursive deletion is:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s3cmd del s3://bucket-name --recursive
+</span></span></code></pre></div><p>While it provides a better performance boost, it still doesn’t match the speed of more advanced tools.</p>
+<h3 id="4-s3-batch-operations">4. S3 Batch Operations</h3>
+<p><strong>S3 Batch Operations</strong> are designed for large-scale tasks and can delete billions of objects. However, this method incurs additional costs based on the number of objects processed, which may not be ideal for budget-conscious users.</p>
+<h3 id="5-s3-lifecycle-policies">5. S3 Lifecycle Policies</h3>
+<p><strong>S3 Lifecycle Policies</strong> are an excellent way to automate the deletion of files without incurring extra costs. You can set rules to automatically delete objects after a specified duration or based on specific conditions. However, deletions may take <strong>up to 24 hours</strong> to execute.</p>
+<h3 id="6-s5cmd">6. s5cmd</h3>
+<p><strong>s5cmd</strong> is a newer, highly parallelized tool that excels in speed. It can delete thousands of files per second and is particularly useful for massive deletions. To delete files using s5cmd, you can use the following command:</p>
+<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s5cmd rm s3://bucket-name/*
+</span></span></code></pre></div><h2 id="comparing-methods-fastest-vs-cheapest">Comparing Methods: Fastest vs. Cheapest</h2>
+<h3 id="fastest-method-s5cmd">Fastest Method: s5cmd</h3>
+<p>When it comes to speed, <strong>s5cmd</strong> is the clear winner. It is designed for high-performance operations and leverages <strong>multi-threading</strong> and <strong>batch processing</strong> to maximize efficiency. With <strong>s5cmd</strong>, you can expect deletion rates to be up to <strong>100x faster</strong> than the AWS CLI, making it an excellent choice for scenarios where time is critical.</p>
+<h3 id="cheapest-method-s3-lifecycle-policies">Cheapest Method: S3 Lifecycle Policies</h3>
+<p>If minimizing costs is your primary concern, <strong>S3 Lifecycle Policies</strong> are the way to go. This method allows you to automate deletions without incurring additional charges. You can set lifecycle rules that trigger deletions based on file age or other criteria, making it ideal for long-term data management. While it may take longer to process (up to 24 hours), it eliminates the need for any new costs, making it perfect for <strong>cost-conscious</strong> environments.</p>
+<h2 id="why-these-methods-are-the-best">Why These Methods Are the Best</h2>
+<h3 id="speed-considerations">Speed Considerations</h3>
+<ul>
+<li><strong>For Speed</strong>: When you need to delete millions of objects quickly, <strong>s5cmd</strong> stands out due to its ability to handle multiple requests simultaneously. This is particularly advantageous in environments where data is frequently updated or removed.</li>
+</ul>
+<h3 id="cost-considerations">Cost Considerations</h3>
+<ul>
+<li><strong>For Cost</strong>: <strong>S3 Lifecycle Policies</strong> allow you to automate data management tasks without incurring any additional charges. This is crucial for businesses looking to optimize their cloud costs while maintaining a clean and organized data structure.</li>
+</ul>
+<h2 id="conclusion">Conclusion</h2>
+<p>Choosing the right method to delete millions of files from an S3 bucket depends on your specific use case. If speed is your priority, <strong>s5cmd</strong> is the best tool for the job. Conversely, if you’re focused on minimizing costs, <strong>S3 Lifecycle Policies</strong> offer an automated, no-cost solution for managing your data over time.</p>
+<p>By understanding these options, you can make informed decisions that streamline your data management processes in AWS S3, saving both time and money in the long run.</p>
+<p>Follow me on LinkedIn at <a href="https://www.linkedin.com/in/vijaykodam/">https://www.linkedin.com/in/vijaykodam/</a>  where I post articles about AWS, Kubernetes and cloud computing in general.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2024
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

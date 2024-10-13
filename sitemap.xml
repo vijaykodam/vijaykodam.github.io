@@ -2,19 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/aws/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/aws/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/cloud-computing/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud-computing/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/data-management/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/data-management/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/s3-delete-millions-of-files/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/s3/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/s3/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-web-services/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cloud/</loc>
@@ -29,19 +59,10 @@
     <loc>https://vijay.eu/categories/kubernetes/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/posts/eks-upgrade-insights/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/upgrade/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/projects/</loc>
@@ -58,9 +79,6 @@
   </url><url>
     <loc>https://vijay.eu/projects/medal-tally/</loc>
     <lastmod>2024-08-01T16:49:32+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud-computing/</loc>
-    <lastmod>2024-06-06T06:06:36+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/kubernetes-10th-birthday/</loc>
     <lastmod>2024-06-06T06:06:36+03:00</lastmod>

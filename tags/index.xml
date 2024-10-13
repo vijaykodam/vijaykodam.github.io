@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 03 Oct 2024 01:00:19 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 14 Oct 2024 00:42:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>aws</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud Computing</title>
+      <link>https://vijay.eu/tags/cloud-computing/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/cloud-computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data Management</title>
+      <link>https://vijay.eu/tags/data-management/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/data-management/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>S3</title>
+      <link>https://vijay.eu/tags/s3/</link>
+      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/s3/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Amazon EKS</title>
@@ -26,15 +62,6 @@
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/amazon-web-services/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
     </item>
     
