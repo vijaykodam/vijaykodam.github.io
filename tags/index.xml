@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 14 Oct 2024 00:42:32 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>aws</title>
       <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
@@ -23,9 +23,36 @@
     <item>
       <title>Cloud Computing</title>
       <link>https://vijay.eu/tags/cloud-computing/</link>
-      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/cloud-computing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cost Optimization</title>
+      <link>https://vijay.eu/tags/cost-optimization/</link>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/cost-optimization/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Graviton</title>
+      <link>https://vijay.eu/tags/graviton/</link>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/graviton/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -71,15 +98,6 @@
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
