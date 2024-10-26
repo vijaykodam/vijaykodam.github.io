@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="How to save money by using Graviton-based instances">
+    <meta name="keywords" content="blog,cloud,architect,AWS,SRE,kubernetes,personal,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Unlock Up to 40% AWS Cost Savings with Graviton!"/>
+<meta name="twitter:description" content="How to save money by using Graviton-based instances"/>
+
+    <meta property="og:title" content="Unlock Up to 40% AWS Cost Savings with Graviton!" />
+<meta property="og:description" content="How to save money by using Graviton-based instances" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/posts/save-costs-with-graviton/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-10-27T00:14:32+03:00" />
+<meta property="article:modified_time" content="2024-10-27T00:14:32+03:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+
+    
+      <base href="https://vijay.eu/posts/save-costs-with-graviton/">
+    
+    <title>
+  Unlock Up to 40% AWS Cost Savings with Graviton! · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/save-costs-with-graviton/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.104.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijay.eu/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Unlock Up to 40% AWS Cost Savings with Graviton!</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2024-10-27T00:14:32&#43;03:00'>
+                October 27, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijay.eu/categories/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/cloud-computing/">Cloud Computing</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/cost-optimization/">Cost Optimization</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijay.eu/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/graviton/">Graviton</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/cost-optimization/">Cost Optimization</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/kubernetes/">Kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/cloud-computing/">Cloud Computing</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="https://vijay.eu/images/graviton.png" alt="Graviton"></p>
+<p>There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using <strong>Graviton-based instance types</strong>. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.</p>
+<p>Amazon EC2 instances powered by AWS Graviton2 processors provide up to <strong>40% better price performance</strong> compared to fifth-generation x86-based instances for a wide variety of workloads.</p>
+<h3 id="climate-friendly-computing-with-graviton">Climate-Friendly Computing with Graviton</h3>
+<p>Using Graviton also has climate benefits: it reduces your carbon footprint by using up to <strong>60% less energy</strong> than comparable EC2 instances for the same performance.</p>
+<p>By choosing Graviton-based instances over traditional x86 instances, you can unlock significant savings. Since Apple adopted ARM processors for their MacBooks, ARM has gained widespread support across operating systems and applications, ensuring seamless compatibility. AWS’s push for Graviton has further motivated the software industry to embrace ARM-based processors.</p>
+<p>AWS has been steadily expanding Graviton support across its services, making it easier than ever to leverage cost savings with ARM-based processors.</p>
+<h3 id="graviton-support-across-aws-managed-services">Graviton Support Across AWS Managed Services</h3>
+<p>Here are some of the popular AWS managed services that support Graviton:</p>
+<ul>
+<li><strong>Amazon EKS</strong></li>
+<li><strong>Amazon ECS</strong></li>
+<li><strong>Amazon Aurora</strong></li>
+<li><strong>Amazon RDS</strong></li>
+<li><strong>AWS Lambda</strong></li>
+<li><strong>Amazon OpenSearch Service</strong></li>
+</ul>
+<p>For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this <a href="https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md">link</a> for a full list of supported AWS services.</p>
+<h3 id="graviton-support-in-kubernetes-and-the-container-ecosystem">Graviton Support in Kubernetes and the Container Ecosystem</h3>
+<p>Kubernetes and containers have become the de facto platform for running microservices today. Graviton is supported by:</p>
+<ul>
+<li><strong>Amazon EKS</strong></li>
+<li><strong>Containerd</strong></li>
+<li><strong>Docker</strong></li>
+<li><strong>Helm</strong></li>
+<li><strong>Grafana</strong></li>
+<li><strong>Prometheus</strong></li>
+<li><strong>Loki</strong></li>
+<li><strong>Istio</strong></li>
+<li><strong>ArgoCD</strong></li>
+<li><strong>Terraform</strong></li>
+</ul>
+<p>…and many other tools. Here is the <a href="https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support">full list of popular software</a> within the container ecosystem that explicitly supports arm64/Graviton.</p>
+<p>Additionally, <strong>.NET 9</strong> and many older versions support Graviton.</p>
+<h3 id="operating-systems-supporting-graviton">Operating Systems Supporting Graviton</h3>
+<p>Several major operating systems also support Graviton, including <strong>Amazon Linux 2023</strong>, <strong>Ubuntu</strong>, <strong>RHEL</strong>, <strong>SUSE</strong>, <strong>Alpine Linux</strong>, and more.</p>
+<hr>
+<h3 id="try-amazon-ec2-t4g-instances-for-free-today">Try Amazon EC2 T4g Instances for Free Today</h3>
+<p>Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 <code>t4g.small</code> instances powered by AWS Graviton2 processors free for up to <strong>750 hours per month until Dec 31st, 2024</strong>. Refer to the <a href="https://aws.amazon.com/ec2/faqs/">Amazon EC2 FAQ</a> for additional details.</p>
+<p>With this <a href="https://aws.amazon.com/ec2/graviton/getting-started/">step-by-step guide from AWS</a>, you can adopt Graviton-based instances for your workloads.</p>
+<h3 id="conclusion">Conclusion</h3>
+<p>Consider including Graviton-based instances in your workload, whether in your Kubernetes clusters, EC2 instances, Lambda functions, or databases.</p>
+<p><strong>Save money and save the planet.</strong></p>
+<p>Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on <a href="https://vijay.eu/posts">my blog</a>.</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2024
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

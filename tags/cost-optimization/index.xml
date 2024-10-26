@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Cost Optimization on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/cost-optimization/</link>
+    <description>Recent content in Cost Optimization on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/tags/cost-optimization/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Unlock Up to 40% AWS Cost Savings with Graviton!</title>
+      <link>https://vijay.eu/posts/save-costs-with-graviton/</link>
+      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+&lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
+&lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
+&lt;h3 id=&#34;climate-friendly-computing-with-graviton&#34;&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
+&lt;p&gt;Using Graviton also has climate benefits: it reduces your carbon footprint by using up to &lt;strong&gt;60% less energy&lt;/strong&gt; than comparable EC2 instances for the same performance.&lt;/p&gt;
+&lt;p&gt;By choosing Graviton-based instances over traditional x86 instances, you can unlock significant savings. Since Apple adopted ARM processors for their MacBooks, ARM has gained widespread support across operating systems and applications, ensuring seamless compatibility. AWS’s push for Graviton has further motivated the software industry to embrace ARM-based processors.&lt;/p&gt;
+&lt;p&gt;AWS has been steadily expanding Graviton support across its services, making it easier than ever to leverage cost savings with ARM-based processors.&lt;/p&gt;
+&lt;h3 id=&#34;graviton-support-across-aws-managed-services&#34;&gt;Graviton Support Across AWS Managed Services&lt;/h3&gt;
+&lt;p&gt;Here are some of the popular AWS managed services that support Graviton:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon ECS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon Aurora&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon RDS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AWS Lambda&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Amazon OpenSearch Service&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md&#34;&gt;link&lt;/a&gt; for a full list of supported AWS services.&lt;/p&gt;
+&lt;h3 id=&#34;graviton-support-in-kubernetes-and-the-container-ecosystem&#34;&gt;Graviton Support in Kubernetes and the Container Ecosystem&lt;/h3&gt;
+&lt;p&gt;Kubernetes and containers have become the de facto platform for running microservices today. Graviton is supported by:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Containerd&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Docker&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Helm&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Grafana&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prometheus&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Loki&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Istio&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;ArgoCD&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Terraform&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;…and many other tools. Here is the &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support&#34;&gt;full list of popular software&lt;/a&gt; within the container ecosystem that explicitly supports arm64/Graviton.&lt;/p&gt;
+&lt;p&gt;Additionally, &lt;strong&gt;.NET 9&lt;/strong&gt; and many older versions support Graviton.&lt;/p&gt;
+&lt;h3 id=&#34;operating-systems-supporting-graviton&#34;&gt;Operating Systems Supporting Graviton&lt;/h3&gt;
+&lt;p&gt;Several major operating systems also support Graviton, including &lt;strong&gt;Amazon Linux 2023&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt;, &lt;strong&gt;RHEL&lt;/strong&gt;, &lt;strong&gt;SUSE&lt;/strong&gt;, &lt;strong&gt;Alpine Linux&lt;/strong&gt;, and more.&lt;/p&gt;
+&lt;hr&gt;
+&lt;h3 id=&#34;try-amazon-ec2-t4g-instances-for-free-today&#34;&gt;Try Amazon EC2 T4g Instances for Free Today&lt;/h3&gt;
+&lt;p&gt;Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 &lt;code&gt;t4g.small&lt;/code&gt; instances powered by AWS Graviton2 processors free for up to &lt;strong&gt;750 hours per month until Dec 31st, 2024&lt;/strong&gt;. Refer to the &lt;a href=&#34;https://aws.amazon.com/ec2/faqs/&#34;&gt;Amazon EC2 FAQ&lt;/a&gt; for additional details.&lt;/p&gt;
+&lt;p&gt;With this &lt;a href=&#34;https://aws.amazon.com/ec2/graviton/getting-started/&#34;&gt;step-by-step guide from AWS&lt;/a&gt;, you can adopt Graviton-based instances for your workloads.&lt;/p&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Consider including Graviton-based instances in your workload, whether in your Kubernetes clusters, EC2 instances, Lambda functions, or databases.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Save money and save the planet.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -3,42 +3,51 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/cloud-computing/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cloud-computing/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/cost-optimization/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cost-optimization/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/graviton/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/kubernetes/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/save-costs-with-graviton/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/data-management/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/data-management/</loc>
     <lastmod>2024-10-14T00:42:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/s3-delete-millions-of-files/</loc>
     <lastmod>2024-10-14T00:42:32+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/s3/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/s3/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2024-10-14T00:42:32+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2024-10-14T00:42:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
@@ -51,9 +60,6 @@
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/eks/</loc>
-    <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/kubernetes/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/kubernetes/</loc>
