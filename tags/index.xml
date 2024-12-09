@@ -6,17 +6,53 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 09 Dec 2024 23:13:15 +0530</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Amazon EKS</title>
+      <link>https://vijay.eu/tags/amazon-eks/</link>
+      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
+      
+      <guid>https://vijay.eu/tags/amazon-eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>aws</title>
       <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
+      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
       
       <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>https://vijay.eu/tags/eks/</link>
+      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS Auto</title>
+      <link>https://vijay.eu/tags/eks-auto/</link>
+      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks-auto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -48,15 +84,6 @@
     </item>
     
     <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Data Management</title>
       <link>https://vijay.eu/tags/data-management/</link>
       <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
@@ -75,29 +102,11 @@
     </item>
     
     <item>
-      <title>Amazon EKS</title>
-      <link>https://vijay.eu/tags/amazon-eks/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/amazon-eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>amazon web services</title>
       <link>https://vijay.eu/tags/amazon-web-services/</link>
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/amazon-web-services/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EKS</title>
-      <link>https://vijay.eu/tags/eks/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/eks/</guid>
       <description></description>
     </item>
     
