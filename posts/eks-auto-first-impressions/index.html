@@ -146,20 +146,40 @@
 <p>I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in <a href="https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/">more detail about it here</a>.</p>
 <p>Let me break down what <em>Day 2 operations</em> typically involve:</p>
 <ol>
-<li>Managed Node Groups: Create managed node groups and wait for worker nodes to come up.</li>
-<li>EKS Node capabilities: Most of them were running as Kubernetes Daemonsets on worker nodes before. Now they run as system processes managed by AWS. This includes components such as service discovery, service load balancing, pod networking, block storage, and credential vending.</li>
-<li>Add-Ons Installation: Select and install versions for multiple EKS add-ons (latest, standard, or older). Like coredns, EBS CSI driver, CNI driver, EKS pod identity etc.</li>
-<li>Load Balancer Controller: Install the AWS Load Balancer Controller for ingress traffic handling.</li>
-<li>Cost Optimization: Install Karpenter to manage pod bin-packing, scale nodes dynamically, and select cost-efficient EC2 instances.</li>
-<li>OS Security patching: Address OS security vulnerabilities identified by AWS Security Hub.</li>
-<li>Cluster Upgrades: Over time, you need to upgrade Kubernetes control plane versions and meticulously plan worker node updates. This is a continuous process every 3-6 months.</li>
+<li>
+<p><strong>Managed Node Groups</strong>: Create managed node groups and wait for worker nodes to come up.</p>
+</li>
+<li>
+<p><strong>EKS Node capabilities</strong>: Most of them were running as Kubernetes Daemonsets on worker nodes before. Now they run as system processes managed by AWS. This includes components such as service discovery, service load balancing, pod networking, block storage, and credential vending.</p>
+</li>
+<li>
+<p><strong>Add-Ons Installation</strong>: Select and install versions for multiple EKS add-ons (latest, standard, or older). Like coredns, EBS CSI driver, CNI driver, EKS pod identity etc.</p>
+</li>
+<li>
+<p><strong>Load Balancer Controller</strong>: Install the AWS Load Balancer Controller for ingress traffic handling.</p>
+</li>
+<li>
+<p><strong>Cost Optimization</strong>: Install Karpenter to manage pod bin-packing, scale nodes dynamically, and select cost-efficient EC2 instances.</p>
+</li>
+<li>
+<p><strong>OS Security patching</strong>: Address OS security vulnerabilities identified by AWS Security Hub.</p>
+</li>
+<li>
+<p><strong>Cluster Upgrades</strong>: Over time, you need to upgrade Kubernetes control plane versions and meticulously plan worker node updates. This is a continuous process every 3-6 months.</p>
+</li>
 </ol>
 <p>Now, imagine all these tasks being automated by AWS. That’s EKS Auto Mode for you!</p>
 <h2 id="-key-highlights-from-my-testing">💡 Key Highlights from My Testing</h2>
 <ul>
-<li>No Idle Nodes: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &ldquo;general-purpose&rdquo; and &ldquo;system&rdquo; node pools.</li>
-<li>Dynamic Scaling: After deploying my first application, Karpenter automatically spun up a worker node tailored to the app&rsquo;s resource requirements.</li>
-<li>Cost Efficiency: Upon deleting the application, Karpenter scaled down the node, saving money by avoiding idle resources.</li>
+<li>
+<p><strong>No Idle Nodes</strong>: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &ldquo;general-purpose&rdquo; and &ldquo;system&rdquo; node pools.</p>
+</li>
+<li>
+<p><strong>Dynamic Scaling</strong>: After deploying my first application, Karpenter automatically spun up a worker node tailored to the app&rsquo;s resource requirements.</p>
+</li>
+<li>
+<p><strong>Cost Efficiency</strong>: Upon deleting the application, Karpenter scaled down the node, saving money by avoiding idle resources.</p>
+</li>
 </ul>
 <p>This level of automation simplifies cluster operations and significantly reduces costs.</p>
 <h2 id="-pricing-update">🔍 Pricing Update</h2>
