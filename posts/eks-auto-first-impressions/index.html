@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="EKS Auto mode">
+    <meta name="keywords" content="blog,cloud,architect,AWS,SRE,kubernetes,personal,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="First Impressions of EKS Auto Mode – A Game Changer!"/>
+<meta name="twitter:description" content="EKS Auto mode"/>
+
+    <meta property="og:title" content="First Impressions of EKS Auto Mode – A Game Changer!" />
+<meta property="og:description" content="EKS Auto mode" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/posts/eks-auto-first-impressions/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2024-12-09T23:13:15+05:30" />
+<meta property="article:modified_time" content="2024-12-09T23:13:15+05:30" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+
+    
+      <base href="https://vijay.eu/posts/eks-auto-first-impressions/">
+    
+    <title>
+  First Impressions of EKS Auto Mode – A Game Changer! · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/eks-auto-first-impressions/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.104.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijay.eu/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">First Impressions of EKS Auto Mode – A Game Changer!</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2024-12-09T23:13:15&#43;05:30'>
+                December 9, 2024
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijay.eu/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/kubernetes/">Kubernetes</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijay.eu/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/eks/">EKS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/eks-auto/">EKS Auto</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/kubernetes/">Kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/amazon-eks/">Amazon EKS</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="https://vijay.eu/images/aws-eks-pic.png" alt="Kubernetes"></p>
+<p>Here are my thoughts after initial few days of using <strong>EKS Auto mode</strong>.</p>
+<p>AWS has truly raised the bar with EKS Auto Mode, a new feature announced at <strong>re:Invent 2024</strong>. This innovation automates much of the undifferentiated heavy lifting, allowing customers to focus on what matters most: building great applications.</p>
+<h2 id="-my-hands-on-experience">🛠 My Hands-On Experience</h2>
+<p>I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in <a href="https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/">more detail about it here</a>.</p>
+<p>Let me break down what <em>Day 2 operations</em> typically involve:</p>
+<ol>
+<li>Managed Node Groups: Create managed node groups and wait for worker nodes to come up.</li>
+<li>EKS Node capabilities: Most of them were running as Kubernetes Daemonsets on worker nodes before. Now they run as system processes managed by AWS. This includes components such as service discovery, service load balancing, pod networking, block storage, and credential vending.</li>
+<li>Add-Ons Installation: Select and install versions for multiple EKS add-ons (latest, standard, or older). Like coredns, EBS CSI driver, CNI driver, EKS pod identity etc.</li>
+<li>Load Balancer Controller: Install the AWS Load Balancer Controller for ingress traffic handling.</li>
+<li>Cost Optimization: Install Karpenter to manage pod bin-packing, scale nodes dynamically, and select cost-efficient EC2 instances.</li>
+<li>OS Security patching: Address OS security vulnerabilities identified by AWS Security Hub.</li>
+<li>Cluster Upgrades: Over time, you need to upgrade Kubernetes control plane versions and meticulously plan worker node updates. This is a continuous process every 3-6 months.</li>
+</ol>
+<p>Now, imagine all these tasks being automated by AWS. That’s EKS Auto Mode for you!</p>
+<h2 id="-key-highlights-from-my-testing">💡 Key Highlights from My Testing</h2>
+<ul>
+<li>No Idle Nodes: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &ldquo;general-purpose&rdquo; and &ldquo;system&rdquo; node pools.</li>
+<li>Dynamic Scaling: After deploying my first application, Karpenter automatically spun up a worker node tailored to the app&rsquo;s resource requirements.</li>
+<li>Cost Efficiency: Upon deleting the application, Karpenter scaled down the node, saving money by avoiding idle resources.</li>
+</ul>
+<p>This level of automation simplifies cluster operations and significantly reduces costs.</p>
+<h2 id="-pricing-update">🔍 Pricing Update</h2>
+<p>EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about <a href="https://aws.amazon.com/eks/pricing/">EKS Auto mode pricing here</a>.</p>
+<h2 id="-whats-next">🎥 What’s Next?</h2>
+<p>I’ve <a href="https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/">created a demo video</a> showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!</p>
+<p>For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> or check out my blog at <a href="https://vijay.eu/posts">https://vijay.eu/posts</a></p>
+<p>Let me know your thoughts on this exciting new feature! 👇</p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2024
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>
