@@ -6,10 +6,37 @@
     <description>Recent content in Cloud on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 09 Dec 2024 23:13:15 +0530</lastBuildDate>
+    <lastBuildDate>Thu, 12 Dec 2024 14:13:02 +0530</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title>
+      <link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link>
+      <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
+      
+      <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
+&lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
+Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;
+&lt;p&gt;This is needed for:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;providing security patches&lt;/li&gt;
+&lt;li&gt;OS updates&lt;/li&gt;
+&lt;li&gt;component upgrades&lt;/li&gt;
+&lt;li&gt;improves security posture&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;what-if-you-want-to-modify-the-maximum-node-lifetime&#34;&gt;What if you want to modify the maximum node lifetime?&lt;/h2&gt;
+&lt;p&gt;You can reduce the maximum node lifetime by creating a custom NodePool with “spec.template.spec.expireAfter” with a value of node lifetime in hours. Max is 21 days.&lt;/p&gt;
+&lt;h2 id=&#34;how-to-disable-it&#34;&gt;How to disable it?&lt;/h2&gt;
+&lt;p&gt;If for some reason, you do not want to delete worker nodes so frequent or if you want to keep the nodes static then you can create a new Managed Node Group and add nodes in it.
+You can create both EKS Auto mode nodepools and Managed Node groups (without auto mode) in the same EKS cluster. These are called mixed-mode clusters.
+I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
+&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and check out &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt; for all my blog posts in one place.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>First Impressions of EKS Auto Mode – A Game Changer!</title>
