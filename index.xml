@@ -6,10 +6,32 @@
     <description>Recent content on Vijay Kodam&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 12 Dec 2024 14:13:02 +0530</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>What is this ARC Zonal shift feature you now see in EKS? Here’s what I found about it…</title>
+      <link>https://vijay.eu/posts/eks-arc-zonal-shift/</link>
+      <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
+&lt;p&gt;You can recover from an impaired Availability Zone (AZ) using ARC Zonal Shift and Zonal autoshift. Zonal shift is used when you manually trigger it to shift traffic away from an impaired AZ. Use Zonal autoshift to let AWS monitor and shift traffic on your behalf.&lt;/p&gt;
+&lt;p&gt;If you want to run resilient and highly available applications across multi-AZs in EKS and you want to survive an AZ going down then this is the feature (EKS Zonal Shift) you need.&lt;/p&gt;
+&lt;p&gt;Remember that this will only redirect internal east-west traffic inside your EKS traffic between your pods. If you want to redirect traffic from loadbalancers similarly then you have to enable an ALB or NLB with ARC Zonal shift.&lt;/p&gt;
+&lt;p&gt;Performing a zonal shift enables you to achieve rapid recovery from application failures in a single Availability Zone (AZ). This is helpful to build resilience in case of an AZ impairment or when an AZ is down.&lt;/p&gt;
+&lt;p&gt;You can enable it from EKS cluster creation step or enable it afterwards for already running clusters. If you are creating EKS auto mode cluster with “Quick configuration” option then ARC Zonal shift is enabled by default.&lt;/p&gt;
+&lt;p&gt;With zonal shift, you can temporarily mitigate issues and incidents by triggering a shift and redirecting in-cluster network traffic to a healthy AZ.&lt;/p&gt;
+&lt;p&gt;For this to work, you should already be running EKS worker nodes in multiple AZs (at least three) for HA and resiliency and your applications are already running in multiple AZs. So if your application is already running in three different AZs and if one AZ is impaired then Zonal shift will redirect traffic away from impaired AZ to healthy AZs. In this case, you will have your application running in two AZs as highly available after the third one went down.&lt;/p&gt;
+&lt;p&gt;Ideally such setup comes with cost so use it for highly critical workloads where you need such level of high-availability and resiliency.&lt;/p&gt;
+&lt;p&gt;Check the EKS Zonal shift documentation to learn more: &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&#34;&gt;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn for more content related to Kubernetes, EKS and AWS in general. Visit my website at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt; for all my posts in one place.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title>
