@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Vijay Kodam&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2025 00:06:59 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Thu, 02 Jan 2025 00:06:59 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Microservices</title>
+      <link>https://vijay.eu/tags/microservices/</link>
+      <pubDate>Thu, 02 Jan 2025 00:06:59 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/microservices/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Security</title>
+      <link>https://vijay.eu/tags/security/</link>
+      <pubDate>Thu, 02 Jan 2025 00:06:59 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/security/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Amazon EKS</title>
@@ -17,15 +44,6 @@
       <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/amazon-eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>aws</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
     </item>
     

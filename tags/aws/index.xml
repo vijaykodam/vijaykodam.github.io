@@ -1,15 +1,55 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>aws on Vijay Kodam&#39;s Website</title>
+    <title>AWS on Vijay Kodam&#39;s Website</title>
     <link>https://vijay.eu/tags/aws/</link>
-    <description>Recent content in aws on Vijay Kodam&#39;s Website</description>
+    <description>Recent content in AWS on Vijay Kodam&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 02 Jan 2025 00:06:59 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to secure microservices architecture in AWS?</title>
+      <link>https://vijay.eu/posts/aws-secure-microservices/</link>
+      <pubDate>Thu, 02 Jan 2025 00:06:59 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/aws-secure-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Security in Public Cloud is utmost important. Losing access to your website or attackers deleting your database are catastrophic-company-ending-events.&lt;/p&gt;
+&lt;h3 id=&#34;shared-responsibility-model&#34;&gt;Shared Responsibility Model&lt;/h3&gt;
+&lt;p&gt;Security and Compliance is a shared responsibility between AWS and the customer.&lt;/p&gt;
+&lt;p&gt;AWS is responsible for the &lt;strong&gt;&amp;ldquo;Security of the Cloud&amp;rdquo;&lt;/strong&gt;. AWS is responsible for protecting the infrastructure that runs all of the services offered in the AWS Cloud. This infrastructure is composed of the hardware, software, networking, and facilities that run AWS Cloud services.&lt;/p&gt;
+&lt;p&gt;Customer is responsible for the &lt;strong&gt;“Security in the Cloud”&lt;/strong&gt;. Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities.&lt;/p&gt;
+&lt;p&gt;Refer AWS Documentation for more information on Shared Responsibility Model.&lt;/p&gt;
+&lt;h3 id=&#34;best-practices&#34;&gt;Best Practices&lt;/h3&gt;
+&lt;p&gt;Luckily, AWS provides you with a host of security services to improve your security posture from Day One. Note that this is not an exhaustive list and &amp;ldquo;it depends&amp;rdquo; on where you run and what services you use. Here are some of the steps to secure your microservices architecture in AWS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use AWS Shield for DDoS protection&lt;/li&gt;
+&lt;li&gt;Use AWS GuardDuty for intelligent threat detection.&lt;/li&gt;
+&lt;li&gt;Use AWS IAM for managing identities and access to AWS resources&lt;/li&gt;
+&lt;li&gt;Use AWS WAF to protect your web applications from common exploits.&lt;/li&gt;
+&lt;li&gt;Use AWS Certificates Manager for encrypting website data in transit using TLS/SSL certificates.&lt;/li&gt;
+&lt;li&gt;Use AWS KMS keys to encrypt all EBS volumes and Aurora DB (data at rest)&lt;/li&gt;
+&lt;li&gt;Use AWS Secrets Manager to store your application secrets.&lt;/li&gt;
+&lt;li&gt;Run all your workloads in private subnets. Allow only needed traffic using Security Groups and NACLs.&lt;/li&gt;
+&lt;li&gt;If your applications need Internet connectivity to download updates then configure NAT GW in public subnet.&lt;/li&gt;
+&lt;li&gt;You could also use VPC peering to isolate specific workloads in a different VPC in a different AWS account.&lt;/li&gt;
+&lt;li&gt;Use Amazon Inspector to scan EC2 for security vulnerabilities&lt;/li&gt;
+&lt;li&gt;Use Amazon Security Hub to automate AWS security checks and centralize security alerts.&lt;/li&gt;
+&lt;li&gt;Use AWS Cognito for authentication and authorization of the API requests.&lt;/li&gt;
+&lt;li&gt;Use CloudTrail for audit logging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Security should not be an after thought when building and running applications in AWS. Utilize some or all of these AWS security services to make your microservices architecture secure.&lt;/p&gt;
+&lt;p&gt;What have I missed? This post assumed microservices are running in EC2 VMs. If microservices are running in Amazon EKS then it calls for a totally new approach and very long post. I will post about EKS security soon.&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn at &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt; where I post articles about AWS, Kubernetes and cloud computing in general. I also post all my articles to my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Header Image generated using DALL.E. Microservices architecture made by me using draw.io&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>What is ARC Zonal shift feature in EKS?</title>
