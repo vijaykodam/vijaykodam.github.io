@@ -143,11 +143,11 @@
 <p>The <strong>AWS Management Console</strong> allows you to manually delete files through a user-friendly interface. While this method is straightforward and suitable for small batches, it becomes impractical for large datasets.</p>
 <h3 id="2-aws-cli">2. AWS CLI</h3>
 <p>The <strong>AWS Command Line Interface (CLI)</strong> is a popular choice for users who prefer script-based operations. You can use the following command to delete files recursively:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 rm s3://bucket-name --recursive
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>aws s3 rm s3://bucket-name --recursive
 </span></span></code></pre></div><p>However, it’s important to note that the AWS CLI is primarily <strong>single-threaded</strong>, which can lead to slower performance when deleting large numbers of objects.</p>
 <h3 id="3-s3cmd">3. s3cmd</h3>
 <p><strong>s3cmd</strong> is another command-line tool that offers more features than the AWS CLI. It allows for some level of parallelism, making it <strong>slightly faster</strong> than the AWS CLI. The command for recursive deletion is:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s3cmd del s3://bucket-name --recursive
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s3cmd del s3://bucket-name --recursive
 </span></span></code></pre></div><p>While it provides a better performance boost, it still doesn’t match the speed of more advanced tools.</p>
 <h3 id="4-s3-batch-operations">4. S3 Batch Operations</h3>
 <p><strong>S3 Batch Operations</strong> are designed for large-scale tasks and can delete billions of objects. However, this method incurs additional costs based on the number of objects processed, which may not be ideal for budget-conscious users.</p>
@@ -155,7 +155,7 @@
 <p><strong>S3 Lifecycle Policies</strong> are an excellent way to automate the deletion of files without incurring extra costs. You can set rules to automatically delete objects after a specified duration or based on specific conditions. However, deletions may take <strong>up to 24 hours</strong> to execute.</p>
 <h3 id="6-s5cmd">6. s5cmd</h3>
 <p><strong>s5cmd</strong> is a newer, highly parallelized tool that excels in speed. It can delete thousands of files per second and is particularly useful for massive deletions. To delete files using s5cmd, you can use the following command:</p>
-<div class="highlight"><pre tabindex="0" style="background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s5cmd rm s3://bucket-name/*
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>s5cmd rm s3://bucket-name/*
 </span></span></code></pre></div><h2 id="comparing-methods-fastest-vs-cheapest">Comparing Methods: Fastest vs. Cheapest</h2>
 <h3 id="fastest-method-s5cmd">Fastest Method: s5cmd</h3>
 <p>When it comes to speed, <strong>s5cmd</strong> is the clear winner. It is designed for high-performance operations and leverages <strong>multi-threading</strong> and <strong>batch processing</strong> to maximize efficiency. With <strong>s5cmd</strong>, you can expect deletion rates to be up to <strong>100x faster</strong> than the AWS CLI, making it an excellent choice for scenarios where time is critical.</p>
@@ -226,6 +226,17 @@
 
 
     
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L86XBXWE8"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-9L86XBXWE8', { 'anonymize_ip': false });
+}
+</script>
+
 
     
 
