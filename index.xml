@@ -225,11 +225,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;p&gt;The &lt;strong&gt;AWS Management Console&lt;/strong&gt; allows you to manually delete files through a user-friendly interface. While this method is straightforward and suitable for small batches, it becomes impractical for large datasets.&lt;/p&gt;
 &lt;h3 id=&#34;2-aws-cli&#34;&gt;2. AWS CLI&lt;/h3&gt;
 &lt;p&gt;The &lt;strong&gt;AWS Command Line Interface (CLI)&lt;/strong&gt; is a popular choice for users who prefer script-based operations. You can use the following command to delete files recursively:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 rm s3://bucket-name --recursive
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 rm s3://bucket-name --recursive
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, it’s important to note that the AWS CLI is primarily &lt;strong&gt;single-threaded&lt;/strong&gt;, which can lead to slower performance when deleting large numbers of objects.&lt;/p&gt;
 &lt;h3 id=&#34;3-s3cmd&#34;&gt;3. s3cmd&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;s3cmd&lt;/strong&gt; is another command-line tool that offers more features than the AWS CLI. It allows for some level of parallelism, making it &lt;strong&gt;slightly faster&lt;/strong&gt; than the AWS CLI. The command for recursive deletion is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s3cmd del s3://bucket-name --recursive
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s3cmd del s3://bucket-name --recursive
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While it provides a better performance boost, it still doesn’t match the speed of more advanced tools.&lt;/p&gt;
 &lt;h3 id=&#34;4-s3-batch-operations&#34;&gt;4. S3 Batch Operations&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;S3 Batch Operations&lt;/strong&gt; are designed for large-scale tasks and can delete billions of objects. However, this method incurs additional costs based on the number of objects processed, which may not be ideal for budget-conscious users.&lt;/p&gt;
@@ -237,7 +237,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; are an excellent way to automate the deletion of files without incurring extra costs. You can set rules to automatically delete objects after a specified duration or based on specific conditions. However, deletions may take &lt;strong&gt;up to 24 hours&lt;/strong&gt; to execute.&lt;/p&gt;
 &lt;h3 id=&#34;6-s5cmd&#34;&gt;6. s5cmd&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;s5cmd&lt;/strong&gt; is a newer, highly parallelized tool that excels in speed. It can delete thousands of files per second and is particularly useful for massive deletions. To delete files using s5cmd, you can use the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s5cmd rm s3://bucket-name/*
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s5cmd rm s3://bucket-name/*
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;comparing-methods-fastest-vs-cheapest&#34;&gt;Comparing Methods: Fastest vs. Cheapest&lt;/h2&gt;
 &lt;h3 id=&#34;fastest-method-s5cmd&#34;&gt;Fastest Method: s5cmd&lt;/h3&gt;
 &lt;p&gt;When it comes to speed, &lt;strong&gt;s5cmd&lt;/strong&gt; is the clear winner. It is designed for high-performance operations and leverages &lt;strong&gt;multi-threading&lt;/strong&gt; and &lt;strong&gt;batch processing&lt;/strong&gt; to maximize efficiency. With &lt;strong&gt;s5cmd&lt;/strong&gt;, you can expect deletion rates to be up to &lt;strong&gt;100x faster&lt;/strong&gt; than the AWS CLI, making it an excellent choice for scenarios where time is critical.&lt;/p&gt;
@@ -698,12 +698,12 @@ You can follow the instructions mentioned &lt;a href=&#34;https://www.getambassa
 &lt;p&gt;Use your existing keycloak setup if you already have. If not you can start one quicky using below instructions.&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Please note that below keycloak setup is not secure and is used only for testing the Ambassador-Keycloak integration. Do not use this in production. Use it at your own risk.&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;For testing purposes docker version of keycloak will be used for this demo.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -e KEYCLOAK_USER=&amp;lt;add-your-keycloak-user&amp;gt; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;            -e KEYCLOAK_PASSWORD=&amp;lt;keycloak-password&amp;gt; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                  -p 0.0.0.0:80:8080 \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                -itd --name keycloak \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;                                      jboss/keycloak
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&amp;rsquo;s default H2 DB, which should not be used in production. Note your IP address.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker run -e KEYCLOAK_USER=&amp;lt;add-your-keycloak-user&amp;gt; \
+            -e KEYCLOAK_PASSWORD=&amp;lt;keycloak-password&amp;gt; \
+                                  -p 0.0.0.0:80:8080 \
+                                -itd --name keycloak \
+                                      jboss/keycloak
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Above command will start keycloak on your Linux machine. It will set admin username, password and binds keycloak to port 80. This setup uses keycloak&amp;rsquo;s default H2 DB, which should not be used in production. Note your IP address.&lt;/p&gt;
 &lt;p&gt;Login to Keycloak by visiting &lt;code&gt;http://&amp;lt;your-ip&amp;gt;&lt;/code&gt; in your browser. Use the username and password supplied in the docker run command to login to Keycloak.&lt;/p&gt;
 &lt;p&gt;Use the existing &amp;ldquo;master&amp;rdquo; realm. Create a client and a user for our testing purposes.
 Click on &lt;code&gt;Clients -&amp;gt; Create&lt;/code&gt;. Create button is on the right side of the page.&lt;/p&gt;
@@ -730,36 +730,36 @@ Please do not do this in production or in any setup. Follow these instructions a
 &lt;h2 id=&#34;setup-oidc-auth-integration-with-keycloak&#34;&gt;Setup OIDC Auth integration with Keycloak&lt;/h2&gt;
 &lt;p&gt;Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.&lt;/p&gt;
 &lt;p&gt;Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&amp;rsquo;t run both.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ambassador-auth-oidc/
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;running-ambassador-auth-in-docker&#34;&gt;Running ambassador auth In Docker&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;git clone https://github.com/ajmyyra/ambassador-auth-oidc.git
+cd ambassador-auth-oidc/
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;running-ambassador-auth-in-docker&#34;&gt;Running ambassador auth In Docker&lt;/h3&gt;
 &lt;p&gt;Use these instructions if your Ambassador API gateway is running as docker container and not in k8s.&lt;/p&gt;
 &lt;p&gt;Above setup is running keycloak as docker container and listening on port 80. Below ambassador-auth-oidc docker container will listen on port 8080.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;docker run -p 0.0.0.0:8080:8080 \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      -e OIDC_PROVIDER=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      -e SELF_URL=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;:8080&amp;#34; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      -e OIDC_SCOPES=&amp;#34;profile email&amp;#34; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      -e CLIENT_ID=&amp;#34;test&amp;#34; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      -e CLIENT_SECRET=&amp;#34;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&amp;#34; \
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;      ajmyyra/ambassador-auth-oidc:1.3
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;running-ambassador-auth-in-kubernetes&#34;&gt;Running Ambassador Auth in Kubernetes&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;docker run -p 0.0.0.0:8080:8080 \
+      -e OIDC_PROVIDER=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34; \
+      -e SELF_URL=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;:8080&amp;#34; \
+      -e OIDC_SCOPES=&amp;#34;profile email&amp;#34; \
+      -e CLIENT_ID=&amp;#34;test&amp;#34; \
+      -e CLIENT_SECRET=&amp;#34;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&amp;#34; \
+      ajmyyra/ambassador-auth-oidc:1.3
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;running-ambassador-auth-in-kubernetes&#34;&gt;Running Ambassador Auth in Kubernetes&lt;/h3&gt;
 &lt;p&gt;Use this setup if you are already running Ambassador API GW in K8s.
 Make sure Ambassador API GW is up and running before creating secrets.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &amp;#39;\n &amp;#39;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&amp;#34;test&amp;#34;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl get secrets # To confirm they&amp;#39;ve been created
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;background-color:#fff;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cd ambassador-auth-oidc/
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp misc/auth-deployment.yaml.example auth-deployment.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;cp misc/auth-service.yaml.example auth-service.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create -f auth-deployment.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;kubectl create -f auth-service.yaml
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;kubectl create secret generic ambassador-auth-jwt-key --from-literal=jwt-key=$(openssl rand -base64 64|tr -d &amp;#39;\n &amp;#39;)
+kubectl create secret generic ambassador-auth-redis-password --from-literal=redis-password=$(openssl rand -base64 20)
+kubectl create secret generic ambassador-auth-oidc-provider --from-literal=oidc-provider=&amp;#34;http://&amp;lt;Your-Keycloak-IP-or-URL&amp;gt;/auth/realms/master&amp;#34;
+kubectl create secret generic ambassador-auth-self-url --from-literal=self-url=&amp;#34;http://&amp;lt;Ambassador IP-or-URL&amp;gt;&amp;#34;
+kubectl create secret generic ambassador-auth-client-id --from-literal=client-id=&amp;#34;test&amp;#34;
+kubectl create secret generic ambassador-auth-client-secret --from-literal=client-secret=&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;
+kubectl get secrets # To confirm they&amp;#39;ve been created
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Run below commands in the root directory of ambassador-auth-oidc. This will start the ambassador-auth-oidc container on K8s.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;cd ambassador-auth-oidc/
+cp misc/auth-deployment.yaml.example auth-deployment.yaml
+cp misc/auth-service.yaml.example auth-service.yaml
+
+kubectl create -f auth-deployment.yaml
+kubectl create -f auth-service.yaml
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Make sure ambassador-auth-oidc is up and running. Also check the logs to make sure everything is alright.&lt;/p&gt;
 &lt;p&gt;Now go to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;It should automatically redirect you to Keycloak page for logging in.
 Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login it should automatically redirect you to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt; page.&lt;/p&gt;
