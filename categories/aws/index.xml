@@ -6,50 +6,10 @@
     <description>Recent content in AWS on Vijay Kodam&#39;s Website</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 02 Jan 2025 00:06:59 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
-    
-    <item>
-      <title>How to secure microservices architecture in AWS?</title>
-      <link>https://vijay.eu/posts/aws-secure-microservices/</link>
-      <pubDate>Thu, 02 Jan 2025 00:06:59 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/aws-secure-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
-&lt;p&gt;Security in Public Cloud is utmost important. Losing access to your website or attackers deleting your database are catastrophic-company-ending-events.&lt;/p&gt;
-&lt;h3 id=&#34;shared-responsibility-model&#34;&gt;Shared Responsibility Model&lt;/h3&gt;
-&lt;p&gt;Security and Compliance is a shared responsibility between AWS and the customer.&lt;/p&gt;
-&lt;p&gt;AWS is responsible for the &lt;strong&gt;&amp;ldquo;Security of the Cloud&amp;rdquo;&lt;/strong&gt;. AWS is responsible for protecting the infrastructure that runs all of the services offered in the AWS Cloud. This infrastructure is composed of the hardware, software, networking, and facilities that run AWS Cloud services.&lt;/p&gt;
-&lt;p&gt;Customer is responsible for the &lt;strong&gt;“Security in the Cloud”&lt;/strong&gt;. Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities.&lt;/p&gt;
-&lt;p&gt;Refer AWS Documentation for more information on Shared Responsibility Model.&lt;/p&gt;
-&lt;h3 id=&#34;best-practices&#34;&gt;Best Practices&lt;/h3&gt;
-&lt;p&gt;Luckily, AWS provides you with a host of security services to improve your security posture from Day One. Note that this is not an exhaustive list and &amp;ldquo;it depends&amp;rdquo; on where you run and what services you use. Here are some of the steps to secure your microservices architecture in AWS:&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;Use AWS Shield for DDoS protection&lt;/li&gt;
-&lt;li&gt;Use AWS GuardDuty for intelligent threat detection.&lt;/li&gt;
-&lt;li&gt;Use AWS IAM for managing identities and access to AWS resources&lt;/li&gt;
-&lt;li&gt;Use AWS WAF to protect your web applications from common exploits.&lt;/li&gt;
-&lt;li&gt;Use AWS Certificates Manager for encrypting website data in transit using TLS/SSL certificates.&lt;/li&gt;
-&lt;li&gt;Use AWS KMS keys to encrypt all EBS volumes and Aurora DB (data at rest)&lt;/li&gt;
-&lt;li&gt;Use AWS Secrets Manager to store your application secrets.&lt;/li&gt;
-&lt;li&gt;Run all your workloads in private subnets. Allow only needed traffic using Security Groups and NACLs.&lt;/li&gt;
-&lt;li&gt;If your applications need Internet connectivity to download updates then configure NAT GW in public subnet.&lt;/li&gt;
-&lt;li&gt;You could also use VPC peering to isolate specific workloads in a different VPC in a different AWS account.&lt;/li&gt;
-&lt;li&gt;Use Amazon Inspector to scan EC2 for security vulnerabilities&lt;/li&gt;
-&lt;li&gt;Use Amazon Security Hub to automate AWS security checks and centralize security alerts.&lt;/li&gt;
-&lt;li&gt;Use AWS Cognito for authentication and authorization of the API requests.&lt;/li&gt;
-&lt;li&gt;Use CloudTrail for audit logging.&lt;/li&gt;
-&lt;/ul&gt;
-&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
-&lt;p&gt;Security should not be an after thought when building and running applications in AWS. Utilize some or all of these AWS security services to make your microservices architecture secure.&lt;/p&gt;
-&lt;p&gt;What have I missed? This post assumed microservices are running in EC2 VMs. If microservices are running in Amazon EKS then it calls for a totally new approach and very long post. I will post about EKS security soon.&lt;/p&gt;
-&lt;p&gt;Follow me on LinkedIn at &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt; where I post articles about AWS, Kubernetes and cloud computing in general. I also post all my articles to my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Header Image generated using DALL.E. Microservices architecture made by me using draw.io&lt;/p&gt;
-</description>
-    </item>
     
     <item>
       <title>What is ARC Zonal shift feature in EKS?</title>
@@ -57,7 +17,8 @@
       <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;
+&lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
 &lt;p&gt;You can recover from an impaired Availability Zone (AZ) using ARC Zonal Shift and Zonal autoshift. Zonal shift is used when you manually trigger it to shift traffic away from an impaired AZ. Use Zonal autoshift to let AWS monitor and shift traffic on your behalf.&lt;/p&gt;
@@ -103,13 +64,14 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     <item>
       <title>First Impressions of EKS Auto Mode – A Game Changer!</title>
       <link>https://vijay.eu/posts/eks-auto-first-impressions/</link>
-      <pubDate>Mon, 09 Dec 2024 23:13:15 +0530</pubDate>
+      <pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate>
       
       <guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;
+&lt;em&gt;Image Credit: From AWS EKS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here are my thoughts after initial few days of using &lt;strong&gt;EKS Auto mode&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;AWS has truly raised the bar with EKS Auto Mode, a new feature announced at &lt;strong&gt;re:Invent 2024&lt;/strong&gt;. This innovation automates much of the undifferentiated heavy lifting, allowing customers to focus on what matters most: building great applications.&lt;/p&gt;
-&lt;h2 id=&#34;-my-hands-on-experience&#34;&gt;🛠 My Hands-On Experience&lt;/h2&gt;
+&lt;h2 id=&#34;my-hands-on-experience&#34;&gt;My Hands-On Experience&lt;/h2&gt;
 &lt;p&gt;I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in &lt;a href=&#34;https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/&#34;&gt;more detail about it here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Let me break down what &lt;em&gt;Day 2 operations&lt;/em&gt; typically involve:&lt;/p&gt;
 &lt;ol&gt;
@@ -136,7 +98,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Now, imagine all these tasks being automated by AWS. That’s EKS Auto Mode for you!&lt;/p&gt;
-&lt;h2 id=&#34;-key-highlights-from-my-testing&#34;&gt;💡 Key Highlights from My Testing&lt;/h2&gt;
+&lt;h2 id=&#34;key-highlights-from-my-testing&#34;&gt;Key Highlights from My Testing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;No Idle Nodes&lt;/strong&gt;: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &amp;ldquo;general-purpose&amp;rdquo; and &amp;ldquo;system&amp;rdquo; node pools.&lt;/p&gt;
@@ -149,12 +111,55 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This level of automation simplifies cluster operations and significantly reduces costs.&lt;/p&gt;
-&lt;h2 id=&#34;-pricing-update&#34;&gt;🔍 Pricing Update&lt;/h2&gt;
+&lt;h2 id=&#34;pricing-update&#34;&gt;Pricing Update&lt;/h2&gt;
 &lt;p&gt;EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about &lt;a href=&#34;https://aws.amazon.com/eks/pricing/&#34;&gt;EKS Auto mode pricing here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;-whats-next&#34;&gt;🎥 What’s Next?&lt;/h2&gt;
+&lt;h2 id=&#34;whats-next&#34;&gt;What’s Next?&lt;/h2&gt;
 &lt;p&gt;I’ve &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/&#34;&gt;created a demo video&lt;/a&gt; showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!&lt;/p&gt;
 &lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; or check out my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Let me know your thoughts on this exciting new feature! 👇&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>How to secure microservices architecture in AWS?</title>
+      <link>https://vijay.eu/posts/aws-secure-microservices/</link>
+      <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/aws-secure-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;
+&lt;strong&gt;Image Credits:&lt;/strong&gt; Microservices architecture image made by me using draw.io&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Security in Public Cloud is utmost important. Losing access to your website or attackers deleting your database are catastrophic-company-ending-events.&lt;/p&gt;
+&lt;h3 id=&#34;shared-responsibility-model&#34;&gt;Shared Responsibility Model&lt;/h3&gt;
+&lt;p&gt;Security and Compliance is a shared responsibility between AWS and the customer.&lt;/p&gt;
+&lt;p&gt;Here is the definition from AWS documentation:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;AWS is responsible for the &lt;strong&gt;&amp;ldquo;Security of the Cloud&amp;rdquo;&lt;/strong&gt;. AWS is responsible for protecting the infrastructure that runs all of the services offered in the AWS Cloud. This infrastructure is composed of the hardware, software, networking, and facilities that run AWS Cloud services.&lt;/p&gt;
+&lt;p&gt;Customer is responsible for the &lt;strong&gt;“Security in the Cloud”&lt;/strong&gt;. Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities.&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;Refer AWS Documentation for more information on Shared Responsibility Model.&lt;/p&gt;
+&lt;h3 id=&#34;best-practices&#34;&gt;Best Practices&lt;/h3&gt;
+&lt;p&gt;Luckily, AWS provides you with a host of security services to improve your security posture from Day One. Note that this is not an exhaustive list and &amp;ldquo;it depends&amp;rdquo; on where you run and what services you use. Here are some of the steps to secure your microservices architecture in AWS:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Use AWS Shield for DDoS protection&lt;/li&gt;
+&lt;li&gt;Use AWS GuardDuty for intelligent threat detection.&lt;/li&gt;
+&lt;li&gt;Use AWS IAM for managing identities and access to AWS resources&lt;/li&gt;
+&lt;li&gt;Use AWS WAF to protect your web applications from common exploits.&lt;/li&gt;
+&lt;li&gt;Use AWS Certificates Manager for encrypting website data in transit using TLS/SSL certificates.&lt;/li&gt;
+&lt;li&gt;Use AWS KMS keys to encrypt all EBS volumes and Aurora DB (data at rest)&lt;/li&gt;
+&lt;li&gt;Use AWS Secrets Manager to store your application secrets.&lt;/li&gt;
+&lt;li&gt;Run all your workloads in private subnets. Allow only needed traffic using Security Groups and NACLs.&lt;/li&gt;
+&lt;li&gt;If your applications need Internet connectivity to download updates then configure NAT GW in public subnet.&lt;/li&gt;
+&lt;li&gt;You could also use VPC peering to isolate specific workloads in a different VPC in a different AWS account.&lt;/li&gt;
+&lt;li&gt;Use Amazon Inspector to scan EC2 for security vulnerabilities&lt;/li&gt;
+&lt;li&gt;Use Amazon Security Hub to automate AWS security checks and centralize security alerts.&lt;/li&gt;
+&lt;li&gt;Use AWS Cognito for authentication and authorization of the API requests.&lt;/li&gt;
+&lt;li&gt;Use CloudTrail for audit logging.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;p&gt;Security should not be an after thought when building and running applications in AWS. Utilize some or all of these AWS security services to make your microservices architecture secure.&lt;/p&gt;
+&lt;p&gt;What have I missed? This post assumed microservices are running in EC2 VMs. If microservices are running in Amazon EKS then it calls for a totally new approach and very long post. I will post about EKS security soon.&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn at &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt; where I post articles about AWS, Kubernetes and cloud computing in general. I also post all my articles to my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -165,6 +170,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
       
       <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
 &lt;h3 id=&#34;climate-friendly-computing-with-graviton&#34;&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;

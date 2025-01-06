@@ -2,40 +2,19 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/amazon-eks/</loc>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cloud/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/aws-secure-microservices/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/microservices/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/security/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/security/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
-    <lastmod>2025-01-02T00:06:59+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/amazon-eks/</loc>
     <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/eks/</loc>
@@ -50,6 +29,15 @@
     <loc>https://vijay.eu/categories/kubernetes/</loc>
     <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2024-12-30T01:04:17+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/posts/eks-arc-zonal-shift/</loc>
     <lastmod>2024-12-30T01:04:17+02:00</lastmod>
   </url><url>
@@ -57,7 +45,19 @@
     <lastmod>2024-12-12T14:13:02+05:30</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/eks-auto-first-impressions/</loc>
-    <lastmod>2024-12-09T23:13:15+05:30</lastmod>
+    <lastmod>2024-12-04T23:13:15+05:30</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/aws-secure-microservices/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/microservices/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/security/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/security/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/cloud-computing/</loc>
     <lastmod>2024-10-27T00:14:32+03:00</lastmod>
