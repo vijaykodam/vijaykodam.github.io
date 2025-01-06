@@ -18,6 +18,7 @@
       
       <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
 &lt;h3 id=&#34;climate-friendly-computing-with-graviton&#34;&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
