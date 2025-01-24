@@ -1,15 +1,31 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>EKS Auto on Vijay Kodam&#39;s Website</title>
+    <title>EKS Auto on Vijay Kodam</title>
     <link>https://vijay.eu/tags/eks-auto/</link>
-    <description>Recent content in EKS Auto on Vijay Kodam&#39;s Website</description>
+    <description>Recent content in EKS Auto on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 21 Jan 2025 12:10:31 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/eks-auto/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Surprising side effect of running EKS Auto Mode</title>
+      <link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link>
+      <pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid>
+      <description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
+&lt;p&gt;This restriction came into place due to the automatic inclusion of AWS Load Balancer controller as an add-on in EKS Auto mode. AFAIK, there is no way to disable or remove that add-on from EKS Auto mode cluster.&lt;/p&gt;
+&lt;p&gt;If you are utilizing other ingress controllers like HAProxy, then you cannot create a CLB (HTTPS) using Service annotations. You can only create NLBs using Service annotations and route the traffic through HAProxy ingress controller. After that you can create ingresses which can utilize HAProxy as ingress controller.&lt;/p&gt;
+&lt;p&gt;This means that if you have been using HAProxy ingress controller or other similar ingress controllers then this limitation restricts you to service HTTP/HTTPS traffic through them.&lt;/p&gt;
+&lt;p&gt;Since this is a new release, I haven&amp;rsquo;t seen any update in their docs. I am curious on how other ingress controllers handle this change.&lt;/p&gt;
+&lt;p&gt;Have you faced this issue in EKS Auto mode? Did you manage to fix it? I would like to know your thoughts on this?&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>What is ARC Zonal shift feature in EKS?</title>
