@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Serverless on Vijay Kodam</title>
+    <link>https://vijay.eu/categories/serverless/</link>
+    <description>Recent content in Serverless on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 22 Jan 2025 12:12:42 +0200</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/categories/serverless/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>This new EventBridge capability simplifies your cross-account deployments</title>
+      <link>https://vijay.eu/posts/eventbridge-new-capability/</link>
+      <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/eventbridge-new-capability/</guid>
+      <description>&lt;p&gt;This new capability in &lt;strong&gt;EventBridge&lt;/strong&gt; is going to simplify your cross-account &lt;strong&gt;Event Driven Architecture&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;AWS introduced cross account targets for EventBridge event buses today. Now you can add &lt;strong&gt;SQS&lt;/strong&gt;, &lt;strong&gt;Lambda&lt;/strong&gt; or &lt;strong&gt;SNS&lt;/strong&gt; as targets from a different account. Previously only EventBridge in another account could be added.&lt;/p&gt;
+&lt;p&gt;The architecture diagram from the AWS blog is attached in this post. It perfectly captures everything you need to know about this feature.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eventbridge1.jpg&#34; alt=&#34;AWS Event Bridge&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Remember to do these two things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add relevant execution &amp;ldquo;role&amp;rdquo; in source AWS account EventBridge rule.&lt;/li&gt;
+&lt;li&gt;Apply &amp;ldquo;resource policy&amp;rdquo; to SQS/SNS/Lambda in the Target Account.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Role&amp;rdquo;&lt;/strong&gt; for Source Account and &lt;strong&gt;&amp;ldquo;Resource policy&amp;rdquo;&lt;/strong&gt; for Target account. Everything else is same as before.&lt;/p&gt;
+&lt;p&gt;This makes sure security is taken care from both Source and Target AWS accounts and avoids any abuse or DDoS situations.&lt;/p&gt;
+&lt;p&gt;Read the AWS Blog &lt;a href=&#34;https://aws.amazon.com/blogs/compute/introducing-cross-account-targets-for-amazon-eventbridge-event-buses/&#34;&gt;post here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

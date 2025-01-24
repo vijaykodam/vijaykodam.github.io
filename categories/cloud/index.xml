@@ -1,15 +1,90 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cloud on Vijay Kodam&#39;s Website</title>
+    <title>Cloud on Vijay Kodam</title>
     <link>https://vijay.eu/categories/cloud/</link>
-    <description>Recent content in Cloud on Vijay Kodam&#39;s Website</description>
+    <description>Recent content in Cloud on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 30 Dec 2024 01:04:17 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 22 Jan 2025 12:12:42 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>This new EventBridge capability simplifies your cross-account deployments</title>
+      <link>https://vijay.eu/posts/eventbridge-new-capability/</link>
+      <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/eventbridge-new-capability/</guid>
+      <description>&lt;p&gt;This new capability in &lt;strong&gt;EventBridge&lt;/strong&gt; is going to simplify your cross-account &lt;strong&gt;Event Driven Architecture&lt;/strong&gt;!&lt;/p&gt;
+&lt;p&gt;AWS introduced cross account targets for EventBridge event buses today. Now you can add &lt;strong&gt;SQS&lt;/strong&gt;, &lt;strong&gt;Lambda&lt;/strong&gt; or &lt;strong&gt;SNS&lt;/strong&gt; as targets from a different account. Previously only EventBridge in another account could be added.&lt;/p&gt;
+&lt;p&gt;The architecture diagram from the AWS blog is attached in this post. It perfectly captures everything you need to know about this feature.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eventbridge1.jpg&#34; alt=&#34;AWS Event Bridge&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Remember to do these two things:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Add relevant execution &amp;ldquo;role&amp;rdquo; in source AWS account EventBridge rule.&lt;/li&gt;
+&lt;li&gt;Apply &amp;ldquo;resource policy&amp;rdquo; to SQS/SNS/Lambda in the Target Account.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;&amp;ldquo;Role&amp;rdquo;&lt;/strong&gt; for Source Account and &lt;strong&gt;&amp;ldquo;Resource policy&amp;rdquo;&lt;/strong&gt; for Target account. Everything else is same as before.&lt;/p&gt;
+&lt;p&gt;This makes sure security is taken care from both Source and Target AWS accounts and avoids any abuse or DDoS situations.&lt;/p&gt;
+&lt;p&gt;Read the AWS Blog &lt;a href=&#34;https://aws.amazon.com/blogs/compute/introducing-cross-account-targets-for-amazon-eventbridge-event-buses/&#34;&gt;post here&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Surprising side effect of running EKS Auto Mode</title>
+      <link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link>
+      <pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid>
+      <description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
+&lt;p&gt;This restriction came into place due to the automatic inclusion of AWS Load Balancer controller as an add-on in EKS Auto mode. AFAIK, there is no way to disable or remove that add-on from EKS Auto mode cluster.&lt;/p&gt;
+&lt;p&gt;If you are utilizing other ingress controllers like HAProxy, then you cannot create a CLB (HTTPS) using Service annotations. You can only create NLBs using Service annotations and route the traffic through HAProxy ingress controller. After that you can create ingresses which can utilize HAProxy as ingress controller.&lt;/p&gt;
+&lt;p&gt;This means that if you have been using HAProxy ingress controller or other similar ingress controllers then this limitation restricts you to service HTTP/HTTPS traffic through them.&lt;/p&gt;
+&lt;p&gt;Since this is a new release, I haven&amp;rsquo;t seen any update in their docs. I am curious on how other ingress controllers handle this change.&lt;/p&gt;
+&lt;p&gt;Have you faced this issue in EKS Auto mode? Did you manage to fix it? I would like to know your thoughts on this?&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Have you seen multi-session support enabled in your AWS Console?</title>
+      <link>https://vijay.eu/posts/multi-sessions-in-aws-console/</link>
+      <pubDate>Thu, 16 Jan 2025 11:47:06 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/multi-sessions-in-aws-console/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/multisess.png&#34; alt=&#34;multisession&#34;&gt;
+Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt;
+&lt;p&gt;Observed it today morning that multi-session support is enabled in my AWS account.&lt;/p&gt;
+&lt;p&gt;This feature saves lot of effort and time for me. I work with different AWS accounts and logging into those AWS consoles or switching between them is an extra step. Usually I use different browsers to keep both AWS console logins active but it increases CPU/memory load on my PC.&lt;/p&gt;
+&lt;p&gt;Now I can use single browser and login to two different accounts simultaneously. Saves CPU/RAM in my PC as I don&amp;rsquo;t have to run two browsers now.&lt;/p&gt;
+&lt;p&gt;AWS manages this by adding unique account specific URLs to identify which account you are in even though you access the same EC2 or EKS service in both accounts.&lt;/p&gt;
+&lt;p&gt;This is a big feature for me from usability perspective. Currently this is being rolled out and is available only for limited number of user accounts.&lt;/p&gt;
+&lt;p&gt;Watch out for this feature in your AWS account and give it a try!!!&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Do you run your database on Kubernetes?</title>
+      <link>https://vijay.eu/posts/database-on-kubernetes/</link>
+      <pubDate>Fri, 10 Jan 2025 11:34:54 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/database-on-kubernetes/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/dbink8s.webp&#34; alt=&#34;dbink8s&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Do you run your database on Kubernetes? This has been an evergreen debate. Where does it stand now?&lt;/p&gt;
+&lt;p&gt;Kubernetes has come a long way from running only stateless workloads early on to now supporting statefulsets with improvements in sticky identity, persistent storage and unique network identity. Kubernetes has democratized the container orchestration and given the world tools to run most software at scale. This is only one part of the solution.&lt;/p&gt;
+&lt;p&gt;Databases built to run directly on servers or virtual machines have different features to make them highly available, resilient and scalable. Now if you bring those databases and run them on Kubernetes then it is a recipe for disaster. In the recent years, there have been cloud native databases built to run on Kubernetes. This is the remaining part of the solution.&lt;/p&gt;
+&lt;p&gt;You have a container orchestrator platform like Kubernetes which runs most of your software and now with cloud-native databases, you can run them on Kubernetes too.&lt;/p&gt;
+&lt;p&gt;Best of both worlds? What about latency? How do you handle frequent k8s release upgrades every three months? Now with EKS Auto mode, the worker nodes max lifetime is just 21 days. Imagine moving around your database nodes every two-three weeks? Is it recommended in production? Do you instead use managed database service from hashtag#AWS hashtag#GoogleCloud or hashtag#Azure?&lt;/p&gt;
+&lt;p&gt;There is no right or wrong answer and &amp;ldquo;It Depends&amp;rdquo; on the software architecture and business constraints.&lt;/p&gt;
+&lt;p&gt;I would like to hear from you all. Write your opinion in the comments below. Do you run your database on Kubernetes? Why? Why not? What are your reasons? Are you using it in production? What is the adoption for such databases?&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Image generated using DALL.E to depict storage in the cloud.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>What is ARC Zonal shift feature in EKS?</title>
