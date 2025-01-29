@@ -2,16 +2,43 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/genai/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/genai/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/llm/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/llm/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/openai/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/running-deepseek-locally/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/aws/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-01-22T12:12:42+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-01-22T12:12:42+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/eventbridge/</loc>
@@ -20,22 +47,13 @@
     <loc>https://vijay.eu/tags/eventdrivenarchitecture/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-01-22T12:12:42+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/serverless/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/serverless/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-01-22T12:12:42+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/posts/eventbridge-new-capability/</loc>
-    <lastmod>2025-01-22T12:12:42+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
