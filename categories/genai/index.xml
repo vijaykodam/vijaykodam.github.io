@@ -41,5 +41,22 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
 </description>
     </item>
     
+    <item>
+      <title>New metric to measure the efficiency of AI models</title>
+      <link>https://vijay.eu/posts/new-llm-metric/</link>
+      <pubDate>Tue, 28 Jan 2025 20:03:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/new-llm-metric/</guid>
+      <description>&lt;p&gt;At the end of the day, how cheaply and energy efficiently can you generate tokens matters.&lt;/p&gt;
+&lt;p&gt;&amp;ldquo;&lt;strong&gt;Tokens per watt per dollar&lt;/strong&gt;&amp;rdquo; metric mentioned by Satya Nadella, CEO of Microsoft, is trying to achieve the same.&lt;/p&gt;
+&lt;p&gt;This will be a metric by which every LLM is going to be benchmarked against. This is the metric which will showcase how long can an AI investment lasts and how much is your profitability of AI startups.&lt;/p&gt;
+&lt;p&gt;There will be a comparison of LLMs with &amp;ldquo;Tokens per watt per dollar&amp;rdquo; soon, if not already existing.&lt;/p&gt;
+&lt;p&gt;I would love to hear your thoughts on this?&lt;/p&gt;
+&lt;p&gt;This is &lt;a href=&#34;https://www.linkedin.com/posts/satyanadella_wef25-activity-7287900710770196480-7mn6/&#34;&gt;related post&lt;/a&gt; by Satya.&lt;/p&gt;
+&lt;p&gt;If you have not already watched, highly recommend Satya Nadella&amp;rsquo;s &lt;a href=&#34;https://www.youtube.com/watch?v=kOkDTvsUuWA&amp;amp;t=156s&#34;&gt;AI Tour Keynote: London&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
   </channel>
 </rss>
