@@ -6,10 +6,26 @@
     <description>Recent content in EKS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 21 Jan 2025 12:10:31 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 06 Feb 2025 20:17:49 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/eks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title>
+      <link>https://vijay.eu/posts/presented-at-aws-meetup/</link>
+      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.png&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
+&lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
+&lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
+&lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.png&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Surprising side effect of running EKS Auto Mode</title>
