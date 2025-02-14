@@ -2,19 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/agents/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/aws/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/bedrock/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/genai/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/bedrock-agents-workshop/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/llm/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/rag/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
     <lastmod>2025-02-06T20:17:49+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud/</loc>
     <lastmod>2025-02-06T20:17:49+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/eks/</loc>
@@ -29,28 +56,13 @@
     <loc>https://vijay.eu/categories/kubernetes/</loc>
     <lastmod>2025-02-06T20:17:49+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/posts/presented-at-aws-meetup/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-02-06T20:17:49+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-02-06T20:17:49+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/deepseek/</loc>
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/genai/</loc>
-    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/genai/</loc>
-    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/llm/</loc>
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/llm/</loc>
@@ -107,16 +119,28 @@
     <loc>https://vijay.eu/posts/eks-auto-first-impressions/</loc>
     <lastmod>2024-12-04T23:13:15+05:30</lastmod>
   </url><url>
+    <loc>https://vijay.eu/tags/guardduty/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/posts/aws-secure-microservices/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/inspector/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/kms/</loc>
     <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/microservices/</loc>
     <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/security/</loc>
+    <loc>https://vijay.eu/categories/security/</loc>
     <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/security/</loc>
+    <loc>https://vijay.eu/tags/securityhub/</loc>
+    <lastmod>2024-11-04T00:06:59+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/shield/</loc>
     <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/cloud-computing/</loc>
