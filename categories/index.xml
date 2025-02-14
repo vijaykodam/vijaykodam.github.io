@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Feb 2025 20:17:49 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 15 Feb 2025 00:22:33 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>AWS</title>
       <link>https://vijay.eu/categories/aws/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
+      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/aws/</guid>
       <description></description>
@@ -23,9 +23,18 @@
     <item>
       <title>Cloud</title>
       <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
+      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/categories/genai/</link>
+      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/genai/</guid>
       <description></description>
     </item>
     
@@ -35,15 +44,6 @@
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/categories/genai/</link>
-      <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/genai/</guid>
       <description></description>
     </item>
     
