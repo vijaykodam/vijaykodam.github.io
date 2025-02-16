@@ -6,10 +6,37 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Feb 2025 00:22:33 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 16 Feb 2025 23:23:47 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Cloud</title>
+      <link>https://vijay.eu/categories/cloud/</link>
+      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/categories/genai/</link>
+      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://vijay.eu/categories/llm/</link>
+      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/llm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AWS</title>
@@ -21,38 +48,11 @@
     </item>
     
     <item>
-      <title>Cloud</title>
-      <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/cloud/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/categories/genai/</link>
-      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/genai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Kubernetes</title>
       <link>https://vijay.eu/categories/kubernetes/</link>
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://vijay.eu/categories/llm/</link>
-      <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/llm/</guid>
       <description></description>
     </item>
     

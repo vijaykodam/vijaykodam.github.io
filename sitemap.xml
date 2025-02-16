@@ -2,10 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vijay.eu/projects/snake-game/</loc>
-    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+    <loc>https://vijay.eu/tags/anthropic/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/snake-game/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/claude/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/game/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/genai/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/llm/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/llm/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/snakegame/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-02-16T23:23:47+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/snake-game/</loc>
     <lastmod>2025-02-16T19:58:58+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/html5/</loc>
@@ -17,12 +53,6 @@
     <loc>https://vijay.eu/projects/</loc>
     <lastmod>2025-02-16T19:58:58+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
-    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/agents/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
@@ -32,22 +62,7 @@
     <loc>https://vijay.eu/tags/bedrock/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/genai/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/posts/bedrock-agents-workshop/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/llm/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/rag/</loc>
@@ -78,9 +93,6 @@
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/genai/</loc>
-    <lastmod>2025-01-29T22:12:06+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/llm/</loc>
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/openai/</loc>
