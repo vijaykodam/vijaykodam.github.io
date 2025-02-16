@@ -2,6 +2,27 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/projects/snake-game/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/game/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/html5/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/javascript/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/agents/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
@@ -30,12 +51,6 @@
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/rag/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
@@ -178,9 +193,6 @@
   </url><url>
     <loc>https://vijay.eu/tags/upgrade/</loc>
     <lastmod>2024-10-03T01:00:19+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/projects/</loc>
-    <lastmod>2024-08-10T12:05:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/projects/my-ip/</loc>
     <lastmod>2024-08-10T12:05:32+03:00</lastmod>
