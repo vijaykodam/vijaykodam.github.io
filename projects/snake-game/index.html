@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="A classic Snake game implemented in HTML5, CSS, and JavaScript">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Classic Snake Game"/>
+<meta name="twitter:description" content="A classic Snake game implemented in HTML5, CSS, and JavaScript"/>
+
+    <meta property="og:title" content="Classic Snake Game" />
+<meta property="og:description" content="A classic Snake game implemented in HTML5, CSS, and JavaScript" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/projects/snake-game/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2025-02-16T19:58:58+02:00" />
+<meta property="article:modified_time" content="2025-02-16T19:58:58+02:00" /><meta property="og:site_name" content="Vijay Kodam" />
+
+
+
+    
+      <base href="https://vijay.eu/projects/snake-game/">
+    
+    <title>
+  Classic Snake Game · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/projects/snake-game/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.a4f332213a21ce8eb521670c614470c58923aaaf385e2a73982c31dd7642decb.css" integrity="sha256-pPMyITohzo61IWcMYURwxYkjqq84XipzmCwx3XZC3ss=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.104.2" />
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="https://vijay.eu/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Classic Snake Game</h1>
+    </header>
+
+    
+
+<style>
+    .game-container {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 20px auto;
+        max-width: 100%;
+    }
+
+    .game-title {
+        font-size: 36px;
+        font-weight: bold;
+        margin-bottom: 20px;
+        text-align: center;
+        font-family: Arial, sans-serif;
+    }
+
+    .speed-selector {
+        margin: 10px 0;
+        padding: 10px;
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+    }
+
+    .speed-btn {
+        padding: 8px 16px;
+        border: 2px solid #333;
+        border-radius: 5px;
+        background: white;
+        cursor: pointer;
+        font-family: Arial, sans-serif;
+        transition: all 0.3s ease;
+    }
+
+    .speed-btn.active {
+        background: #333;
+        color: white;
+    }
+
+    #gameCanvas {
+        border: 2px solid #333;
+        background: #f0f0f0;
+        max-width: 100%;
+        touch-action: none;
+    }
+
+    .controls {
+        display: none;
+        margin-top: 20px;
+        touch-action: none;
+    }
+
+    @media (max-width: 768px) {
+        .controls {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+            width: 200px;
+        }
+
+        .control-btn {
+            padding: 15px;
+            background: #333;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 18px;
+            touch-action: none;
+        }
+
+        .control-btn:active {
+            background: #555;
+        }
+
+        #up { grid-column: 2; grid-row: 1; }
+        #left { grid-column: 1; grid-row: 2; }
+        #right { grid-column: 3; grid-row: 2; }
+        #down { grid-column: 2; grid-row: 3; }
+    }
+
+    .score {
+        font-size: 24px;
+        margin: 10px 0;
+        font-family: Arial, sans-serif;
+    }
+
+    .game-over {
+        display: none;
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        background: rgba(0, 0, 0, 0.8);
+        color: white;
+        padding: 20px;
+        border-radius: 10px;
+        text-align: center;
+        z-index: 1000;
+    }
+
+    .restart-btn {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background: #4CAF50;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+
+    .restart-btn:hover {
+        background: #45a049;
+    }
+</style>
+
+<div class="game-container">
+    <p>This classic snake game has been created using Anthropic Claude in a single prompt on 16 Feb 2025. Documenting it for future reference to track the speed of development in GenAI/LLMs. </p>
+    <div class="speed-selector">
+        <button class="speed-btn" data-speed="slow">Slow</button>
+        <button class="speed-btn active" data-speed="normal">Normal</button>
+        <button class="speed-btn" data-speed="fast">Fast</button>
+    </div>
+    <div class="score">Score: <span id="scoreValue">0</span></div>
+    <canvas id="gameCanvas" width="400" height="400"></canvas>
+    <div class="controls">
+        <button id="up" class="control-btn">↑</button>
+        <button id="left" class="control-btn">←</button>
+        <button id="right" class="control-btn">→</button>
+        <button id="down" class="control-btn">↓</button>
+    </div>
+    <div class="game-over" id="gameOver">
+        <h2>Game Over!</h2>
+        <p>Final Score: <span id="finalScore">0</span></p>
+        <button class="restart-btn" onclick="restartGame()">Play Again</button>
+    </div>
+</div>
+
+<script>
+    (function() {
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+        const scoreElement = document.getElementById('scoreValue');
+        const finalScoreElement = document.getElementById('finalScore');
+        const gameOverElement = document.getElementById('gameOver');
+        const speedButtons = document.querySelectorAll('.speed-btn');
+
+        const gridSize = 20;
+        const tileCount = canvas.width / gridSize;
+
+        let snake = [{ x: 10, y: 10 }];
+        let food = { x: 15, y: 15 };
+        let dx = 0;
+        let dy = 0;
+        let score = 0;
+        let gameLoop;
+        
+        const speeds = {
+            slow: 150,
+            normal: 100,
+            fast: 70
+        };
+        let currentSpeed = speeds.normal;
+        let baseSpeed = speeds.normal;
+
+        function setSpeed(speedType) {
+            baseSpeed = speeds[speedType];
+            currentSpeed = baseSpeed;
+            if (gameLoop) {
+                clearInterval(gameLoop);
+                gameLoop = setInterval(drawGame, currentSpeed);
+            }
+            
+            speedButtons.forEach(btn => {
+                btn.classList.remove('active');
+                if (btn.dataset.speed === speedType) {
+                    btn.classList.add('active');
+                }
+            });
+        }
+
+        speedButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                setSpeed(button.dataset.speed);
+            });
+        });
+
+        function drawGame() {
+            clearCanvas();
+            moveSnake();
+            checkCollision();
+            drawFood();
+            drawSnake();
+        }
+
+        function clearCanvas() {
+            ctx.fillStyle = '#f0f0f0';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+        }
+
+        function drawSnake() {
+            ctx.fillStyle = '#4CAF50';
+            snake.forEach(segment => {
+                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+            });
+        }
+
+        function drawFood() {
+            ctx.fillStyle = '#FF0000';
+            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+        }
+
+        function moveSnake() {
+            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+            snake.unshift(head);
+
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                scoreElement.textContent = score;
+                generateFood();
+                increaseSpeed();
+            } else {
+                snake.pop();
+            }
+        }
+
+        function generateFood() {
+            food = {
+                x: Math.floor(Math.random() * tileCount),
+                y: Math.floor(Math.random() * tileCount)
+            };
+            if (snake.some(segment => segment.x === food.x && segment.y === food.y)) {
+                generateFood();
+            }
+        }
+
+        function checkCollision() {
+            const head = snake[0];
+
+            if (head.x < 0 || head.x >= tileCount || head.y < 0 || head.y >= tileCount) {
+                gameOver();
+            }
+
+            for (let i = 1; i < snake.length; i++) {
+                if (head.x === snake[i].x && head.y === snake[i].y) {
+                    gameOver();
+                }
+            }
+        }
+
+        function gameOver() {
+            clearInterval(gameLoop);
+            finalScoreElement.textContent = score;
+            gameOverElement.style.display = 'block';
+        }
+
+        window.restartGame = function() {
+            snake = [{ x: 10, y: 10 }];
+            food = { x: 15, y: 15 };
+            dx = 0;
+            dy = 0;
+            score = 0;
+            currentSpeed = baseSpeed;
+            scoreElement.textContent = '0';
+            gameOverElement.style.display = 'none';
+            gameLoop = setInterval(drawGame, currentSpeed);
+        }
+
+        function increaseSpeed() {
+            if (currentSpeed > baseSpeed * 0.5) {
+                clearInterval(gameLoop);
+                currentSpeed -= 2;
+                gameLoop = setInterval(drawGame, currentSpeed);
+            }
+        }
+
+        document.addEventListener('keydown', (event) => {
+            switch(event.key) {
+                case 'ArrowUp':
+                    if (dy === 0) { dx = 0; dy = -1; }
+                    break;
+                case 'ArrowDown':
+                    if (dy === 0) { dx = 0; dy = 1; }
+                    break;
+                case 'ArrowLeft':
+                    if (dx === 0) { dx = -1; dy = 0; }
+                    break;
+                case 'ArrowRight':
+                    if (dx === 0) { dx = 1; dy = 0; }
+                    break;
+            }
+        });
+
+        const controlButtons = document.querySelectorAll('.control-btn');
+        controlButtons.forEach(button => {
+            button.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                switch(button.id) {
+                    case 'up':
+                        if (dy === 0) { dx = 0; dy = -1; }
+                        break;
+                    case 'down':
+                        if (dy === 0) { dx = 0; dy = 1; }
+                        break;
+                    case 'left':
+                        if (dx === 0) { dx = -1; dy = 0; }
+                        break;
+                    case 'right':
+                        if (dx === 0) { dx = 1; dy = 0; }
+                        break;
+                }
+            });
+        });
+
+        gameLoop = setInterval(drawGame, currentSpeed);
+    })();
+</script>
+
+
+
+  </article>
+</section>
+
+  
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-9L86XBXWE8"></script>
+<script>
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.dataLayer = window.dataLayer || [];
+	function gtag(){dataLayer.push(arguments);}
+	gtag('js', new Date());
+	gtag('config', 'G-9L86XBXWE8', { 'anonymize_ip': false });
+}
+</script>
+
+
+    
+
+  </body>
+
+</html>
