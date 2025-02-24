@@ -6,24 +6,24 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Feb 2025 23:23:47 +0200</lastBuildDate>
+    <lastBuildDate>Mon, 24 Feb 2025 23:58:17 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cloud</title>
-      <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      <title>Demo</title>
+      <link>https://vijay.eu/categories/demo/</link>
+      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/categories/cloud/</guid>
+      <guid>https://vijay.eu/categories/demo/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GenAI</title>
       <link>https://vijay.eu/categories/genai/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/genai/</guid>
       <description></description>
@@ -32,9 +32,18 @@
     <item>
       <title>LLM</title>
       <link>https://vijay.eu/categories/llm/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Cloud</title>
+      <link>https://vijay.eu/categories/cloud/</link>
+      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/cloud/</guid>
       <description></description>
     </item>
     
