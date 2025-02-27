@@ -278,163 +278,173 @@
 
 
 <link rel="stylesheet" href="https://vijay.eu/css/cookieconsent.css">
-<script defer src="https://vijay.eu/js/cookieconsent.umd.js"></script>
+<script src="https://vijay.eu/js/cookieconsent.umd.js"></script>
 
-<script defer>
-    window.addEventListener('load', function() {
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
         console.log('Cookie consent script loaded');
-        console.log('CookieConsent object available:', typeof window.cookieconsent);
         
-        const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
-        
-        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
 
-        try {
-            if (!window.cookieconsent) {
-                console.error('CookieConsent object is not available');
-                return;
-            }
-            window.cookieconsent.init({
-            root: document.documentElement,
-            langtag: 'en',
-            categories: {
-                necessary: {
-                    name: 'Necessary cookies',
-                    description: 'These cookies are essential for the proper functioning of the website.',
-                    enabled: true,
-                    readonly: true
-                },
-                analytics: {
-                    name: 'Analytics cookies',
-                    description: 'These cookies collect information about how you use our website.',
-                    enabled: false,
-                    readonly: false
-                }
-            },
-            language: {
-                en: {
-                    consentModal: {
-                        title: 'We use cookies',
-                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
-                        acceptAllBtn: 'Accept all',
-                        acceptNecessaryBtn: 'Reject all',
-                        showPreferencesBtn: 'Customize'
-                    },
-                    preferencesModal: {
-                        title: 'Cookie Settings',
-                        acceptAllBtn: 'Accept all',
-                        acceptNecessaryBtn: 'Reject all',
-                        savePreferencesBtn: 'Accept selection',
-                        closeIconLabel: 'Close',
-                        sections: [
-                            {
-                                title: 'Your Privacy Choices',
-                                description: 'When you visit our website, we store cookies on your browser to collect information. The information collected might relate to you, your preferences or your device, and is mostly used to make the site work as you expect it to and to provide a more personalized web experience.'
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
                             },
-                            {
-                                title: 'Strictly Necessary cookies',
-                                description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
-                                linkedCategory: 'necessary'
-                            },
-                            {
-                                title: 'Analytics cookies',
-                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
-                                linkedCategory: 'analytics',
-                                cookieTable: {
-                                    caption: 'Cookie list',
-                                    headers: {
-                                        name: 'Cookie',
-                                        domain: 'Domain',
-                                        desc: 'Description',
-                                        exp: 'Expiration'
-                                    },
-                                    body: [
-                                        {
-                                            name: '_ga',
-                                            domain: 'vijay.eu',
-                                            desc: 'Used to distinguish users',
-                                            exp: '2 years'
-                                        },
-                                        {
-                                            name: '_ga_*',
-                                            domain: 'vijay.eu',
-                                            desc: 'Used to maintain session status',
-                                            exp: '2 years'
-                                        }
-                                    ]
-                                }
-                            },
-                            {
-                                title: 'More information',
-                                description: 'For any queries in relation to our cookies policy, please <a href="https://vijay.eu/contact">contact us</a> or visit our <a href="https://vijay.eu/privacy-policy">privacy policy</a>.'
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
                             }
-                        ]
-                    }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
                 }
-            },
-            guiOptions: {
-                consentModal: {
-                    layout: 'cloud',
-                    position: 'bottom center',
-                    equalWeightButtons: true,
-                    flipButtons: false
-                },
-                preferencesModal: {
-                    layout: 'box',
-                    position: 'right',
-                    equalWeightButtons: true,
-                    flipButtons: false
-                }
-            },
-            onFirstConsent: ({ cookie }) => {
-                console.log('User consented for the first time: ' + JSON.stringify(cookie));
-            },
-            onConsent: ({ cookie }) => {
-                
-                if (cookie.categories.includes('analytics')) {
-                    loadGoogleAnalytics();
-                }
-            },
-            onChange: ({ changedCategories, changedServices }) => {
-                
-                if (changedCategories.includes('analytics')) {
-                    const analyticsAccepted = window.cookieconsent.acceptedCategory('analytics');
-                    if (analyticsAccepted) {
-                        loadGoogleAnalytics();
-                    }
-                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
             }
-        });
-        } catch (error) {
-            console.error('Error initializing cookie consent:', error);
-        }
-
-        
-        function loadGoogleAnalytics() {
-            if (typeof window.gtag === 'function') {
-                
-                return;
-            }
-
-            
-            const gtagScript = document.createElement('script');
-            gtagScript.async = true;
-            gtagScript.src = `https:
-            document.head.appendChild(gtagScript);
-
-            
-            window.dataLayer = window.dataLayer || [];
-            function gtag(){dataLayer.push(arguments);}
-            window.gtag = gtag;
-            gtag('js', new Date());
-            gtag('config', GOOGLE_ANALYTICS_ID, {
-                'anonymize_ip': true, 
-                'cookie_flags': 'SameSite=None;Secure' 
-            });
-        }
+        }, 500);
     });
 </script>
-
 
     </main>
 
