@@ -7,27 +7,31 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Vijay Kodam">
-    <meta name="description" content="Vijay Kodam&#39;s Personal Blog">
+    <meta name="description" content="PDB vs NDB">
     <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="AWS"/>
-<meta name="twitter:description" content="Vijay Kodam&#39;s Personal Blog"/>
+<meta name="twitter:title" content="Pod Disruption Budget vs NodePool Disruption Budget?"/>
+<meta name="twitter:description" content="PDB vs NDB"/>
 
-    <meta property="og:title" content="AWS" />
-<meta property="og:description" content="Vijay Kodam&#39;s Personal Blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://vijay.eu/categories/aws/" /><meta property="og:site_name" content="Vijay Kodam" />
+    <meta property="og:title" content="Pod Disruption Budget vs NodePool Disruption Budget?" />
+<meta property="og:description" content="PDB vs NDB" />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2025-03-02T23:45:23+02:00" />
+<meta property="article:modified_time" content="2025-03-02T23:45:23+02:00" /><meta property="og:site_name" content="Vijay Kodam" />
 
 
-
-    
-      <base href="https://vijay.eu/categories/aws/">
-    
-    <title>AWS · Vijay Kodam</title>
 
     
-      <link rel="canonical" href="https://vijay.eu/categories/aws/">
+      <base href="https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/">
+    
+    <title>
+  Pod Disruption Budget vs NodePool Disruption Budget? · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -51,7 +55,6 @@
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <link rel="alternate" type="application/rss+xml" href="https://vijay.eu/categories/aws/index.xml" title="Vijay Kodam" />
     <meta name="generator" content="Hugo 0.104.2" />
   </head>
 
@@ -92,96 +95,102 @@
 
       <div class="content">
         
-  <section class="container list">
-  <h1 class="title">AWS</h1>
-  
-  <ul>
-    
-    <li>
-      <span class="date">March 2, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/">Pod Disruption Budget vs NodePool Disruption Budget?</a>
-    </li>
-    
-    <li>
-      <span class="date">February 15, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/bedrock-agents-workshop/">Hands-on Bedrock Agents workshop</a>
-    </li>
-    
-    <li>
-      <span class="date">February 6, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/presented-at-aws-meetup/">Presented on EKS Auto Mode at the AWS Helsinki Meetup</a>
-    </li>
-    
-    <li>
-      <span class="date">January 22, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/eventbridge-new-capability/">This new EventBridge capability simplifies your cross-account deployments</a>
-    </li>
-    
-    <li>
-      <span class="date">January 21, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/surprising-side-effect-eks-auto/">Surprising side effect of running EKS Auto Mode</a>
-    </li>
-    
-    <li>
-      <span class="date">January 16, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/multi-sessions-in-aws-console/">Have you seen multi-session support enabled in your AWS Console?</a>
-    </li>
-    
-    <li>
-      <span class="date">January 10, 2025</span>
-      <a class="title" href="https://vijay.eu/posts/database-on-kubernetes/">Do you run your database on Kubernetes?</a>
-    </li>
-    
-    <li>
-      <span class="date">December 30, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/eks-arc-zonal-shift/">What is ARC Zonal shift feature in EKS?</a>
-    </li>
-    
-    <li>
-      <span class="date">December 12, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/eks-auto-max-node-lifetime/">Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</a>
-    </li>
-    
-    <li>
-      <span class="date">December 4, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/eks-auto-first-impressions/">First Impressions of EKS Auto Mode – A Game Changer!</a>
-    </li>
-    
-    <li>
-      <span class="date">November 4, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/aws-secure-microservices/">How to secure microservices architecture in AWS?</a>
-    </li>
-    
-    <li>
-      <span class="date">October 27, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/save-costs-with-graviton/">Unlock Up to 40% AWS Cost Savings with Graviton!</a>
-    </li>
-    
-    <li>
-      <span class="date">October 14, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/s3-delete-millions-of-files/">Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</a>
-    </li>
-    
-    <li>
-      <span class="date">October 3, 2024</span>
-      <a class="title" href="https://vijay.eu/posts/eks-upgrade-insights/">Save Hours During Amazon EKS Upgrades with This One Simple Step!</a>
-    </li>
-    
-    <li>
-      <span class="date">May 17, 2020</span>
-      <a class="title" href="https://vijay.eu/posts/deploy-k8s/">Where Should I Deploy My K8s Cluster?</a>
-    </li>
-    
-  </ul>
-  
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Pod Disruption Budget vs NodePool Disruption Budget?</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2025-03-02T23:45:23&#43;02:00'>
+                March 2, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="https://vijay.eu/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/categories/kubernetes/">Kubernetes</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="https://vijay.eu/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/eks/">EKS</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/poddisruptionbudget/">PodDisruptionBudget</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/kubernetes/">Kubernetes</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/nodepooldisruptionbudget/">NodePoolDisruptionBudget</a>
+      <span class="separator">•</span>
+    <a href="https://vijay.eu/tags/karpenter/">Karpenter</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>In Kubernetes, managing downtimes is very critical to maintain High Availability. <strong>Pod Disruption Budget</strong> (PDB in short) and <strong>NodePool Disruption Budget</strong> (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.</p>
+<p>PDBs ensure that a minimum number of application pods are running when one or more nodes are disrupted voluntarily, for example during cluster upgrades, node drain etc.</p>
+<p>You can set pdb value to either &ldquo;<code>minAvailable</code>&rdquo; or &ldquo;<code>maxUnavailable</code>&rdquo;.</p>
+<p>Here are some example usages of PDB:</p>
+<ul>
+<li>
+<p>By setting &ldquo;<code>minAvailable</code>&rdquo; to quorum size of 3 when scale is 5 for an etcd cluster, you make sure etcd pods do not reduce below quorum thus keeping the writes from failing.</p>
+</li>
+<li>
+<p>If you only run single replica of your application pod and you don&rsquo;t want voluntary disruptions to terminate the application then set &ldquo;<code>maxUnavailable=0</code>&rdquo;.  In this case, you have to manually evict the pod. This allows you to plan for downtime and then delete the pod manually.</p>
+</li>
+</ul>
+<p>PDBs help prevent downtime by ensuring enough replicas are running when the nodes are down voluntarily.</p>
+<p>Check the popular statefulsets to see how they have configured pdb in their K8s yamls. Here is one such <a href="https://github.com/strimzi/strimzi-kafka-operator/blob/main/install/cluster-operator/040-Crd-kafka.yaml#L3241">example</a> from strimzi-kafka-operator.</p>
+<p><strong>NodePool Disruption Budgets</strong> (NDB) controls how many nodes in a node pool can be disrupted simultaneously, e.g., during rolling updates, Karpenter autoscaling etc.</p>
+<p>NodePools and NDBs are part of Karpenter and you must have Karpenter installed in your Kubernetes cluster before configuring NDBs.</p>
+<p>Karpenter uses NDBs to rate limit Karpenter&rsquo;s disruption. If undefined, it defaults to &ldquo;node:10%&rdquo;. NDBs do not prevent Karpenter from terminating  expired nodes.</p>
+<p>Examples of NDB:</p>
+<ul>
+<li>&ldquo;<code>spec.disruption.budgets.nodes: 10%</code>&rdquo; will only allow 10% nodes in that nodepool to be disrupted. You can add reasons like &ldquo;if nodes are Empty&rdquo; along with 10% limit.</li>
+<li>Another example for NDB would be to block node disruption first hour during the day for underutilized nodes using:</li>
+</ul>
+<pre tabindex="0"><code>     - nodes: &#34;0&#34;
+        schedule: &#34;@daily&#34;
+        duration: 1h
+        reasons:
+        - &#34;Underutilized&#34;
+</code></pre><p>You can attach multiple budgets to the same NDB.</p>
+<p>Set &ldquo;<code>karpenter.sh/do-not-disrupt: true</code>&rdquo; to block Karpenter from voluntarily choosing you pod, Deployment, Node or NodePool. Note that setting this annotation does not prevent nodes from forceful disruptions like Expiration, Node Repair etc.</p>
+<p>As you can see in this below diagram, PDB is attached to specific set of pods using a label selector <code>.spec.selector</code>. You add NDB budget in the NodeClass YAML.</p>
+<p><img src="https://vijay.eu/images/pdb-ndb-v1.png" alt="PDB vs NDB"></p>
+<p>To summarize, use PDB to maintain availability of critical application pods and use NDB to limit disruptions at nodepool level. By combining both, you can increase your pod availability and cluster stability.</p>
+<p>Do you use PDB or NDB? Share your experience in my <a href="https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/">LinkedIn post</a> comments!</p>
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+      </div>
 
 
+      <footer>
+        
 
 
+        
+        
+        
+      </footer>
+    </article>
 
-
-</section>
-
+    
+  </section>
 
       </div>
 
@@ -379,6 +388,11 @@
 
     
 
+
+    
+        
+    
+        
 
     
 
