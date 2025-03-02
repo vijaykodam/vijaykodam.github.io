@@ -6,10 +6,53 @@
     <description>Recent content in AWS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 15 Feb 2025 00:22:33 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 02 Mar 2025 23:45:23 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>
+      <link>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
+      <description>&lt;p&gt;In Kubernetes, managing downtimes is very critical to maintain High Availability. &lt;strong&gt;Pod Disruption Budget&lt;/strong&gt; (PDB in short) and &lt;strong&gt;NodePool Disruption Budget&lt;/strong&gt; (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.&lt;/p&gt;
+&lt;p&gt;PDBs ensure that a minimum number of application pods are running when one or more nodes are disrupted voluntarily, for example during cluster upgrades, node drain etc.&lt;/p&gt;
+&lt;p&gt;You can set pdb value to either &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; or &amp;ldquo;&lt;code&gt;maxUnavailable&lt;/code&gt;&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;Here are some example usages of PDB:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;By setting &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; to quorum size of 3 when scale is 5 for an etcd cluster, you make sure etcd pods do not reduce below quorum thus keeping the writes from failing.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;If you only run single replica of your application pod and you don&amp;rsquo;t want voluntary disruptions to terminate the application then set &amp;ldquo;&lt;code&gt;maxUnavailable=0&lt;/code&gt;&amp;rdquo;.  In this case, you have to manually evict the pod. This allows you to plan for downtime and then delete the pod manually.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;PDBs help prevent downtime by ensuring enough replicas are running when the nodes are down voluntarily.&lt;/p&gt;
+&lt;p&gt;Check the popular statefulsets to see how they have configured pdb in their K8s yamls. Here is one such &lt;a href=&#34;https://github.com/strimzi/strimzi-kafka-operator/blob/main/install/cluster-operator/040-Crd-kafka.yaml#L3241&#34;&gt;example&lt;/a&gt; from strimzi-kafka-operator.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;NodePool Disruption Budgets&lt;/strong&gt; (NDB) controls how many nodes in a node pool can be disrupted simultaneously, e.g., during rolling updates, Karpenter autoscaling etc.&lt;/p&gt;
+&lt;p&gt;NodePools and NDBs are part of Karpenter and you must have Karpenter installed in your Kubernetes cluster before configuring NDBs.&lt;/p&gt;
+&lt;p&gt;Karpenter uses NDBs to rate limit Karpenter&amp;rsquo;s disruption. If undefined, it defaults to &amp;ldquo;node:10%&amp;rdquo;. NDBs do not prevent Karpenter from terminating  expired nodes.&lt;/p&gt;
+&lt;p&gt;Examples of NDB:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&amp;ldquo;&lt;code&gt;spec.disruption.budgets.nodes: 10%&lt;/code&gt;&amp;rdquo; will only allow 10% nodes in that nodepool to be disrupted. You can add reasons like &amp;ldquo;if nodes are Empty&amp;rdquo; along with 10% limit.&lt;/li&gt;
+&lt;li&gt;Another example for NDB would be to block node disruption first hour during the day for underutilized nodes using:&lt;/li&gt;
+&lt;/ul&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;     - nodes: &amp;#34;0&amp;#34;
+        schedule: &amp;#34;@daily&amp;#34;
+        duration: 1h
+        reasons:
+        - &amp;#34;Underutilized&amp;#34;
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can attach multiple budgets to the same NDB.&lt;/p&gt;
+&lt;p&gt;Set &amp;ldquo;&lt;code&gt;karpenter.sh/do-not-disrupt: true&lt;/code&gt;&amp;rdquo; to block Karpenter from voluntarily choosing you pod, Deployment, Node or NodePool. Note that setting this annotation does not prevent nodes from forceful disruptions like Expiration, Node Repair etc.&lt;/p&gt;
+&lt;p&gt;As you can see in this below diagram, PDB is attached to specific set of pods using a label selector &lt;code&gt;.spec.selector&lt;/code&gt;. You add NDB budget in the NodeClass YAML.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
+&lt;p&gt;To summarize, use PDB to maintain availability of critical application pods and use NDB to limit disruptions at nodepool level. By combining both, you can increase your pod availability and cluster stability.&lt;/p&gt;
+&lt;p&gt;Do you use PDB or NDB? Share your experience in my &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/&#34;&gt;LinkedIn post&lt;/a&gt; comments!&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Hands-on Bedrock Agents workshop</title>

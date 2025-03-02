@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Mon, 24 Feb 2025 23:58:17 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 02 Mar 2025 23:45:23 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>https://vijay.eu/tags/eks/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Karpenter</title>
+      <link>https://vijay.eu/tags/karpenter/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/karpenter/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>NodePoolDisruptionBudget</title>
+      <link>https://vijay.eu/tags/nodepooldisruptionbudget/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/nodepooldisruptionbudget/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>PodDisruptionBudget</title>
+      <link>https://vijay.eu/tags/poddisruptionbudget/</link>
+      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/poddisruptionbudget/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Anthropic</title>
@@ -138,38 +192,11 @@
     </item>
     
     <item>
-      <title>AWS</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EKS</title>
-      <link>https://vijay.eu/tags/eks/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>EKS Auto</title>
       <link>https://vijay.eu/tags/eks-auto/</link>
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/eks-auto/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
