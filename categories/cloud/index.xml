@@ -6,10 +6,63 @@
     <description>Recent content in Cloud on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Mar 2025 23:45:23 +0200</lastBuildDate>
+    <lastBuildDate>Tue, 04 Mar 2025 01:53:52 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>MLOps 101</title>
+      <link>https://vijay.eu/posts/mlops-101/</link>
+      <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/mlops-101/</guid>
+      <description>&lt;p&gt;&lt;strong&gt;MLOps&lt;/strong&gt; is set of practices that streamline and automate machine learning workflows. It integrates DevOps practices into machine learning workflows to streamline machine learning operations.&lt;/p&gt;
+&lt;h2 id=&#34;why-do-we-need-mlops&#34;&gt;Why do we need MLOps?&lt;/h2&gt;
+&lt;p&gt;Most of the time, as part of the machine learning workflow, they go through EDA, data prep, model training, tuning, then model deployment and monitoring just to find out that it is not ready for production. You have to repeat the process all over again and retrain the model.&lt;/p&gt;
+&lt;p&gt;Since the machine learning workflows were manual and several teams were involved in this process at different stages, it took lot of time and effort to maintain it.&lt;/p&gt;
+&lt;p&gt;Streamlining and automating such manual process speeds up time to product and decreases manual errors and risks. This leads to scalability of managing and monitoring thousands of machine learning models. This allows the data scientists and engineers to focus on model development and innovation.&lt;/p&gt;
+&lt;p&gt;Machine learning lifecycle has several interconnected stages and all of these key components together make up MLOps.&lt;/p&gt;
+&lt;p&gt;I have been going through various MLOps guides from AWS, Google, IBM and Databricks and realized all of them mostly follow the same key components.&lt;/p&gt;
+&lt;h2 id=&#34;key-components-of-mlops&#34;&gt;Key components of MLOps&lt;/h2&gt;
+&lt;h3 id=&#34;data-management&#34;&gt;Data Management&lt;/h3&gt;
+&lt;p&gt;Data is the new oil. For ML that is very true. It is the backbone of any machine learning model. Fetching right data, storage, preprocessing the data for model development and versioning are very important.  &lt;/p&gt;
+&lt;p&gt;Tools and services:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Data versioning: Data Version Control (DVC), Delta Lake, MLflow.&lt;/li&gt;
+&lt;li&gt;Data storage and management: Amazon S3, Google cloud storage, Azure Blob storage, Google BigQuery, Amazon RedShift, Snowflake&lt;/li&gt;
+&lt;li&gt;Data Preparation: Apache Airflow, Databricks&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;model-development&#34;&gt;Model Development&lt;/h3&gt;
+&lt;p&gt;This stage involves the design, training, tuning, and evaluation of machine learning models.&lt;/p&gt;
+&lt;p&gt;Here are some of the tools and services used as part of MLOps:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Model development frameworks: Tensorflow / Keras, PyTorch, Scikit-learn&lt;/li&gt;
+&lt;li&gt;Experiment tracking and Management: MLflow&lt;/li&gt;
+&lt;li&gt;AutoML: Amazon SageMaker Autopilot, Google AutoML, Azure Machine Learning Studio&lt;/li&gt;
+&lt;li&gt;IDEs: Jupyter Notebooks, R studio, VS Code, etc&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;model-deployment&#34;&gt;Model Deployment&lt;/h3&gt;
+&lt;p&gt;Focuses on packaging models and deploying them to production environments.&lt;/p&gt;
+&lt;p&gt;Here are the tools and services used for model deployment:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Containers and Orchestration: Kubernetes platforms like Amazon EKS, GKE, Azure Kubernetes service.&lt;/li&gt;
+&lt;li&gt;Managed model deployment services: Amazon Sagemaker, Google Vertex AI, Azure Machine Learning&lt;/li&gt;
+&lt;li&gt;Model Serving: Kubeflow, TorchServe, TensorFlow Serving&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;model-monitoring&#34;&gt;Model Monitoring&lt;/h3&gt;
+&lt;p&gt;After deployment, continuous monitoring is essential to ensure that models perform as expected and maintain their accuracy over time.&lt;/p&gt;
+&lt;p&gt;Prometheus + Grafana is the opensource stack for monitoring. Good to get started.
+Model monitoring services: AWS SageMaker Model Monitor, Evidently. There are also custom monitoring solutions like Kubeflow pipelines.&lt;/p&gt;
+&lt;h3 id=&#34;governance-and-compliance&#34;&gt;Governance and Compliance&lt;/h3&gt;
+&lt;p&gt;This key component ensures ML models are developed and deployed responsibly and ethically.&lt;/p&gt;
+&lt;p&gt;Model explainability can be done using Local Interpretable Model-agnostic Explanations (LIME) and SHAP (SHapley Additive exPlanations). MLflow supports Audit and compliance. Amazon Macie handles security. Data and Model Lineage can be done using MLflow, Amazon SageMaker Model Registry and Google Cloud Vertex AI Model Registry.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;As the adoption of machine learning is sky rocketing, the importance of MLOps is now higher than ever. MLOps helps automate and streamline machine learning operations. I have tried listing some of the tools used in MLOps is every key component/stage of machine learning workflow. Which tools or services you choose for MLOps depends on whether you are running on AWS, Google, Azure, Databricks, baremetal or opensource.  &lt;/p&gt;
+&lt;p&gt;Hope this provided you with a good MLOps overview! What tools and services do you use in your MLOps?&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>
