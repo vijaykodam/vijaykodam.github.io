@@ -2,11 +2,32 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/aws/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/aws/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/awscommunity/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cloud/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/aws-community-builders/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/machine-learning/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
@@ -22,21 +43,6 @@
   </url><url>
     <loc>https://vijay.eu/posts/mlops-101/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-03-02T23:45:23+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/eks/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
