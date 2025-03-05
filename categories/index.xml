@@ -6,15 +6,24 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Tue, 04 Mar 2025 01:53:52 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 05 Mar 2025 10:16:35 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>AWS</title>
+      <link>https://vijay.eu/categories/aws/</link>
+      <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>Cloud</title>
       <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
+      <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/cloud/</guid>
       <description></description>
@@ -35,15 +44,6 @@
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/mlops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>https://vijay.eu/categories/aws/</link>
-      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/aws/</guid>
       <description></description>
     </item>
     

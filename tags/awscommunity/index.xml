@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWSCommunity on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/awscommunity/</link>
+    <description>Recent content in AWSCommunity on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 05 Mar 2025 10:16:35 +0200</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/tags/awscommunity/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Got into AWS Community Builders Program</title>
+      <link>https://vijay.eu/posts/aws-community-builders/</link>
+      <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/aws-community-builders/</guid>
+      <description>&lt;p&gt;Exciting News!!! I have been accepted into the AWS community Builder Program in the category of Containers!&lt;/p&gt;
+&lt;p&gt;Thank you Jason Dunn for the opportunity and looking forward to contributing for the AWS Community Builders program.&lt;/p&gt;
+&lt;p&gt;Special Thanks to Rajdeep Saha, AWS Community Nordics, Rolf Koski, Petri Rosenström, Prasad Rao, Ashish Prajapati, Parna Mehta, Aritra Nag, Darryl Ruggles, Darya Petrashka, and Saurabh Shrivastava for inspiring me and helping me in my AWS journey.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/awscommunitybuilder.jpeg&#34; alt=&#34;aws&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
