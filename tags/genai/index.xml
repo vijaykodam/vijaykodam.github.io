@@ -47,7 +47,7 @@
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -

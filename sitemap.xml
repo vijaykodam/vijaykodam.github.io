@@ -2,6 +2,15 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/projects/markdown-editor/</loc>
+    <lastmod>2025-03-09T23:44:00+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/</loc>
+    <lastmod>2025-03-09T23:44:00+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-03-09T23:44:00+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/aws/</loc>
     <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
@@ -24,9 +33,6 @@
     <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/machine-learning/</loc>
@@ -111,9 +117,6 @@
     <lastmod>2025-02-16T19:58:58+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/javascript/</loc>
-    <lastmod>2025-02-16T19:58:58+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/projects/</loc>
     <lastmod>2025-02-16T19:58:58+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/agents/</loc>
