@@ -17,12 +17,12 @@
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.png&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
 &lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
 &lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
 &lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.png&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
@@ -49,7 +49,7 @@
       <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
 &lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
@@ -72,7 +72,7 @@
       <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
       
       <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
 &lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
 Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;

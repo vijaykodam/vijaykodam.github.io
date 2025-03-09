@@ -6,10 +6,86 @@
     <description>Recent content on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Mar 2025 10:16:35 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 09 Mar 2025 23:44:00 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Markdown Editor</title>
+      <link>https://vijay.eu/projects/markdown-editor/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/markdown-editor/</guid>
+      <description>&lt;p&gt;Generated using Claude Code agentic tool.&lt;/p&gt;
+&lt;div class=&#34;markdown-editor-container&#34;&gt;
+    &lt;div class=&#34;editor-toolbar&#34;&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Headings&#34;&gt;H&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading1&#34; title=&#34;Heading 1 (# text)&#34; data-tag=&#34;# &#34;&gt;H1&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading2&#34; title=&#34;Heading 2 (## text)&#34; data-tag=&#34;## &#34;&gt;H2&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading3&#34; title=&#34;Heading 3 (### text)&#34; data-tag=&#34;### &#34;&gt;H3&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading4&#34; title=&#34;Heading 4 (#### text)&#34; data-tag=&#34;#### &#34;&gt;H4&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading5&#34; title=&#34;Heading 5 (##### text)&#34; data-tag=&#34;##### &#34;&gt;H5&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading6&#34; title=&#34;Heading 6 (###### text)&#34; data-tag=&#34;###### &#34;&gt;H6&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;bold&#34; title=&#34;Bold (**text**)&#34; data-tag=&#34;**&#34;&gt;B&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;italic&#34; title=&#34;Italic (*text*)&#34; data-tag=&#34;*&#34;&gt;I&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;strikethrough&#34; title=&#34;Strikethrough (~~text~~)&#34; data-tag=&#34;~~&#34;&gt;S&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;link&#34; title=&#34;Link ([text](url))&#34; data-tag=&#34;[](url)&#34;&gt;🔗&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;image&#34; title=&#34;Image (![alt](url))&#34; data-tag=&#34;![alt](url)&#34;&gt;🖼️&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Code&#34;&gt;📝&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;code&#34; title=&#34;Inline Code (`code`)&#34; data-tag=&#34;`&#34;&gt;Inline&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-js&#34; title=&#34;JavaScript Code Block&#34; data-tag=&#34;```javascript&#34;&gt;JavaScript&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-html&#34; title=&#34;HTML Code Block&#34; data-tag=&#34;```html&#34;&gt;HTML&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-css&#34; title=&#34;CSS Code Block&#34; data-tag=&#34;```css&#34;&gt;CSS&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-python&#34; title=&#34;Python Code Block&#34; data-tag=&#34;```python&#34;&gt;Python&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock&#34; title=&#34;Code Block&#34; data-tag=&#34;```&#34;&gt;No Language&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;blockquote&#34; title=&#34;Blockquote (&gt; text)&#34; data-tag=&#34;&gt; &#34;&gt;❝&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Lists&#34;&gt;•&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;unordered-list&#34; title=&#34;Unordered List (- item)&#34; data-tag=&#34;- &#34;&gt;Bullet List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;ordered-list&#34; title=&#34;Ordered List (1. item)&#34; data-tag=&#34;1. &#34;&gt;Numbered List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;task-list&#34; title=&#34;Task List (- [ ] task)&#34; data-tag=&#34;- [ ] &#34;&gt;Task List&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;hr&#34; title=&#34;Horizontal Rule (---)&#34; data-tag=&#34;---&#34;&gt;―&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;table&#34; title=&#34;Table (| header | header |)&#34;&gt;📊&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;editor-panels&#34;&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Markdown&lt;/h3&gt;
+            &lt;textarea id=&#34;markdown-input&#34; placeholder=&#34;Type your markdown here...&#34;&gt;&lt;/textarea&gt;
+            &lt;div class=&#34;editor-status&#34;&gt;
+                &lt;span id=&#34;word-count&#34;&gt;0 words&lt;/span&gt;
+                &lt;span id=&#34;char-count&#34;&gt;0 characters&lt;/span&gt;
+                &lt;span id=&#34;cursor-position&#34;&gt;Line: 1, Column: 1&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Preview&lt;/h3&gt;
+            &lt;div id=&#34;markdown-preview&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is the cost and time it took to create this working code and testing it.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost 
+  ⎿  Total cost:            $1.01
+     Total duration (API):  5m 8.1s
+     Total duration (wall): 31m 43.5s
+     Total code changes:    713 lines added, 43 lines removed
+  ⎿  Set editor mode to vim
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You just have to have clear requirements and what you want and LLMs are there to make it happen.&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Got into AWS Community Builders Program</title>
@@ -539,15 +615,15 @@ Each had a different way of generating code, handling code changes on top of exi
       
       <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
       <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.jpeg&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;
 &lt;p&gt;As part of the hands-on workshop, I have created a mortage-processing-agent which uses RAG to add domain specific knowledge base and then created agents which can determine if end-user can afford it based on their financial situation.
 After that, created Amazon Bedrock Flows that orchestrates entire workflow. Last but not the least, created Guardrails to implement safeguards and enforce responsible AI policies for my GenAI application.&lt;/p&gt;
 &lt;p&gt;Here is the mortgage processing agent I built during the hands-on workshop.
 The highlighted yellow box is the prompt user enters followed by the response from Bedrock.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-handson.jpeg&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
 &lt;p&gt;All in all, this was a very good way to get hands-on experience on Amazon Bedrock Agents, RAG, Flows and Guardrails.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-agents.jpeg&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
@@ -558,12 +634,12 @@ The highlighted yellow box is the prompt user enters followed by the response fr
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.png&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
 &lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
 &lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
 &lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.png&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
@@ -574,7 +650,7 @@ The highlighted yellow box is the prompt user enters followed by the response fr
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
@@ -659,7 +735,7 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
       <pubDate>Thu, 16 Jan 2025 12:01:43 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/teaching-kids-computers/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kids-computers.jpeg&#34; alt=&#34;my-laptop&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kids-computers.webp&#34; alt=&#34;my-laptop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Last weekend, I wanted to teach my kids how computers work. Instead of just explaining concepts, I decided to make it hands-on. I opened up my laptop and showed them its internals—the motherboard, CPU, RAM, hard drive, battery, speakers and more.&lt;/p&gt;
 &lt;p&gt;Their eyes lit up as they saw how all the parts come together to create the magic we interact with daily. We talked about where does the laptop get its power from, where does the music come from, how data is stored, etc.&lt;/p&gt;
 &lt;p&gt;Moments like these remind me of the power of curiosity and how early exposure to technology can spark lifelong interests.&lt;/p&gt;
@@ -712,7 +788,7 @@ Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt
       <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
       
       <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
 &lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
@@ -735,7 +811,7 @@ Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt
       <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
       
       <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
 &lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
 Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;
@@ -1382,7 +1458,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://vijay.eu/posts/ambassador-keycloak-integration/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.getambassador.io/&#34;&gt;Ambassador API GW&lt;/a&gt; is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.&lt;/p&gt;
 &lt;p&gt;Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.&lt;/p&gt;
@@ -1474,12 +1550,14 @@ Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login i
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
       <guid>https://vijay.eu/about/</guid>
-      <description>&lt;p&gt;I’m &lt;strong&gt;Vijay Kodam&lt;/strong&gt;, a seasoned technology professional with deep expertise in Amazon Web Services, cloud architecture, software development, and system design. I currently work as a Principal Engineer in Cloud Technology at Nokia, Finland.&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Community-Builder-1500px.png&#34; alt=&#34;AWS Community Builder&#34;&gt;&lt;/p&gt;
+&lt;p&gt;I’m &lt;strong&gt;Vijay Kumar Kodam&lt;/strong&gt;, a seasoned technology professional with deep expertise in Amazon Web Services, cloud architecture, software development, and system design. I currently work as a Principal Engineer in Cloud Technology at Nokia, Finland.&lt;/p&gt;
 &lt;p&gt;My career journey has been a blend of deep telecom expertise and cutting-edge cloud computing skills. I began by developing software for 2G CDMA systems, progressed to building 3G 1x-EVDO RNC solutions, and then transitioned to deploying 4G/5G Virtual Network Functions (VNFs) on Telco Cloud using platforms like AWS, containers and Kubernetes. Over the years, I’ve expanded my focus to &lt;strong&gt;Amazon Web Service(AWS), Systems Design, Solution Architecture and Kubernetes&lt;/strong&gt;, specializing in Amazon EKS to build scalable and resilient cloud-native solutions for telecom applications.&lt;/p&gt;
 &lt;p&gt;Currently, I’m leading and executing the end-to-end architecture and migration of a &lt;strong&gt;Private 5G platform&lt;/strong&gt; into AWS. This involves designing, implementing, and managing solutions using Amazon EKS, various AWS services, Cassandra, Grafana, Prometheus, and containerized applications. My role encompasses Cloud Architecture, SRE, DevOps, GitOps, and Systems Design, enabling me to deliver robust, scalable, and high-performing cloud-native solutions from start to finish.&lt;/p&gt;
+&lt;p&gt;Got into &lt;strong&gt;AWS Community Builders program&lt;/strong&gt; for year 2025. Looking forward to learn and contribute.&lt;/p&gt;
 &lt;p&gt;In my spare time, I delve into &lt;strong&gt;AI and Large Language Model (LLM)&lt;/strong&gt; projects, which are documented in the Projects section of this blog.&lt;/p&gt;
 &lt;p&gt;The thoughts and opinions shared here are solely my own and do not reflect the views of my employer.&lt;/p&gt;
-&lt;p&gt;Here are my latest certs and skill badges with clickable links to verify them at Credly.&lt;/p&gt;
+&lt;p&gt;Here are my latest certs and skill badges with clickable links to verify them at Credly. Got into AWS Community Builders program for year 2025.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url&#34;&gt;&lt;img src=&#34;https://vijay.eu/images/aicert.png&#34; alt=&#34;AI Cert&#34;&gt;&lt;/a&gt;
 &lt;a href=&#34;https://www.credly.com/badges/1f064197-4fc3-40cd-a67f-ec4f99eb48ea/public_url&#34;&gt;&lt;img src=&#34;https://vijay.eu/images/ai-early-adopter.png&#34; alt=&#34;AI Early Adopter&#34;&gt;&lt;/a&gt;
 &lt;a href=&#34;https://www.credly.com/badges/4e67da8b-0e62-4a81-8bfd-914eaed218c9/public_url&#34;&gt;&lt;img src=&#34;https://vijay.eu/images/eks-skillbadge.png&#34; alt=&#34;EKS Skill Badge&#34;&gt;&lt;/a&gt;&lt;/p&gt;

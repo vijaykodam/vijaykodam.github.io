@@ -17,7 +17,7 @@
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
       <guid>https://vijay.eu/posts/ambassador-keycloak-integration/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.jpg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.getambassador.io/&#34;&gt;Ambassador API GW&lt;/a&gt; is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.&lt;/p&gt;
 &lt;p&gt;Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.&lt;/p&gt;
