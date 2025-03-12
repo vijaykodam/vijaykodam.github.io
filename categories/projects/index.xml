@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>projects on Vijay Kodam</title>
+    <link>https://vijay.eu/categories/projects/</link>
+    <description>Recent content in projects on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Wed, 12 Mar 2025 23:28:14 +0200</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/categories/projects/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Decibel Meter</title>
+      <link>https://vijay.eu/projects/decibel-meter/</link>
+      <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
+      
+      <guid>https://vijay.eu/projects/decibel-meter/</guid>
+      <description>&lt;p&gt;Enable your microphone and click &amp;ldquo;Start Measuring&amp;rdquo; to see it in action!
+No data is stored or transmitted - all processing happens locally in your browser&lt;/p&gt;
+&lt;div class=&#34;decibel-meter-wrapper&#34;&gt;
+    &lt;div class=&#34;meter-container&#34; id=&#34;meterContainer&#34;&gt;
+        &lt;div class=&#34;meter-fill&#34; id=&#34;meterFill&#34;&gt;&lt;/div&gt;
+        
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;reading&#34; id=&#34;reading&#34;&gt;0 dB&lt;/div&gt;
+    &lt;div class=&#34;description&#34; id=&#34;description&#34;&gt;Please enable microphone&lt;/div&gt;
+    
+    &lt;button id=&#34;startButton&#34;&gt;Start Measuring&lt;/button&gt;
+    
+    &lt;div class=&#34;error&#34; id=&#34;errorMessage&#34;&gt;&lt;/div&gt;
+    
+    &lt;div class=&#34;legend&#34;&gt;
+        &lt;div class=&#34;legend-item&#34;&gt;
+            &lt;div class=&#34;legend-color&#34; style=&#34;background: #4CAF50;&#34;&gt;&lt;/div&gt;
+            &lt;span&gt;No risk (0-80 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;legend-item&#34;&gt;
+            &lt;div class=&#34;legend-color&#34; style=&#34;background: #FFC107;&#34;&gt;&lt;/div&gt;
+            &lt;span&gt;Harmfulness threshold (80-90 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;legend-item&#34;&gt;
+            &lt;div class=&#34;legend-color&#34; style=&#34;background: #FF5722;&#34;&gt;&lt;/div&gt;
+            &lt;span&gt;Danger: harmful (90-120 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;legend-item&#34;&gt;
+            &lt;div class=&#34;legend-color&#34; style=&#34;background: #D32F2F;&#34;&gt;&lt;/div&gt;
+            &lt;span&gt;Irreversible damage (120+ dB)&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;https://vijay.eu/js/decibel-meter.js&#34;&gt;&lt;/script&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/decibel-meter.css&#34;&gt;
+&lt;h3 id=&#34;details&#34;&gt;Details&lt;/h3&gt;
+&lt;p&gt;A simple browser-based decibel meter that uses your device&amp;rsquo;s microphone to measure sound levels. This tool provides a visual representation of ambient noise with corresponding descriptions of different noise levels.&lt;/p&gt;
+&lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Real-time sound level monitoring&lt;/li&gt;
+&lt;li&gt;Visual meter with color-coded levels&lt;/li&gt;
+&lt;li&gt;Description of current noise level (whisper, conversation, traffic, etc.)&lt;/li&gt;
+&lt;li&gt;Easy to use interface with start/stop button&lt;/li&gt;
+&lt;li&gt;Color-coded legend explaining different sound levels&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;technical-notes&#34;&gt;Technical Notes&lt;/h3&gt;
+&lt;ul&gt;
+&lt;li&gt;Uses the Web Audio API to access microphone data&lt;/li&gt;
+&lt;li&gt;Provides approximate decibel measurements (calibration would be required for precise readings)&lt;/li&gt;
+&lt;li&gt;Works best on desktop/mobile browsers with HTTPS or localhost (required for microphone access)&lt;/li&gt;
+&lt;li&gt;No data is stored or transmitted - all processing happens locally in your browser&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
+&lt;p&gt;This application has been created using Claude Code Agentic tool.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost 
+  ⎿  Total cost:            $1.34
+     Total duration (API):  5m 5.9s
+     Total duration (wall): 36m 57.8s
+     Total code changes:    560 lines added, 169 lines removed
+&lt;/code&gt;&lt;/pre&gt;</description>
+    </item>
+    
+  </channel>
+</rss>

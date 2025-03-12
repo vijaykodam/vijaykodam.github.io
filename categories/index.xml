@@ -6,10 +6,19 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Mar 2025 10:16:35 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 12 Mar 2025 23:28:14 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>projects</title>
+      <link>https://vijay.eu/categories/projects/</link>
+      <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
+      
+      <guid>https://vijay.eu/categories/projects/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AWS</title>
