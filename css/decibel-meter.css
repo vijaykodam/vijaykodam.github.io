@@ -1,0 +1,139 @@
+.decibel-meter-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin: 20px 0;
+}
+
+.meter-container {
+    position: relative;
+    height: 250px;
+    width: 60px;
+    margin: 20px auto;
+    background: #e0e0e0;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.meter-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #4CAF50; /* Default green color */
+    transition: height 0.3s, background-color 0.3s;
+    border-radius: 50px;
+}
+
+.meter-marker {
+    position: absolute;
+    width: 100%;
+    height: 2px;
+    background: rgba(0, 0, 0, 0.2);
+    left: 0;
+}
+
+.meter-label {
+    position: absolute;
+    right: -55px;
+    transform: translateY(-50%);
+    font-size: 10px;
+    color: #666;
+}
+
+.meter-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background: white;
+    border: 3px solid #4CAF50;
+    border-radius: 50%;
+    right: -30px;
+    transform: translateY(-50%);
+    transition: border-color 0.3s;
+}
+
+.reading {
+    font-size: 36px;
+    font-weight: bold;
+    margin: 20px 0 10px;
+    color: #333;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+.description {
+    font-size: 20px;
+    margin-bottom: 20px;
+    transition: color 0.3s;
+    text-align: center;
+}
+
+#startButton {
+    background: #2196F3;
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0 auto;
+    display: block;
+}
+
+#startButton:hover {
+    background: #0b7dda;
+}
+
+#startButton:disabled {
+    background: #cccccc;
+    cursor: not-allowed;
+}
+
+.legend {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 30px;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (min-width: 768px) {
+    .legend {
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+    
+    .legend-item {
+        width: auto;
+        margin: 0 10px;
+    }
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.legend-color {
+    width: 20px;
+    height: 20px;
+    border-radius: 5px;
+    flex-shrink: 0;
+}
+
+.error {
+    color: red;
+    margin-top: 20px;
+    text-align: center;
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+}
