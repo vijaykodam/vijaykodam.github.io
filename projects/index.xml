@@ -282,7 +282,6 @@ No data is stored or transmitted - all processing happens locally in your browse
 &lt;/style&gt;
 
 &lt;div class=&#34;game-container&#34;&gt;
-    &lt;p&gt;This classic snake game has been created using Anthropic Claude in a single prompt on 16 Feb 2025. Documenting it for future reference to track the speed of development in GenAI/LLMs. &lt;/p&gt;
     &lt;div class=&#34;speed-selector&#34;&gt;
         &lt;button class=&#34;speed-btn&#34; data-speed=&#34;slow&#34;&gt;Slow&lt;/button&gt;
         &lt;button class=&#34;speed-btn active&#34; data-speed=&#34;normal&#34;&gt;Normal&lt;/button&gt;
@@ -301,6 +300,7 @@ No data is stored or transmitted - all processing happens locally in your browse
         &lt;p&gt;Final Score: &lt;span id=&#34;finalScore&#34;&gt;0&lt;/span&gt;&lt;/p&gt;
         &lt;button class=&#34;restart-btn&#34; onclick=&#34;restartGame()&#34;&gt;Play Again&lt;/button&gt;
     &lt;/div&gt;
+    &lt;p&gt;This classic snake game has been created using Anthropic Claude in a single prompt on 16 Feb 2025. Documenting it for future reference to track the speed of development in GenAI/LLMs. &lt;/p&gt;
 &lt;/div&gt;
 
 &lt;script&gt;
