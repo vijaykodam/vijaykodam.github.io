@@ -20,9 +20,12 @@
       <description>&lt;p&gt;Enable your microphone and click &amp;ldquo;Start Measuring&amp;rdquo; to see it in action!
 No data is stored or transmitted - all processing happens locally in your browser&lt;/p&gt;
 &lt;div class=&#34;decibel-meter-wrapper&#34;&gt;
-    &lt;div class=&#34;meter-container&#34; id=&#34;meterContainer&#34;&gt;
-        &lt;div class=&#34;meter-fill&#34; id=&#34;meterFill&#34;&gt;&lt;/div&gt;
+    &lt;div class=&#34;speedometer-container&#34;&gt;
         
+        &lt;div class=&#34;needle-container&#34;&gt;
+            &lt;div class=&#34;needle&#34; id=&#34;needle&#34;&gt;&lt;/div&gt;
+            &lt;div class=&#34;needle-center&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
     &lt;/div&gt;
     
     &lt;div class=&#34;reading&#34; id=&#34;reading&#34;&gt;0 dB&lt;/div&gt;
@@ -30,24 +33,55 @@ No data is stored or transmitted - all processing happens locally in your browse
     
     &lt;button id=&#34;startButton&#34;&gt;Start Measuring&lt;/button&gt;
     
+    &lt;div class=&#34;sensitivity-control&#34;&gt;
+        &lt;label for=&#34;sensitivity&#34;&gt;Microphone Sensitivity: &lt;span id=&#34;sensitivityValue&#34;&gt;2.0x&lt;/span&gt;&lt;/label&gt;
+        &lt;input type=&#34;range&#34; id=&#34;sensitivity&#34; min=&#34;1&#34; max=&#34;5&#34; step=&#34;0.5&#34; value=&#34;2.0&#34;&gt;
+    &lt;/div&gt;
+    
     &lt;div class=&#34;error&#34; id=&#34;errorMessage&#34;&gt;&lt;/div&gt;
+    
+    
+    &lt;div class=&#34;child-voice-legend&#34;&gt;
+        &lt;div class=&#34;child-voice-title&#34;&gt;Voice Level Guide for Kids&lt;/div&gt;
+        &lt;div class=&#34;voice-level-item&#34;&gt;
+            &lt;div class=&#34;voice-level-color&#34; style=&#34;background: #4CAF50;&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;voice-level-text&#34;&gt;Whisper to Library Voice (0-40 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;voice-level-item&#34;&gt;
+            &lt;div class=&#34;voice-level-color&#34; style=&#34;background: #7CB342;&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;voice-level-text&#34;&gt;Indoor Voice (40-60 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;voice-level-item&#34;&gt;
+            &lt;div class=&#34;voice-level-color&#34; style=&#34;background: #FFC107;&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;voice-level-text&#34;&gt;Classroom Voice (60-70 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;voice-level-item&#34;&gt;
+            &lt;div class=&#34;voice-level-color&#34; style=&#34;background: #FF9800;&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;voice-level-text&#34;&gt;Playground Voice (70-80 dB)&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;voice-level-item&#34;&gt;
+            &lt;div class=&#34;voice-level-color&#34; style=&#34;background: #FF5722;&#34;&gt;&lt;/div&gt;
+            &lt;span class=&#34;voice-level-text&#34;&gt;Too Loud! (80+ dB)&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    
     
     &lt;div class=&#34;legend&#34;&gt;
         &lt;div class=&#34;legend-item&#34;&gt;
             &lt;div class=&#34;legend-color&#34; style=&#34;background: #4CAF50;&#34;&gt;&lt;/div&gt;
-            &lt;span&gt;No risk (0-80 dB)&lt;/span&gt;
+            &lt;span&gt;No risk (0-60 dB)&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;legend-item&#34;&gt;
             &lt;div class=&#34;legend-color&#34; style=&#34;background: #FFC107;&#34;&gt;&lt;/div&gt;
-            &lt;span&gt;Harmfulness threshold (80-90 dB)&lt;/span&gt;
+            &lt;span&gt;Moderate (60-75 dB)&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;legend-item&#34;&gt;
             &lt;div class=&#34;legend-color&#34; style=&#34;background: #FF5722;&#34;&gt;&lt;/div&gt;
-            &lt;span&gt;Danger: harmful (90-120 dB)&lt;/span&gt;
+            &lt;span&gt;Harmful (75-95 dB)&lt;/span&gt;
         &lt;/div&gt;
         &lt;div class=&#34;legend-item&#34;&gt;
             &lt;div class=&#34;legend-color&#34; style=&#34;background: #D32F2F;&#34;&gt;&lt;/div&gt;
-            &lt;span&gt;Irreversible damage (120+ dB)&lt;/span&gt;
+            &lt;span&gt;Dangerous (95+ dB)&lt;/span&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 &lt;/div&gt;
@@ -59,10 +93,11 @@ No data is stored or transmitted - all processing happens locally in your browse
 &lt;h3 id=&#34;features&#34;&gt;Features&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;Real-time sound level monitoring&lt;/li&gt;
-&lt;li&gt;Visual meter with color-coded levels&lt;/li&gt;
-&lt;li&gt;Description of current noise level (whisper, conversation, traffic, etc.)&lt;/li&gt;
+&lt;li&gt;Speedometer-style visual indicator with needle and color-coded arcs&lt;/li&gt;
+&lt;li&gt;More granular voice level indicators for children&amp;rsquo;s voice modulation training&lt;/li&gt;
+&lt;li&gt;Description of current noise level (whisper, indoor voice, classroom voice, etc.)&lt;/li&gt;
 &lt;li&gt;Easy to use interface with start/stop button&lt;/li&gt;
-&lt;li&gt;Color-coded legend explaining different sound levels&lt;/li&gt;
+&lt;li&gt;Color-coded legends with both standard and child-friendly voice level guidance&lt;/li&gt;
 &lt;/ul&gt;
 &lt;h3 id=&#34;technical-notes&#34;&gt;Technical Notes&lt;/h3&gt;
 &lt;ul&gt;
@@ -73,7 +108,15 @@ No data is stored or transmitted - all processing happens locally in your browse
 &lt;/ul&gt;
 &lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
 &lt;p&gt;This application has been created using Claude Code Agentic tool.&lt;/p&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost 
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;V2 cost
+Total cost:            $2.32
+Total duration (API):  12m 14.8s
+Total duration (wall): 50m 10.9s
+Total code changes:    1373 lines added, 501 lines removed
+
+V1 cost
+
+&amp;gt; /cost 
   ⎿  Total cost:            $1.34
      Total duration (API):  5m 5.9s
      Total duration (wall): 36m 57.8s
