@@ -33,8 +33,9 @@
     width: 65px; /* Shortened from 85px to create a gap between needle and ticks */
     height: 4px;
     background: #333;
-    left: 150px;
-    top: 90px;
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
+    margin-top: -2px; /* Half of height to center */
     transform-origin: 0% 50%;
     border-right: 5px solid #4CAF50;
     transform: rotate(150deg); /* Initial position (0 dB) */
@@ -49,8 +50,8 @@
     height: 16px;
     border-radius: 50%;
     background: #333;
-    left: 150px;
-    top: 90px;
+    left: 50%; /* Center horizontally */
+    top: 50%; /* Center vertically */
     transform: translate(-50%, -50%);
     box-shadow: 0 0 8px rgba(0, 0, 0, 0.5);
     z-index: 21; /* Higher than needle to appear on top */
@@ -224,14 +225,16 @@
     }
     
     .needle {
-        left: 125px;
-        top: 75px;
         width: 55px; /* Shortened for small screens */
+        transform-origin: 0% 50%; /* Ensure transform origin is consistent */
     }
     
-    .needle-center {
-        left: 125px;
-        top: 75px;
+    /* We removed fixed positioning for needle and needle-center as they're now using percentages */
+    
+    /* Adjust ticks and labels for small screens */
+    .tick, .major-tick, .tick-label {
+        transform: scale(0.833); /* Scale down by 250/300 ratio */
+        transform-origin: center;
     }
     
     .reading {

@@ -37,6 +37,10 @@ document.addEventListener('DOMContentLoaded', function() {
     // Create the speedometer
     drawSpeedometer();
     
+    // Buffer for calculating running average (smooth out fluctuations)
+    const dbBuffer = new Array(5).fill(0);
+    let dbBufferIndex = 0;
+    
     // Initialize display
     updateMeter(0);
     
@@ -51,13 +55,30 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
+    // Function to update sensitivity display
+    function updateSensitivityDisplay() {
+        const sensitivityValueDisplay = document.getElementById('sensitivityValue');
+        if (sensitivityValueDisplay) {
+            // Force update the text content
+            sensitivityValueDisplay.innerHTML = '';
+            sensitivityValueDisplay.textContent = sensitivityMultiplier.toFixed(1) + 'x';
+            console.log('Updated sensitivity display to:', sensitivityMultiplier.toFixed(1) + 'x');
+        }
+    }
+    
     // Add sensitivity slider event listener
     const sensitivitySlider = document.getElementById('sensitivity');
-    const sensitivityValueDisplay = document.getElementById('sensitivityValue');
     if (sensitivitySlider) {
+        // Initialize the sensitivity value from the slider
+        sensitivityMultiplier = parseFloat(sensitivitySlider.value);
+        
+        // Force the update immediately
+        setTimeout(updateSensitivityDisplay, 0);
+        
+        // Update when slider is moved
         sensitivitySlider.addEventListener('input', function() {
             sensitivityMultiplier = parseFloat(this.value);
-            sensitivityValueDisplay.textContent = sensitivityMultiplier.toFixed(1) + 'x';
+            updateSensitivityDisplay();
         });
     }
     
@@ -70,12 +91,25 @@ document.addEventListener('DOMContentLoaded', function() {
             return;
         }
         
+        // Get container dimensions for responsive design
+        const containerWidth = container.clientWidth || 300;
+        const containerHeight = container.clientHeight || 180;
+        
+        // Calculate center coordinates
+        const centerX = containerWidth / 2;
+        const centerY = containerHeight / 2;
+        
         // console.log('Drawing speedometer...');
         
         // Create ticks
         const totalTicks = 12;
         const angleRange = 240; // degrees
         const startAngle = 150; // Starting angle for 0 dB (left side)
+        
+        // Scale inner radius based on container size
+        const baseInnerRadius = 80;
+        const scaleFactor = Math.min(containerWidth / 300, containerHeight / 180);
+        const innerRadius = baseInnerRadius * scaleFactor;
         
         for (let i = 0; i <= totalTicks; i++) {
             const isMajor = i % 3 === 0;
@@ -85,13 +119,8 @@ document.addEventListener('DOMContentLoaded', function() {
             const radians = angle * Math.PI / 180;
             
             // Calculate position (centered at needle pivot)
-            const tickLength = isMajor ? 15 : 10;
-            const innerRadius = 80;
+            const tickLength = isMajor ? 15 * scaleFactor : 10 * scaleFactor;
             const outerRadius = innerRadius + tickLength;
-            
-            // Calculate positions relative to center
-            const centerX = 150;
-            const centerY = 90;
             
             const x1 = centerX + innerRadius * Math.cos(radians);
             const y1 = centerY + innerRadius * Math.sin(radians);
@@ -118,7 +147,7 @@ document.addEventListener('DOMContentLoaded', function() {
             // Add labels for major ticks
             if (isMajor) {
                 const dbValue = Math.round((i / totalTicks) * 140);
-                const labelRadius = innerRadius - 15;
+                const labelRadius = innerRadius - (15 * scaleFactor);
                 
                 const labelX = centerX + labelRadius * Math.cos(radians);
                 const labelY = centerY + labelRadius * Math.sin(radians);
@@ -127,7 +156,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 label.className = 'tick-label';
                 label.textContent = dbValue;
                 label.style.position = 'absolute';
-                label.style.fontSize = '10px';
+                label.style.fontSize = (10 * scaleFactor) + 'px';
                 label.style.color = '#666';
                 label.style.left = (labelX - 10) + 'px';
                 label.style.top = (labelY - 5) + 'px';
@@ -153,8 +182,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             // Create colored arc segment using SVG
             const svg = document.createElementNS("http://www.w3.org/2000/svg", "svg");
-            svg.setAttribute("width", "300");
-            svg.setAttribute("height", "180");
+            svg.setAttribute("width", containerWidth.toString());
+            svg.setAttribute("height", containerHeight.toString());
             svg.style.position = "absolute";
             svg.style.top = "0";
             svg.style.left = "0";
@@ -162,10 +191,8 @@ document.addEventListener('DOMContentLoaded', function() {
             
             const arc = document.createElementNS("http://www.w3.org/2000/svg", "path");
             
-            // Calculate arc path
-            const radius = 75;
-            const centerX = 150;
-            const centerY = 90;
+            // Calculate arc path with scaled radius
+            const radius = 75 * scaleFactor;
             
             // Convert to radians
             const startRad = startAngleDeg * (Math.PI / 180);
@@ -203,9 +230,6 @@ document.addEventListener('DOMContentLoaded', function() {
     }
     
     // Update the meter display
-    // Buffer for calculating running average (smooth out fluctuations)
-    const dbBuffer = new Array(5).fill(0);
-    let dbBufferIndex = 0;
     
     // Calculate running average of sound levels for smoother readings
     function calculateRunningAverage(newValue) {

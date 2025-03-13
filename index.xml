@@ -34,7 +34,7 @@ No data is stored or transmitted - all processing happens locally in your browse
     &lt;button id=&#34;startButton&#34;&gt;Start Measuring&lt;/button&gt;
     
     &lt;div class=&#34;sensitivity-control&#34;&gt;
-        &lt;label for=&#34;sensitivity&#34;&gt;Microphone Sensitivity: &lt;span id=&#34;sensitivityValue&#34;&gt;2.0x&lt;/span&gt;&lt;/label&gt;
+        &lt;label for=&#34;sensitivity&#34;&gt;Microphone Sensitivity: &lt;span id=&#34;sensitivityValue&#34;&gt;&lt;/span&gt;&lt;/label&gt;
         &lt;input type=&#34;range&#34; id=&#34;sensitivity&#34; min=&#34;1&#34; max=&#34;5&#34; step=&#34;0.5&#34; value=&#34;2.0&#34;&gt;
     &lt;/div&gt;
     
