@@ -6,10 +6,84 @@
     <description>Recent content in LLM on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 16 Feb 2025 23:23:47 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 13 Mar 2025 23:16:20 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Creating decibel meter using Claude Code Agentic tool</title>
+      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
+      <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
+&lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
+&lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
+&lt;h2 id=&#34;idea&#34;&gt;Idea&lt;/h2&gt;
+&lt;p&gt;Yesterday, I wanted to build a decibel meter app for my kids to know about decibels, how sound is measured and just to give them a new toy to play with. For me, I was already playing with Claude code, the agentic coding toy :)&lt;/p&gt;
+&lt;h3 id=&#34;requirements&#34;&gt;Requirements&lt;/h3&gt;
+&lt;p&gt;I wanted a simple browser-based decibel meter that uses my device&amp;rsquo;s microphone to measure sound levels.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;App must use the Web Audio API to access microphone data.&lt;/li&gt;
+&lt;li&gt;I am okay with approximate decibel measurements as this will not be calibrated.&lt;/li&gt;
+&lt;li&gt;No data must be stored or transmitted - all processing must happen locally in my browser.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;my-app-building-process&#34;&gt;My App building process&lt;/h3&gt;
+&lt;p&gt;Went into my codebase for my blog, opened Claude Code and started prompting to it. After a few revisions the first version was ready in 30 mins and $1.34. It added 560 lines and removed 169 lines in total.&lt;/p&gt;
+&lt;p&gt;I have reviewed the code, tested the functionality. Yesterday I learnt that browsers do not allow microphone access to localhost or HTTP websites. Only HTTPS websites are allowed. I had to copy paste my code into Codepen to test it before pushing into production. After verifying, I had published my project.&lt;/p&gt;
+&lt;h3 id=&#34;cost&#34;&gt;Cost&lt;/h3&gt;
+&lt;p&gt;I like the handy &lt;code&gt;/cost&lt;/code&gt; command to get the amount I burned on this toy project for that session.
+You also get the final costs when you exit the claude code.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost
+  ⎿  Total cost:            $1.34
+     Total duration (API):  5m 5.9s
+     Total duration (wall): 36m 57.8s
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;version-1&#34;&gt;Version 1&lt;/h3&gt;
+&lt;p&gt;Here is my first version UI.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
+&lt;h3 id=&#34;real-world-feedback&#34;&gt;Real World Feedback&lt;/h3&gt;
+&lt;p&gt;When I tested it in my mobile, I realized that the sensitivity for normal voice was very low and the decibel meter was not moving at all. This was not a usable app, if the decibel meter barely moved.&lt;/p&gt;
+&lt;p&gt;Now was the time for version 2 of the decibel meter app. With the real world testing I had new set of requirements to make it any useful. Also the decibel meter was showing very tiny fraction for the normal voice range.&lt;/p&gt;
+&lt;h2 id=&#34;version-2&#34;&gt;Version 2&lt;/h2&gt;
+&lt;p&gt;Now for the version 2, based on my testing, real world feedback had a new set of requirements.
+The long vertical decibel meter was not usable. So the next way to represent sound was to use a speedometer.
+Also the sensitivity should be high so that there is more spectrum for normal voice range and lesser for loud or extremely loud sounds. If there was an option to set microphone sensitivity, then it would be even better.&lt;/p&gt;
+&lt;p&gt;The version 2 took several iterations as old code must be removed and new functionality added. Spent nearly 50 minutes to get it working.&lt;/p&gt;
+&lt;h3 id=&#34;continuous-feedback&#34;&gt;Continuous feedback&lt;/h3&gt;
+&lt;p&gt;While using Claude code, realized that I was practically testing the app UI after every iteration of code change, checking for errors in console logs, and prompting it to fix those errors.&lt;/p&gt;
+&lt;h3 id=&#34;gotchas&#34;&gt;Gotchas&lt;/h3&gt;
+&lt;p&gt;One time, I didn&amp;rsquo;t realize the app was using old version of javascript and I thought the app was not working.  Claude Code was trying to fix a non-existent error, happily following my instructions and generating or modifying code continuously. After opening local version in a private window to get rid of cache and cookies, it started working. This could have saved me 15 mins if I had noticed earlier.&lt;/p&gt;
+&lt;p&gt;So be careful to verify and test properly. Currently, Claude code will generate or modify code if you say it is not working.&lt;/p&gt;
+&lt;h3 id=&#34;the-final-ui&#34;&gt;The Final UI&lt;/h3&gt;
+&lt;p&gt;After several iterations and centering the needle, fixing the needle size, colors, shape of speedometer and 50 minutes of my time, got below UI as version 2.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;decibel-meter-project&#34;&gt;Decibel Meter project&lt;/h2&gt;
+&lt;p&gt;Here is my &lt;a href=&#34;https://vijay.eu/projects/decibel-meter/&#34;&gt;Decibel meter project&lt;/a&gt; if you want to try and check it.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Note that it is not been calibrated and the values are approximate.&lt;/li&gt;
+&lt;li&gt;No data is stored or transmitted - all processing happens locally in your browser&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id=&#34;version-2-cost&#34;&gt;Version 2 Cost&lt;/h3&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;V2 cost
+Total cost:            $2.32
+Total duration (API):  12m 14.8s
+Total duration (wall): 50m 10.9s
+Total code changes:    1373 lines added, 501 lines removed
+&lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;other-projects&#34;&gt;Other Projects&lt;/h3&gt;
+&lt;p&gt;I prefer building apps to solve my problems or create apps for my kids to play or learn. These days I am only using Claude Code agentic coding tool. I like working in terminal and Claude code runs entirely in terminal, no IDE, which works perfectly for me.&lt;/p&gt;
+&lt;p&gt;I have built Cookie consent functionality for my blog. Also built &lt;a href=&#34;https://vijay.eu/projects/markdown-editor/&#34;&gt;Markdown Editor&lt;/a&gt; to help me while writing my blogs in markdown and &lt;a href=&#34;https://vijay.eu/projects/snake-game/&#34;&gt;Classic Snake Game&lt;/a&gt;  for my kids to play.&lt;/p&gt;
+&lt;p&gt;All these three apps have been built using Claude Code and spent less than an hour to get it published. End-to-end, from ideation to running in the web and using it in my Mobile/Mac.&lt;/p&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;These days, I started coding or should I say prompting a lot and generating lot of code using Claude Code than before.
+I am constantly on the lookout for the next app idea to implement. Building feels great. Seeing end-to-end working solutions feels great.&lt;/p&gt;
+&lt;p&gt;Claude code is not cheap. It is addictive as you literally have a AI coder at your disposal.&lt;/p&gt;
+&lt;h3 id=&#34;your-experience&#34;&gt;Your experience&lt;/h3&gt;
+&lt;p&gt;How was your experience with Claude Code? Have you used any other agentic coding tools?&lt;/p&gt;
+&lt;h2 id=&#34;follow-me&#34;&gt;Follow me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Classic Snake Game using LLMs</title>
