@@ -6,10 +6,64 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Mar 2025 23:28:14 +0200</lastBuildDate>
+    <lastBuildDate>Thu, 13 Mar 2025 23:16:20 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AgenticAI</title>
+      <link>https://vijay.eu/tags/agenticai/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/agenticai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Anthropic</title>
+      <link>https://vijay.eu/tags/anthropic/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/anthropic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Claude</title>
+      <link>https://vijay.eu/tags/claude/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/claude/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ClaudeCode</title>
+      <link>https://vijay.eu/tags/claudecode/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/claudecode/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/tags/genai/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://vijay.eu/tags/llm/</link>
+      <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/llm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>audio</title>
@@ -129,42 +183,6 @@
     </item>
     
     <item>
-      <title>Anthropic</title>
-      <link>https://vijay.eu/tags/anthropic/</link>
-      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/anthropic/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Claude</title>
-      <link>https://vijay.eu/tags/claude/</link>
-      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/claude/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>ClaudeCode</title>
-      <link>https://vijay.eu/tags/claudecode/</link>
-      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/claudecode/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Sonnet3.7</title>
       <link>https://vijay.eu/tags/sonnet3.7/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
@@ -179,15 +197,6 @@
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://vijay.eu/tags/llm/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/llm/</guid>
       <description></description>
     </item>
     

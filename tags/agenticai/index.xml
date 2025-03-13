@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ClaudeCode on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/claudecode/</link>
-    <description>Recent content in ClaudeCode on Vijay Kodam</description>
+    <title>AgenticAI on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/agenticai/</link>
+    <description>Recent content in AgenticAI on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 13 Mar 2025 23:16:20 +0200</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/claudecode/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/agenticai/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
@@ -81,36 +81,6 @@ I am constantly on the lookout for the next app idea to implement. Building feel
 &lt;h3 id=&#34;your-experience&#34;&gt;Your experience&lt;/h3&gt;
 &lt;p&gt;How was your experience with Claude Code? Have you used any other agentic coding tools?&lt;/p&gt;
 &lt;h2 id=&#34;follow-me&#34;&gt;Follow me&lt;/h2&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Claude Code Agentic CLI demo</title>
-      <link>https://vijay.eu/posts/claude-code-demo/</link>
-      <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/claude-code-demo/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
-&lt;p&gt;Here is my Day Zero hands-on demo of Claude Code using Claude 3.7 Sonnet. Both were released by Anthropic today.&lt;/p&gt;
-&lt;p&gt;Claude 3.7 Sonnet, is the first hybrid reasoning model on the market by Anthropic. They have also introduced a command line tool for agentic coding, Claude Code.&lt;/p&gt;
-&lt;p&gt;I have installed in my mac and tried agentic code and made a demo video for you.&lt;/p&gt;
-&lt;iframe 
-  src=&#34;https://www.youtube.com/embed/mFN-MGEVMMI?si=a_ZpbzvN6GBuacZu&#34; 
-  width=&#34;560&#34; 
-  height=&#34;315&#34; 
-  title=&#34;Embedded Content&#34; 
-  frameborder=&#34;0&#34; 
-  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
-  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
-  allowfullscreen&gt;
-&lt;/iframe&gt;
-
-&lt;p&gt;Take a look and add in comments how are you planning to use this shiny new agentic code tool in your workflow?&lt;/p&gt;
-&lt;p&gt;It cost me $0.3273 for 1 minute usage of Anthropic API. It is costly for personal use. That is my personal feeling.
-&lt;img src=&#34;https://vijay.eu/images/claude-code-cost.png&#34; alt=&#34;claude-code-cost&#34;&gt;&lt;/p&gt;
-&lt;p&gt;I would rather want this Claude code like agentic code tool to run locally and call a local llm running on my mac. Everything local, and secure solution. Of course, there will be some opensource tool out in the market in a month doing the same thing. Let&amp;rsquo;s hope so&amp;hellip;&lt;/p&gt;
-&lt;p&gt;What do you think? Write in comments.&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
