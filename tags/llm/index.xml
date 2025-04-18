@@ -6,10 +6,168 @@
     <description>Recent content in LLM on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 13 Mar 2025 23:16:20 +0200</lastBuildDate>
+    <lastBuildDate>Sat, 19 Apr 2025 00:54:11 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My Capstone project for Google GenAI course</title>
+      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
+      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie.png&#34; alt=&#34;veggie-recipe-generator&#34;&gt;&lt;/p&gt;
+&lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
+&lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;
+&lt;p&gt;Lately I have been spending lot of time browsing Internet or youtube cooking videos to find perfect recipe for cooking specific vegetables.
+Sometimes I over boil broccoli and sometimes I spend time figuring out how to cook Mexican version of bell peppers dish.
+During these times I wonder how great it would be to have a magic tool which could answer my queries directly.&lt;/p&gt;
+&lt;h2 id=&#34;how-generative-ai-agent-saved-my-day&#34;&gt;How Generative AI agent saved my day?&lt;/h2&gt;
+&lt;p&gt;Recently I took this hands-on &lt;strong&gt;“5-day Gen AI Intensive Course with Google”&lt;/strong&gt; and thought this might be a good way to solve my problem with recipes.&lt;/p&gt;
+&lt;p&gt;This is the definition from Google’s whitepaper:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
+&lt;p&gt;To put it simply: LLMs cannot interact with the external world or act  on the external events. GenAI agents use LLMs, reasoning, logic and external tools to achieve the objectives set by the user.&lt;/p&gt;
+&lt;p&gt;This fits perfectly with my personal problem I mentioned about finding recipes. If I set the objective of generating recipes for a given vegetable and if I add tools to get recipes for such vegetables then the GenAI agent will reason about my request, use logic to find the recipes using perfect tool and format it in a human-readable format and present it to me.&lt;/p&gt;
+&lt;p&gt;So, I decided to create a GenAI Agent for Veggie Recipe Generator which helps me with recipes for the vegetables I want. In this capstone project, I have used mock recipes to demonstrate what I have learnt in this course.&lt;/p&gt;
+&lt;h3 id=&#34;demonstrates-three-genai-capabilities&#34;&gt;Demonstrates three GenAI capabilities&lt;/h3&gt;
+&lt;p&gt;This project uses Google gemini-2.0-flash API and LangGraph.&lt;/p&gt;
+&lt;p&gt;It will be demonstrating these GenAI capabilities using :&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Generative AI agents:&lt;/strong&gt; Using LangGraph to create multi-step conversational flow.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Structured output:&lt;/strong&gt; Making the LLM return information in a predictable human-readable format.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Few-shot prompting:&lt;/strong&gt; Guiding LLM’s behavior with clear examples.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;p&gt;This solution uses an &lt;em&gt;agent&lt;/em&gt; built with LangGraph and powered by Google Gemini API. It follows defined graph to manage the conversation.&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;It greets the user.&lt;/li&gt;
+&lt;li&gt;It understands the user&amp;rsquo;s request for a vegetable recipe.&lt;/li&gt;
+&lt;li&gt;It checks if the vegetable is one it knows (Carrot, Broccoli, etc.).&lt;/li&gt;
+&lt;li&gt;If valid, it uses a &amp;ldquo;tool&amp;rdquo; (a simulated function) to look up the recipe.&lt;/li&gt;
+&lt;li&gt;If invalid, it politely informs the user of its limitations.&lt;/li&gt;
+&lt;li&gt;It presents the recipe (if found) in a clear, structured format.&lt;/li&gt;
+&lt;li&gt;It asks the user if they want another recipe or want to quit.&lt;/li&gt;
+&lt;li&gt;It loops back or exits based on the user&amp;rsquo;s response.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;the-code&#34;&gt;The Code&lt;/h2&gt;
+&lt;h3 id=&#34;state-management&#34;&gt;State Management&lt;/h3&gt;
+&lt;p&gt;LangGraph uses state dictionary to pass between nodes. Here is it’s structure.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Annotated, List, Literal, TypedDict &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; TypeHint
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing_extensions &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; TypedDict
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langgraph.graph.message &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; add_messages
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langchain_core.messages &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; BaseMessage
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### Define the structure for the recipe data returned by the tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Recipe&lt;/span&gt;(TypeHint):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    title: str
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ingredients: List[str]
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    instructions: str
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;RecipeState&lt;/span&gt;(TypedDict):
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;State representing the user&amp;#39;s recipe conversation.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    messages: Annotated[List[BaseMessage], add_messages] &lt;span style=&#34;color:#75715e&#34;&gt;# Conversation history&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    finished: bool &lt;span style=&#34;color:#75715e&#34;&gt;# Flag to end the conversation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;guiding-llm-using-few-shot-prompting-and-structured-output&#34;&gt;Guiding LLM using few-shot prompting and structured output&lt;/h3&gt;
+&lt;p&gt;The core instructions tell the AI its role, limitations, &lt;em&gt;how&lt;/em&gt; to use tools, and crucially, &lt;em&gt;how to format the structured output&lt;/em&gt; it receives from the tool. We include examples (few-shot prompting) to make these instructions clearer:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Snippet from RECIPEBOT_SYSINT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RECIPEBOT_SYSINT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You are RecipeBot... You can provide recipes ONLY for... Carrot, Broccoli, Spinach, Potato, Bell Pepper.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;When the user asks for a recipe... you MUST use the &amp;#39;get_recipe&amp;#39; tool...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The &amp;#39;get_recipe&amp;#39; tool will return structured information with &amp;#39;title&amp;#39;, &amp;#39;ingredients&amp;#39;, and &amp;#39;instructions&amp;#39;.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;When you receive the recipe from the tool, present it clearly to the user in this format:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Okay, here is a recipe for [Vegetable Name]:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**[Recipe Title]**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ingredients:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- [Ingredient 1]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- [Ingredient 2]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Instructions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n [Instructions text]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;If the user asks for a vegetable not on the list... politely tell them...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;After providing a recipe... ALWAYS ask the user if they would like another recipe... or if they want to quit.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Example Interactions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Human: Can I get a recipe for carrots?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: &amp;lt;tool_call&amp;gt;get_recipe(vegetable=&amp;#39;carrot&amp;#39;)&amp;lt;/tool_call&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Tool: {&amp;#39;title&amp;#39;: &amp;#39;Simple Roasted Carrots&amp;#39;, &amp;#39;ingredients&amp;#39;: [&amp;#39;1lb chopped carrots&amp;#39;, ...], &amp;#39;instructions&amp;#39;: &amp;#39;Toss chopped carrots...&amp;#39;}&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: Okay, here is a recipe for Carrot:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n**Simple Roasted Carrots**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nIngredients:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- 1lb chopped carrots&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nInstructions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nToss chopped carrots...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nWould you like another recipe... or would you like to quit?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Human: Do you have one for Zucchini?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: I&amp;#39;m sorry, I only have recipes for Carrot, Broccoli, Spinach, Potato, and Bell Pepper. Would you like one for those?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... more examples ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;get_recipe-tool&#34;&gt;get_recipe tool&lt;/h3&gt;
+&lt;p&gt;We define a Python function decorated with LangChain&amp;rsquo;s &lt;code&gt;@tool&lt;/code&gt;. This function simulates looking up a recipe and returns it as a structured Python dictionary (&lt;code&gt;Recipe&lt;/code&gt;), not just a block of text.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langchain_core.tools &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tool
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Dict, Any, Optional
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Mock Recipe Data (Structured)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MOCK_RECIPES: Dict[str, Recipe] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;carrot&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple Roasted Carrots&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;broccoli&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Steamed Broccoli with Lemon&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... other recipes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;get_recipe&lt;/span&gt;(vegetable: str) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; Optional[Recipe]: &lt;span style=&#34;color:#75715e&#34;&gt;# Returns structured Recipe or None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Provides a simple structured vegetarian recipe (title, ingredients, instructions) for the specified vegetable. Only works for Carrot, Broccoli, Spinach, Potato, Bell Pepper.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    recipe_data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MOCK_RECIPES&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(vegetable&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lower())
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; recipe_data:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; recipe_data
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Returning &lt;em&gt;structured output&lt;/em&gt; from the tool allows the chatbot node to reliably extract and format the title, ingredients, and instructions according to the system prompt&amp;rsquo;s rules.
+Currently we are returning hardcoded mock data.&lt;/p&gt;
+&lt;h3 id=&#34;building-the-graph-with-langgraph&#34;&gt;Building the graph with LangGraph&lt;/h3&gt;
+&lt;p&gt;We combine the nodes which perform actions, edges which define flow between the nodes and conditional logic to when to call a tool? or When to quit?&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langgraph.graph &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; StateGraph, START, END
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# --- Build Graph ---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# print(&amp;#34;Building graph...&amp;#34;) # Debug&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; StateGraph(RecipeState)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add nodes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;, chatbot_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;, human_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, tool_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Define entry point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(START, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Define edges with conditional routing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_conditional_edges(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    route_logic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_conditional_edges(
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exit_logic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        END: END
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Tool node always returns to chatbot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Compile the graph&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;recipe_graph &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;compile()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Currently get_recipes tool uses MOCK_RECIPES dictionary hardcoded. In the future, it would be great to search the Internet or use RAG to search from an embedding vector database.&lt;/li&gt;
+&lt;li&gt;Limited it to only 5 vegetables to keep it simple. It could be expanded to include list of ingredients and also allergies and some ingredients to avoid.&lt;/li&gt;
+&lt;li&gt;Current chat box is very basic. It would be great to add voice input.&lt;/li&gt;
+&lt;li&gt;Add more tools to find supermarkets to buy the ingredients.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;This capstone project demonstrates how combining the conversational power of Google&amp;rsquo;s Gemini model with the structured workflow capabilities of LangGraph allows for the creation of useful and interactive AI agents. By leveraging &lt;strong&gt;few-shot prompting&lt;/strong&gt; and handling &lt;strong&gt;structured tool outputs&lt;/strong&gt; within an &lt;strong&gt;agentic framework&lt;/strong&gt;, I have solved my recipe issue. There is a lot more one can build with Generative AI Agents.&lt;/p&gt;
+&lt;h3 id=&#34;follow-me&#34;&gt;Follow me&lt;/h3&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>

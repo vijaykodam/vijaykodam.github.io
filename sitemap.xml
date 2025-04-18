@@ -2,13 +2,49 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/agents/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/agents/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/gemini/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/genai/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/genai/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/langgraph/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/llm/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/llm/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/google-genai-capstone-project/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/agenticai/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/anthropic/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/claude/</loc>
@@ -21,27 +57,6 @@
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/decibel-meter-using-claude-code/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/genai/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/genai/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/llm/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/llm/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/audio/</loc>
@@ -139,9 +154,6 @@
   </url><url>
     <loc>https://vijay.eu/tags/html5/</loc>
     <lastmod>2025-02-16T19:58:58+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/agents/</loc>
-    <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/bedrock/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
