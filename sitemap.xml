@@ -2,22 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/aws/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/aws/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/genai/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/genai/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/mcp-amazon-q-cli/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/mcp/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/tags/agents/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/agents/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/gemini/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/genai/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/genai/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/langgraph/</loc>
@@ -32,15 +56,6 @@
     <loc>https://vijay.eu/posts/google-genai-capstone-project/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/agenticai/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
@@ -51,9 +66,6 @@
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/claudecode/</loc>
-    <lastmod>2025-03-13T23:16:20+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/decibel-meter-using-claude-code/</loc>
@@ -82,12 +94,6 @@
   </url><url>
     <loc>https://vijay.eu/projects/markdown-editor/</loc>
     <lastmod>2025-03-09T23:44:00+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/awscommunity/</loc>
     <lastmod>2025-03-05T10:16:35+02:00</lastmod>
