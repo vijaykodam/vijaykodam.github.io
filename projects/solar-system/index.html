@@ -7,27 +7,31 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Vijay Kodam">
-    <meta name="description" content="Vijay Kodam&#39;s Personal Blog">
+    <meta name="description" content=" Drag to orbit · Scroll to zoom Planet: Color: Time scale: ">
     <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
 
     <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Cloud"/>
-<meta name="twitter:description" content="Vijay Kodam&#39;s Personal Blog"/>
+<meta name="twitter:title" content="Solar System"/>
+<meta name="twitter:description" content=" Drag to orbit · Scroll to zoom Planet: Color: Time scale: "/>
 
-    <meta property="og:title" content="Cloud" />
-<meta property="og:description" content="Vijay Kodam&#39;s Personal Blog" />
-<meta property="og:type" content="website" />
-<meta property="og:url" content="https://vijay.eu/categories/cloud/" /><meta property="og:site_name" content="Vijay Kodam" />
+    <meta property="og:title" content="Solar System" />
+<meta property="og:description" content=" Drag to orbit · Scroll to zoom Planet: Color: Time scale: " />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://vijay.eu/projects/solar-system/" /><meta property="article:section" content="projects" />
+<meta property="article:published_time" content="2025-04-24T00:00:00+00:00" />
+<meta property="article:modified_time" content="2025-04-24T00:00:00+00:00" /><meta property="og:site_name" content="Vijay Kodam" />
 
 
-
-    
-      <base href="https://vijay.eu/categories/cloud/">
-    
-    <title>Cloud · Vijay Kodam</title>
 
     
-      <link rel="canonical" href="https://vijay.eu/categories/cloud/">
+      <base href="https://vijay.eu/projects/solar-system/">
+    
+    <title>
+  Solar System · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/projects/solar-system/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -51,7 +55,6 @@
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <link rel="alternate" type="application/rss+xml" href="https://vijay.eu/categories/cloud/index.xml" title="Vijay Kodam" />
     <meta name="generator" content="Hugo 0.104.2" />
   </head>
 
@@ -92,62 +95,31 @@
 
       <div class="content">
         
-  <section class="container list">
-  <h1 class="title">Cloud</h1>
-  
-  <ul>
-    
-    <li>
-      <span class="date">May 12, 2020</span>
-      <a class="title" href="https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/">How to login securely to your Amazon EC2 Instance?</a>
-    </li>
-    
-    <li>
-      <span class="date">December 23, 2018</span>
-      <a class="title" href="https://vijay.eu/posts/ambassador-keycloak-integration/">Ambassador API GW and Keycloak integration</a>
-    </li>
-    
-  </ul>
-  
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Solar System</h1>
+    </header>
 
+    <div style="position: relative; height: 100vh; width: 100%; overflow: hidden;">
+  <div id="info">Drag to orbit · Scroll to zoom</div>
+  <div id="uiPanel">
+    Planet:
+    <select id="planetSelect"></select>
+    Color:
+    <input id="colorPicker" type="color" value="#1e90ff" title="Pick planet color"/>
+  </div>
+  <div id="timescale">Time scale: <input id="timeRange" type="range" min="0.05" max="10" step="0.05" value="1"/></div>
+  <canvas id="c"></canvas>
+</div>
 
+<link rel="stylesheet" href="https://vijay.eu/css/solar-system.css">
+<script src="https://vijay.eu/js/solar-system.js"></script>
 
-
-
-<ul class="pagination">
-  
-    
-    <li><a href="https://vijay.eu/categories/cloud/">&laquo;</a></li>
-    
-    <li class="hidden"><a href="https://vijay.eu/categories/cloud/">&lsaquo;</a></li>
-  
-  
-    
-    
-      
-    
-    
-      
-      <li><a href="https://vijay.eu/categories/cloud/">1</a></li>
-      
-    
-  
-    
-    
-      
-    
-    
-      
-      <li>2</li>
-      
-    
-  
-  
-</ul>
-
-
+  </article>
 </section>
 
+  
 
       </div>
 
@@ -345,6 +317,11 @@
 
     
 
+
+    
+        
+    
+        
 
     
 

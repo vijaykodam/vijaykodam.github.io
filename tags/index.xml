@@ -6,10 +6,37 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 19 Apr 2025 00:54:11 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 01:18:22 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>AWS</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/tags/genai/</link>
+      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MCP</title>
+      <link>https://vijay.eu/tags/mcp/</link>
+      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/mcp/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Agents</title>
@@ -26,15 +53,6 @@
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/gemini/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
       <description></description>
     </item>
     
@@ -125,15 +143,6 @@
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/web/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
     </item>
     

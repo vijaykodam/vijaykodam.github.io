@@ -6,10 +6,62 @@
     <description>Recent content in AWS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 05 Mar 2025 10:16:35 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 04 May 2025 01:18:22 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to generate AWS Architecture diagram using AWS MCP server and Amazon Q CLI</title>
+      <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
+      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid>
+      <description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
+&lt;p&gt;In this blog post, I will show you how to generate entire AWS architecture diagrams using single prompt with this new AWS MCP server and Amazon Q CLI.&lt;/p&gt;
+&lt;p&gt;Here is the generated AWS Architecture diagram:&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Read more to find out how …&lt;/p&gt;
+&lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;LLMs are essentially text-in-text-out or data-in-data-out systems. Agents or tools give LLMs ability to interact with real world. MCP standardizes the interaction between these agents/tools and the applications, typically via MCP Client on the agent/tool side and MCP server on the application side.&lt;/p&gt;
+&lt;p&gt;MCP has become popular after AWS, OpenAI, Google, and Microsoft decided to adopt the standard making it go to protocol. Now we have lots of open source MCP servers ready to use.&lt;/p&gt;
+&lt;p&gt;I have tried many MCP Hosts/MCP Clients and Amazon Q CLI is the most simple and straight-forward one. Install Q CLI, login to your AWS Builder ID, and you are good to go on a free tier.
+AWS handles the LLM calling transparently. No need of any configurations for LLM.&lt;/p&gt;
+&lt;h2 id=&#34;amazon-q-cli&#34;&gt;Amazon Q CLI&lt;/h2&gt;
+&lt;p&gt;Amazon Q is a generative AI assistant. Recently Amazon Q CLI announced MCP support. This is a big announcement for me as it simplifies using MCP as simple as calling the Amazon Q CLI. I am a terminal guy and have been using generative AI CLI tools like Claude Code and now Amazon Q CLI.&lt;/p&gt;
+&lt;h2 id=&#34;steps-to-install-amazon-q-cli&#34;&gt;Steps to install Amazon Q CLI&lt;/h2&gt;
+&lt;p&gt;What I love about Amazon Q CLI is the installation and usage. Installation is a single command in your Mac.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install amazon-q
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You must login using either AWS Builder ID or your AWS credentials. Use AWS Builder ID if you are just getting started. This is an easy way to try it using the free tier.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;q login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then you just use it by calling:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;q chat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;Even though we don&amp;rsquo;t interact with LLM directly, Amazon Q CLI uses LLM transparent to the user in the background. Based on the user&amp;rsquo;s query it decides to use the AWS Diagram server via MCP Client inside AWS Q CLI.&lt;/p&gt;
+&lt;p&gt;The MCP Client talks to AWS Diagrams MCP server via Model Context Protocol. Internally it pulls the needs icons, generates diagrams using Python diagrams package DSL. Once the image is generated, Q CLI stores it in the user directory.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Install GraphViz before. See &lt;a href=&#34;https://www.graphviz.org/&#34;&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In Mac:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install graphviz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;In this demo I am setting up &lt;a href=&#34;https://awslabs.github.io/mcp/servers/aws-diagram-mcp-server/&#34;&gt;AWS Diagrams MCP server&lt;/a&gt; which is the tool/MCP server which Amazon Q CLI calls to generate AWS architecture diagram.
+Watch below demo where I setup the MCP server and generate AWS architecture diagrams using LLM with a single prompt.&lt;/p&gt;
+&lt;iframe 
+  src=&#34;https://www.youtube.com/embed/HQK5P_Mbp1g?si=LA5Z9swDLv6T7NgP&#34; 
+  width=&#34;560&#34; 
+  height=&#34;315&#34; 
+  title=&#34;Embedded Content&#34; 
+  frameborder=&#34;0&#34; 
+  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Got into AWS Community Builders Program</title>
