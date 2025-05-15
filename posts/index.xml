@@ -12,6 +12,66 @@
     
     
     <item>
+      <title>Built my first MCP Server for Kubernetes</title>
+      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
+      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
+&lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
+&lt;h2 id=&#34;model-context-protocol&#34;&gt;Model Context Protocol&lt;/h2&gt;
+&lt;p&gt; Model Context Protocol (MCP) has been very popular lately and you can see the huge adoption as every company is releasing their official MCP server.&lt;/p&gt;
+&lt;p&gt;MCP server is the new API endpoint.&lt;/p&gt;
+&lt;h2 id=&#34;why-yet-another-mcp-server&#34;&gt;Why Yet Another MCP Server?&lt;/h2&gt;
+&lt;p&gt;Kubernetes is equally popular and there are many Kubernetes MCP servers out there. Security is still evolving around MCP and I didn’t want to run an MCP server for K8s which can create, update or delete my K8s resources.&lt;/p&gt;
+&lt;p&gt;Then I got an idea to build my own MCP server where only read only operations are part of the MCP servers tools. If there is no capability written to modify then it cannot modify the resources.&lt;/p&gt;
+&lt;p&gt;Of course we could achieve it by creating a restrictive RBAC role in K8s cluster but I wanted to learn and what better way than building your own MCP server.&lt;/p&gt;
+&lt;h2 id=&#34;how-i-built-it&#34;&gt;How I built it?&lt;/h2&gt;
+&lt;p&gt;I have used FastMCP framework for building MCP server. For calling Kubernetes API server, I have used the official Kubernetes Python client. Essentially I was plumbing both those things together and building a solution around them.&lt;/p&gt;
+&lt;p&gt;Each API call is created as a separate MCP tool. For example, there is one K8s API call for get pods which has been implemented as get_pods MCP tool.&lt;/p&gt;
+&lt;p&gt;There is a common Kubernetes context initiated once at the start which is shared across the MCP tools.&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;p&gt;This MCP server provides the following read-only tools:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;list_pods&lt;/code&gt;: List all pods in a namespace or across all namespaces&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list_deployments&lt;/code&gt;: List all deployments in a specified namespace&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list_services&lt;/code&gt;: List all services in a namespace or across all namespaces&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;list_namespaces&lt;/code&gt;: List all namespaces in the cluster&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_events&lt;/code&gt;: Get Kubernetes events from the cluster&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_pod_logs&lt;/code&gt;: Get logs from a specific pod&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;get_logs&lt;/code&gt;: Get logs from pods, deployments, jobs, or resources matching a label selector&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Currently I have only implemented the stdio transport. MCP added streamable_http transport recently. For watch or streaming logs such functionality might be needed. I need to check it further.&lt;/li&gt;
+&lt;li&gt;Not all read only Kubernetes APIs are added.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;pypi-package&#34;&gt;PyPi package&lt;/h2&gt;
+&lt;p&gt;At first, for testing purposes, I was calling the MCP server code from a single python file directly. After that added that command in the MCP config file and tested it. Then I thought it would be better if there is a single command to run the python module and after some research decided to build &lt;a href=&#34;https://pypi.org/project/kubernetes-readonly-mcp/&#34;&gt;my own PyPi package&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;I only used pip or uv to install python packages and now I got to create one. Now you can install the MCP server using “pip install kubernetes-readonly-mcp@latest”. This was a very fun and learning experience.&lt;/p&gt;
+&lt;h2 id=&#34;final-remarks&#34;&gt;Final Remarks&lt;/h2&gt;
+&lt;p&gt;After building, packaging and pushing it to GitHub, I started testing it using VSCode + Cline and installed the MCP server and chat with it.&lt;/p&gt;
+&lt;p&gt;This project is still in experimental phase. Use it at your own discretion.&lt;/p&gt;
+&lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
+&lt;p&gt;Below is the demo of installing and usage of my first MCP server for readonly Kubernetes operations. Do let me know what is your experience with MCP?&lt;/p&gt;
+&lt;iframe 
+  src=&#34;https://www.youtube.com/embed/bIjzZz7kbDQ?si=fhcs5gvfc44DHr7d&#34; 
+  width=&#34;560&#34; 
+  height=&#34;315&#34; 
+  title=&#34;Embedded Content&#34; 
+  frameborder=&#34;0&#34; 
+  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
       <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
