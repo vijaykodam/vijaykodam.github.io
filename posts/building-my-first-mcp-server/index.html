@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head><script src="/livereload.js?mindelay=10&amp;v=2&amp;port=1313&amp;path=livereload" data-no-instant defer></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="Model Context Protol server for Kubernetes">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Built my first MCP Server for Kubernetes">
+  <meta name="twitter:description" content="Model Context Protol server for Kubernetes">
+
+    <meta property="og:url" content="http://localhost:1313/posts/building-my-first-mcp-server/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Built my first MCP Server for Kubernetes">
+  <meta property="og:description" content="Model Context Protol server for Kubernetes">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-05-14T23:17:36+03:00">
+    <meta property="article:modified_time" content="2025-05-14T23:17:36+03:00">
+    <meta property="article:tag" content="MCP">
+    <meta property="article:tag" content="Model Context Protocol">
+    <meta property="article:tag" content="GenAI">
+    <meta property="article:tag" content="LLM">
+
+
+    
+      <base href="http://localhost:1313/posts/building-my-first-mcp-server/">
+    
+    <title>
+  Built my first MCP Server for Kubernetes · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="http://localhost:1313/posts/building-my-first-mcp-server/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.css" media="screen">
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="http://localhost:1313/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="http://localhost:1313/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">Built my first MCP Server for Kubernetes</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2025-05-14T23:17:36&#43;03:00'>
+                May 14, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              3-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="/categories/genai/">GenAI</a>
+      <span class="separator">•</span>
+    <a href="/categories/mcp/">MCP</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/mcp/">MCP</a>
+      <span class="separator">•</span>
+    <a href="/tags/model-context-protocol/">Model Context Protocol</a>
+      <span class="separator">•</span>
+    <a href="/tags/genai/">GenAI</a>
+      <span class="separator">•</span>
+    <a href="/tags/llm/">LLM</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="/images/first-mcp.jpeg" alt="first-mcp"></p>
+<h2 id="intro">Intro</h2>
+<p>Built my first MCP Server for read only Kubernetes operations.</p>
+<p>This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.</p>
+<h2 id="model-context-protocol">Model Context Protocol</h2>
+<p> Model Context Protocol (MCP) has been very popular lately and you can see the huge adoption as every company is releasing their official MCP server.</p>
+<p>MCP server is the new API endpoint.</p>
+<h2 id="why-yet-another-mcp-server">Why Yet Another MCP Server?</h2>
+<p>Kubernetes is equally popular and there are many Kubernetes MCP servers out there. Security is still evolving around MCP and I didn’t want to run an MCP server for K8s which can create, update or delete my K8s resources.</p>
+<p>Then I got an idea to build my own MCP server where only read only operations are part of the MCP servers tools. If there is no capability written to modify then it cannot modify the resources.</p>
+<p>Of course we could achieve it by creating a restrictive RBAC role in K8s cluster but I wanted to learn and what better way than building your own MCP server.</p>
+<h2 id="how-i-built-it">How I built it?</h2>
+<p>I have used FastMCP framework for building MCP server. For calling Kubernetes API server, I have used the official Kubernetes Python client. Essentially I was plumbing both those things together and building a solution around them.</p>
+<p>Each API call is created as a separate MCP tool. For example, there is one K8s API call for get pods which has been implemented as get_pods MCP tool.</p>
+<p>There is a common Kubernetes context initiated once at the start which is shared across the MCP tools.</p>
+<h2 id="features">Features</h2>
+<p>This MCP server provides the following read-only tools:</p>
+<ul>
+<li><code>list_pods</code>: List all pods in a namespace or across all namespaces</li>
+<li><code>list_deployments</code>: List all deployments in a specified namespace</li>
+<li><code>list_services</code>: List all services in a namespace or across all namespaces</li>
+<li><code>list_namespaces</code>: List all namespaces in the cluster</li>
+<li><code>get_events</code>: Get Kubernetes events from the cluster</li>
+<li><code>get_pod_logs</code>: Get logs from a specific pod</li>
+<li><code>get_logs</code>: Get logs from pods, deployments, jobs, or resources matching a label selector</li>
+</ul>
+<h2 id="todo">TODO</h2>
+<ul>
+<li>Currently I have only implemented the stdio transport. MCP added streamable_http transport recently. For watch or streaming logs such functionality might be needed. I need to check it further.</li>
+<li>Not all read only Kubernetes APIs are added.</li>
+</ul>
+<h2 id="pypi-package">PyPi package</h2>
+<p>At first, for testing purposes, I was calling the MCP server code from a single python file directly. After that added that command in the MCP config file and tested it. Then I thought it would be better if there is a single command to run the python module and after some research decided to build <a href="https://pypi.org/project/kubernetes-readonly-mcp/">my own PyPi package</a>.</p>
+<p>I only used pip or uv to install python packages and now I got to create one. Now you can install the MCP server using “pip install kubernetes-readonly-mcp@latest”. This was a very fun and learning experience.</p>
+<h2 id="final-remarks">Final Remarks</h2>
+<p>After building, packaging and pushing it to GitHub, I started testing it using VSCode + Cline and installed the MCP server and chat with it.</p>
+<p>This project is still in experimental phase. Use it at your own discretion.</p>
+<h2 id="demo-video">Demo Video</h2>
+<p>Below is the demo of installing and usage of my first MCP server for readonly Kubernetes operations. Do let me know what is your experience with MCP?</p>
+<iframe 
+  src="https://www.youtube.com/embed/bIjzZz7kbDQ?si=fhcs5gvfc44DHr7d" 
+  width="560" 
+  height="315" 
+  title="Embedded Content" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

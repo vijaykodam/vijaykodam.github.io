@@ -6,13 +6,13 @@
     <description>Recent content on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 May 2025 01:18:22 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>How to generate AWS Architecture diagram using AWS MCP server and Amazon Q CLI</title>
+      <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
       <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
       
@@ -80,8 +80,7 @@ During these times I wonder how great it would be to have a magic tool which cou
 &lt;p&gt;Recently I took this hands-on &lt;strong&gt;“5-day Gen AI Intensive Course with Google”&lt;/strong&gt; and thought this might be a good way to solve my problem with recipes.&lt;/p&gt;
 &lt;p&gt;This is the definition from Google’s whitepaper:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;To put it simply: LLMs cannot interact with the external world or act  on the external events. GenAI agents use LLMs, reasoning, logic and external tools to achieve the objectives set by the user.&lt;/p&gt;
 &lt;p&gt;This fits perfectly with my personal problem I mentioned about finding recipes. If I set the objective of generating recipes for a given vegetable and if I add tools to get recipes for such vegetables then the GenAI agent will reason about my request, use logic to find the recipes using perfect tool and format it in a human-readable format and present it to me.&lt;/p&gt;
 &lt;p&gt;So, I decided to create a GenAI Agent for Veggie Recipe Generator which helps me with recipes for the vegetables I want. In this capstone project, I have used mock recipes to demonstrate what I have learnt in this course.&lt;/p&gt;
@@ -1008,7 +1007,7 @@ Now that everyone is amazed by the low level of resource utilization and open we
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
 &amp;ldquo;ollama run deepseek-r1:8b&amp;rdquo;
 You get your own private, local LLM running securely in your computer.&lt;/p&gt;
-&lt;p&gt;My prompt is &amp;ldquo;Generate a five line fairy tale about AI?&amp;rdquo;. In the video, you can see how before generating the response, it thinks. Thinking text is in between &lt;!-- raw HTML omitted --&gt; and &lt;!-- raw HTML omitted --&gt; tags.&lt;/p&gt;
+&lt;p&gt;My prompt is &amp;ldquo;Generate a five line fairy tale about AI?&amp;rdquo;. In the video, you can see how before generating the response, it thinks. Thinking text is in between &lt;think&gt; and &lt;/think&gt; tags.&lt;/p&gt;
 &lt;p&gt;Watch the video to read the five line fairy tale about AI.&lt;/p&gt;
 &lt;p&gt;Do you have any experience running Deepseek R1?&lt;/p&gt;
 &lt;iframe 
@@ -1258,8 +1257,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;p&gt;Here is the definition from AWS documentation:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;AWS is responsible for the &lt;strong&gt;&amp;ldquo;Security of the Cloud&amp;rdquo;&lt;/strong&gt;. AWS is responsible for protecting the infrastructure that runs all of the services offered in the AWS Cloud. This infrastructure is composed of the hardware, software, networking, and facilities that run AWS Cloud services.&lt;/p&gt;
-&lt;p&gt;Customer is responsible for the &lt;strong&gt;“Security in the Cloud”&lt;/strong&gt;. Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;Customer is responsible for the &lt;strong&gt;“Security in the Cloud”&lt;/strong&gt;. Customer responsibility will be determined by the AWS Cloud services that a customer selects. This determines the amount of configuration work the customer must perform as part of their security responsibilities.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Refer AWS Documentation for more information on Shared Responsibility Model.&lt;/p&gt;
 &lt;h3 id=&#34;best-practices&#34;&gt;Best Practices&lt;/h3&gt;
 &lt;p&gt;Luckily, AWS provides you with a host of security services to improve your security posture from Day One. Note that this is not an exhaustive list and &amp;ldquo;it depends&amp;rdquo; on where you run and what services you use. Here are some of the steps to secure your microservices architecture in AWS:&lt;/p&gt;
@@ -1742,8 +1740,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;p&gt;There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.&lt;/p&gt;
 &lt;p&gt;When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication. Secure your SSH port to allow traffic from specific subnet (Ex., 3.2.132.0/24) or your own IP address (Eg., 3.2.132.23/32) by setting security group rules.&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;A &lt;a href=&#34;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html&#34;&gt;*security group&lt;/a&gt;* acts as a virtual firewall for your instance to control inbound and outbound traffic.&lt;/p&gt;
-&lt;/blockquote&gt;
+&lt;p&gt;A &lt;a href=&#34;https://docs.aws.amazon.com/vpc/latest/userguide/VPC_SecurityGroups.html&#34;&gt;*security group&lt;/a&gt;* acts as a virtual firewall for your instance to control inbound and outbound traffic.&lt;/p&gt;&lt;/blockquote&gt;
 &lt;p&gt;Problem with this method is that whenever your IP address or subnet changes you have to update your security group rules. Managing SSH keys is another task, which can get quite tricky when there are more than few EC2 instances. How to store the SSH keys safely? How to grant or revoke accesses to specific users?&lt;/p&gt;
 &lt;p&gt;Another way is to use bastion host, run it in Public subnet and expose it to Internet using security group rules. Create your EC2 instances in a private subnet where there is no access from Internet and no one from outside can access it. Use security group rules to allow SSH traffic into your instance only from the bastion. This way your EC2 instance traffic is secured and only from bastion host you can access your EC2 instance.&lt;/p&gt;
 &lt;p&gt;However, the same problem exists as before. How will you secure your SSH/RDP port on the bastion host. You will still have to manage the SSH keys to your bastion host and open inbound ports on the instance.&lt;/p&gt;
@@ -1836,7 +1833,7 @@ Click Reset Password.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When dialog window opens click Change Password.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration. 
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration.
 Please do not do this in production or in any setup. Follow these instructions at your own risk.&lt;/p&gt;
 &lt;p&gt;Now go back and click Users section in Keycloak. In the Users page, click &amp;ldquo;View all Users&amp;rdquo; and you should see the newly created user.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;

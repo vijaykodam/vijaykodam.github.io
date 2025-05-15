@@ -7,26 +7,34 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Vijay Kodam">
-    <meta name="description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+    <meta name="description" content="
+Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
 Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
-Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests.">
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.">
     <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Ambassador API GW and Keycloak integration"/>
-<meta name="twitter:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Ambassador API GW and Keycloak integration">
+  <meta name="twitter:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
 Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
-Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests."/>
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.">
 
-    <meta property="og:title" content="Ambassador API GW and Keycloak integration" />
-<meta property="og:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
+    <meta property="og:url" content="https://vijay.eu/posts/ambassador-keycloak-integration/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Ambassador API GW and Keycloak integration">
+  <meta property="og:description" content="Ambassador API GW is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.
 Keycloak is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.
-Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vijay.eu/posts/ambassador-keycloak-integration/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2018-12-23T00:00:00+00:00" />
-<meta property="article:modified_time" content="2018-12-23T00:00:00+00:00" /><meta property="og:site_name" content="Vijay Kodam" />
-
+Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2018-12-23T00:00:00+00:00">
+    <meta property="article:modified_time" content="2018-12-23T00:00:00+00:00">
+    <meta property="article:tag" content="Ambassador">
+    <meta property="article:tag" content="Api Gateway">
+    <meta property="article:tag" content="Keycloak">
+    <meta property="article:tag" content="Authentication">
 
 
     
@@ -47,7 +55,7 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
     
       
       
-      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.151ad25b471046e469e509ffba2c79d639a26304c1d96e166e1ccee8e3bddbc0.css" integrity="sha256-FRrSW0cQRuRp5Qn/uix51jmiYwTB2W4WbhzO6OO928A=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.151ad25b471046e469e509ffba2c79d639a26304c1d96e166e1ccee8e3bddbc0.css" integrity="sha256-FRrSW0cQRuRp5Qn/uix51jmiYwTB2W4WbhzO6OO928A=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -61,7 +69,7 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.104.2" />
+    <meta name="generator" content="Hugo 0.147.3">
   </head>
 
   
@@ -70,7 +78,7 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://vijay.eu/">
+    <a class="navigation-title" href="/">
       Vijay Kodam
     </a>
     
@@ -122,28 +130,28 @@ Ambassador supports authenticating incoming requests. When configured, Ambassado
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://vijay.eu/categories/cloud/">Cloud</a>
+    <a href="/categories/cloud/">Cloud</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/categories/api-gw/">API GW</a>
+    <a href="/categories/api-gw/">API GW</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/categories/open-id-connect/">Open ID Connect</a></div>
+    <a href="/categories/open-id-connect/">Open ID Connect</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://vijay.eu/tags/ambassador/">ambassador</a>
+    <a href="/tags/ambassador/">ambassador</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/api-gateway/">api gateway</a>
+    <a href="/tags/api-gateway/">api gateway</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/keycloak/">keycloak</a>
+    <a href="/tags/keycloak/">keycloak</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/authentication/">authentication</a></div>
+    <a href="/tags/authentication/">authentication</a></div>
 
         </div>
       </header>
 
       <div>
         
-        <p><img src="https://vijay.eu/images/cloud.webp" alt="cloud"></p>
+        <p><img src="/images/cloud.webp" alt="cloud"></p>
 <p><a href="https://www.getambassador.io/">Ambassador API GW</a> is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.</p>
 <p><a href="https://www.keycloak.org/">Keycloak</a> is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.</p>
 <p>Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.</p>
@@ -169,26 +177,26 @@ You can follow the instructions mentioned <a href="https://www.getambassador.io/
 <p>Login to Keycloak by visiting <code>http://&lt;your-ip&gt;</code> in your browser. Use the username and password supplied in the docker run command to login to Keycloak.</p>
 <p>Use the existing &ldquo;master&rdquo; realm. Create a client and a user for our testing purposes.
 Click on <code>Clients -&gt; Create</code>. Create button is on the right side of the page.</p>
-<p><img src="https://vijay.eu/images/Capture6.JPG" alt=""></p>
+<p><img src="/images/Capture6.JPG" alt=""></p>
 <p>Add <code>Client ID</code> as <code>test</code>. Select &ldquo;<code>Client Protocol</code>&rdquo; as &ldquo;openid-connect&rdquo;. You can leave other fields empty. Click Save.</p>
-<p><img src="https://vijay.eu/images/Capture1.JPG" alt=""></p>
+<p><img src="/images/Capture1.JPG" alt=""></p>
 <p>After saving, a new window will open with more details. Turn On <code>Authorization Enabled</code> option. It will automatically turn On <code>Service Accounts Enabled</code> option. Leave it like that.</p>
 <p>Fill <code>Valid Redirect URIs</code> with <code>http://&lt;Ambassador URL&gt;/*</code>. Click Save.</p>
-<p><img src="https://vijay.eu/images/Capture2.JPG" alt=""></p>
-<p><img src="https://vijay.eu/images/Capture8.JPG" alt=""></p>
+<p><img src="/images/Capture2.JPG" alt=""></p>
+<p><img src="/images/Capture8.JPG" alt=""></p>
 <p>On the same page, go to <code>Credentials</code> tab as shown below. Note the secret which is needed when creating &ldquo;ambassador-auth-client-secret&rdquo; in the next section. Use it wherever <code>&lt;YOUR_OIDC_CLIENT_SECRET&gt;</code> is mentioned.</p>
-<p><img src="https://vijay.eu/images/Capture4.JPG" alt=""></p>
+<p><img src="/images/Capture4.JPG" alt=""></p>
 <p>Click Users section on the keycloak page, to create users. Add username, email and select email verified. Click Save.</p>
-<p><img src="https://vijay.eu/images/Capture9.JPG" alt=""></p>
+<p><img src="/images/Capture9.JPG" alt=""></p>
 <p>In the same page, go to Credentials tab.  Set the new password, and turn Temporary to Off.<br>
 Click Reset Password.</p>
-<p><img src="https://vijay.eu/images/Capture10.JPG" alt=""></p>
+<p><img src="/images/Capture10.JPG" alt=""></p>
 <p>When dialog window opens click Change Password.</p>
-<p><img src="https://vijay.eu/images/Capture11.JPG" alt=""></p>
-<p><strong>Note:</strong> Please note that this is done only for testing ambassador-keycloak integration. 
+<p><img src="/images/Capture11.JPG" alt=""></p>
+<p><strong>Note:</strong> Please note that this is done only for testing ambassador-keycloak integration.
 Please do not do this in production or in any setup. Follow these instructions at your own risk.</p>
 <p>Now go back and click Users section in Keycloak. In the Users page, click &ldquo;View all Users&rdquo; and you should see the newly created user.</p>
-<p><img src="https://vijay.eu/images/Capture12.JPG" alt=""></p>
+<p><img src="/images/Capture12.JPG" alt=""></p>
 <h2 id="setup-oidc-auth-integration-with-keycloak">Setup OIDC Auth integration with Keycloak</h2>
 <p>Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.</p>
 <p>Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&rsquo;t run both.</p>
@@ -266,8 +274,8 @@ Enter your &ldquo;test&rdquo; user credentials. After successful login it should
 
 
 
-<link rel="stylesheet" href="https://vijay.eu/css/cookieconsent.css">
-<script src="https://vijay.eu/js/cookieconsent.umd.js"></script>
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
