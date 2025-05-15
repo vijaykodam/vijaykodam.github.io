@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>ambassador on Vijay Kodam</title>
+    <title>Ambassador on Vijay Kodam</title>
     <link>https://vijay.eu/tags/ambassador/</link>
-    <description>Recent content in ambassador on Vijay Kodam</description>
+    <description>Recent content in Ambassador on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
@@ -59,7 +59,7 @@ Click Reset Password.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When dialog window opens click Change Password.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration. 
+&lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration.
 Please do not do this in production or in any setup. Follow these instructions at your own risk.&lt;/p&gt;
 &lt;p&gt;Now go back and click Users section in Keycloak. In the Users page, click &amp;ldquo;View all Users&amp;rdquo; and you should see the newly created user.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;

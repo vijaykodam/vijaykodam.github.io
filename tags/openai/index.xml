@@ -23,7 +23,7 @@ Now that everyone is amazed by the low level of resource utilization and open we
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
 &amp;ldquo;ollama run deepseek-r1:8b&amp;rdquo;
 You get your own private, local LLM running securely in your computer.&lt;/p&gt;
-&lt;p&gt;My prompt is &amp;ldquo;Generate a five line fairy tale about AI?&amp;rdquo;. In the video, you can see how before generating the response, it thinks. Thinking text is in between &lt;!-- raw HTML omitted --&gt; and &lt;!-- raw HTML omitted --&gt; tags.&lt;/p&gt;
+&lt;p&gt;My prompt is &amp;ldquo;Generate a five line fairy tale about AI?&amp;rdquo;. In the video, you can see how before generating the response, it thinks. Thinking text is in between &lt;think&gt; and &lt;/think&gt; tags.&lt;/p&gt;
 &lt;p&gt;Watch the video to read the five line fairy tale about AI.&lt;/p&gt;
 &lt;p&gt;Do you have any experience running Deepseek R1?&lt;/p&gt;
 &lt;iframe 

@@ -2,10 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-05-14T23:17:36+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-05-14T23:17:36+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
+    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/aws/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/</loc>
@@ -14,10 +20,10 @@
     <loc>https://vijay.eu/categories/cloud/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/genai/</loc>
+    <loc>https://vijay.eu/categories/genai/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/genai/</loc>
+    <loc>https://vijay.eu/tags/genai/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/mcp-amazon-q-cli/</loc>
@@ -26,19 +32,13 @@
     <loc>https://vijay.eu/tags/mcp/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/</loc>
-    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/agents/</loc>
+    <loc>https://vijay.eu/categories/agents/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/agents/</loc>
+    <loc>https://vijay.eu/tags/agents/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/gemini/</loc>
@@ -47,10 +47,10 @@
     <loc>https://vijay.eu/tags/langgraph/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/llm/</loc>
+    <loc>https://vijay.eu/categories/llm/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/llm/</loc>
+    <loc>https://vijay.eu/tags/llm/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/google-genai-capstone-project/</loc>
@@ -101,16 +101,16 @@
     <loc>https://vijay.eu/posts/aws-community-builders/</loc>
     <lastmod>2025-03-05T10:16:35+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/machine-learning/</loc>
-    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/categories/machine-learning/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/mlops/</loc>
+    <loc>https://vijay.eu/tags/machine-learning/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/mlops/</loc>
+    <lastmod>2025-03-04T01:53:52+02:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/mlops/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/mlops-101/</loc>
@@ -122,10 +122,10 @@
     <loc>https://vijay.eu/tags/karpenter/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/kubernetes/</loc>
+    <loc>https://vijay.eu/categories/kubernetes/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/kubernetes/</loc>
+    <loc>https://vijay.eu/tags/kubernetes/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/nodepooldisruptionbudget/</loc>
@@ -197,10 +197,10 @@
     <loc>https://vijay.eu/tags/eventdrivenarchitecture/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/serverless/</loc>
+    <loc>https://vijay.eu/categories/serverless/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/serverless/</loc>
+    <loc>https://vijay.eu/tags/serverless/</loc>
     <lastmod>2025-01-22T12:12:42+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/eventbridge-new-capability/</loc>
@@ -209,10 +209,10 @@
     <loc>https://vijay.eu/posts/surprising-side-effect-eks-auto/</loc>
     <lastmod>2025-01-21T12:10:31+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/computers/</loc>
+    <loc>https://vijay.eu/categories/computers/</loc>
     <lastmod>2025-01-16T12:01:43+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/computers/</loc>
+    <loc>https://vijay.eu/tags/computers/</loc>
     <lastmod>2025-01-16T12:01:43+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/teaching-kids-computers/</loc>
@@ -257,16 +257,16 @@
     <loc>https://vijay.eu/tags/shield/</loc>
     <lastmod>2024-11-04T00:06:59+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/cloud-computing/</loc>
-    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/categories/cloud-computing/</loc>
     <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/cost-optimization/</loc>
+    <loc>https://vijay.eu/tags/cloud-computing/</loc>
     <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cost-optimization/</loc>
+    <lastmod>2024-10-27T00:14:32+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/cost-optimization/</loc>
     <lastmod>2024-10-27T00:14:32+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/graviton/</loc>

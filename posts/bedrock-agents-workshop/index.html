@@ -10,17 +10,24 @@
     <meta name="description" content="Running Bedrock Knowledge bases, Agents, Guardrails and Flows in real world example">
     <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
 
-    <meta name="twitter:card" content="summary"/>
-<meta name="twitter:title" content="Hands-on Bedrock Agents workshop"/>
-<meta name="twitter:description" content="Running Bedrock Knowledge bases, Agents, Guardrails and Flows in real world example"/>
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Hands-on Bedrock Agents workshop">
+  <meta name="twitter:description" content="Running Bedrock Knowledge bases, Agents, Guardrails and Flows in real world example">
 
-    <meta property="og:title" content="Hands-on Bedrock Agents workshop" />
-<meta property="og:description" content="Running Bedrock Knowledge bases, Agents, Guardrails and Flows in real world example" />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://vijay.eu/posts/bedrock-agents-workshop/" /><meta property="article:section" content="posts" />
-<meta property="article:published_time" content="2025-02-15T00:22:33+02:00" />
-<meta property="article:modified_time" content="2025-02-15T00:22:33+02:00" /><meta property="og:site_name" content="Vijay Kodam" />
-
+    <meta property="og:url" content="https://vijay.eu/posts/bedrock-agents-workshop/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Hands-on Bedrock Agents workshop">
+  <meta property="og:description" content="Running Bedrock Knowledge bases, Agents, Guardrails and Flows in real world example">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-02-15T00:22:33+02:00">
+    <meta property="article:modified_time" content="2025-02-15T00:22:33+02:00">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Bedrock">
+    <meta property="article:tag" content="Agents">
+    <meta property="article:tag" content="RAG">
 
 
     
@@ -41,7 +48,7 @@
     
       
       
-      <link rel="stylesheet" href="https://vijay.eu/css/coder.min.151ad25b471046e469e509ffba2c79d639a26304c1d96e166e1ccee8e3bddbc0.css" integrity="sha256-FRrSW0cQRuRp5Qn/uix51jmiYwTB2W4WbhzO6OO928A=" crossorigin="anonymous" media="screen" />
+      <link rel="stylesheet" href="/css/coder.min.151ad25b471046e469e509ffba2c79d639a26304c1d96e166e1ccee8e3bddbc0.css" integrity="sha256-FRrSW0cQRuRp5Qn/uix51jmiYwTB2W4WbhzO6OO928A=" crossorigin="anonymous" media="screen" />
     
 
     
@@ -55,7 +62,7 @@
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <meta name="generator" content="Hugo 0.104.2" />
+    <meta name="generator" content="Hugo 0.147.3">
   </head>
 
   
@@ -64,7 +71,7 @@
     <main class="wrapper">
       <nav class="navigation">
   <section class="container">
-    <a class="navigation-title" href="https://vijay.eu/">
+    <a class="navigation-title" href="/">
       Vijay Kodam
     </a>
     
@@ -116,21 +123,21 @@
           </div>
           <div class="categories">
   <i class="fas fa-folder"></i>
-    <a href="https://vijay.eu/categories/cloud/">Cloud</a>
+    <a href="/categories/cloud/">Cloud</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/categories/aws/">AWS</a>
+    <a href="/categories/aws/">AWS</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/categories/genai/">GenAI</a></div>
+    <a href="/categories/genai/">GenAI</a></div>
 
           <div class="tags">
   <i class="fas fa-tag"></i>
-    <a href="https://vijay.eu/tags/llm/">LLM</a>
+    <a href="/tags/llm/">LLM</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/bedrock/">Bedrock</a>
+    <a href="/tags/bedrock/">Bedrock</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/agents/">Agents</a>
+    <a href="/tags/agents/">Agents</a>
       <span class="separator">•</span>
-    <a href="https://vijay.eu/tags/rag/">RAG</a></div>
+    <a href="/tags/rag/">RAG</a></div>
 
         </div>
       </header>
@@ -138,15 +145,15 @@
       <div>
         
         <p>Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.</p>
-<p><img src="https://vijay.eu/images/bedrock-ws-1.webp" alt="bedrock-workshop"></p>
+<p><img src="/images/bedrock-ws-1.webp" alt="bedrock-workshop"></p>
 <p>Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.</p>
 <p>As part of the hands-on workshop, I have created a mortage-processing-agent which uses RAG to add domain specific knowledge base and then created agents which can determine if end-user can afford it based on their financial situation.
 After that, created Amazon Bedrock Flows that orchestrates entire workflow. Last but not the least, created Guardrails to implement safeguards and enforce responsible AI policies for my GenAI application.</p>
 <p>Here is the mortgage processing agent I built during the hands-on workshop.
 The highlighted yellow box is the prompt user enters followed by the response from Bedrock.</p>
-<p><img src="https://vijay.eu/images/bedrock-ws-handson.webp" alt="bedrock-handson"></p>
+<p><img src="/images/bedrock-ws-handson.webp" alt="bedrock-handson"></p>
 <p>All in all, this was a very good way to get hands-on experience on Amazon Bedrock Agents, RAG, Flows and Guardrails.</p>
-<p><img src="https://vijay.eu/images/bedrock-ws-agents.webp" alt="bedrock-agents"></p>
+<p><img src="/images/bedrock-ws-agents.webp" alt="bedrock-agents"></p>
 <p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
 
       </div>
@@ -188,8 +195,8 @@ The highlighted yellow box is the prompt user enters followed by the response fr
 
 
 
-<link rel="stylesheet" href="https://vijay.eu/css/cookieconsent.css">
-<script src="https://vijay.eu/js/cookieconsent.umd.js"></script>
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
