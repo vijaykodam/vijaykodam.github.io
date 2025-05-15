@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 04 May 2025 01:18:22 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/tags/genai/</link>
+      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://vijay.eu/tags/llm/</link>
+      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>MCP</title>
+      <link>https://vijay.eu/tags/mcp/</link>
+      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/mcp/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Model Context Protocol</title>
+      <link>https://vijay.eu/tags/model-context-protocol/</link>
+      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/model-context-protocol/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>AWS</title>
@@ -17,24 +53,6 @@
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>MCP</title>
-      <link>https://vijay.eu/tags/mcp/</link>
-      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/mcp/</guid>
       <description></description>
     </item>
     
@@ -62,15 +80,6 @@
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/langgraph/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://vijay.eu/tags/llm/</link>
-      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/llm/</guid>
       <description></description>
     </item>
     
