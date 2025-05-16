@@ -39,10 +39,25 @@
     <lastmod>2025-05-14T23:17:36+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
-    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/aws/</loc>
-    <lastmod>2025-05-04T01:18:22+03:00</lastmod>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</loc>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/eks/</loc>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/kubernetes/</loc>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/ray/</loc>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/vllm/</loc>
+    <lastmod>2025-05-11T19:43:44+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/mcp-amazon-q-cli/</loc>
     <lastmod>2025-05-04T01:18:22+03:00</lastmod>
@@ -125,13 +140,7 @@
     <loc>https://vijay.eu/posts/mlops-101/</loc>
     <lastmod>2025-03-04T01:53:52+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/eks/</loc>
-    <lastmod>2025-03-02T23:45:23+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/karpenter/</loc>
-    <lastmod>2025-03-02T23:45:23+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/kubernetes/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/kubernetes/</loc>
