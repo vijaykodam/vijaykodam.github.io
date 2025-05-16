@@ -6,10 +6,37 @@
     <description>Recent content in Kubernetes on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 02 Mar 2025 23:45:23 +0200</lastBuildDate>
+    <lastBuildDate>Sun, 11 May 2025 19:43:44 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/kubernetes/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
+      <link>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
+      <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
+      <description>&lt;p&gt;Today I have deployed an LLM inference solution on Amazon EKS using NVidia GPU.&lt;/p&gt;
+&lt;p&gt;As part of my Generative AI hands-on learning, attended an AWS hands-on workshop, where I have deployed Mistral 7B Instruct v0.3 model using Ray Serve and vLLM on Amazon EKS.&lt;/p&gt;
+&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
+&lt;p&gt;Below is the architecture diagram of the LLM inference solution I deployed on EKS.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/llm-on-eks.jpeg&#34; alt=&#34;llm-on-eks&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;components-used&#34;&gt;Components used&lt;/h2&gt;
+&lt;p&gt;If you want to host your own models and control entire lifecycle for security or governance reasons then deploying LLM inference on Amazon EKS is a no-brainer.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.ray.io/en/latest/ray-overview/getting-started.html&#34;&gt;Ray&lt;/a&gt; is one of the popular open-source frameworks for building and managing generative AI applications.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.ray.io/en/latest/serve/index.html&#34;&gt;Ray Serve&lt;/a&gt; is a scalable model serving library for building online inference APIs.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.vllm.ai/en/stable/&#34;&gt;vLLM&lt;/a&gt; is a popular high-throughput and memory-efficient inference and serving engine for LLMs. vLLM supports Kubernetes.&lt;/p&gt;
+&lt;p&gt;Used &lt;a href=&#34;https://github.com/ray-project/kuberay&#34;&gt;kuberay operator&lt;/a&gt; for deploying Ray. This operator handles all the complexity for you so I prefer this method for deploying Ray on K8s.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.ray.io/en/latest/ray-observability/getting-started.html&#34;&gt;Ray dashboard&lt;/a&gt; provides visibility into overall cluster health, jobs, nodes etc.&lt;/p&gt;
+&lt;p&gt;Used &lt;a href=&#34;https://github.com/open-webui/open-webui&#34;&gt;Open WebUI&lt;/a&gt; for dashboard. Installed NVIDIA Data Center GPU Manager Exporter for monitoring NVIDIA GPU usage in Grafana.&lt;/p&gt;
+&lt;p&gt;Currently, AFAIK, for getting monitoring data from NVIDIA GPUs you have to install the &lt;a href=&#34;https://github.com/NVIDIA/dcgm-exporter&#34;&gt;NVIDIA DCGM exporter&lt;/a&gt;.  It is straight-forward and exports needed metrics like GPU temperature, GPU Power usage, GPU utilization etc.&lt;/p&gt;
+&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;Ray, Open WebUI, vLLM, Mistral - All are open source software capable of scaling LLM inference very high. This is an exciting development for open source.&lt;/p&gt;
+&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, Generative AI, LLMs, MCP, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>

@@ -41,9 +41,18 @@
     <item>
       <title>AWS</title>
       <link>https://vijay.eu/categories/aws/</link>
-      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
+      <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/categories/kubernetes/</link>
+      <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -89,15 +98,6 @@
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
       <guid>https://vijay.eu/categories/mlops/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/categories/kubernetes/</link>
-      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
-      
-      <guid>https://vijay.eu/categories/kubernetes/</guid>
       <description></description>
     </item>
     
