@@ -6,10 +6,60 @@
     <description>Recent content in AWS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 11 May 2025 19:43:44 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 23 May 2025 22:24:24 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>How to get into AWS Community Builders Program</title>
+      <link>https://vijay.eu/posts/how-to-get-into-aws-community-builders/</link>
+      <pubDate>Fri, 23 May 2025 22:24:24 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/how-to-get-into-aws-community-builders/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/VijayCommunityBuilder.webp&#34; alt=&#34;VijayCB&#34;&gt;&lt;/p&gt;
+&lt;p&gt;In March 2025, I got into AWS Community Builders Program. Many people reached out to me to know how to get into the program.&lt;/p&gt;
+&lt;p&gt;Here is a detailed article on how to get into AWS Community Builders Program with my own experience thrown in. I hope this is useful to you all.&lt;/p&gt;
+&lt;h2 id=&#34;what-is-aws-community-builders-program&#34;&gt;What is AWS Community Builders program&lt;/h2&gt;
+&lt;p&gt;Here is the official description:&lt;/p&gt;
+&lt;blockquote&gt;
+&lt;p&gt;The AWS Community Builders program offers technical resources, education, and networking opportunities to AWS technical enthusiasts and emerging thought leaders who are passionate about sharing knowledge and connecting with the technical community.&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;Official page: &lt;a href=&#34;https://aws.amazon.com/developer/community/community-builders/&#34;&gt;https://aws.amazon.com/developer/community/community-builders/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;what-do-you-need-to-do&#34;&gt;What do you need to do?&lt;/h2&gt;
+&lt;p&gt;Start with the FAQs on the official page. Those have the latest rules and conditions. Read them. Re-read them again. It is important to understand each and everyone of those questions.&lt;/p&gt;
+&lt;p&gt;Here are things you need to do:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;You must have AWS Builder ID. If you don’t have one then create one at &lt;a href=&#34;https://us-east-1.credentials.signin.aws&#34;&gt;https://us-east-1.credentials.signin.aws&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Join the waitlist for 2026 at &lt;a href=&#34;https://pulse.aws/application/BM2AKLSX?p=0&#34;&gt;https://pulse.aws/application/BM2AKLSX?p=0&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;The application opens in Jan 2026.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;You must have at least two high quality contents created one month before the application opens. This was the condition in 2025, and I guess it will be same in 2026. So make sure you have them ready by Nov 2025.   &lt;/p&gt;
+&lt;p&gt;I have purposefully mentioned &lt;strong&gt;two high quality content&lt;/strong&gt; and not an article as there are other mediums as well. You can create Youtube video, write a blog post, talk in local AWS user group, contribute to open source, write a good solution to a question in re:Post. You choose what you want to do. Make sure you have an URL to add in the application which is publicly accessible.&lt;/p&gt;
+&lt;p&gt;AWS wants to hear your original voice and original solution. They are interested in how best you can use AWS technology to build an original solution that solves your problem.&lt;/p&gt;
+&lt;p&gt;GenAI makes it trivial generating new content, images, and code.
+&lt;strong&gt;DON’T USE GenAI/LLM&lt;/strong&gt; generated text or code in your solution. GenAI generated images are okay if you clearly mention image credits immediately after the image. AWS wants to hear your original thoughts, your own experiences, and how you use AWS to improve the solution.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;One Biggest Tip&lt;/strong&gt; I could give you is: Produce content in your mother tongue if English is not your mother tongue. Use it to your own advantage.
+AWS encourages you to produce content in your  own local language. You don’t have to use English. Write in Telugu, Finnish, German, Japanese, Turkish, whatever language you know.&lt;/p&gt;
+&lt;p&gt;If you are posting on LinkedIn then create content using LinkedIn Articles instead of LinkedIn posts. Posts are temporary. Articles are permanent and are found when you search for topics in or outside of LinkedIn. Also LinkedIn articles supports rich text formatting. Use it to create clear and long content.&lt;/p&gt;
+&lt;p&gt;All your contributions must be publicly accessible and not behind any paywalls. Try opening them in a private incognito browser window and test them before adding the URLs in the application. This way you know those URLs are working fine.&lt;/p&gt;
+&lt;h2 id=&#34;my-experience&#34;&gt;My Experience&lt;/h2&gt;
+&lt;p&gt;In my case, I have been working with AWS for nearly ten years and EKS for the last 4-5 years. I always wanted to contribute back to the community. I have run Linux student tech community back in 2002-2005 and I am a big proponent of open source. There was an itch to write and share my learnings from the start. AWS Community Builders program felt like a correct platform for what I wanted to do in my free time.&lt;/p&gt;
+&lt;p&gt;In my case, I had written couple of blogs in 2018 and 2020 and there was a big break. I tried to apply for AWS Community Builders program in 2024 and when I opened the application then I came to know that one needs to add link to their two blog posts or other content written in the last one year and those must be created at least one month before the application. I wished I had known about this before.&lt;/p&gt;
+&lt;p&gt;So in mid 2024 I wrote couple of posts on my blog and also started actively posting and writing articles in LinkedIn. When the time came in Jan 2025, I applied and luckily got into the AWS Community Builders program.  This year I have written more blog posts than in the last ten years. I am more motivated to share my learnings, help the community and build solutions in the public.&lt;/p&gt;
+&lt;h2 id=&#34;benefits&#34;&gt;Benefits&lt;/h2&gt;
+&lt;p&gt;The biggest benefit of joining AWS Community Builders program for me is the access to the network of like-minded builders and AWS experts. Discussing with them when you are stuck on your solutions, learning from what they build, attending builders-only exclusive sessions from AWS experts are the biggest benefits for me.&lt;/p&gt;
+&lt;p&gt;Here is the AWS Swag received as part of the program recently.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/55dzooha7vwqau6fceeh.jpeg&#34; alt=&#34;AWS Swag&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You get some AWS credits for doing proof of concepts or building different solutions using AWS.&lt;/p&gt;
+&lt;p&gt;You also get to post on dedicated organization for builders on dev.to. You get more views and credibility for your posts.&lt;/p&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final Thoughts&lt;/h2&gt;
+&lt;p&gt;First and foremost you need to remember that this is a volunteer role. If you are excited to help others learn AWS technologies, share with the world your AWS learnings, and want to write or talk about it then this program is for you. There will be excellent support from AWS in this regard.&lt;/p&gt;
+&lt;p&gt;I personally believe everyone can become an AWS Community Builder if you put the required effort and are willing to help the AWS community.&lt;/p&gt;
+&lt;p&gt;This is my way of contributing back to the community by sharing my learnings.&lt;/p&gt;
+&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
