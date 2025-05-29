@@ -6,10 +6,39 @@
     <description>Recent content in Amazon EKS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 06 Feb 2025 20:17:49 +0200</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 01:04:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/amazon-eks/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My First Impressions of official EKS MCP Server</title>
+      <link>https://vijay.eu/posts/official-eks-mcp-server/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/official-eks-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eksmcp.png&#34; alt=&#34;eksmcp&#34;&gt;
+Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
+&lt;p&gt;AWS released official EKS MCP Server today!&lt;/p&gt;
+&lt;p&gt;I have already created &lt;a href=&#34;https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10&#34;&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
+&lt;h2 id=&#34;mcp-tools&#34;&gt;MCP Tools&lt;/h2&gt;
+&lt;p&gt;Instead of one-to-one mapping of K8s CLI commands to EKS MCP Server tools they have created very few tools by combining functionality. For eg, manage_k8s_resource tool manages all K8s resources and supports create, replace, patch, delete, and read Kubernetes operations.&lt;/p&gt;
+&lt;h2 id=&#34;manages-eks-clusters&#34;&gt;Manages EKS Clusters&lt;/h2&gt;
+&lt;p&gt;This EKS MCP Server not only can access your EKS clusters but it can also create and manage new EKS clusters. It creates EKS Auto mode clusters by default. It uses CloudFormation to create new EKS Clusters.&lt;/p&gt;
+&lt;h2 id=&#34;troubleshooting-support&#34;&gt;Troubleshooting support&lt;/h2&gt;
+&lt;p&gt;Really like how they have given access to LLMs their EKS troubleshooting guide via a tool so that LLM can check AWS in-house knowledge of their experience troubleshooting EKS clusters. The tool name is &amp;ldquo;search_eks_troubleshoot_guide&amp;rdquo;.&lt;/p&gt;
+&lt;h2 id=&#34;secure&#34;&gt;Secure&lt;/h2&gt;
+&lt;p&gt;It is always important to have least privileged access. Keeping in with that best practice, EKS MCP Server supports read only mode by default. If you are feeling adventurous add &amp;ldquo;&amp;ndash;allow-write&amp;rdquo; option to give write access. This will still block access to sensitive info. There is another option to give access to that as well.&lt;/p&gt;
+&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;p&gt;Creating my own kubernetes MCP server gave me valuable insights into how the MCP server creation is done. This EKS MCP server has simplified MCP tooling, added own knowledge of troubleshooting, added least-privileged option and can create EKS clusters using CloudFormation.&lt;/p&gt;
+&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;p&gt;You can access the official &lt;a href=&#34;https://awslabs.github.io/mcp/servers/eks-mcp-server/&#34;&gt;EKS MCP server here&lt;/a&gt;. You can read about it in &lt;a href=&#34;https://aws.amazon.com/blogs/containers/accelerating-application-development-with-the-amazon-eks-model-context-protocol-server/&#34;&gt;their Blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Really appreciate how EKS MCP server has handled all the functionality really well. Kudos to the EKS team.&lt;/p&gt;
+&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics.&lt;/p&gt;
+&lt;p&gt;Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title>
