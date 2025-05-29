@@ -6,17 +6,53 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 May 2025 22:24:24 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 01:04:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Amazon EKS</title>
+      <link>https://vijay.eu/tags/amazon-eks/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/amazon-eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>AWS</title>
       <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Fri, 23 May 2025 22:24:24 +0300</pubDate>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS</title>
+      <link>https://vijay.eu/tags/eks/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>EKS Auto</title>
+      <link>https://vijay.eu/tags/eks-auto/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/eks-auto/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -53,15 +89,6 @@
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/model-context-protocol/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EKS</title>
-      <link>https://vijay.eu/tags/eks/</link>
-      <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/eks/</guid>
       <description></description>
     </item>
     
@@ -219,15 +246,6 @@
     </item>
     
     <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>NodePoolDisruptionBudget</title>
       <link>https://vijay.eu/tags/nodepooldisruptionbudget/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
@@ -296,24 +314,6 @@
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/rag/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Amazon EKS</title>
-      <link>https://vijay.eu/tags/amazon-eks/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/amazon-eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>EKS Auto</title>
-      <link>https://vijay.eu/tags/eks-auto/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/eks-auto/</guid>
       <description></description>
     </item>
     

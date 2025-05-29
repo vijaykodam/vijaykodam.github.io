@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 23 May 2025 22:24:24 +0300</lastBuildDate>
+    <lastBuildDate>Fri, 30 May 2025 01:04:32 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,7 +14,7 @@
     <item>
       <title>AWS</title>
       <link>https://vijay.eu/categories/aws/</link>
-      <pubDate>Fri, 23 May 2025 22:24:24 +0300</pubDate>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/aws/</guid>
       <description></description>
@@ -23,9 +23,18 @@
     <item>
       <title>Cloud</title>
       <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Fri, 23 May 2025 22:24:24 +0300</pubDate>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/categories/kubernetes/</link>
+      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/kubernetes/</guid>
       <description></description>
     </item>
     
@@ -44,15 +53,6 @@
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/mcp/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/categories/kubernetes/</link>
-      <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
-      
-      <guid>https://vijay.eu/categories/kubernetes/</guid>
       <description></description>
     </item>
     
