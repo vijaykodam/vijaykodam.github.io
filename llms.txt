@@ -1,0 +1,92 @@
+# Vijay Kodam's Tech Blog
+
+> Principal Engineer @ Nokia | AWS Community Builder | Expert in AWS, Kubernetes, EKS, and AI/ML | Creator of interactive web applications and technical content covering cloud architecture, DevOps, and emerging technologies
+
+## About
+
+This is the personal blog of Vijay Kumar Kodam, a Principal Engineer specializing in cloud technology at Nokia, Finland, and an AWS Community Builder for 2025. The blog focuses on practical insights from production deployments of AWS services, Kubernetes, Amazon EKS, AI/ML technologies, and hands-on technical projects.
+
+Vijay has extensive experience migrating enterprise 5G platforms to AWS, implementing cloud-native solutions, and building scalable systems using Amazon EKS, containers, and various AWS services. His expertise spans Cloud Architecture, SRE, DevOps, GitOps, and Systems Design.
+
+## Core Technical Areas
+
+### AWS & Cloud Architecture
+- Amazon EKS implementation and optimization
+- AWS service architecture and best practices  
+- Cloud migration strategies for telecom workloads
+- Production 5G platform deployment on AWS
+
+### Kubernetes & Container Orchestration
+- EKS Auto Mode implementation and insights
+- Kubernetes cluster management and optimization
+- Container orchestration for telecom applications
+- Production Kubernetes deployment patterns
+
+### AI/ML & Emerging Technologies
+- Large Language Model (LLM) deployment on AWS
+- Model Context Protocol (MCP) server development
+- AI/ML infrastructure on Kubernetes with GPU support
+- Generative AI application development
+
+### Interactive Web Development
+- Custom JavaScript applications and games
+- Progressive web apps with real-time functionality
+- Educational tools and calculators
+- Browser-based audio/visual applications
+
+## Featured Content
+
+### Key Technical Posts
+- [First Impressions of EKS Auto Mode](https://vijay.eu/posts/eks-auto-first-impressions/) - Comprehensive review of AWS EKS Auto Mode from production perspective
+- [Deploying LLMs on Amazon EKS using NVIDIA GPUs](https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/) - Hands-on guide for LLM deployment with Mistral 7B, Ray Serve, and vLLM
+- [Built my first MCP Server for Kubernetes](https://vijay.eu/posts/building-my-first-mcp-server/) - Creating secure read-only Kubernetes MCP server
+- [Official EKS MCP Server First Impressions](https://vijay.eu/posts/official-eks-mcp-server/) - Analysis of AWS's official EKS MCP Server
+- [EKS Auto Max Node Lifetime](https://vijay.eu/posts/eks-auto-max-node-lifetime/) - Managing node lifecycle in EKS Auto Mode
+- [Surprising Side Effect of EKS Auto](https://vijay.eu/posts/surprising-side-effect-eks-auto/) - Unexpected benefits and considerations
+
+### AWS & Kubernetes Expertise
+- [AWS Secure Microservices](https://vijay.eu/posts/aws-secure-microservices/) - Security patterns for microservices on AWS
+- [Database on Kubernetes](https://vijay.eu/posts/database-on-kubernetes/) - Running stateful workloads on Kubernetes
+- [EKS Arc Zonal Shift](https://vijay.eu/posts/eks-arc-zonal-shift/) - High availability patterns with EKS
+- [EKS Upgrade Insights](https://vijay.eu/posts/eks-upgrade-insights/) - Best practices for EKS cluster upgrades
+
+### AI/ML and Innovation
+- [Claude Code Demo](https://vijay.eu/posts/claude-code-demo/) - Agentic CLI demonstrations
+- [Decibel Meter using Claude Code](https://vijay.eu/posts/decibel-meter-using-claude-code/) - Building interactive applications with AI assistance
+- [MCP Amazon Q CLI](https://vijay.eu/posts/mcp-amazon-q-cli/) - Model Context Protocol integrations
+
+## Interactive Projects
+
+The blog features unique interactive web applications built with vanilla JavaScript:
+
+- **[Decibel Meter](https://vijay.eu/projects/decibel-meter/)** - Real-time audio level measurement tool with child-friendly voice level guidance
+- **[Fitness Calculator](https://vijay.eu/projects/fitness-calculator/)** - Comprehensive health and fitness calculation suite
+- **[Flag Game](https://vijay.eu/projects/flag-game/)** - Educational country flag identification game with 200+ flags
+- **[Markdown Editor](https://vijay.eu/projects/markdown-editor/)** - Live markdown editor with real-time preview
+- **[Snake Game](https://vijay.eu/projects/snake-game/)** - Classic snake game implementation
+- **[Medal Tally](https://vijay.eu/projects/medal-tally/)** - Olympic medal tracking system
+
+## Professional Context
+
+- **Current Role**: Principal Engineer, Cloud Technology @ Nokia, Finland
+- **AWS Community Builder** for 2025 (Containers & Serverless)
+- **Certifications**: AWS Solutions Architect Associate, CKA, CKAD, AI/ML certifications
+- **Industry Focus**: Telecom, 5G, Cloud-Native Applications, Enterprise AI/ML
+
+## Technical Approach
+
+Content emphasizes:
+- Production-ready implementations over theoretical concepts
+- Hands-on tutorials with working code examples
+- Real-world challenges and solutions from enterprise deployments
+- Performance optimization and cost management strategies
+- Security best practices for cloud-native applications
+
+## Contact & Links
+
+- **Blog**: https://vijay.eu
+- **GitHub**: https://github.com/vijaykodam/
+- **LinkedIn**: https://www.linkedin.com/in/vijaykodam/
+- **DEV Community**: https://dev.to/vijaykodam
+
+The views and opinions expressed in this blog are solely those of Vijay Kodam and do not reflect the views of his employer.
