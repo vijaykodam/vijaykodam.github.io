@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>VLLM on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/vllm/</link>
+    <link>https://vijay.eu/tags/vllm/</link>
     <description>Recent content in VLLM on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 11 May 2025 19:43:44 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/vllm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/vllm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
-      <link>http://localhost:1313/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
+      <link>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
+      <guid>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
       <description>&lt;p&gt;Today I have deployed an LLM inference solution on Amazon EKS using NVidia GPU.&lt;/p&gt;
 &lt;p&gt;As part of my Generative AI hands-on learning, attended an AWS hands-on workshop, where I have deployed Mistral 7B Instruct v0.3 model using Ray Serve and vLLM on Amazon EKS.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Below is the architecture diagram of the LLM inference solution I deployed on EKS.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/llm-on-eks.jpeg&#34; alt=&#34;llm-on-eks&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/llm-on-eks.jpeg&#34; alt=&#34;llm-on-eks&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;components-used&#34;&gt;Components used&lt;/h2&gt;
 &lt;p&gt;If you want to host your own models and control entire lifecycle for security or governance reasons then deploying LLM inference on Amazon EKS is a no-brainer.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.ray.io/en/latest/ray-overview/getting-started.html&#34;&gt;Ray&lt;/a&gt; is one of the popular open-source frameworks for building and managing generative AI applications.&lt;/p&gt;

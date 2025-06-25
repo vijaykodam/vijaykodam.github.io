@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>KMS on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/kms/</link>
+    <link>https://vijay.eu/tags/kms/</link>
     <description>Recent content in KMS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Mon, 04 Nov 2024 00:06:59 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/kms/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/kms/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to secure microservices architecture in AWS?</title>
-      <link>http://localhost:1313/posts/aws-secure-microservices/</link>
+      <link>https://vijay.eu/posts/aws-secure-microservices/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/aws-secure-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;
+      <guid>https://vijay.eu/posts/aws-secure-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;
 &lt;strong&gt;Image Credits:&lt;/strong&gt; Microservices architecture image made by me using draw.io&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Security in Public Cloud is utmost important. Losing access to your website or attackers deleting your database are catastrophic-company-ending-events.&lt;/p&gt;

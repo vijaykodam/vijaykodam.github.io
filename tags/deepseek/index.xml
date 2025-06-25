@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Deepseek on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/deepseek/</link>
+    <link>https://vijay.eu/tags/deepseek/</link>
     <description>Recent content in Deepseek on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 29 Jan 2025 22:12:06 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/deepseek/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/deepseek/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Running Deepseek R1 locally</title>
-      <link>http://localhost:1313/posts/running-deepseek-locally/</link>
+      <link>https://vijay.eu/posts/running-deepseek-locally/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
@@ -43,10 +43,10 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>New metric to measure the efficiency of AI models</title>
-      <link>http://localhost:1313/posts/new-llm-metric/</link>
+      <link>https://vijay.eu/posts/new-llm-metric/</link>
       <pubDate>Tue, 28 Jan 2025 20:03:20 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/new-llm-metric/</guid>
+      <guid>https://vijay.eu/posts/new-llm-metric/</guid>
       <description>&lt;p&gt;At the end of the day, how cheaply and energy efficiently can you generate tokens matters.&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;&lt;strong&gt;Tokens per watt per dollar&lt;/strong&gt;&amp;rdquo; metric mentioned by Satya Nadella, CEO of Microsoft, is trying to achieve the same.&lt;/p&gt;
 &lt;p&gt;This will be a metric by which every LLM is going to be benchmarked against. This is the metric which will showcase how long can an AI investment lasts and how much is your profitability of AI startups.&lt;/p&gt;

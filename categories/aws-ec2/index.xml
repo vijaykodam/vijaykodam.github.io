@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>AWS EC2 on Vijay Kodam</title>
-    <link>http://localhost:1313/categories/aws-ec2/</link>
+    <link>https://vijay.eu/categories/aws-ec2/</link>
     <description>Recent content in AWS EC2 on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 12 May 2020 14:42:15 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/aws-ec2/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/categories/aws-ec2/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to login securely to your Amazon EC2 Instance?</title>
-      <link>http://localhost:1313/posts/how-to-login-securely-to-amazon-ec2/</link>
+      <link>https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/</link>
       <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/how-to-login-securely-to-amazon-ec2/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/secure-ec2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/secure-ec2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).&lt;/p&gt;
 &lt;p&gt;There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.&lt;/p&gt;
 &lt;p&gt;When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication. Secure your SSH port to allow traffic from specific subnet (Ex., 3.2.132.0/24) or your own IP address (Eg., 3.2.132.23/32) by setting security group rules.&lt;/p&gt;

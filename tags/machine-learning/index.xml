@@ -2,28 +2,28 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Machine Learning on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/machine-learning/</link>
+    <link>https://vijay.eu/tags/machine-learning/</link>
     <description>Recent content in Machine Learning on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Tue, 04 Mar 2025 01:53:52 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/machine-learning/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>MLOps 101</title>
-      <link>http://localhost:1313/posts/mlops-101/</link>
+      <link>https://vijay.eu/posts/mlops-101/</link>
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/mlops-101/</guid>
+      <guid>https://vijay.eu/posts/mlops-101/</guid>
       <description>&lt;h3 id=&#34;what-is-mlops&#34;&gt;What is MLOps?&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;MLOps&lt;/strong&gt; is set of practices that streamline and automate machine learning workflows. It integrates DevOps practices into machine learning workflows to streamline machine learning operations.&lt;/p&gt;
 &lt;h3 id=&#34;why-do-we-need-mlops&#34;&gt;Why do we need MLOps?&lt;/h3&gt;
 &lt;p&gt;Most of the time, as part of the machine learning workflow, they go through EDA, data prep, model training, tuning, then model deployment and monitoring just to find out that it is not ready for production. You have to repeat the process all over again and retrain the model.&lt;/p&gt;
 &lt;p&gt;Since the machine learning workflows were manual and several teams were involved in this process at different stages, it took lot of time and effort to maintain it.&lt;/p&gt;
 &lt;p&gt;Streamlining and automating such manual process speeds up time to product and decreases manual errors and risks. This leads to scalability of managing and monitoring thousands of machine learning models. This allows the data scientists and engineers to focus on model development and innovation.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mlops-diag.png&#34; alt=&#34;mlops-diagram&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mlops-diag.png&#34; alt=&#34;mlops-diagram&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;key-components-of-mlops&#34;&gt;Key components of MLOps&lt;/h3&gt;
 &lt;p&gt;Machine learning lifecycle has several interconnected stages and all of these key components together make up MLOps. I have been going through various MLOps guides from AWS, Google, IBM and Databricks and realized all of them mostly follow the same key components.&lt;/p&gt;
 &lt;h4 id=&#34;data-management&#34;&gt;Data Management&lt;/h4&gt;

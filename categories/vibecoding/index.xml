@@ -2,25 +2,25 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Vibecoding on Vijay Kodam</title>
-    <link>http://localhost:1313/categories/vibecoding/</link>
+    <link>https://vijay.eu/categories/vibecoding/</link>
     <description>Recent content in Vibecoding on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 25 Jun 2025 16:29:33 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/vibecoding/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/categories/vibecoding/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Built an app using Lovable, vibecoding startup</title>
-      <link>http://localhost:1313/posts/lovable-app/</link>
+      <link>https://vijay.eu/posts/lovable-app/</link>
       <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/lovable-app/</guid>
+      <guid>https://vijay.eu/posts/lovable-app/</guid>
       <description>&lt;p&gt;Built a game using &lt;a href=&#34;https://lovable.dev/&#34;&gt;Lovable&lt;/a&gt;, a vibe-coding AI platform, this weekend.&lt;/p&gt;
 &lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
 &lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/lovable.jpeg&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/lovable.jpeg&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This is the first time I am using Lovable and I am surprised by the maturity of the product. It is very intuitive to use and it creates complete working app in the first prompt itself.&lt;/p&gt;
 &lt;p&gt;I spent 2 hours creating this game, mainly to improve the word list, figure out to build huge amount of valid 3, 4 and 5 letter words, test the functionality, change the UI, check for security issues, change the UX etc.&lt;/p&gt;
 &lt;p&gt;Anton Osika and team has built an amazing product. Also happy that it is from the Nordics :)&lt;/p&gt;

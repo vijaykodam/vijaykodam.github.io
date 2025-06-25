@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>SnakeGame on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/snakegame/</link>
+    <link>https://vijay.eu/tags/snakegame/</link>
     <description>Recent content in SnakeGame on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 16 Feb 2025 23:23:47 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/snakegame/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/snakegame/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Classic Snake Game using LLMs</title>
-      <link>http://localhost:1313/posts/snake-game/</link>
+      <link>https://vijay.eu/posts/snake-game/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>http://localhost:1313/posts/snake-game/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
+      <guid>https://vijay.eu/posts/snake-game/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
 Image Credit: Generated using Google Imagen3.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;https://vijay.eu/projects/&lt;/a&gt;&lt;/p&gt;
