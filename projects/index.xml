@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Projects on Vijay Kodam</title>
-    <link>http://localhost:1313/projects/</link>
+    <link>https://vijay.eu/projects/</link>
     <description>Recent content in Projects on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 12 Mar 2025 23:28:14 +0200</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/projects/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/projects/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Decibel Meter</title>
-      <link>http://localhost:1313/projects/decibel-meter/</link>
+      <link>https://vijay.eu/projects/decibel-meter/</link>
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
-      <guid>http://localhost:1313/projects/decibel-meter/</guid>
+      <guid>https://vijay.eu/projects/decibel-meter/</guid>
       <description>&lt;div class=&#34;decibel-meter-wrapper&#34;&gt;
     &lt;div class=&#34;speedometer-container&#34;&gt;
         
@@ -65,8 +65,8 @@
     
 &lt;/div&gt;
 
-&lt;script src=&#34;http://localhost:1313/js/decibel-meter.js&#34;&gt;&lt;/script&gt;
-&lt;link rel=&#34;stylesheet&#34; href=&#34;http://localhost:1313/css/decibel-meter.css&#34;&gt;
+&lt;script src=&#34;https://vijay.eu/js/decibel-meter.js&#34;&gt;&lt;/script&gt;
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/decibel-meter.css&#34;&gt;
 
 &lt;ul&gt;
 &lt;li&gt;No data is stored or transmitted - all processing happens locally in your browser.&lt;/li&gt;
@@ -77,10 +77,10 @@
     
     <item>
       <title>Markdown Editor</title>
-      <link>http://localhost:1313/projects/markdown-editor/</link>
+      <link>https://vijay.eu/projects/markdown-editor/</link>
       <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
       
-      <guid>http://localhost:1313/projects/markdown-editor/</guid>
+      <guid>https://vijay.eu/projects/markdown-editor/</guid>
       <description>&lt;p&gt;Generated using Claude Code agentic tool.&lt;/p&gt;
 &lt;div class=&#34;markdown-editor-container&#34;&gt;
     &lt;div class=&#34;editor-toolbar&#34;&gt;
@@ -153,10 +153,10 @@
     
     <item>
       <title>Classic Snake Game</title>
-      <link>http://localhost:1313/projects/snake-game/</link>
+      <link>https://vijay.eu/projects/snake-game/</link>
       <pubDate>Sun, 16 Feb 2025 19:58:58 +0200</pubDate>
       
-      <guid>http://localhost:1313/projects/snake-game/</guid>
+      <guid>https://vijay.eu/projects/snake-game/</guid>
       <description>
 
 &lt;style&gt;
@@ -483,10 +483,10 @@
     
     <item>
       <title>Your Public IP Address</title>
-      <link>http://localhost:1313/projects/my-ip/</link>
+      <link>https://vijay.eu/projects/my-ip/</link>
       <pubDate>Sat, 10 Aug 2024 12:05:32 +0300</pubDate>
       
-      <guid>http://localhost:1313/projects/my-ip/</guid>
+      <guid>https://vijay.eu/projects/my-ip/</guid>
       <description>&lt;div style=&#34;text-align: left; margin-top: 20vh;&#34;&gt;
     &lt;div id=&#34;ip-address&#34; style=&#34;font-size: 2em; color: #007bff; margin-top: 20px;&#34;&gt;
         Fetching IP address...
@@ -507,10 +507,10 @@
     
     <item>
       <title>Fitness Calculator</title>
-      <link>http://localhost:1313/projects/fitness-calculator/</link>
+      <link>https://vijay.eu/projects/fitness-calculator/</link>
       <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
       
-      <guid>http://localhost:1313/projects/fitness-calculator/</guid>
+      <guid>https://vijay.eu/projects/fitness-calculator/</guid>
       <description>&lt;div class=&#34;container&#34;&gt;
     
     &lt;div id=&#34;intro-text&#34;&gt;
@@ -592,10 +592,10 @@
     
     <item>
       <title>Flag Game</title>
-      <link>http://localhost:1313/projects/flag-game/</link>
+      <link>https://vijay.eu/projects/flag-game/</link>
       <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
       
-      <guid>http://localhost:1313/projects/flag-game/</guid>
+      <guid>https://vijay.eu/projects/flag-game/</guid>
       <description>&lt;div class=&#34;container&#34;&gt;
     &lt;div class=&#34;status&#34;&gt;
         &lt;div class=&#34;counter&#34;&gt;&lt;strong id=&#34;quiz-mini-counter&#34;&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
@@ -619,10 +619,10 @@
     
     <item>
       <title>Paris 2024 Olympics Medal Tally</title>
-      <link>http://localhost:1313/projects/medal-tally/</link>
+      <link>https://vijay.eu/projects/medal-tally/</link>
       <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
       
-      <guid>http://localhost:1313/projects/medal-tally/</guid>
+      <guid>https://vijay.eu/projects/medal-tally/</guid>
       <description>&lt;p&gt;Final medal tally for Finland and India from the Paris 2024 Olympics.&lt;/p&gt;
 &lt;div class=&#34;medal-tally-container&#34;&gt;
     &lt;div class=&#34;medal-box&#34;&gt;

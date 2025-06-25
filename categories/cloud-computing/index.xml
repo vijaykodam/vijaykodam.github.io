@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud Computing on Vijay Kodam</title>
-    <link>http://localhost:1313/categories/cloud-computing/</link>
+    <link>https://vijay.eu/categories/cloud-computing/</link>
     <description>Recent content in Cloud Computing on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/categories/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Unlock Up to 40% AWS Cost Savings with Graviton!</title>
-      <link>http://localhost:1313/posts/save-costs-with-graviton/</link>
+      <link>https://vijay.eu/posts/save-costs-with-graviton/</link>
       <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/save-costs-with-graviton/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
@@ -67,10 +67,10 @@
     
     <item>
       <title>Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</title>
-      <link>http://localhost:1313/posts/s3-delete-millions-of-files/</link>
+      <link>https://vijay.eu/posts/s3-delete-millions-of-files/</link>
       <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/s3-delete-millions-of-files/</guid>
+      <guid>https://vijay.eu/posts/s3-delete-millions-of-files/</guid>
       <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Managing data in &lt;strong&gt;Amazon S3&lt;/strong&gt; can be a daunting task, especially when you&amp;rsquo;re faced with the need to delete millions of objects. Whether you’re dealing with old backups, temporary files, or simply restructuring your data, choosing the right method to delete these files is crucial. The right approach can save you time and money, ensuring that you maintain an efficient cloud environment.&lt;/p&gt;
 &lt;p&gt;In this post, we’ll explore various methods to delete files from an S3 bucket, highlighting the &lt;strong&gt;fastest&lt;/strong&gt; and &lt;strong&gt;cheapest&lt;/strong&gt; options available.&lt;/p&gt;
@@ -115,11 +115,11 @@
     
     <item>
       <title>Kubernetes 10th Birthday</title>
-      <link>http://localhost:1313/posts/kubernetes-10th-birthday/</link>
+      <link>https://vijay.eu/posts/kubernetes-10th-birthday/</link>
       <pubDate>Thu, 06 Jun 2024 06:06:36 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/kubernetes-10th-birthday/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/k8s10.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/kubernetes-10th-birthday/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/k8s10.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Celebrating 10 Years of Kubernetes!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m thrilled to be part of the incredible Kubernetes journey that started 10 years ago!&lt;/p&gt;
 &lt;p&gt;Back in the early days, I was deep in the world of containers. Then came the chance to build Nokia&amp;rsquo;s Digital Automation Cloud and we chose Kubernetes as the foundation. Those were wild times – Kubernetes didn&amp;rsquo;t even had ingress yet, so we had to get creative to manage incoming traffic!&lt;/p&gt;

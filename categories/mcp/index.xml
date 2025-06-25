@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MCP on Vijay Kodam</title>
-    <link>http://localhost:1313/categories/mcp/</link>
+    <link>https://vijay.eu/categories/mcp/</link>
     <description>Recent content in MCP on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/categories/mcp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/categories/mcp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Built my first MCP Server for Kubernetes</title>
-      <link>http://localhost:1313/posts/building-my-first-mcp-server/</link>
+      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/building-my-first-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;

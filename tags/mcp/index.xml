@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>MCP on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/mcp/</link>
+    <link>https://vijay.eu/tags/mcp/</link>
     <description>Recent content in MCP on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Built my first MCP Server for Kubernetes</title>
-      <link>http://localhost:1313/posts/building-my-first-mcp-server/</link>
+      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/building-my-first-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
@@ -73,14 +73,14 @@
     
     <item>
       <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
-      <link>http://localhost:1313/posts/mcp-amazon-q-cli/</link>
+      <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
       
-      <guid>http://localhost:1313/posts/mcp-amazon-q-cli/</guid>
+      <guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid>
       <description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
 &lt;p&gt;In this blog post, I will show you how to generate entire AWS architecture diagrams using single prompt with this new AWS MCP server and Amazon Q CLI.&lt;/p&gt;
 &lt;p&gt;Here is the generated AWS Architecture diagram:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Read more to find out how …&lt;/p&gt;
 &lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
 &lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
@@ -100,7 +100,7 @@ AWS handles the LLM calling transparently. No need of any configurations for LLM
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Even though we don&amp;rsquo;t interact with LLM directly, Amazon Q CLI uses LLM transparent to the user in the background. Based on the user&amp;rsquo;s query it decides to use the AWS Diagram server via MCP Client inside AWS Q CLI.&lt;/p&gt;
 &lt;p&gt;The MCP Client talks to AWS Diagrams MCP server via Model Context Protocol. Internally it pulls the needs icons, generates diagrams using Python diagrams package DSL. Once the image is generated, Q CLI stores it in the user directory.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Install GraphViz before. See &lt;a href=&#34;https://www.graphviz.org/&#34;&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In Mac:&lt;/p&gt;

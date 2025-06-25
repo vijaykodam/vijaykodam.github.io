@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Keycloak on Vijay Kodam</title>
-    <link>http://localhost:1313/tags/keycloak/</link>
+    <link>https://vijay.eu/tags/keycloak/</link>
     <description>Recent content in Keycloak on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 23 Dec 2018 00:00:00 +0000</lastBuildDate>
     
-	<atom:link href="http://localhost:1313/tags/keycloak/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="https://vijay.eu/tags/keycloak/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Ambassador API GW and Keycloak integration</title>
-      <link>http://localhost:1313/posts/ambassador-keycloak-integration/</link>
+      <link>https://vijay.eu/posts/ambassador-keycloak-integration/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>http://localhost:1313/posts/ambassador-keycloak-integration/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
+      <guid>https://vijay.eu/posts/ambassador-keycloak-integration/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.getambassador.io/&#34;&gt;Ambassador API GW&lt;/a&gt; is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.&lt;/p&gt;
 &lt;p&gt;Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.&lt;/p&gt;
@@ -43,26 +43,26 @@ You can follow the instructions mentioned &lt;a href=&#34;https://www.getambassa
 &lt;p&gt;Login to Keycloak by visiting &lt;code&gt;http://&amp;lt;your-ip&amp;gt;&lt;/code&gt; in your browser. Use the username and password supplied in the docker run command to login to Keycloak.&lt;/p&gt;
 &lt;p&gt;Use the existing &amp;ldquo;master&amp;rdquo; realm. Create a client and a user for our testing purposes.
 Click on &lt;code&gt;Clients -&amp;gt; Create&lt;/code&gt;. Create button is on the right side of the page.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Add &lt;code&gt;Client ID&lt;/code&gt; as &lt;code&gt;test&lt;/code&gt;. Select &amp;ldquo;&lt;code&gt;Client Protocol&lt;/code&gt;&amp;rdquo; as &amp;ldquo;openid-connect&amp;rdquo;. You can leave other fields empty. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture1.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture1.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After saving, a new window will open with more details. Turn On &lt;code&gt;Authorization Enabled&lt;/code&gt; option. It will automatically turn On &lt;code&gt;Service Accounts Enabled&lt;/code&gt; option. Leave it like that.&lt;/p&gt;
 &lt;p&gt;Fill &lt;code&gt;Valid Redirect URIs&lt;/code&gt; with &lt;code&gt;http://&amp;lt;Ambassador URL&amp;gt;/*&lt;/code&gt;. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture2.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture2.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;On the same page, go to &lt;code&gt;Credentials&lt;/code&gt; tab as shown below. Note the secret which is needed when creating &amp;ldquo;ambassador-auth-client-secret&amp;rdquo; in the next section. Use it wherever &lt;code&gt;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&lt;/code&gt; is mentioned.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture4.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture4.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Click Users section on the keycloak page, to create users. Add username, email and select email verified. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture9.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture9.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the same page, go to Credentials tab.  Set the new password, and turn Temporary to Off.&lt;br&gt;
 Click Reset Password.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When dialog window opens click Change Password.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration.
 Please do not do this in production or in any setup. Follow these instructions at your own risk.&lt;/p&gt;
 &lt;p&gt;Now go back and click Users section in Keycloak. In the Users page, click &amp;ldquo;View all Users&amp;rdquo; and you should see the newly created user.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setup-oidc-auth-integration-with-keycloak&#34;&gt;Setup OIDC Auth integration with Keycloak&lt;/h2&gt;
 &lt;p&gt;Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.&lt;/p&gt;
 &lt;p&gt;Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&amp;rsquo;t run both.&lt;/p&gt;
