@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Azure on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/azure/</link>
+    <link>http://localhost:1313/tags/azure/</link>
     <description>Recent content in Azure on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 17 May 2020 01:00:19 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/azure/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/azure/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Where Should I Deploy My K8s Cluster?</title>
-      <link>https://vijay.eu/posts/deploy-k8s/</link>
+      <link>http://localhost:1313/posts/deploy-k8s/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/deploy-k8s/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/deploy-k8s/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This week there was an &lt;a href=&#34;https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift&#34;&gt;announcement&lt;/a&gt; about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&amp;rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.&lt;/p&gt;
 &lt;p&gt;For a beginner starting to use K8s this is overwhelming. This brings us to the question: &lt;strong&gt;Where should I deploy my K8s cluster?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;As always, the answer is: &lt;strong&gt;It Depends&lt;/strong&gt;&lt;/p&gt;

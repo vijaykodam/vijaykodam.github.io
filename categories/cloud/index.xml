@@ -2,22 +2,55 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cloud on Vijay Kodam</title>
-    <link>https://vijay.eu/categories/cloud/</link>
+    <link>http://localhost:1313/categories/cloud/</link>
     <description>Recent content in Cloud on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 May 2025 01:04:32 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 16:29:33 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/categories/cloud/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Built an app using Lovable, vibecoding startup</title>
+      <link>http://localhost:1313/posts/lovable-app/</link>
+      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/lovable-app/</guid>
+      <description>&lt;p&gt;Built a game using &lt;a href=&#34;https://lovable.dev/&#34;&gt;Lovable&lt;/a&gt;, a vibe-coding AI platform, this weekend.&lt;/p&gt;
+&lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
+&lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/lovable.jpeg&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the first time I am using Lovable and I am surprised by the maturity of the product. It is very intuitive to use and it creates complete working app in the first prompt itself.&lt;/p&gt;
+&lt;p&gt;I spent 2 hours creating this game, mainly to improve the word list, figure out to build huge amount of valid 3, 4 and 5 letter words, test the functionality, change the UI, check for security issues, change the UX etc.&lt;/p&gt;
+&lt;p&gt;Anton Osika and team has built an amazing product. Also happy that it is from the Nordics :)&lt;/p&gt;
+&lt;p&gt;Feel free to try the game and give me your feedback.&lt;/p&gt;
+&lt;p&gt;Game URL: &lt;a href=&#34;https://word-ladder.lovable.app/&#34;&gt;https://word-ladder.lovable.app/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Won Amazon Q Coding Challenge</title>
+      <link>http://localhost:1313/posts/won-q-coding-challenge/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/won-q-coding-challenge/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/amazonq-win.jpeg&#34; alt=&#34;amazonqwin&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Wow! I won 1st place in the Amazon Q Coding challenge today at AWS Summit Stockholm.&lt;/p&gt;
+&lt;p&gt;I had to summon my newfound GenAI vibe coding skills. My experience in working with Amazon Q CLI and Claude Code definitely helped.&lt;/p&gt;
+&lt;p&gt;It was a python coding challenge with 40 coding exercises starting with easy level and increasing difficulty with each question. You can use Q developer as a vibe coding tool to solve it. Time also matters and I managed to complete all 40 tasks in 35mins.&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>My First Impressions of official EKS MCP Server</title>
-      <link>https://vijay.eu/posts/official-eks-mcp-server/</link>
+      <link>http://localhost:1313/posts/official-eks-mcp-server/</link>
       <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/official-eks-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eksmcp.png&#34; alt=&#34;eksmcp&#34;&gt;
+      <guid>http://localhost:1313/posts/official-eks-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/eksmcp.png&#34; alt=&#34;eksmcp&#34;&gt;
 Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;AWS released official EKS MCP Server today!&lt;/p&gt;
 &lt;p&gt;I have already created &lt;a href=&#34;https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10&#34;&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
@@ -42,11 +75,11 @@ Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
     
     <item>
       <title>How to get into AWS Community Builders Program</title>
-      <link>https://vijay.eu/posts/how-to-get-into-aws-community-builders/</link>
+      <link>http://localhost:1313/posts/how-to-get-into-aws-community-builders/</link>
       <pubDate>Fri, 23 May 2025 22:24:24 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/how-to-get-into-aws-community-builders/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/VijayCommunityBuilder.webp&#34; alt=&#34;VijayCB&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/how-to-get-into-aws-community-builders/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/VijayCommunityBuilder.webp&#34; alt=&#34;VijayCB&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In March 2025, I got into AWS Community Builders Program. Many people reached out to me to know how to get into the program.&lt;/p&gt;
 &lt;p&gt;Here is a detailed article on how to get into AWS Community Builders Program with my own experience thrown in. I hope this is useful to you all.&lt;/p&gt;
 &lt;h2 id=&#34;what-is-aws-community-builders-program&#34;&gt;What is AWS Community Builders program&lt;/h2&gt;
@@ -92,11 +125,11 @@ AWS encourages you to produce content in your  own local language. You don’t h
     
     <item>
       <title>Built my first MCP Server for Kubernetes</title>
-      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
+      <link>http://localhost:1313/posts/building-my-first-mcp-server/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/building-my-first-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
@@ -152,14 +185,14 @@ AWS encourages you to produce content in your  own local language. You don’t h
     
     <item>
       <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
-      <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
+      <link>http://localhost:1313/posts/mcp-amazon-q-cli/</link>
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid>
+      <guid>http://localhost:1313/posts/mcp-amazon-q-cli/</guid>
       <description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
 &lt;p&gt;In this blog post, I will show you how to generate entire AWS architecture diagrams using single prompt with this new AWS MCP server and Amazon Q CLI.&lt;/p&gt;
 &lt;p&gt;Here is the generated AWS Architecture diagram:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Read more to find out how …&lt;/p&gt;
 &lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
 &lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
@@ -179,7 +212,7 @@ AWS handles the LLM calling transparently. No need of any configurations for LLM
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Even though we don&amp;rsquo;t interact with LLM directly, Amazon Q CLI uses LLM transparent to the user in the background. Based on the user&amp;rsquo;s query it decides to use the AWS Diagram server via MCP Client inside AWS Q CLI.&lt;/p&gt;
 &lt;p&gt;The MCP Client talks to AWS Diagrams MCP server via Model Context Protocol. Internally it pulls the needs icons, generates diagrams using Python diagrams package DSL. Once the image is generated, Q CLI stores it in the user directory.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Install GraphViz before. See &lt;a href=&#34;https://www.graphviz.org/&#34;&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In Mac:&lt;/p&gt;
@@ -204,10 +237,10 @@ Watch below demo where I setup the MCP server and generate AWS architecture diag
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>
-      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
+      <link>http://localhost:1313/posts/decibel-meter-using-claude-code/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
+      <guid>http://localhost:1313/posts/decibel-meter-using-claude-code/</guid>
       <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
@@ -232,7 +265,7 @@ You also get the final costs when you exit the claude code.&lt;/p&gt;
      Total duration (wall): 36m 57.8s
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;version-1&#34;&gt;Version 1&lt;/h3&gt;
 &lt;p&gt;Here is my first version UI.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;real-world-feedback&#34;&gt;Real World Feedback&lt;/h3&gt;
 &lt;p&gt;When I tested it in my mobile, I realized that the sensitivity for normal voice was very low and the decibel meter was not moving at all. This was not a usable app, if the decibel meter barely moved.&lt;/p&gt;
 &lt;p&gt;Now was the time for version 2 of the decibel meter app. With the real world testing I had new set of requirements to make it any useful. Also the decibel meter was showing very tiny fraction for the normal voice range.&lt;/p&gt;
@@ -248,7 +281,7 @@ Also the sensitivity should be high so that there is more spectrum for normal vo
 &lt;p&gt;So be careful to verify and test properly. Currently, Claude code will generate or modify code if you say it is not working.&lt;/p&gt;
 &lt;h3 id=&#34;the-final-ui&#34;&gt;The Final UI&lt;/h3&gt;
 &lt;p&gt;After several iterations and centering the needle, fixing the needle size, colors, shape of speedometer and 50 minutes of my time, got below UI as version 2.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;decibel-meter-project&#34;&gt;Decibel Meter project&lt;/h2&gt;
 &lt;p&gt;Here is my &lt;a href=&#34;https://vijay.eu/projects/decibel-meter/&#34;&gt;Decibel meter project&lt;/a&gt; if you want to try and check it.&lt;/p&gt;
 &lt;ul&gt;
@@ -278,31 +311,31 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Got into AWS Community Builders Program</title>
-      <link>https://vijay.eu/posts/aws-community-builders/</link>
+      <link>http://localhost:1313/posts/aws-community-builders/</link>
       <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/aws-community-builders/</guid>
+      <guid>http://localhost:1313/posts/aws-community-builders/</guid>
       <description>&lt;p&gt;Exciting News!!! I have been accepted into the AWS community Builder Program in the category of Containers!&lt;/p&gt;
 &lt;p&gt;Thank you Jason Dunn for the opportunity and looking forward to contributing for the AWS Community Builders program.&lt;/p&gt;
 &lt;p&gt;Special Thanks to Rajdeep Saha, AWS Community Nordics, Rolf Koski, Petri Rosenström, Prasad Rao, Ashish Prajapati, Parna Mehta, Aritra Nag, Darryl Ruggles, Darya Petrashka, and Saurabh Shrivastava for inspiring me and helping me in my AWS journey.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/awscommunitybuilder.jpeg&#34; alt=&#34;aws&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/awscommunitybuilder.jpeg&#34; alt=&#34;aws&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>MLOps 101</title>
-      <link>https://vijay.eu/posts/mlops-101/</link>
+      <link>http://localhost:1313/posts/mlops-101/</link>
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/mlops-101/</guid>
+      <guid>http://localhost:1313/posts/mlops-101/</guid>
       <description>&lt;h3 id=&#34;what-is-mlops&#34;&gt;What is MLOps?&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;MLOps&lt;/strong&gt; is set of practices that streamline and automate machine learning workflows. It integrates DevOps practices into machine learning workflows to streamline machine learning operations.&lt;/p&gt;
 &lt;h3 id=&#34;why-do-we-need-mlops&#34;&gt;Why do we need MLOps?&lt;/h3&gt;
 &lt;p&gt;Most of the time, as part of the machine learning workflow, they go through EDA, data prep, model training, tuning, then model deployment and monitoring just to find out that it is not ready for production. You have to repeat the process all over again and retrain the model.&lt;/p&gt;
 &lt;p&gt;Since the machine learning workflows were manual and several teams were involved in this process at different stages, it took lot of time and effort to maintain it.&lt;/p&gt;
 &lt;p&gt;Streamlining and automating such manual process speeds up time to product and decreases manual errors and risks. This leads to scalability of managing and monitoring thousands of machine learning models. This allows the data scientists and engineers to focus on model development and innovation.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mlops-diag.png&#34; alt=&#34;mlops-diagram&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mlops-diag.png&#34; alt=&#34;mlops-diagram&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;key-components-of-mlops&#34;&gt;Key components of MLOps&lt;/h3&gt;
 &lt;p&gt;Machine learning lifecycle has several interconnected stages and all of these key components together make up MLOps. I have been going through various MLOps guides from AWS, Google, IBM and Databricks and realized all of them mostly follow the same key components.&lt;/p&gt;
 &lt;h4 id=&#34;data-management&#34;&gt;Data Management&lt;/h4&gt;
@@ -363,10 +396,10 @@ Model monitoring services: AWS SageMaker Model Monitor, Evidently. There are als
     
     <item>
       <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>
-      <link>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
+      <link>http://localhost:1313/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
+      <guid>http://localhost:1313/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
       <description>&lt;p&gt;In Kubernetes, managing downtimes is very critical to maintain High Availability. &lt;strong&gt;Pod Disruption Budget&lt;/strong&gt; (PDB in short) and &lt;strong&gt;NodePool Disruption Budget&lt;/strong&gt; (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.&lt;/p&gt;
 &lt;p&gt;PDBs ensure that a minimum number of application pods are running when one or more nodes are disrupted voluntarily, for example during cluster upgrades, node drain etc.&lt;/p&gt;
 &lt;p&gt;You can set pdb value to either &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; or &amp;ldquo;&lt;code&gt;maxUnavailable&lt;/code&gt;&amp;rdquo;.&lt;/p&gt;
@@ -397,7 +430,7 @@ Model monitoring services: AWS SageMaker Model Monitor, Evidently. There are als
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can attach multiple budgets to the same NDB.&lt;/p&gt;
 &lt;p&gt;Set &amp;ldquo;&lt;code&gt;karpenter.sh/do-not-disrupt: true&lt;/code&gt;&amp;rdquo; to block Karpenter from voluntarily choosing you pod, Deployment, Node or NodePool. Note that setting this annotation does not prevent nodes from forceful disruptions like Expiration, Node Repair etc.&lt;/p&gt;
 &lt;p&gt;As you can see in this below diagram, PDB is attached to specific set of pods using a label selector &lt;code&gt;.spec.selector&lt;/code&gt;. You add NDB budget in the NodeClass YAML.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To summarize, use PDB to maintain availability of critical application pods and use NDB to limit disruptions at nodepool level. By combining both, you can increase your pod availability and cluster stability.&lt;/p&gt;
 &lt;p&gt;Do you use PDB or NDB? Share your experience in my &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/&#34;&gt;LinkedIn post&lt;/a&gt; comments!&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
@@ -406,11 +439,11 @@ Model monitoring services: AWS SageMaker Model Monitor, Evidently. There are als
     
     <item>
       <title>Classic Snake Game using LLMs</title>
-      <link>https://vijay.eu/posts/snake-game/</link>
+      <link>http://localhost:1313/posts/snake-game/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/snake-game/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
+      <guid>http://localhost:1313/posts/snake-game/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
 Image Credit: Generated using Google Imagen3.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;https://vijay.eu/projects/&lt;/a&gt;&lt;/p&gt;
@@ -439,47 +472,47 @@ Each had a different way of generating code, handling code changes on top of exi
     
     <item>
       <title>Hands-on Bedrock Agents workshop</title>
-      <link>https://vijay.eu/posts/bedrock-agents-workshop/</link>
+      <link>http://localhost:1313/posts/bedrock-agents-workshop/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
+      <guid>http://localhost:1313/posts/bedrock-agents-workshop/</guid>
       <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;
 &lt;p&gt;As part of the hands-on workshop, I have created a mortage-processing-agent which uses RAG to add domain specific knowledge base and then created agents which can determine if end-user can afford it based on their financial situation.
 After that, created Amazon Bedrock Flows that orchestrates entire workflow. Last but not the least, created Guardrails to implement safeguards and enforce responsible AI policies for my GenAI application.&lt;/p&gt;
 &lt;p&gt;Here is the mortgage processing agent I built during the hands-on workshop.
 The highlighted yellow box is the prompt user enters followed by the response from Bedrock.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
 &lt;p&gt;All in all, this was a very good way to get hands-on experience on Amazon Bedrock Agents, RAG, Flows and Guardrails.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title>
-      <link>https://vijay.eu/posts/presented-at-aws-meetup/</link>
+      <link>http://localhost:1313/posts/presented-at-aws-meetup/</link>
       <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/presented-at-aws-meetup/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
 &lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
 &lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
 &lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>
     
     <item>
       <title>Running Deepseek R1 locally</title>
-      <link>https://vijay.eu/posts/running-deepseek-locally/</link>
+      <link>http://localhost:1313/posts/running-deepseek-locally/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/running-deepseek-locally/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
@@ -505,10 +538,10 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>New metric to measure the efficiency of AI models</title>
-      <link>https://vijay.eu/posts/new-llm-metric/</link>
+      <link>http://localhost:1313/posts/new-llm-metric/</link>
       <pubDate>Tue, 28 Jan 2025 20:03:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/new-llm-metric/</guid>
+      <guid>http://localhost:1313/posts/new-llm-metric/</guid>
       <description>&lt;p&gt;At the end of the day, how cheaply and energy efficiently can you generate tokens matters.&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;&lt;strong&gt;Tokens per watt per dollar&lt;/strong&gt;&amp;rdquo; metric mentioned by Satya Nadella, CEO of Microsoft, is trying to achieve the same.&lt;/p&gt;
 &lt;p&gt;This will be a metric by which every LLM is going to be benchmarked against. This is the metric which will showcase how long can an AI investment lasts and how much is your profitability of AI startups.&lt;/p&gt;
@@ -522,14 +555,14 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>This new EventBridge capability simplifies your cross-account deployments</title>
-      <link>https://vijay.eu/posts/eventbridge-new-capability/</link>
+      <link>http://localhost:1313/posts/eventbridge-new-capability/</link>
       <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/eventbridge-new-capability/</guid>
+      <guid>http://localhost:1313/posts/eventbridge-new-capability/</guid>
       <description>&lt;p&gt;This new capability in &lt;strong&gt;EventBridge&lt;/strong&gt; is going to simplify your cross-account &lt;strong&gt;Event Driven Architecture&lt;/strong&gt;!&lt;/p&gt;
 &lt;p&gt;AWS introduced cross account targets for EventBridge event buses today. Now you can add &lt;strong&gt;SQS&lt;/strong&gt;, &lt;strong&gt;Lambda&lt;/strong&gt; or &lt;strong&gt;SNS&lt;/strong&gt; as targets from a different account. Previously only EventBridge in another account could be added.&lt;/p&gt;
 &lt;p&gt;The architecture diagram from the AWS blog is attached in this post. It perfectly captures everything you need to know about this feature.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eventbridge1.jpg&#34; alt=&#34;AWS Event Bridge&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/eventbridge1.jpg&#34; alt=&#34;AWS Event Bridge&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Remember to do these two things:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;Add relevant execution &amp;ldquo;role&amp;rdquo; in source AWS account EventBridge rule.&lt;/li&gt;
@@ -544,10 +577,10 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>Surprising side effect of running EKS Auto Mode</title>
-      <link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link>
+      <link>http://localhost:1313/posts/surprising-side-effect-eks-auto/</link>
       <pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid>
+      <guid>http://localhost:1313/posts/surprising-side-effect-eks-auto/</guid>
       <description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
 &lt;p&gt;This restriction came into place due to the automatic inclusion of AWS Load Balancer controller as an add-on in EKS Auto mode. AFAIK, there is no way to disable or remove that add-on from EKS Auto mode cluster.&lt;/p&gt;
 &lt;p&gt;If you are utilizing other ingress controllers like HAProxy, then you cannot create a CLB (HTTPS) using Service annotations. You can only create NLBs using Service annotations and route the traffic through HAProxy ingress controller. After that you can create ingresses which can utilize HAProxy as ingress controller.&lt;/p&gt;
@@ -560,11 +593,11 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>Have you seen multi-session support enabled in your AWS Console?</title>
-      <link>https://vijay.eu/posts/multi-sessions-in-aws-console/</link>
+      <link>http://localhost:1313/posts/multi-sessions-in-aws-console/</link>
       <pubDate>Thu, 16 Jan 2025 11:47:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/multi-sessions-in-aws-console/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/multisess.png&#34; alt=&#34;multisession&#34;&gt;
+      <guid>http://localhost:1313/posts/multi-sessions-in-aws-console/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/multisess.png&#34; alt=&#34;multisession&#34;&gt;
 Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt;
 &lt;p&gt;Observed it today morning that multi-session support is enabled in my AWS account.&lt;/p&gt;
 &lt;p&gt;This feature saves lot of effort and time for me. I work with different AWS accounts and logging into those AWS consoles or switching between them is an extra step. Usually I use different browsers to keep both AWS console logins active but it increases CPU/memory load on my PC.&lt;/p&gt;
@@ -578,11 +611,11 @@ Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt
     
     <item>
       <title>Do you run your database on Kubernetes?</title>
-      <link>https://vijay.eu/posts/database-on-kubernetes/</link>
+      <link>http://localhost:1313/posts/database-on-kubernetes/</link>
       <pubDate>Fri, 10 Jan 2025 11:34:54 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/database-on-kubernetes/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/dbink8s.webp&#34; alt=&#34;dbink8s&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/database-on-kubernetes/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/dbink8s.webp&#34; alt=&#34;dbink8s&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Do you run your database on Kubernetes? This has been an evergreen debate. Where does it stand now?&lt;/p&gt;
 &lt;p&gt;Kubernetes has come a long way from running only stateless workloads early on to now supporting statefulsets with improvements in sticky identity, persistent storage and unique network identity. Kubernetes has democratized the container orchestration and given the world tools to run most software at scale. This is only one part of the solution.&lt;/p&gt;
 &lt;p&gt;Databases built to run directly on servers or virtual machines have different features to make them highly available, resilient and scalable. Now if you bring those databases and run them on Kubernetes then it is a recipe for disaster. In the recent years, there have been cloud native databases built to run on Kubernetes. This is the remaining part of the solution.&lt;/p&gt;
@@ -597,11 +630,11 @@ Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt
     
     <item>
       <title>What is ARC Zonal shift feature in EKS?</title>
-      <link>https://vijay.eu/posts/eks-arc-zonal-shift/</link>
+      <link>http://localhost:1313/posts/eks-arc-zonal-shift/</link>
       <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
+      <guid>http://localhost:1313/posts/eks-arc-zonal-shift/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
 &lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
@@ -620,11 +653,11 @@ Image: Image shows the multi-session support enabled in my AWS Console.&lt;/p&gt
     
     <item>
       <title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title>
-      <link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link>
+      <link>http://localhost:1313/posts/eks-auto-max-node-lifetime/</link>
       <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
       
-      <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/eks-auto-max-node-lifetime/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
 &lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
 Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;
@@ -647,11 +680,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>First Impressions of EKS Auto Mode – A Game Changer!</title>
-      <link>https://vijay.eu/posts/eks-auto-first-impressions/</link>
+      <link>http://localhost:1313/posts/eks-auto-first-impressions/</link>
       <pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate>
       
-      <guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;
+      <guid>http://localhost:1313/posts/eks-auto-first-impressions/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;
 &lt;em&gt;Image Credit: From AWS EKS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here are my thoughts after initial few days of using &lt;strong&gt;EKS Auto mode&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;AWS has truly raised the bar with EKS Auto Mode, a new feature announced at &lt;strong&gt;re:Invent 2024&lt;/strong&gt;. This innovation automates much of the undifferentiated heavy lifting, allowing customers to focus on what matters most: building great applications.&lt;/p&gt;
@@ -706,11 +739,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>How to secure microservices architecture in AWS?</title>
-      <link>https://vijay.eu/posts/aws-secure-microservices/</link>
+      <link>http://localhost:1313/posts/aws-secure-microservices/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/aws-secure-microservices/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;
+      <guid>http://localhost:1313/posts/aws-secure-microservices/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/ms-secure.png&#34; alt=&#34;aws-security&#34;&gt;
 &lt;strong&gt;Image Credits:&lt;/strong&gt; Microservices architecture image made by me using draw.io&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Security in Public Cloud is utmost important. Losing access to your website or attackers deleting your database are catastrophic-company-ending-events.&lt;/p&gt;
@@ -748,11 +781,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title>
-      <link>https://vijay.eu/posts/eks-upgrade-insights/</link>
+      <link>http://localhost:1313/posts/eks-upgrade-insights/</link>
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/eks-upgrade-insights/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/eks-upgrade-insights/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;🚀 Save Hours During Amazon EKS Upgrades with This One Simple Step! 🚀&lt;/p&gt;
 &lt;p&gt;If you’ve ever managed EKS clusters in production, you know how crucial it is to keep them updated to leverage the latest features and maintain security.&lt;/p&gt;
 &lt;p&gt;🔄 But before starting an upgrade, have you checked the &amp;ldquo;Upgrade Insights&amp;rdquo; tab on the EKS cluster page?&lt;/p&gt;
@@ -767,11 +800,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>Where Should I Deploy My K8s Cluster?</title>
-      <link>https://vijay.eu/posts/deploy-k8s/</link>
+      <link>http://localhost:1313/posts/deploy-k8s/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/deploy-k8s/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/deploy-k8s/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
 &lt;p&gt;This week there was an &lt;a href=&#34;https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift&#34;&gt;announcement&lt;/a&gt; about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&amp;rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.&lt;/p&gt;
 &lt;p&gt;For a beginner starting to use K8s this is overwhelming. This brings us to the question: &lt;strong&gt;Where should I deploy my K8s cluster?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;As always, the answer is: &lt;strong&gt;It Depends&lt;/strong&gt;&lt;/p&gt;
@@ -834,11 +867,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>How to login securely to your Amazon EC2 Instance?</title>
-      <link>https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/</link>
+      <link>http://localhost:1313/posts/how-to-login-securely-to-amazon-ec2/</link>
       <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/secure-ec2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/how-to-login-securely-to-amazon-ec2/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/secure-ec2.jpeg&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Securing the Amazon EC2 instance is the first thing you have to think while creating it. This post specifically talks about how to secure SSH/RDP port on your EC2 Instances and how not to open port 22/3389 to the Internet (0.0.0.0/0).&lt;/p&gt;
 &lt;p&gt;There are several ways to secure your EC2 instances in AWS. Will discuss some of the popular ones.&lt;/p&gt;
 &lt;p&gt;When EC2 instance is running in Public subnet, disable password authentication and enable SSH keys based authentication. Secure your SSH port to allow traffic from specific subnet (Ex., 3.2.132.0/24) or your own IP address (Eg., 3.2.132.23/32) by setting security group rules.&lt;/p&gt;
@@ -890,11 +923,11 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
     
     <item>
       <title>Ambassador API GW and Keycloak integration</title>
-      <link>https://vijay.eu/posts/ambassador-keycloak-integration/</link>
+      <link>http://localhost:1313/posts/ambassador-keycloak-integration/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vijay.eu/posts/ambassador-keycloak-integration/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/ambassador-keycloak-integration/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/cloud.webp&#34; alt=&#34;cloud&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.getambassador.io/&#34;&gt;Ambassador API GW&lt;/a&gt; is an open source, Kubernetes-Native microservices API Gateway built on the Envoy Proxy.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://www.keycloak.org/&#34;&gt;Keycloak&lt;/a&gt; is an open source identity and access management solution. Keycloak supports OpenID Connect, SAML, OAuth2 and LDAP.&lt;/p&gt;
 &lt;p&gt;Ambassador supports authenticating incoming requests. When configured, Ambassador will check with a third party authentication service prior to routing an incoming request. An AuthService manifest configures Ambassador to use an external service to check authentication and authorization for incoming requests. Each incoming request is authenticated before routing to its destination.&lt;/p&gt;
@@ -920,26 +953,26 @@ You can follow the instructions mentioned &lt;a href=&#34;https://www.getambassa
 &lt;p&gt;Login to Keycloak by visiting &lt;code&gt;http://&amp;lt;your-ip&amp;gt;&lt;/code&gt; in your browser. Use the username and password supplied in the docker run command to login to Keycloak.&lt;/p&gt;
 &lt;p&gt;Use the existing &amp;ldquo;master&amp;rdquo; realm. Create a client and a user for our testing purposes.
 Click on &lt;code&gt;Clients -&amp;gt; Create&lt;/code&gt;. Create button is on the right side of the page.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture6.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Add &lt;code&gt;Client ID&lt;/code&gt; as &lt;code&gt;test&lt;/code&gt;. Select &amp;ldquo;&lt;code&gt;Client Protocol&lt;/code&gt;&amp;rdquo; as &amp;ldquo;openid-connect&amp;rdquo;. You can leave other fields empty. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture1.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture1.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;After saving, a new window will open with more details. Turn On &lt;code&gt;Authorization Enabled&lt;/code&gt; option. It will automatically turn On &lt;code&gt;Service Accounts Enabled&lt;/code&gt; option. Leave it like that.&lt;/p&gt;
 &lt;p&gt;Fill &lt;code&gt;Valid Redirect URIs&lt;/code&gt; with &lt;code&gt;http://&amp;lt;Ambassador URL&amp;gt;/*&lt;/code&gt;. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture2.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture2.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture8.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;On the same page, go to &lt;code&gt;Credentials&lt;/code&gt; tab as shown below. Note the secret which is needed when creating &amp;ldquo;ambassador-auth-client-secret&amp;rdquo; in the next section. Use it wherever &lt;code&gt;&amp;lt;YOUR_OIDC_CLIENT_SECRET&amp;gt;&lt;/code&gt; is mentioned.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture4.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture4.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Click Users section on the keycloak page, to create users. Add username, email and select email verified. Click Save.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture9.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture9.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;In the same page, go to Credentials tab.  Set the new password, and turn Temporary to Off.&lt;br&gt;
 Click Reset Password.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture10.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;When dialog window opens click Change Password.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture11.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Note:&lt;/strong&gt; Please note that this is done only for testing ambassador-keycloak integration.
 Please do not do this in production or in any setup. Follow these instructions at your own risk.&lt;/p&gt;
 &lt;p&gt;Now go back and click Users section in Keycloak. In the Users page, click &amp;ldquo;View all Users&amp;rdquo; and you should see the newly created user.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/Capture12.JPG&#34; alt=&#34;&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;setup-oidc-auth-integration-with-keycloak&#34;&gt;Setup OIDC Auth integration with Keycloak&lt;/h2&gt;
 &lt;p&gt;Thanks to Antti Myyra for developing Ambassador-Auth-OIDC, which will be used to integrate Keycloak with Ambassador API GW.&lt;/p&gt;
 &lt;p&gt;Run below commands to clone ambassador-auth-oidc. Below you can choose to run it either in docker or in k8s. Don&amp;rsquo;t run both.&lt;/p&gt;

@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agents on Vijay Kodam</title>
-    <link>https://vijay.eu/categories/agents/</link>
+    <link>http://localhost:1313/categories/agents/</link>
     <description>Recent content in Agents on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Apr 2025 00:54:11 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/categories/agents/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/categories/agents/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
+      <link>http://localhost:1313/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
+      <guid>http://localhost:1313/posts/google-genai-capstone-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
 &lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;

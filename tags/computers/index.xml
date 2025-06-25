@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Computers on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/computers/</link>
+    <link>http://localhost:1313/tags/computers/</link>
     <description>Recent content in Computers on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Thu, 16 Jan 2025 12:01:43 +0200</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/computers/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/computers/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>How to pique kid&#39;s interest in computers?</title>
-      <link>https://vijay.eu/posts/teaching-kids-computers/</link>
+      <link>http://localhost:1313/posts/teaching-kids-computers/</link>
       <pubDate>Thu, 16 Jan 2025 12:01:43 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/teaching-kids-computers/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kids-computers.webp&#34; alt=&#34;my-laptop&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/teaching-kids-computers/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/kids-computers.webp&#34; alt=&#34;my-laptop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Last weekend, I wanted to teach my kids how computers work. Instead of just explaining concepts, I decided to make it hands-on. I opened up my laptop and showed them its internals—the motherboard, CPU, RAM, hard drive, battery, speakers and more.&lt;/p&gt;
 &lt;p&gt;Their eyes lit up as they saw how all the parts come together to create the magic we interact with daily. We talked about where does the laptop get its power from, where does the music come from, how data is stored, etc.&lt;/p&gt;
 &lt;p&gt;Moments like these remind me of the power of curiosity and how early exposure to technology can spark lifelong interests.&lt;/p&gt;

@@ -2,579 +2,588 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Tags on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/</link>
+    <link>http://localhost:1313/tags/</link>
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Fri, 30 May 2025 01:04:32 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 16:29:33 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Amazon EKS</title>
-      <link>https://vijay.eu/tags/amazon-eks/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      <title>GenAI</title>
+      <link>http://localhost:1313/tags/genai/</link>
+      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/amazon-eks/</guid>
+      <guid>http://localhost:1313/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Vibecoding</title>
+      <link>http://localhost:1313/tags/vibecoding/</link>
+      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
+      
+      <guid>http://localhost:1313/tags/vibecoding/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Amazon EKS</title>
+      <link>http://localhost:1313/tags/amazon-eks/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
+      
+      <guid>http://localhost:1313/tags/amazon-eks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AWS</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      <link>http://localhost:1313/tags/aws/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/aws/</guid>
+      <guid>http://localhost:1313/tags/aws/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EKS</title>
-      <link>https://vijay.eu/tags/eks/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      <link>http://localhost:1313/tags/eks/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/eks/</guid>
+      <guid>http://localhost:1313/tags/eks/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EKS Auto</title>
-      <link>https://vijay.eu/tags/eks-auto/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      <link>http://localhost:1313/tags/eks-auto/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/eks-auto/</guid>
+      <guid>http://localhost:1313/tags/eks-auto/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
+      <link>http://localhost:1313/tags/kubernetes/</link>
+      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
+      <guid>http://localhost:1313/tags/kubernetes/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LLM</title>
-      <link>https://vijay.eu/tags/llm/</link>
+      <link>http://localhost:1313/tags/llm/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/llm/</guid>
+      <guid>http://localhost:1313/tags/llm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MCP</title>
-      <link>https://vijay.eu/tags/mcp/</link>
+      <link>http://localhost:1313/tags/mcp/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/mcp/</guid>
+      <guid>http://localhost:1313/tags/mcp/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Model Context Protocol</title>
-      <link>https://vijay.eu/tags/model-context-protocol/</link>
+      <link>http://localhost:1313/tags/model-context-protocol/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/model-context-protocol/</guid>
+      <guid>http://localhost:1313/tags/model-context-protocol/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ray</title>
-      <link>https://vijay.eu/tags/ray/</link>
+      <link>http://localhost:1313/tags/ray/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/ray/</guid>
+      <guid>http://localhost:1313/tags/ray/</guid>
       <description></description>
     </item>
     
     <item>
       <title>VLLM</title>
-      <link>https://vijay.eu/tags/vllm/</link>
+      <link>http://localhost:1313/tags/vllm/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/vllm/</guid>
+      <guid>http://localhost:1313/tags/vllm/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Agents</title>
-      <link>https://vijay.eu/tags/agents/</link>
+      <link>http://localhost:1313/tags/agents/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/agents/</guid>
+      <guid>http://localhost:1313/tags/agents/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Gemini</title>
-      <link>https://vijay.eu/tags/gemini/</link>
+      <link>http://localhost:1313/tags/gemini/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/gemini/</guid>
+      <guid>http://localhost:1313/tags/gemini/</guid>
       <description></description>
     </item>
     
     <item>
       <title>LangGraph</title>
-      <link>https://vijay.eu/tags/langgraph/</link>
+      <link>http://localhost:1313/tags/langgraph/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/langgraph/</guid>
+      <guid>http://localhost:1313/tags/langgraph/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AgenticAI</title>
-      <link>https://vijay.eu/tags/agenticai/</link>
+      <link>http://localhost:1313/tags/agenticai/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/agenticai/</guid>
+      <guid>http://localhost:1313/tags/agenticai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Anthropic</title>
-      <link>https://vijay.eu/tags/anthropic/</link>
+      <link>http://localhost:1313/tags/anthropic/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/anthropic/</guid>
+      <guid>http://localhost:1313/tags/anthropic/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Claude</title>
-      <link>https://vijay.eu/tags/claude/</link>
+      <link>http://localhost:1313/tags/claude/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/claude/</guid>
+      <guid>http://localhost:1313/tags/claude/</guid>
       <description></description>
     </item>
     
     <item>
       <title>ClaudeCode</title>
-      <link>https://vijay.eu/tags/claudecode/</link>
+      <link>http://localhost:1313/tags/claudecode/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/claudecode/</guid>
+      <guid>http://localhost:1313/tags/claudecode/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Audio</title>
-      <link>https://vijay.eu/tags/audio/</link>
+      <link>http://localhost:1313/tags/audio/</link>
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/audio/</guid>
+      <guid>http://localhost:1313/tags/audio/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Javascript</title>
-      <link>https://vijay.eu/tags/javascript/</link>
+      <link>http://localhost:1313/tags/javascript/</link>
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/javascript/</guid>
+      <guid>http://localhost:1313/tags/javascript/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Tools</title>
-      <link>https://vijay.eu/tags/tools/</link>
+      <link>http://localhost:1313/tags/tools/</link>
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/tools/</guid>
+      <guid>http://localhost:1313/tags/tools/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Web</title>
-      <link>https://vijay.eu/tags/web/</link>
+      <link>http://localhost:1313/tags/web/</link>
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/web/</guid>
+      <guid>http://localhost:1313/tags/web/</guid>
       <description></description>
     </item>
     
     <item>
       <title>AWSCommunity</title>
-      <link>https://vijay.eu/tags/awscommunity/</link>
+      <link>http://localhost:1313/tags/awscommunity/</link>
       <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/awscommunity/</guid>
+      <guid>http://localhost:1313/tags/awscommunity/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Machine Learning</title>
-      <link>https://vijay.eu/tags/machine-learning/</link>
+      <link>http://localhost:1313/tags/machine-learning/</link>
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/machine-learning/</guid>
+      <guid>http://localhost:1313/tags/machine-learning/</guid>
       <description></description>
     </item>
     
     <item>
       <title>MLOps</title>
-      <link>https://vijay.eu/tags/mlops/</link>
+      <link>http://localhost:1313/tags/mlops/</link>
       <pubDate>Tue, 04 Mar 2025 01:53:52 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/mlops/</guid>
+      <guid>http://localhost:1313/tags/mlops/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Karpenter</title>
-      <link>https://vijay.eu/tags/karpenter/</link>
+      <link>http://localhost:1313/tags/karpenter/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/karpenter/</guid>
+      <guid>http://localhost:1313/tags/karpenter/</guid>
       <description></description>
     </item>
     
     <item>
       <title>NodePoolDisruptionBudget</title>
-      <link>https://vijay.eu/tags/nodepooldisruptionbudget/</link>
+      <link>http://localhost:1313/tags/nodepooldisruptionbudget/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/nodepooldisruptionbudget/</guid>
+      <guid>http://localhost:1313/tags/nodepooldisruptionbudget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>PodDisruptionBudget</title>
-      <link>https://vijay.eu/tags/poddisruptionbudget/</link>
+      <link>http://localhost:1313/tags/poddisruptionbudget/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/poddisruptionbudget/</guid>
+      <guid>http://localhost:1313/tags/poddisruptionbudget/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Sonnet3.7</title>
-      <link>https://vijay.eu/tags/sonnet3.7/</link>
+      <link>http://localhost:1313/tags/sonnet3.7/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/sonnet3.7/</guid>
+      <guid>http://localhost:1313/tags/sonnet3.7/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Game</title>
-      <link>https://vijay.eu/tags/game/</link>
+      <link>http://localhost:1313/tags/game/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/game/</guid>
+      <guid>http://localhost:1313/tags/game/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SnakeGame</title>
-      <link>https://vijay.eu/tags/snakegame/</link>
+      <link>http://localhost:1313/tags/snakegame/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/snakegame/</guid>
+      <guid>http://localhost:1313/tags/snakegame/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Html5</title>
-      <link>https://vijay.eu/tags/html5/</link>
+      <link>http://localhost:1313/tags/html5/</link>
       <pubDate>Sun, 16 Feb 2025 19:58:58 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/html5/</guid>
+      <guid>http://localhost:1313/tags/html5/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Bedrock</title>
-      <link>https://vijay.eu/tags/bedrock/</link>
+      <link>http://localhost:1313/tags/bedrock/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/bedrock/</guid>
+      <guid>http://localhost:1313/tags/bedrock/</guid>
       <description></description>
     </item>
     
     <item>
       <title>RAG</title>
-      <link>https://vijay.eu/tags/rag/</link>
+      <link>http://localhost:1313/tags/rag/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/rag/</guid>
+      <guid>http://localhost:1313/tags/rag/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Deepseek</title>
-      <link>https://vijay.eu/tags/deepseek/</link>
+      <link>http://localhost:1313/tags/deepseek/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/deepseek/</guid>
+      <guid>http://localhost:1313/tags/deepseek/</guid>
       <description></description>
     </item>
     
     <item>
       <title>OpenAI</title>
-      <link>https://vijay.eu/tags/openai/</link>
+      <link>http://localhost:1313/tags/openai/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/openai/</guid>
+      <guid>http://localhost:1313/tags/openai/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EventBridge</title>
-      <link>https://vijay.eu/tags/eventbridge/</link>
+      <link>http://localhost:1313/tags/eventbridge/</link>
       <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/eventbridge/</guid>
+      <guid>http://localhost:1313/tags/eventbridge/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EventDrivenArchitecture</title>
-      <link>https://vijay.eu/tags/eventdrivenarchitecture/</link>
+      <link>http://localhost:1313/tags/eventdrivenarchitecture/</link>
       <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/eventdrivenarchitecture/</guid>
+      <guid>http://localhost:1313/tags/eventdrivenarchitecture/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Serverless</title>
-      <link>https://vijay.eu/tags/serverless/</link>
+      <link>http://localhost:1313/tags/serverless/</link>
       <pubDate>Wed, 22 Jan 2025 12:12:42 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/serverless/</guid>
+      <guid>http://localhost:1313/tags/serverless/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Computers</title>
-      <link>https://vijay.eu/tags/computers/</link>
+      <link>http://localhost:1313/tags/computers/</link>
       <pubDate>Thu, 16 Jan 2025 12:01:43 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/computers/</guid>
+      <guid>http://localhost:1313/tags/computers/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GuardDuty</title>
-      <link>https://vijay.eu/tags/guardduty/</link>
+      <link>http://localhost:1313/tags/guardduty/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/guardduty/</guid>
+      <guid>http://localhost:1313/tags/guardduty/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Inspector</title>
-      <link>https://vijay.eu/tags/inspector/</link>
+      <link>http://localhost:1313/tags/inspector/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/inspector/</guid>
+      <guid>http://localhost:1313/tags/inspector/</guid>
       <description></description>
     </item>
     
     <item>
       <title>KMS</title>
-      <link>https://vijay.eu/tags/kms/</link>
+      <link>http://localhost:1313/tags/kms/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/kms/</guid>
+      <guid>http://localhost:1313/tags/kms/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Microservices</title>
-      <link>https://vijay.eu/tags/microservices/</link>
+      <link>http://localhost:1313/tags/microservices/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/microservices/</guid>
+      <guid>http://localhost:1313/tags/microservices/</guid>
       <description></description>
     </item>
     
     <item>
       <title>SecurityHub</title>
-      <link>https://vijay.eu/tags/securityhub/</link>
+      <link>http://localhost:1313/tags/securityhub/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/securityhub/</guid>
+      <guid>http://localhost:1313/tags/securityhub/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Shield</title>
-      <link>https://vijay.eu/tags/shield/</link>
+      <link>http://localhost:1313/tags/shield/</link>
       <pubDate>Mon, 04 Nov 2024 00:06:59 +0200</pubDate>
       
-      <guid>https://vijay.eu/tags/shield/</guid>
+      <guid>http://localhost:1313/tags/shield/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cloud Computing</title>
-      <link>https://vijay.eu/tags/cloud-computing/</link>
+      <link>http://localhost:1313/tags/cloud-computing/</link>
       <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/cloud-computing/</guid>
+      <guid>http://localhost:1313/tags/cloud-computing/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Cost Optimization</title>
-      <link>https://vijay.eu/tags/cost-optimization/</link>
+      <link>http://localhost:1313/tags/cost-optimization/</link>
       <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/cost-optimization/</guid>
+      <guid>http://localhost:1313/tags/cost-optimization/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Graviton</title>
-      <link>https://vijay.eu/tags/graviton/</link>
+      <link>http://localhost:1313/tags/graviton/</link>
       <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/graviton/</guid>
+      <guid>http://localhost:1313/tags/graviton/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Data Management</title>
-      <link>https://vijay.eu/tags/data-management/</link>
+      <link>http://localhost:1313/tags/data-management/</link>
       <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/data-management/</guid>
+      <guid>http://localhost:1313/tags/data-management/</guid>
       <description></description>
     </item>
     
     <item>
       <title>S3</title>
-      <link>https://vijay.eu/tags/s3/</link>
+      <link>http://localhost:1313/tags/s3/</link>
       <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/s3/</guid>
+      <guid>http://localhost:1313/tags/s3/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Amazon Web Services</title>
-      <link>https://vijay.eu/tags/amazon-web-services/</link>
+      <link>http://localhost:1313/tags/amazon-web-services/</link>
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/amazon-web-services/</guid>
+      <guid>http://localhost:1313/tags/amazon-web-services/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Upgrade</title>
-      <link>https://vijay.eu/tags/upgrade/</link>
+      <link>http://localhost:1313/tags/upgrade/</link>
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/upgrade/</guid>
+      <guid>http://localhost:1313/tags/upgrade/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Amazon</title>
-      <link>https://vijay.eu/tags/amazon/</link>
+      <link>http://localhost:1313/tags/amazon/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/amazon/</guid>
+      <guid>http://localhost:1313/tags/amazon/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Azure</title>
-      <link>https://vijay.eu/tags/azure/</link>
+      <link>http://localhost:1313/tags/azure/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/azure/</guid>
+      <guid>http://localhost:1313/tags/azure/</guid>
       <description></description>
     </item>
     
     <item>
       <title>GKE</title>
-      <link>https://vijay.eu/tags/gke/</link>
+      <link>http://localhost:1313/tags/gke/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/gke/</guid>
+      <guid>http://localhost:1313/tags/gke/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Openshift</title>
-      <link>https://vijay.eu/tags/openshift/</link>
+      <link>http://localhost:1313/tags/openshift/</link>
       <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/openshift/</guid>
+      <guid>http://localhost:1313/tags/openshift/</guid>
       <description></description>
     </item>
     
     <item>
       <title>EC2</title>
-      <link>https://vijay.eu/tags/ec2/</link>
+      <link>http://localhost:1313/tags/ec2/</link>
       <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/ec2/</guid>
+      <guid>http://localhost:1313/tags/ec2/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ssh</title>
-      <link>https://vijay.eu/tags/ssh/</link>
+      <link>http://localhost:1313/tags/ssh/</link>
       <pubDate>Tue, 12 May 2020 14:42:15 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/ssh/</guid>
+      <guid>http://localhost:1313/tags/ssh/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Ambassador</title>
-      <link>https://vijay.eu/tags/ambassador/</link>
+      <link>http://localhost:1313/tags/ambassador/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vijay.eu/tags/ambassador/</guid>
+      <guid>http://localhost:1313/tags/ambassador/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Api Gateway</title>
-      <link>https://vijay.eu/tags/api-gateway/</link>
+      <link>http://localhost:1313/tags/api-gateway/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vijay.eu/tags/api-gateway/</guid>
+      <guid>http://localhost:1313/tags/api-gateway/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Authentication</title>
-      <link>https://vijay.eu/tags/authentication/</link>
+      <link>http://localhost:1313/tags/authentication/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vijay.eu/tags/authentication/</guid>
+      <guid>http://localhost:1313/tags/authentication/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Keycloak</title>
-      <link>https://vijay.eu/tags/keycloak/</link>
+      <link>http://localhost:1313/tags/keycloak/</link>
       <pubDate>Sun, 23 Dec 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://vijay.eu/tags/keycloak/</guid>
+      <guid>http://localhost:1313/tags/keycloak/</guid>
       <description></description>
     </item>
     

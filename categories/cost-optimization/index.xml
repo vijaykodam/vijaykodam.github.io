@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Cost Optimization on Vijay Kodam</title>
-    <link>https://vijay.eu/categories/cost-optimization/</link>
+    <link>http://localhost:1313/categories/cost-optimization/</link>
     <description>Recent content in Cost Optimization on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/categories/cost-optimization/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/categories/cost-optimization/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Unlock Up to 40% AWS Cost Savings with Graviton!</title>
-      <link>https://vijay.eu/posts/save-costs-with-graviton/</link>
+      <link>http://localhost:1313/posts/save-costs-with-graviton/</link>
       <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/save-costs-with-graviton/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
