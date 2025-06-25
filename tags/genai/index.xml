@@ -2,22 +2,41 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GenAI on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/genai/</link>
+    <link>http://localhost:1313/tags/genai/</link>
     <description>Recent content in GenAI on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
+    <lastBuildDate>Wed, 25 Jun 2025 16:29:33 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/genai/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/genai/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
+      <title>Built an app using Lovable, vibecoding startup</title>
+      <link>http://localhost:1313/posts/lovable-app/</link>
+      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
+      
+      <guid>http://localhost:1313/posts/lovable-app/</guid>
+      <description>&lt;p&gt;Built a game using &lt;a href=&#34;https://lovable.dev/&#34;&gt;Lovable&lt;/a&gt;, a vibe-coding AI platform, this weekend.&lt;/p&gt;
+&lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
+&lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/lovable.jpeg&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;This is the first time I am using Lovable and I am surprised by the maturity of the product. It is very intuitive to use and it creates complete working app in the first prompt itself.&lt;/p&gt;
+&lt;p&gt;I spent 2 hours creating this game, mainly to improve the word list, figure out to build huge amount of valid 3, 4 and 5 letter words, test the functionality, change the UI, check for security issues, change the UX etc.&lt;/p&gt;
+&lt;p&gt;Anton Osika and team has built an amazing product. Also happy that it is from the Nordics :)&lt;/p&gt;
+&lt;p&gt;Feel free to try the game and give me your feedback.&lt;/p&gt;
+&lt;p&gt;Game URL: &lt;a href=&#34;https://word-ladder.lovable.app/&#34;&gt;https://word-ladder.lovable.app/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Built my first MCP Server for Kubernetes</title>
-      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
+      <link>http://localhost:1313/posts/building-my-first-mcp-server/</link>
       <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/building-my-first-mcp-server/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
@@ -73,15 +92,15 @@
     
     <item>
       <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
-      <link>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
+      <link>http://localhost:1313/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
+      <guid>http://localhost:1313/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
       <description>&lt;p&gt;Today I have deployed an LLM inference solution on Amazon EKS using NVidia GPU.&lt;/p&gt;
 &lt;p&gt;As part of my Generative AI hands-on learning, attended an AWS hands-on workshop, where I have deployed Mistral 7B Instruct v0.3 model using Ray Serve and vLLM on Amazon EKS.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Below is the architecture diagram of the LLM inference solution I deployed on EKS.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/llm-on-eks.jpeg&#34; alt=&#34;llm-on-eks&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/llm-on-eks.jpeg&#34; alt=&#34;llm-on-eks&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;components-used&#34;&gt;Components used&lt;/h2&gt;
 &lt;p&gt;If you want to host your own models and control entire lifecycle for security or governance reasons then deploying LLM inference on Amazon EKS is a no-brainer.&lt;/p&gt;
 &lt;p&gt;&lt;a href=&#34;https://docs.ray.io/en/latest/ray-overview/getting-started.html&#34;&gt;Ray&lt;/a&gt; is one of the popular open-source frameworks for building and managing generative AI applications.&lt;/p&gt;
@@ -100,14 +119,14 @@
     
     <item>
       <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
-      <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
+      <link>http://localhost:1313/posts/mcp-amazon-q-cli/</link>
       <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid>
+      <guid>http://localhost:1313/posts/mcp-amazon-q-cli/</guid>
       <description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
 &lt;p&gt;In this blog post, I will show you how to generate entire AWS architecture diagrams using single prompt with this new AWS MCP server and Amazon Q CLI.&lt;/p&gt;
 &lt;p&gt;Here is the generated AWS Architecture diagram:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Read more to find out how …&lt;/p&gt;
 &lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
 &lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
@@ -127,7 +146,7 @@ AWS handles the LLM calling transparently. No need of any configurations for LLM
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Even though we don&amp;rsquo;t interact with LLM directly, Amazon Q CLI uses LLM transparent to the user in the background. Based on the user&amp;rsquo;s query it decides to use the AWS Diagram server via MCP Client inside AWS Q CLI.&lt;/p&gt;
 &lt;p&gt;The MCP Client talks to AWS Diagrams MCP server via Model Context Protocol. Internally it pulls the needs icons, generates diagrams using Python diagrams package DSL. Once the image is generated, Q CLI stores it in the user directory.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
 &lt;p&gt;Install GraphViz before. See &lt;a href=&#34;https://www.graphviz.org/&#34;&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In Mac:&lt;/p&gt;
@@ -152,11 +171,11 @@ Watch below demo where I setup the MCP server and generate AWS architecture diag
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
+      <link>http://localhost:1313/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
+      <guid>http://localhost:1313/posts/google-genai-capstone-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
 &lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;
@@ -313,10 +332,10 @@ Currently we are returning hardcoded mock data.&lt;/p&gt;
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>
-      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
+      <link>http://localhost:1313/posts/decibel-meter-using-claude-code/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
+      <guid>http://localhost:1313/posts/decibel-meter-using-claude-code/</guid>
       <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
@@ -341,7 +360,7 @@ You also get the final costs when you exit the claude code.&lt;/p&gt;
      Total duration (wall): 36m 57.8s
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;version-1&#34;&gt;Version 1&lt;/h3&gt;
 &lt;p&gt;Here is my first version UI.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;real-world-feedback&#34;&gt;Real World Feedback&lt;/h3&gt;
 &lt;p&gt;When I tested it in my mobile, I realized that the sensitivity for normal voice was very low and the decibel meter was not moving at all. This was not a usable app, if the decibel meter barely moved.&lt;/p&gt;
 &lt;p&gt;Now was the time for version 2 of the decibel meter app. With the real world testing I had new set of requirements to make it any useful. Also the decibel meter was showing very tiny fraction for the normal voice range.&lt;/p&gt;
@@ -357,7 +376,7 @@ Also the sensitivity should be high so that there is more spectrum for normal vo
 &lt;p&gt;So be careful to verify and test properly. Currently, Claude code will generate or modify code if you say it is not working.&lt;/p&gt;
 &lt;h3 id=&#34;the-final-ui&#34;&gt;The Final UI&lt;/h3&gt;
 &lt;p&gt;After several iterations and centering the needle, fixing the needle size, colors, shape of speedometer and 50 minutes of my time, got below UI as version 2.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;decibel-meter-project&#34;&gt;Decibel Meter project&lt;/h2&gt;
 &lt;p&gt;Here is my &lt;a href=&#34;https://vijay.eu/projects/decibel-meter/&#34;&gt;Decibel meter project&lt;/a&gt; if you want to try and check it.&lt;/p&gt;
 &lt;ul&gt;
@@ -387,11 +406,11 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Claude Code Agentic CLI demo</title>
-      <link>https://vijay.eu/posts/claude-code-demo/</link>
+      <link>http://localhost:1313/posts/claude-code-demo/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/claude-code-demo/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/claude-code-demo/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is my Day Zero hands-on demo of Claude Code using Claude 3.7 Sonnet. Both were released by Anthropic today.&lt;/p&gt;
 &lt;p&gt;Claude 3.7 Sonnet, is the first hybrid reasoning model on the market by Anthropic. They have also introduced a command line tool for agentic coding, Claude Code.&lt;/p&gt;
 &lt;p&gt;I have installed in my mac and tried agentic code and made a demo video for you.&lt;/p&gt;
@@ -408,7 +427,7 @@ I am constantly on the lookout for the next app idea to implement. Building feel
 
 &lt;p&gt;Take a look and add in comments how are you planning to use this shiny new agentic code tool in your workflow?&lt;/p&gt;
 &lt;p&gt;It cost me $0.3273 for 1 minute usage of Anthropic API. It is costly for personal use. That is my personal feeling.
-&lt;img src=&#34;https://vijay.eu/images/claude-code-cost.png&#34; alt=&#34;claude-code-cost&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;http://localhost:1313/images/claude-code-cost.png&#34; alt=&#34;claude-code-cost&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I would rather want this Claude code like agentic code tool to run locally and call a local llm running on my mac. Everything local, and secure solution. Of course, there will be some opensource tool out in the market in a month doing the same thing. Let&amp;rsquo;s hope so&amp;hellip;&lt;/p&gt;
 &lt;p&gt;What do you think? Write in comments.&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
@@ -417,11 +436,11 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Running Deepseek R1 locally</title>
-      <link>https://vijay.eu/posts/running-deepseek-locally/</link>
+      <link>http://localhost:1313/posts/running-deepseek-locally/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/running-deepseek-locally/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
@@ -447,10 +466,10 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>New metric to measure the efficiency of AI models</title>
-      <link>https://vijay.eu/posts/new-llm-metric/</link>
+      <link>http://localhost:1313/posts/new-llm-metric/</link>
       <pubDate>Tue, 28 Jan 2025 20:03:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/new-llm-metric/</guid>
+      <guid>http://localhost:1313/posts/new-llm-metric/</guid>
       <description>&lt;p&gt;At the end of the day, how cheaply and energy efficiently can you generate tokens matters.&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;&lt;strong&gt;Tokens per watt per dollar&lt;/strong&gt;&amp;rdquo; metric mentioned by Satya Nadella, CEO of Microsoft, is trying to achieve the same.&lt;/p&gt;
 &lt;p&gt;This will be a metric by which every LLM is going to be benchmarked against. This is the metric which will showcase how long can an AI investment lasts and how much is your profitability of AI startups.&lt;/p&gt;

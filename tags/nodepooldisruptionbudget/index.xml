@@ -2,21 +2,21 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>NodePoolDisruptionBudget on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/nodepooldisruptionbudget/</link>
+    <link>http://localhost:1313/tags/nodepooldisruptionbudget/</link>
     <description>Recent content in NodePoolDisruptionBudget on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sun, 02 Mar 2025 23:45:23 +0200</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/nodepooldisruptionbudget/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/nodepooldisruptionbudget/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>
-      <link>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
+      <link>http://localhost:1313/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
       <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
+      <guid>http://localhost:1313/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
       <description>&lt;p&gt;In Kubernetes, managing downtimes is very critical to maintain High Availability. &lt;strong&gt;Pod Disruption Budget&lt;/strong&gt; (PDB in short) and &lt;strong&gt;NodePool Disruption Budget&lt;/strong&gt; (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.&lt;/p&gt;
 &lt;p&gt;PDBs ensure that a minimum number of application pods are running when one or more nodes are disrupted voluntarily, for example during cluster upgrades, node drain etc.&lt;/p&gt;
 &lt;p&gt;You can set pdb value to either &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; or &amp;ldquo;&lt;code&gt;maxUnavailable&lt;/code&gt;&amp;rdquo;.&lt;/p&gt;
@@ -47,7 +47,7 @@
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can attach multiple budgets to the same NDB.&lt;/p&gt;
 &lt;p&gt;Set &amp;ldquo;&lt;code&gt;karpenter.sh/do-not-disrupt: true&lt;/code&gt;&amp;rdquo; to block Karpenter from voluntarily choosing you pod, Deployment, Node or NodePool. Note that setting this annotation does not prevent nodes from forceful disruptions like Expiration, Node Repair etc.&lt;/p&gt;
 &lt;p&gt;As you can see in this below diagram, PDB is attached to specific set of pods using a label selector &lt;code&gt;.spec.selector&lt;/code&gt;. You add NDB budget in the NodeClass YAML.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
 &lt;p&gt;To summarize, use PDB to maintain availability of critical application pods and use NDB to limit disruptions at nodepool level. By combining both, you can increase your pod availability and cluster stability.&lt;/p&gt;
 &lt;p&gt;Do you use PDB or NDB? Share your experience in my &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/&#34;&gt;LinkedIn post&lt;/a&gt; comments!&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;

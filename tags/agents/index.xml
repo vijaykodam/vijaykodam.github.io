@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Agents on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/agents/</link>
+    <link>http://localhost:1313/tags/agents/</link>
     <description>Recent content in Agents on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Apr 2025 00:54:11 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/tags/agents/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/tags/agents/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
+      <link>http://localhost:1313/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
+      <guid>http://localhost:1313/posts/google-genai-capstone-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
 &lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;
@@ -174,20 +174,20 @@ Currently we are returning hardcoded mock data.&lt;/p&gt;
     
     <item>
       <title>Hands-on Bedrock Agents workshop</title>
-      <link>https://vijay.eu/posts/bedrock-agents-workshop/</link>
+      <link>http://localhost:1313/posts/bedrock-agents-workshop/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
+      <guid>http://localhost:1313/posts/bedrock-agents-workshop/</guid>
       <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;
 &lt;p&gt;As part of the hands-on workshop, I have created a mortage-processing-agent which uses RAG to add domain specific knowledge base and then created agents which can determine if end-user can afford it based on their financial situation.
 After that, created Amazon Bedrock Flows that orchestrates entire workflow. Last but not the least, created Guardrails to implement safeguards and enforce responsible AI policies for my GenAI application.&lt;/p&gt;
 &lt;p&gt;Here is the mortgage processing agent I built during the hands-on workshop.
 The highlighted yellow box is the prompt user enters followed by the response from Bedrock.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
 &lt;p&gt;All in all, this was a very good way to get hands-on experience on Amazon Bedrock Agents, RAG, Flows and Guardrails.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
 </description>
     </item>

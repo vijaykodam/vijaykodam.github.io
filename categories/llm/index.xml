@@ -2,22 +2,22 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>LLM on Vijay Kodam</title>
-    <link>https://vijay.eu/categories/llm/</link>
+    <link>http://localhost:1313/categories/llm/</link>
     <description>Recent content in LLM on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <lastBuildDate>Sat, 19 Apr 2025 00:54:11 +0300</lastBuildDate>
     
-	<atom:link href="https://vijay.eu/categories/llm/index.xml" rel="self" type="application/rss+xml" />
+	<atom:link href="http://localhost:1313/categories/llm/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
+      <link>http://localhost:1313/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
+      <guid>http://localhost:1313/posts/google-genai-capstone-project/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
 &lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;
@@ -174,10 +174,10 @@ Currently we are returning hardcoded mock data.&lt;/p&gt;
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>
-      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
+      <link>http://localhost:1313/posts/decibel-meter-using-claude-code/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
+      <guid>http://localhost:1313/posts/decibel-meter-using-claude-code/</guid>
       <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
@@ -202,7 +202,7 @@ You also get the final costs when you exit the claude code.&lt;/p&gt;
      Total duration (wall): 36m 57.8s
 &lt;/code&gt;&lt;/pre&gt;&lt;h3 id=&#34;version-1&#34;&gt;Version 1&lt;/h3&gt;
 &lt;p&gt;Here is my first version UI.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v11.webp&#34; alt=&#34;first-version&#34;&gt;&lt;/p&gt;
 &lt;h3 id=&#34;real-world-feedback&#34;&gt;Real World Feedback&lt;/h3&gt;
 &lt;p&gt;When I tested it in my mobile, I realized that the sensitivity for normal voice was very low and the decibel meter was not moving at all. This was not a usable app, if the decibel meter barely moved.&lt;/p&gt;
 &lt;p&gt;Now was the time for version 2 of the decibel meter app. With the real world testing I had new set of requirements to make it any useful. Also the decibel meter was showing very tiny fraction for the normal voice range.&lt;/p&gt;
@@ -218,7 +218,7 @@ Also the sensitivity should be high so that there is more spectrum for normal vo
 &lt;p&gt;So be careful to verify and test properly. Currently, Claude code will generate or modify code if you say it is not working.&lt;/p&gt;
 &lt;h3 id=&#34;the-final-ui&#34;&gt;The Final UI&lt;/h3&gt;
 &lt;p&gt;After several iterations and centering the needle, fixing the needle size, colors, shape of speedometer and 50 minutes of my time, got below UI as version 2.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/decibel-v2.webp&#34; alt=&#34;version2&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;decibel-meter-project&#34;&gt;Decibel Meter project&lt;/h2&gt;
 &lt;p&gt;Here is my &lt;a href=&#34;https://vijay.eu/projects/decibel-meter/&#34;&gt;Decibel meter project&lt;/a&gt; if you want to try and check it.&lt;/p&gt;
 &lt;ul&gt;
@@ -248,11 +248,11 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Claude Code Agentic CLI demo</title>
-      <link>https://vijay.eu/posts/claude-code-demo/</link>
+      <link>http://localhost:1313/posts/claude-code-demo/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/claude-code-demo/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/claude-code-demo/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is my Day Zero hands-on demo of Claude Code using Claude 3.7 Sonnet. Both were released by Anthropic today.&lt;/p&gt;
 &lt;p&gt;Claude 3.7 Sonnet, is the first hybrid reasoning model on the market by Anthropic. They have also introduced a command line tool for agentic coding, Claude Code.&lt;/p&gt;
 &lt;p&gt;I have installed in my mac and tried agentic code and made a demo video for you.&lt;/p&gt;
@@ -269,7 +269,7 @@ I am constantly on the lookout for the next app idea to implement. Building feel
 
 &lt;p&gt;Take a look and add in comments how are you planning to use this shiny new agentic code tool in your workflow?&lt;/p&gt;
 &lt;p&gt;It cost me $0.3273 for 1 minute usage of Anthropic API. It is costly for personal use. That is my personal feeling.
-&lt;img src=&#34;https://vijay.eu/images/claude-code-cost.png&#34; alt=&#34;claude-code-cost&#34;&gt;&lt;/p&gt;
+&lt;img src=&#34;http://localhost:1313/images/claude-code-cost.png&#34; alt=&#34;claude-code-cost&#34;&gt;&lt;/p&gt;
 &lt;p&gt;I would rather want this Claude code like agentic code tool to run locally and call a local llm running on my mac. Everything local, and secure solution. Of course, there will be some opensource tool out in the market in a month doing the same thing. Let&amp;rsquo;s hope so&amp;hellip;&lt;/p&gt;
 &lt;p&gt;What do you think? Write in comments.&lt;/p&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
@@ -278,11 +278,11 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Classic Snake Game using LLMs</title>
-      <link>https://vijay.eu/posts/snake-game/</link>
+      <link>http://localhost:1313/posts/snake-game/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/snake-game/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
+      <guid>http://localhost:1313/posts/snake-game/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
 Image Credit: Generated using Google Imagen3.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;https://vijay.eu/projects/&lt;/a&gt;&lt;/p&gt;
@@ -311,11 +311,11 @@ Each had a different way of generating code, handling code changes on top of exi
     
     <item>
       <title>Running Deepseek R1 locally</title>
-      <link>https://vijay.eu/posts/running-deepseek-locally/</link>
+      <link>http://localhost:1313/posts/running-deepseek-locally/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+      <guid>http://localhost:1313/posts/running-deepseek-locally/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;http://localhost:1313/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
@@ -341,10 +341,10 @@ You get your own private, local LLM running securely in your computer.&lt;/p&gt;
     
     <item>
       <title>New metric to measure the efficiency of AI models</title>
-      <link>https://vijay.eu/posts/new-llm-metric/</link>
+      <link>http://localhost:1313/posts/new-llm-metric/</link>
       <pubDate>Tue, 28 Jan 2025 20:03:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/new-llm-metric/</guid>
+      <guid>http://localhost:1313/posts/new-llm-metric/</guid>
       <description>&lt;p&gt;At the end of the day, how cheaply and energy efficiently can you generate tokens matters.&lt;/p&gt;
 &lt;p&gt;&amp;ldquo;&lt;strong&gt;Tokens per watt per dollar&lt;/strong&gt;&amp;rdquo; metric mentioned by Satya Nadella, CEO of Microsoft, is trying to achieve the same.&lt;/p&gt;
 &lt;p&gt;This will be a metric by which every LLM is going to be benchmarked against. This is the metric which will showcase how long can an AI investment lasts and how much is your profitability of AI startups.&lt;/p&gt;
