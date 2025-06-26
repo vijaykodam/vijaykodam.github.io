@@ -2,31 +2,46 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/categories/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/cloud/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/google/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/llm/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/llm/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/llm-video-generation/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/video/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/posts/lovable-app/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-06-25T16:29:33+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/cloud/</loc>
-    <lastmod>2025-06-25T16:29:33+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/genai/</loc>
-    <lastmod>2025-06-25T16:29:33+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
-    <lastmod>2025-06-25T16:29:33+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/vibecoding/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/vibecoding/</loc>
-    <lastmod>2025-06-25T16:29:33+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
@@ -65,9 +80,6 @@
     <loc>https://vijay.eu/categories/genai/</loc>
     <lastmod>2025-05-14T23:17:36+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/llm/</loc>
-    <lastmod>2025-05-14T23:17:36+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/categories/mcp/</loc>
     <lastmod>2025-05-14T23:17:36+03:00</lastmod>
   </url><url>
@@ -99,9 +111,6 @@
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/langgraph/</loc>
-    <lastmod>2025-04-19T00:54:11+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/llm/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/google-genai-capstone-project/</loc>
