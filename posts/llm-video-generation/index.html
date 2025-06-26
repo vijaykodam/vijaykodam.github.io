@@ -1,0 +1,472 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="Generated this video using Google Veo3. I realized two things after generating this video &hellip;
+
+
+
+Prompt Engineering is still the KING.
+As humans we know the world and we fill in the blanks.
+My prompt for this video was:
+A white bread slice lying down on a table. An egg is besides it. Then its hands and legs pop out and it stands up. It picks up the egg. Walks on to the pan on a gas stove beside the table. The bread slice cracks the egg on the pan. Throws the egg shells away. Then jumps on the egg to become french toast.
+This is normal scenario for us but for a multi-modal LLM which needs frame-by-frame information, this is not enough information.">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My thoughts on LLM Video Generation">
+  <meta name="twitter:description" content="Generated this video using Google Veo3. I realized two things after generating this video …
+Prompt Engineering is still the KING. As humans we know the world and we fill in the blanks.
+My prompt for this video was:
+A white bread slice lying down on a table. An egg is besides it. Then its hands and legs pop out and it stands up. It picks up the egg. Walks on to the pan on a gas stove beside the table. The bread slice cracks the egg on the pan. Throws the egg shells away. Then jumps on the egg to become french toast. This is normal scenario for us but for a multi-modal LLM which needs frame-by-frame information, this is not enough information.">
+
+    <meta property="og:url" content="https://vijay.eu/posts/llm-video-generation/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="My thoughts on LLM Video Generation">
+  <meta property="og:description" content="Generated this video using Google Veo3. I realized two things after generating this video …
+Prompt Engineering is still the KING. As humans we know the world and we fill in the blanks.
+My prompt for this video was:
+A white bread slice lying down on a table. An egg is besides it. Then its hands and legs pop out and it stands up. It picks up the egg. Walks on to the pan on a gas stove beside the table. The bread slice cracks the egg on the pan. Throws the egg shells away. Then jumps on the egg to become french toast. This is normal scenario for us but for a multi-modal LLM which needs frame-by-frame information, this is not enough information.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-06-26T22:02:48+03:00">
+    <meta property="article:modified_time" content="2025-06-26T22:02:48+03:00">
+    <meta property="article:tag" content="Google">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Video">
+
+
+    
+      <base href="https://vijay.eu/posts/llm-video-generation/">
+    
+    <title>
+  My thoughts on LLM Video Generation · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/llm-video-generation/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.151ad25b471046e469e509ffba2c79d639a26304c1d96e166e1ccee8e3bddbc0.css" integrity="sha256-FRrSW0cQRuRp5Qn/uix51jmiYwTB2W4WbhzO6OO928A=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">My thoughts on LLM Video Generation</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2025-06-26T22:02:48&#43;03:00'>
+                June 26, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="/categories/llm/">LLM</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/google/">Google</a>
+      <span class="separator">•</span>
+    <a href="/tags/llm/">LLM</a>
+      <span class="separator">•</span>
+    <a href="/tags/video/">Video</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p>Generated this video using Google Veo3. I realized two things after generating this video &hellip;</p>
+<iframe 
+  src="https://www.youtube.com/embed/PbsennA_HHo?si=SWpMcqVq1ovIjdcl" 
+  width="560" 
+  height="315" 
+  title="Embedded Content" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+
+<h2 id="prompt-engineering-is-still-the-king">Prompt Engineering is still the KING.</h2>
+<p>As humans we know the world and we fill in the blanks.</p>
+<p>My prompt for this video was:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>A white bread slice lying down on a table. An egg is besides it. Then its hands and legs pop out and it stands up. It picks up the egg. Walks on to the pan on a gas stove beside the table. The bread slice cracks the egg on the pan. Throws the egg shells away. Then jumps on the egg to become french toast.
+</span></span></code></pre></div><p>This is normal scenario for us but for a multi-modal LLM which needs frame-by-frame information, this is not enough information.</p>
+<p>After generating this video, I used ChatGPT to generate a detailed prompt for storyboarding and frame-by-frame detailed information on what happens in that frame. That video was good but it failed for a different reason. That brings me to my second realization.</p>
+<h2 id="physics-is-hard-for-llms">Physics is hard for LLMs</h2>
+<p>LLMs still struggle with the real-world physics. They are getting better but there is still some more improvement needed until they get really better. See how in the video a set of hands came to lift the bread slice first. Then another set of fingers appeared to crack open the eggs. At the end it didn&rsquo;t become a french toast.</p>
+<p>Here is the second video I generated.</p>
+<iframe 
+  src="https://www.youtube.com/embed/hFX_Xi5m6gM?si=pcYZmjjeAekABcAM" 
+  width="560" 
+  height="315" 
+  title="Embedded Content" 
+  frameborder="0" 
+  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+  referrerpolicy="strict-origin-when-cross-origin"
+  allowfullscreen>
+</iframe>
+
+<p>See how the bread slice cracks the egg and two butter knobs were thrown and the somehow egg white and yolk dropped from already cracked eggs shells. Also at the end, the bread slice was standing in the pan with two butter knobs. I should have prompted better.</p>
+<p>This is the detailed prompt for your reference.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>DETAILED MULTI-MODAL VIDEO PROMPT  
+</span></span><span style="display:flex;"><span>────────────────────────────────────────
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">1</span> · GLOBAL SETTINGS  
+</span></span><span style="display:flex;"><span>• Duration ≈ <span style="color:#ae81ff">8</span> s <span style="color:#f92672">(</span><span style="color:#ae81ff">192</span> frames<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>• Aspect Ratio / Resolution 16∶9, HD <span style="color:#f92672">(</span><span style="color:#ae81ff">1280</span> × <span style="color:#ae81ff">720</span> px<span style="color:#f92672">)</span>  
+</span></span><span style="display:flex;"><span>• Visual Style Bright cartoon-realism; saturated colours; soft morning sunlight <span style="color:#f92672">(</span>key-light <span style="color:#ae81ff">40</span> ° camera-left<span style="color:#f92672">)</span>.  
+</span></span><span style="display:flex;"><span>• Camera Single hand-held virtual camera, gentle dolly &amp; pans that keep the bread character centred; f/2.8 depth-of-field.  
+</span></span><span style="display:flex;"><span>• Audio Light kitchen ambience bed + spot SFX listed in the storyboard.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>────────────────────────────────────────
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">2</span> · CHARACTER &amp; PROP REFERENCES  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>| Asset       | Look &amp; Texture                                                        | Size          | Notes |
+</span></span><span style="display:flex;"><span>|-------------|-----------------------------------------------------------------------|---------------|-------|
+</span></span><span style="display:flex;"><span>| Bread slice | White sandwich bread, 1.5 cm thick, browned crust, cute eyes &amp; mouth; flexible toasted-dough arms/legs ending in white cartoon gloves &amp; red sneakers. | <span style="color:#ae81ff">11</span> × <span style="color:#ae81ff">11</span> cm | Idle breathing motion. |
+</span></span><span style="display:flex;"><span>| Egg         | Large ivory hen’s egg with faint speckles; glossy.                    | <span style="color:#ae81ff">6</span> cm tall     | Weighty bounce. |
+</span></span><span style="display:flex;"><span>| Pan         | <span style="color:#ae81ff">25</span> cm cast-iron skillet, seasoned black interior, subtle sheen.       | —             | Centered on burner; faint steam once heated. |
+</span></span><span style="display:flex;"><span>| Gas stove   | Stainless cook-top, blue flame under pan <span style="color:#f92672">(</span>already lit<span style="color:#f92672">)</span>.               | —             | — |
+</span></span><span style="display:flex;"><span>| Table       | Warm oak countertop with visible grain.                               | —             | <span style="color:#ae81ff">90</span> cm from stove. |
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>────────────────────────────────────────
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">3</span> · STORYBOARD &amp; FRAME-BY-FRAME BREAKDOWN <span style="color:#f92672">(</span><span style="color:#ae81ff">8</span> s <span style="color:#f92672">=</span> <span style="color:#ae81ff">192</span> frames<span style="color:#f92672">)</span>
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>| Timecode <span style="color:#f92672">(</span>s<span style="color:#f92672">)</span> | Camera / Composition                                   | Action &amp; Animation                                               | Key SFX / FX                         | Validation Checks |
+</span></span><span style="display:flex;"><span>|--------------|--------------------------------------------------------|------------------------------------------------------------------|--------------------------------------|-------------------|
+</span></span><span style="display:flex;"><span>| **0.0 – 0.5** | Static close-up; bread lying flat, egg <span style="color:#ae81ff">10</span> cm right.    | Subtle breathing in bread.                                       | Low room tone.                       | ✓ Both assets visible |
+</span></span><span style="display:flex;"><span>| **0.5 – 1.0** | Same angle, slight dolly-in.                           | Four limbs pop out with squash-stretch; eyes blink awake.        | <span style="color:#ae81ff">4</span> quick “pop” whooshes.              | ✓ Limbs emerge, no overlap errors |
+</span></span><span style="display:flex;"><span>| **1.0 – 1.3** | Medium shot; camera tilts up.                          | Bread stands, grabs egg with both hands.                         | Soft thud + cloth rustle.            | ✓ Egg securely held |
+</span></span><span style="display:flex;"><span>| **1.3 – 3.0** | Side tracking shot following bread.                   | Bread walks <span style="color:#ae81ff">90</span> cm to stove <span style="color:#f92672">(</span>≈ <span style="color:#ae81ff">9</span> steps at 0.19 s each<span style="color:#f92672">)</span>.           | Sneaker squeaks; faint egg rattle.   | ✓ No foot-slip; egg intact |
+</span></span><span style="display:flex;"><span>| **3.0 – 3.5** | Over-shoulder high angle on pan.                       | Bread lifts egg overhead in anticipation.                        | Rising whoosh.                       | ✓ Pan &amp; flame visible |
+</span></span><span style="display:flex;"><span>| **3.5 – 4.0** | Two-frame insert on egg striking pan rim.              | Egg cracks; whites/yolk pour in; shells split cleanly.           | Sharp crack → sizzling ramp.         | ✓ No shell bits in yolk |
+</span></span><span style="display:flex;"><span>| **4.0 – 4.3** | Return medium; bread flicks shells behind onto table.  | Shells arc back, land out of focus.                              | Light clink.                         | ✓ Disposal path clear |
+</span></span><span style="display:flex;"><span>| **4.3 – 4.8** | Low stove-level angle.                                 | Bread crouches; anticipatory squash.                             | Sizzle continues.                    | ✓ Limb IK stable |
+</span></span><span style="display:flex;"><span>| **4.8 – 5.3** | Slow-motion <span style="color:#f92672">(</span>0.5 s<span style="color:#f92672">)</span> mid-air front flip; camera up-tilt | Bread leaps <span style="color:#ae81ff">15</span> cm, flips <span style="color:#ae81ff">180</span> °, lands butter-side down on egg.   | “Boing” + louder sizzle on impact.   | ✓ Flip rotation accurate |
+</span></span><span style="display:flex;"><span>| **5.3 – 6.5** | Top-down tight shot.                                   | Egg absorbs; bread surface turns golden-brown; steam rises.      | Crackling pops.                      | ✓ Colour shift to <span style="color:#75715e">#F6B66A |</span>
+</span></span><span style="display:flex;"><span>| **6.5 – 7.0** | Pull-back hero shot, slight dolly-out.                 | Bread now French-toast, pats of butter <span style="color:#66d9ef">for</span> eyes; gives thumbs-up.| Cymbal “ta-da!”                      | ✓ Final pose held <span style="color:#ae81ff">2</span> frames |
+</span></span><span style="display:flex;"><span>| **7.0 – 8.0** | Freeze-frame hold with gentle vignette.                | Title card optional.                                             | Music sting trails off.              | ✓ All assets on screen |
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>────────────────────────────────────────
+</span></span><span style="display:flex;"><span><span style="color:#ae81ff">4</span> · CONTINUITY &amp; TECHNICAL CHECKLIST  
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>1. **Assets present every frame:** bread/toast, pan, stove flame, table.  
+</span></span><span style="display:flex;"><span>2. **Lighting continuity:** single key + <span style="color:#ae81ff">20</span> % fill; avoid popping shadows.  
+</span></span><span style="display:flex;"><span>3. **Physics:** gravity 9.8 m s⁻²; egg fluid viscosity; no mesh interpenetration.  
+</span></span><span style="display:flex;"><span>4. **Animation rules:** limbs ≤ <span style="color:#ae81ff">130</span> % stretch; centre-of-mass forward during walk.  
+</span></span><span style="display:flex;"><span>5. **Audio sync:** SFX start within ±2 frames of visuals.  
+</span></span><span style="display:flex;"><span>6. **Per-frame metadata required:** camera transform, asset transforms &amp; materials, light vectors, active particles, audio triggers.  
+</span></span><span style="display:flex;"><span>7. **Export:** <span style="color:#ae81ff">24</span> fps PNG sequence <span style="color:#f92672">(</span>no alpha<span style="color:#f92672">)</span> + WAV <span style="color:#ae81ff">48</span> kHz 24-bit stereo; master container ProRes <span style="color:#ae81ff">422</span> HQ.
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>────────────────────────────────────────
+</span></span><span style="display:flex;"><span>END OF PROMPT — ready <span style="color:#66d9ef">for</span> multi-modal LLM ingestion.
+</span></span></code></pre></div><p>What is your experience with LLM video generation? Did you try any other LLMs?</p>
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

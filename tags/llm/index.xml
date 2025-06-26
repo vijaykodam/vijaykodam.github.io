@@ -6,10 +6,107 @@
     <description>Recent content in LLM on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 22:02:48 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/llm/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>My thoughts on LLM Video Generation</title>
+      <link>https://vijay.eu/posts/llm-video-generation/</link>
+      <pubDate>Thu, 26 Jun 2025 22:02:48 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/llm-video-generation/</guid>
+      <description>&lt;p&gt;Generated this video using Google Veo3. I realized two things after generating this video &amp;hellip;&lt;/p&gt;
+&lt;iframe 
+  src=&#34;https://www.youtube.com/embed/PbsennA_HHo?si=SWpMcqVq1ovIjdcl&#34; 
+  width=&#34;560&#34; 
+  height=&#34;315&#34; 
+  title=&#34;Embedded Content&#34; 
+  frameborder=&#34;0&#34; 
+  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;h2 id=&#34;prompt-engineering-is-still-the-king&#34;&gt;Prompt Engineering is still the KING.&lt;/h2&gt;
+&lt;p&gt;As humans we know the world and we fill in the blanks.&lt;/p&gt;
+&lt;p&gt;My prompt for this video was:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;A white bread slice lying down on a table. An egg is besides it. Then its hands and legs pop out and it stands up. It picks up the egg. Walks on to the pan on a gas stove beside the table. The bread slice cracks the egg on the pan. Throws the egg shells away. Then jumps on the egg to become french toast.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This is normal scenario for us but for a multi-modal LLM which needs frame-by-frame information, this is not enough information.&lt;/p&gt;
+&lt;p&gt;After generating this video, I used ChatGPT to generate a detailed prompt for storyboarding and frame-by-frame detailed information on what happens in that frame. That video was good but it failed for a different reason. That brings me to my second realization.&lt;/p&gt;
+&lt;h2 id=&#34;physics-is-hard-for-llms&#34;&gt;Physics is hard for LLMs&lt;/h2&gt;
+&lt;p&gt;LLMs still struggle with the real-world physics. They are getting better but there is still some more improvement needed until they get really better. See how in the video a set of hands came to lift the bread slice first. Then another set of fingers appeared to crack open the eggs. At the end it didn&amp;rsquo;t become a french toast.&lt;/p&gt;
+&lt;p&gt;Here is the second video I generated.&lt;/p&gt;
+&lt;iframe 
+  src=&#34;https://www.youtube.com/embed/hFX_Xi5m6gM?si=pcYZmjjeAekABcAM&#34; 
+  width=&#34;560&#34; 
+  height=&#34;315&#34; 
+  title=&#34;Embedded Content&#34; 
+  frameborder=&#34;0&#34; 
+  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+
+&lt;p&gt;See how the bread slice cracks the egg and two butter knobs were thrown and the somehow egg white and yolk dropped from already cracked eggs shells. Also at the end, the bread slice was standing in the pan with two butter knobs. I should have prompted better.&lt;/p&gt;
+&lt;p&gt;This is the detailed prompt for your reference.&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;DETAILED MULTI-MODAL VIDEO PROMPT  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1&lt;/span&gt; · GLOBAL SETTINGS  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;• Duration ≈ &lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; s &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;192&lt;/span&gt; frames&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;• Aspect Ratio / Resolution 16∶9, HD &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;1280&lt;/span&gt; × &lt;span style=&#34;color:#ae81ff&#34;&gt;720&lt;/span&gt; px&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;• Visual Style Bright cartoon-realism; saturated colours; soft morning sunlight &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;key-light &lt;span style=&#34;color:#ae81ff&#34;&gt;40&lt;/span&gt; ° camera-left&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;• Camera Single hand-held virtual camera, gentle dolly &amp;amp; pans that keep the bread character centred; f/2.8 depth-of-field.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;• Audio Light kitchen ambience bed + spot SFX listed in the storyboard.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; · CHARACTER &amp;amp; PROP REFERENCES  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Asset       | Look &amp;amp; Texture                                                        | Size          | Notes |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|-------------|-----------------------------------------------------------------------|---------------|-------|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Bread slice | White sandwich bread, 1.5 cm thick, browned crust, cute eyes &amp;amp; mouth; flexible toasted-dough arms/legs ending in white cartoon gloves &amp;amp; red sneakers. | &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; × &lt;span style=&#34;color:#ae81ff&#34;&gt;11&lt;/span&gt; cm | Idle breathing motion. |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Egg         | Large ivory hen’s egg with faint speckles; glossy.                    | &lt;span style=&#34;color:#ae81ff&#34;&gt;6&lt;/span&gt; cm tall     | Weighty bounce. |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Pan         | &lt;span style=&#34;color:#ae81ff&#34;&gt;25&lt;/span&gt; cm cast-iron skillet, seasoned black interior, subtle sheen.       | —             | Centered on burner; faint steam once heated. |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Gas stove   | Stainless cook-top, blue flame under pan &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;already lit&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.               | —             | — |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Table       | Warm oak countertop with visible grain.                               | —             | &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; cm from stove. |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;3&lt;/span&gt; · STORYBOARD &amp;amp; FRAME-BY-FRAME BREAKDOWN &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;8&lt;/span&gt; s &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; &lt;span style=&#34;color:#ae81ff&#34;&gt;192&lt;/span&gt; frames&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| Timecode &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;s&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; | Camera / Composition                                   | Action &amp;amp; Animation                                               | Key SFX / FX                         | Validation Checks |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;|--------------|--------------------------------------------------------|------------------------------------------------------------------|--------------------------------------|-------------------|
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **0.0 – 0.5** | Static close-up; bread lying flat, egg &lt;span style=&#34;color:#ae81ff&#34;&gt;10&lt;/span&gt; cm right.    | Subtle breathing in bread.                                       | Low room tone.                       | ✓ Both assets visible |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **0.5 – 1.0** | Same angle, slight dolly-in.                           | Four limbs pop out with squash-stretch; eyes blink awake.        | &lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; quick “pop” whooshes.              | ✓ Limbs emerge, no overlap errors |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **1.0 – 1.3** | Medium shot; camera tilts up.                          | Bread stands, grabs egg with both hands.                         | Soft thud + cloth rustle.            | ✓ Egg securely held |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **1.3 – 3.0** | Side tracking shot following bread.                   | Bread walks &lt;span style=&#34;color:#ae81ff&#34;&gt;90&lt;/span&gt; cm to stove &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;≈ &lt;span style=&#34;color:#ae81ff&#34;&gt;9&lt;/span&gt; steps at 0.19 s each&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt;.           | Sneaker squeaks; faint egg rattle.   | ✓ No foot-slip; egg intact |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **3.0 – 3.5** | Over-shoulder high angle on pan.                       | Bread lifts egg overhead in anticipation.                        | Rising whoosh.                       | ✓ Pan &amp;amp; flame visible |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **3.5 – 4.0** | Two-frame insert on egg striking pan rim.              | Egg cracks; whites/yolk pour in; shells split cleanly.           | Sharp crack → sizzling ramp.         | ✓ No shell bits in yolk |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **4.0 – 4.3** | Return medium; bread flicks shells behind onto table.  | Shells arc back, land out of focus.                              | Light clink.                         | ✓ Disposal path clear |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **4.3 – 4.8** | Low stove-level angle.                                 | Bread crouches; anticipatory squash.                             | Sizzle continues.                    | ✓ Limb IK stable |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **4.8 – 5.3** | Slow-motion &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;0.5 s&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; mid-air front flip; camera up-tilt | Bread leaps &lt;span style=&#34;color:#ae81ff&#34;&gt;15&lt;/span&gt; cm, flips &lt;span style=&#34;color:#ae81ff&#34;&gt;180&lt;/span&gt; °, lands butter-side down on egg.   | “Boing” + louder sizzle on impact.   | ✓ Flip rotation accurate |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **5.3 – 6.5** | Top-down tight shot.                                   | Egg absorbs; bread surface turns golden-brown; steam rises.      | Crackling pops.                      | ✓ Colour shift to &lt;span style=&#34;color:#75715e&#34;&gt;#F6B66A |&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **6.5 – 7.0** | Pull-back hero shot, slight dolly-out.                 | Bread now French-toast, pats of butter &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; eyes; gives thumbs-up.| Cymbal “ta-da!”                      | ✓ Final pose held &lt;span style=&#34;color:#ae81ff&#34;&gt;2&lt;/span&gt; frames |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;| **7.0 – 8.0** | Freeze-frame hold with gentle vignette.                | Title card optional.                                             | Music sting trails off.              | ✓ All assets on screen |
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;4&lt;/span&gt; · CONTINUITY &amp;amp; TECHNICAL CHECKLIST  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;1. **Assets present every frame:** bread/toast, pan, stove flame, table.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;2. **Lighting continuity:** single key + &lt;span style=&#34;color:#ae81ff&#34;&gt;20&lt;/span&gt; % fill; avoid popping shadows.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;3. **Physics:** gravity 9.8 m s⁻²; egg fluid viscosity; no mesh interpenetration.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;4. **Animation rules:** limbs ≤ &lt;span style=&#34;color:#ae81ff&#34;&gt;130&lt;/span&gt; % stretch; centre-of-mass forward during walk.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;5. **Audio sync:** SFX start within ±2 frames of visuals.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;6. **Per-frame metadata required:** camera transform, asset transforms &amp;amp; materials, light vectors, active particles, audio triggers.  
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;7. **Export:** &lt;span style=&#34;color:#ae81ff&#34;&gt;24&lt;/span&gt; fps PNG sequence &lt;span style=&#34;color:#f92672&#34;&gt;(&lt;/span&gt;no alpha&lt;span style=&#34;color:#f92672&#34;&gt;)&lt;/span&gt; + WAV &lt;span style=&#34;color:#ae81ff&#34;&gt;48&lt;/span&gt; kHz 24-bit stereo; master container ProRes &lt;span style=&#34;color:#ae81ff&#34;&gt;422&lt;/span&gt; HQ.
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;────────────────────────────────────────
+&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;END OF PROMPT — ready &lt;span style=&#34;color:#66d9ef&#34;&gt;for&lt;/span&gt; multi-modal LLM ingestion.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What is your experience with LLM video generation? Did you try any other LLMs?&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Built my first MCP Server for Kubernetes</title>

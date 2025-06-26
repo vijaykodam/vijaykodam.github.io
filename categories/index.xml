@@ -6,7 +6,7 @@
     <description>Recent content in Categories on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 25 Jun 2025 16:29:33 +0300</lastBuildDate>
+    <lastBuildDate>Thu, 26 Jun 2025 22:02:48 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,18 @@
     <item>
       <title>Cloud</title>
       <link>https://vijay.eu/categories/cloud/</link>
-      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
+      <pubDate>Thu, 26 Jun 2025 22:02:48 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/cloud/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://vijay.eu/categories/llm/</link>
+      <pubDate>Thu, 26 Jun 2025 22:02:48 +0300</pubDate>
+      
+      <guid>https://vijay.eu/categories/llm/</guid>
       <description></description>
     </item>
     
@@ -71,15 +80,6 @@
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
       <guid>https://vijay.eu/categories/agents/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>LLM</title>
-      <link>https://vijay.eu/categories/llm/</link>
-      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
-      
-      <guid>https://vijay.eu/categories/llm/</guid>
       <description></description>
     </item>
     
