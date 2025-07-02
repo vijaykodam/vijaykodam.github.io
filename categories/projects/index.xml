@@ -6,10 +6,47 @@
     <description>Recent content in Projects on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 12 Mar 2025 23:28:14 +0200</lastBuildDate>
+    <lastBuildDate>Wed, 02 Jul 2025 15:20:07 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/projects/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Tic Tac Toe</title>
+      <link>https://vijay.eu/projects/tic-tac-toe/</link>
+      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/tic-tac-toe/</guid>
+      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/tic-tac-toe.css&#34;&gt;
+
+&lt;div class=&#34;tic-tac-toe-container&#34;&gt;
+    &lt;div id=&#34;game-setup&#34;&gt;
+        &lt;label for=&#34;first-move&#34;&gt;Who goes first?&lt;/label&gt;
+        &lt;select id=&#34;first-move&#34;&gt;
+            &lt;option value=&#34;player&#34;&gt;Player (X)&lt;/option&gt;
+            &lt;option value=&#34;computer&#34;&gt;Computer (O)&lt;/option&gt;
+        &lt;/select&gt;
+        &lt;button id=&#34;start-game&#34;&gt;Start Game&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;game-board&#34; class=&#34;hidden&#34;&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;0&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;1&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;2&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;3&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;4&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;5&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;6&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;7&#34;&gt;&lt;/div&gt;
+        &lt;div class=&#34;cell&#34; data-index=&#34;8&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;message&#34; class=&#34;hidden&#34;&gt;&lt;/div&gt;
+    &lt;button id=&#34;restart-game&#34; class=&#34;hidden&#34;&gt;Restart Game&lt;/button&gt;
+&lt;/div&gt;
+
+&lt;script src=&#34;https://vijay.eu/js/tic-tac-toe.js&#34;&gt;&lt;/script&gt;
+&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Decibel Meter</title>
