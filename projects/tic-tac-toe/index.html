@@ -7,31 +7,65 @@
     <meta http-equiv="Content-Language" content="en">
 
     <meta name="author" content="Vijay Kodam">
-    <meta name="description" content="Vijay Kodam&#39;s Personal Blog">
+    <meta name="description" content="
+
+
+    
+        Who goes first?
+        
+            Player (X)
+            Computer (O)
+        
+        Start Game
+    
+    
+        
+        
+        
+        
+        
+        
+        
+        
+        
+    
+    
+    Restart Game
+
+
+
+Created it using Google Gemini CLI on 2nd Jul 2025">
     <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
 
     
   <meta name="twitter:card" content="summary">
-  <meta name="twitter:title" content="Projects">
-  <meta name="twitter:description" content="Vijay Kodam&#39;s Personal Blog">
+  <meta name="twitter:title" content="Tic Tac Toe">
+  <meta name="twitter:description" content="Who goes first? Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
 
-    <meta property="og:url" content="https://vijay.eu/projects/">
+    <meta property="og:url" content="https://vijay.eu/projects/tic-tac-toe/">
   <meta property="og:site_name" content="Vijay Kodam">
-  <meta property="og:title" content="Projects">
-  <meta property="og:description" content="Vijay Kodam&#39;s Personal Blog">
+  <meta property="og:title" content="Tic Tac Toe">
+  <meta property="og:description" content="Who goes first? Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
   <meta property="og:locale" content="en">
-  <meta property="og:type" content="website">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="projects">
+    <meta property="article:published_time" content="2025-07-02T15:20:07+03:00">
+    <meta property="article:modified_time" content="2025-07-02T15:20:07+03:00">
+    <meta property="article:tag" content="Tools">
+    <meta property="article:tag" content="Audio">
+    <meta property="article:tag" content="Javascript">
+    <meta property="article:tag" content="Web">
 
 
     
-      <base href="https://vijay.eu/projects/">
+      <base href="https://vijay.eu/projects/tic-tac-toe/">
     
     <title>
-  Projects · Vijay Kodam
+  Tic Tac Toe · Vijay Kodam
 </title>
 
     
-      <link rel="canonical" href="https://vijay.eu/projects/">
+      <link rel="canonical" href="https://vijay.eu/projects/tic-tac-toe/">
     
 
     <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
@@ -55,7 +89,6 @@
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
     <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
 
-    <link rel="alternate" type="application/rss+xml" href="https://vijay.eu/projects/index.xml" title="Vijay Kodam" />
     <meta name="generator" content="Hugo 0.147.3">
   </head>
 
@@ -96,58 +129,45 @@
 
       <div class="content">
         
-  <section class="container list">
-    <h1 class="title">Projects</h1>
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Tic Tac Toe</h1>
+    </header>
 
-    <div class="intro-text">
-      <p>Welcome to my collection of experimental projects powered by Large Language Models (LLMs). My goal is to develop end-to-end solutions that are both practical and personally useful, with the assistance of LLMs. Each project here is a client-side Single Page Application (SPA), built primarily using HTML, CSS, and JavaScript. These projects are designed to be lightweight, minimal, and fully functional without the need for a server backend—ensuring they can run indefinitely without incurring additional costs.</p>
-      <p>I invite you to explore each project. Your feedback is highly valued, and you can connect with me on <a href="https://x.com/vijaykodam" target="_blank">X (Twitter)</a> or <a href="https://linkedin.com/in/vijaykodam" target="_blank">LinkedIn</a> to share your thoughts.</p>
+    <link rel="stylesheet" href="/css/tic-tac-toe.css">
+
+<div class="tic-tac-toe-container">
+    <div id="game-setup">
+        <label for="first-move">Who goes first?</label>
+        <select id="first-move">
+            <option value="player">Player (X)</option>
+            <option value="computer">Computer (O)</option>
+        </select>
+        <button id="start-game">Start Game</button>
     </div>
+    <div id="game-board" class="hidden">
+        <div class="cell" data-index="0"></div>
+        <div class="cell" data-index="1"></div>
+        <div class="cell" data-index="2"></div>
+        <div class="cell" data-index="3"></div>
+        <div class="cell" data-index="4"></div>
+        <div class="cell" data-index="5"></div>
+        <div class="cell" data-index="6"></div>
+        <div class="cell" data-index="7"></div>
+        <div class="cell" data-index="8"></div>
+    </div>
+    <div id="message" class="hidden"></div>
+    <button id="restart-game" class="hidden">Restart Game</button>
+</div>
 
-    
-    <ul><li>
-  <span class="date">July 2, 2025</span>
-  <a class="title" href="/projects/tic-tac-toe/">Tic Tac Toe</a>
-</li>
-<li>
-  <span class="date">March 12, 2025</span>
-  <a class="title" href="/projects/decibel-meter/">Decibel Meter</a>
-</li>
-<li>
-  <span class="date">March 9, 2025</span>
-  <a class="title" href="/projects/markdown-editor/">Markdown Editor</a>
-</li>
-<li>
-  <span class="date">February 16, 2025</span>
-  <a class="title" href="/projects/snake-game/">Classic Snake Game</a>
-</li>
-<li>
-  <span class="date">August 10, 2024</span>
-  <a class="title" href="/projects/my-ip/">Your Public IP Address</a>
-</li>
-<li>
-  <span class="date">August 9, 2024</span>
-  <a class="title" href="/projects/fitness-calculator/">Fitness Calculator</a>
-</li>
-<li>
-  <span class="date">August 8, 2024</span>
-  <a class="title" href="/projects/flag-game/">Flag Game</a>
-</li>
-<li>
-  <span class="date">August 1, 2024</span>
-  <a class="title" href="/projects/medal-tally/">Paris 2024 Olympics Medal Tally</a>
-</li>
-</ul>
+<script src="/js/tic-tac-toe.js"></script>
+<p>Created it using Google Gemini CLI on 2nd Jul 2025</p>
 
-    
-    
+  </article>
+</section>
 
-
-
-
-
-
-  </section>
+  
 
       </div>
 
@@ -345,6 +365,11 @@
 
     
 
+
+    
+        
+    
+        
 
     
 

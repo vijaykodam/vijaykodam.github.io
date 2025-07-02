@@ -2,8 +2,35 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://vijay.eu/tags/audio/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/categories/</loc>
-    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/javascript/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/projects/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/tic-tac-toe/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/tools/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/web/</loc>
+    <lastmod>2025-07-02T15:20:07+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/cloud/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
@@ -23,13 +50,7 @@
     <loc>https://vijay.eu/posts/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/</loc>
-    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/tags/video/</loc>
-    <lastmod>2025-06-26T22:02:48+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/lovable-app/</loc>
@@ -131,25 +152,7 @@
     <loc>https://vijay.eu/posts/decibel-meter-using-claude-code/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/tags/audio/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
     <loc>https://vijay.eu/projects/decibel-meter/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/javascript/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/categories/projects/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/projects/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/tools/</loc>
-    <lastmod>2025-03-12T23:28:14+02:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/tags/web/</loc>
     <lastmod>2025-03-12T23:28:14+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/projects/markdown-editor/</loc>
