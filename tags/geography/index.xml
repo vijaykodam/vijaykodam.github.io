@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Geography on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/geography/</link>
+    <description>Recent content in Geography on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 08 Aug 2024 07:00:32 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/tags/geography/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Flag Game</title>
+      <link>https://vijay.eu/projects/flag-game/</link>
+      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/flag-game/</guid>
+      <description>&lt;div class=&#34;container&#34;&gt;
+    &lt;div class=&#34;status&#34;&gt;
+        &lt;div class=&#34;counter&#34;&gt;&lt;strong id=&#34;quiz-mini-counter&#34;&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
+        &lt;div class=&#34;correct&#34;&gt;&lt;strong id=&#34;quiz-mini-correct&#34;&gt;0&lt;/strong&gt; correctly&lt;/div&gt;
+        &lt;div class=&#34;wrong&#34;&gt;&lt;strong id=&#34;quiz-mini-wrong&#34;&gt;0&lt;/strong&gt; wrong&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-image&#34; class=&#34;image&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-options&#34; class=&#34;options&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-result&#34; class=&#34;result&#34; style=&#34;display: none;&#34;&gt;
+        &lt;small&gt;
+            &lt;strong&gt;&lt;span id=&#34;quiz-mini-result-correct&#34;&gt;Well done!&lt;/span&gt;&lt;/strong&gt;
+            &lt;span id=&#34;quiz-mini-result-wrong&#34;&gt;False, it is &lt;strong id=&#34;quiz-mini-result-wrong-name&#34;&gt;*&lt;/strong&gt;&lt;/span&gt;
+        &lt;/small&gt;
+        &lt;button id=&#34;quiz-mini-refresh&#34; style=&#34;display: none;&#34;&gt;Restart Game&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,38 @@
+/* Style for each project list item */
+section.list ul li {
+    margin-bottom: 2rem; /* Add space between project entries */
+}
+
+/* Style for the date */
+section.list ul li .date {
+    font-size: 1rem;
+    color: #6c757d; /* Muted color for the date */
+    margin-bottom: 0.25rem;
+}
+
+/* Container for the title and "built-with" text */
+section.list ul li a.title-block {
+    display: block;
+    text-decoration: none;
+    color: inherit;
+}
+
+section.list ul li a.title-block:hover .project-name {
+    text-decoration: underline;
+}
+
+/* Style for the main project name */
+.project-name {
+    font-size: 1.5rem; /* Larger font size for the title */
+    font-weight: bold;
+}
+
+/* Style for the "Built using..." annotation */
+.project-built-with {
+    display: block;
+    font-size: 0.9rem;
+    font-style: italic;
+    font-weight: normal;
+    color: #888; /* Slightly lighter muted color */
+    margin-top: 4px;
+}

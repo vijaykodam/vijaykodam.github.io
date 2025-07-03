@@ -307,6 +307,40 @@ figure {
       @media only screen and (max-width: 768px) {
         .centered .error h2 {
           font-size: 2.8rem; } }
+  .centered .list ul li.project-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    flex-wrap: wrap; }
+    .centered .list ul li.project-item .date {
+      color: #666;
+      font-size: 0.9rem;
+      min-width: 120px;
+      flex-shrink: 0; }
+    .centered .list ul li.project-item .title {
+      color: #1565c0;
+      text-decoration: none;
+      flex: 1;
+      min-width: 200px; }
+      .centered .list ul li.project-item .title:hover {
+        text-decoration: underline; }
+    .centered .list ul li.project-item .ai-tool {
+      background: #1565c0;
+      color: white;
+      padding: 0.2rem 0.6rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      white-space: nowrap;
+      flex-shrink: 0; }
+    @media only screen and (max-width: 768px) {
+      .centered .list ul li.project-item .date {
+        min-width: 100px;
+        font-size: 0.8rem; }
+      .centered .list ul li.project-item .ai-tool {
+        font-size: 0.7rem;
+        padding: 0.15rem 0.5rem; } }
 .navigation {
   height: 6.0rem;
   width: 100%; }

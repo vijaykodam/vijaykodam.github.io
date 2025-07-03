@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Editor on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/editor/</link>
+    <description>Recent content in Editor on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 09 Mar 2025 23:44:00 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/tags/editor/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Markdown Editor</title>
+      <link>https://vijay.eu/projects/markdown-editor/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/markdown-editor/</guid>
+      <description>&lt;p&gt;Generated using Claude Code agentic tool.&lt;/p&gt;
+&lt;div class=&#34;markdown-editor-container&#34;&gt;
+    &lt;div class=&#34;editor-toolbar&#34;&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Headings&#34;&gt;H&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading1&#34; title=&#34;Heading 1 (# text)&#34; data-tag=&#34;# &#34;&gt;H1&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading2&#34; title=&#34;Heading 2 (## text)&#34; data-tag=&#34;## &#34;&gt;H2&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading3&#34; title=&#34;Heading 3 (### text)&#34; data-tag=&#34;### &#34;&gt;H3&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading4&#34; title=&#34;Heading 4 (#### text)&#34; data-tag=&#34;#### &#34;&gt;H4&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading5&#34; title=&#34;Heading 5 (##### text)&#34; data-tag=&#34;##### &#34;&gt;H5&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading6&#34; title=&#34;Heading 6 (###### text)&#34; data-tag=&#34;###### &#34;&gt;H6&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;bold&#34; title=&#34;Bold (**text**)&#34; data-tag=&#34;**&#34;&gt;B&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;italic&#34; title=&#34;Italic (*text*)&#34; data-tag=&#34;*&#34;&gt;I&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;strikethrough&#34; title=&#34;Strikethrough (~~text~~)&#34; data-tag=&#34;~~&#34;&gt;S&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;link&#34; title=&#34;Link ([text](url))&#34; data-tag=&#34;[](url)&#34;&gt;🔗&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;image&#34; title=&#34;Image (![alt](url))&#34; data-tag=&#34;![alt](url)&#34;&gt;🖼️&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Code&#34;&gt;📝&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;code&#34; title=&#34;Inline Code (`code`)&#34; data-tag=&#34;`&#34;&gt;Inline&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-js&#34; title=&#34;JavaScript Code Block&#34; data-tag=&#34;```javascript&#34;&gt;JavaScript&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-html&#34; title=&#34;HTML Code Block&#34; data-tag=&#34;```html&#34;&gt;HTML&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-css&#34; title=&#34;CSS Code Block&#34; data-tag=&#34;```css&#34;&gt;CSS&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-python&#34; title=&#34;Python Code Block&#34; data-tag=&#34;```python&#34;&gt;Python&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock&#34; title=&#34;Code Block&#34; data-tag=&#34;```&#34;&gt;No Language&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;blockquote&#34; title=&#34;Blockquote (&gt; text)&#34; data-tag=&#34;&gt; &#34;&gt;❝&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Lists&#34;&gt;•&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;unordered-list&#34; title=&#34;Unordered List (- item)&#34; data-tag=&#34;- &#34;&gt;Bullet List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;ordered-list&#34; title=&#34;Ordered List (1. item)&#34; data-tag=&#34;1. &#34;&gt;Numbered List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;task-list&#34; title=&#34;Task List (- [ ] task)&#34; data-tag=&#34;- [ ] &#34;&gt;Task List&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;hr&#34; title=&#34;Horizontal Rule (---)&#34; data-tag=&#34;---&#34;&gt;―&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;table&#34; title=&#34;Table (| header | header |)&#34;&gt;📊&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;editor-panels&#34;&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Markdown&lt;/h3&gt;
+            &lt;textarea id=&#34;markdown-input&#34; placeholder=&#34;Type your markdown here...&#34;&gt;&lt;/textarea&gt;
+            &lt;div class=&#34;editor-status&#34;&gt;
+                &lt;span id=&#34;word-count&#34;&gt;0 words&lt;/span&gt;
+                &lt;span id=&#34;char-count&#34;&gt;0 characters&lt;/span&gt;
+                &lt;span id=&#34;cursor-position&#34;&gt;Line: 1, Column: 1&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Preview&lt;/h3&gt;
+            &lt;div id=&#34;markdown-preview&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is the cost and time it took to create this working code and testing it.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost 
+  ⎿  Total cost:            $1.01
+     Total duration (API):  5m 8.1s
+     Total duration (wall): 31m 43.5s
+     Total code changes:    713 lines added, 43 lines removed
+  ⎿  Set editor mode to vim
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You just have to have clear requirements and what you want and LLMs are there to make it happen.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

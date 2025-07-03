@@ -12,11 +12,20 @@
     
     
     <item>
-      <title>Audio</title>
-      <link>https://vijay.eu/tags/audio/</link>
+      <title>Classic</title>
+      <link>https://vijay.eu/tags/classic/</link>
       <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
       
-      <guid>https://vijay.eu/tags/audio/</guid>
+      <guid>https://vijay.eu/tags/classic/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Game</title>
+      <link>https://vijay.eu/tags/game/</link>
+      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/game/</guid>
       <description></description>
     </item>
     
@@ -26,15 +35,6 @@
       <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Tools</title>
-      <link>https://vijay.eu/tags/tools/</link>
-      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/tools/</guid>
       <description></description>
     </item>
     
@@ -237,6 +237,51 @@
     </item>
     
     <item>
+      <title>Audio</title>
+      <link>https://vijay.eu/tags/audio/</link>
+      <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/audio/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Tools</title>
+      <link>https://vijay.eu/tags/tools/</link>
+      <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/tools/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Editor</title>
+      <link>https://vijay.eu/tags/editor/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/editor/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Markdown</title>
+      <link>https://vijay.eu/tags/markdown/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/markdown/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Productivity</title>
+      <link>https://vijay.eu/tags/productivity/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/productivity/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>AWSCommunity</title>
       <link>https://vijay.eu/tags/awscommunity/</link>
       <pubDate>Wed, 05 Mar 2025 10:16:35 +0200</pubDate>
@@ -296,15 +341,6 @@
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
       <guid>https://vijay.eu/tags/sonnet3.7/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Game</title>
-      <link>https://vijay.eu/tags/game/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/game/</guid>
       <description></description>
     </item>
     
@@ -512,6 +548,96 @@
       <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/upgrade/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Network</title>
+      <link>https://vijay.eu/tags/network/</link>
+      <pubDate>Sat, 10 Aug 2024 12:05:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/network/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Utility</title>
+      <link>https://vijay.eu/tags/utility/</link>
+      <pubDate>Sat, 10 Aug 2024 12:05:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/utility/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Calculator</title>
+      <link>https://vijay.eu/tags/calculator/</link>
+      <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/calculator/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Fitness</title>
+      <link>https://vijay.eu/tags/fitness/</link>
+      <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/fitness/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Health</title>
+      <link>https://vijay.eu/tags/health/</link>
+      <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/health/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Geography</title>
+      <link>https://vijay.eu/tags/geography/</link>
+      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/geography/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Quiz</title>
+      <link>https://vijay.eu/tags/quiz/</link>
+      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/quiz/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Data</title>
+      <link>https://vijay.eu/tags/data/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/data/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Olympics</title>
+      <link>https://vijay.eu/tags/olympics/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/olympics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Sports</title>
+      <link>https://vijay.eu/tags/sports/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/sports/</guid>
       <description></description>
     </item>
     
