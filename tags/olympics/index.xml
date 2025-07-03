@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Olympics on Vijay Kodam</title>
+    <link>https://vijay.eu/tags/olympics/</link>
+    <description>Recent content in Olympics on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Thu, 01 Aug 2024 16:49:32 +0300</lastBuildDate>
+    
+	<atom:link href="https://vijay.eu/tags/olympics/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Paris 2024 Olympics Medal Tally</title>
+      <link>https://vijay.eu/projects/medal-tally/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/medal-tally/</guid>
+      <description>&lt;p&gt;Final medal tally for Finland and India from the Paris 2024 Olympics.&lt;/p&gt;
+&lt;div class=&#34;medal-tally-container&#34;&gt;
+    &lt;div class=&#34;medal-box&#34;&gt;
+        &lt;h2&gt;Finland&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Rank&lt;/th&gt;
+                    &lt;th&gt;Gold&lt;/th&gt;
+                    &lt;th&gt;Silver&lt;/th&gt;
+                    &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;th&gt;Total&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;92&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;medal-box&#34;&gt;
+        &lt;h2&gt;India&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Rank&lt;/th&gt;
+                    &lt;th&gt;Gold&lt;/th&gt;
+                    &lt;th&gt;Silver&lt;/th&gt;
+                    &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;th&gt;Total&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;71&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                    &lt;td&gt;5&lt;/td&gt;
+                    &lt;td&gt;6&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .medal-tally-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .medal-box {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 1 1 300px;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .medal-box h2 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    .medal-box table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .medal-box th, .medal-box td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    
+    .medal-box th {
+        background-color: #f2f2f2;
+    }
+&lt;/style&gt;
+
+</description>
+    </item>
+    
+  </channel>
+</rss>

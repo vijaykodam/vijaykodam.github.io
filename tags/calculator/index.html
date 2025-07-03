@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="Vijay Kodam&#39;s Personal Blog">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Calculator">
+  <meta name="twitter:description" content="Vijay Kodam&#39;s Personal Blog">
+
+    <meta property="og:url" content="https://vijay.eu/tags/calculator/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Calculator">
+  <meta property="og:description" content="Vijay Kodam&#39;s Personal Blog">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="website">
+
+
+    
+      <base href="https://vijay.eu/tags/calculator/">
+    
+    <title>Calculator · Vijay Kodam</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/tags/calculator/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d0f116f1384d42246f51302b93e17c289bb97388dc3472fc59f19bb2f8bd317d.css" integrity="sha256-0PEW8ThNQiRvUTArk&#43;F8KJu5c4jcNHL8WfGbsvi9MX0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <link rel="alternate" type="application/rss+xml" href="https://vijay.eu/tags/calculator/index.xml" title="Vijay Kodam" />
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container list">
+  <h1 class="title">Calculator</h1>
+  
+  <ul>
+    
+    <li>
+      <span class="date">August 9, 2024</span>
+      <a class="title" href="/projects/fitness-calculator/">Fitness Calculator</a>
+    </li>
+    
+  </ul>
+  
+
+
+
+
+
+
+</section>
+
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

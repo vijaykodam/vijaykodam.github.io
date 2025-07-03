@@ -121,5 +121,318 @@
 </description>
     </item>
     
+    <item>
+      <title>Markdown Editor</title>
+      <link>https://vijay.eu/projects/markdown-editor/</link>
+      <pubDate>Sun, 09 Mar 2025 23:44:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/markdown-editor/</guid>
+      <description>&lt;p&gt;Generated using Claude Code agentic tool.&lt;/p&gt;
+&lt;div class=&#34;markdown-editor-container&#34;&gt;
+    &lt;div class=&#34;editor-toolbar&#34;&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Headings&#34;&gt;H&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading1&#34; title=&#34;Heading 1 (# text)&#34; data-tag=&#34;# &#34;&gt;H1&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading2&#34; title=&#34;Heading 2 (## text)&#34; data-tag=&#34;## &#34;&gt;H2&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading3&#34; title=&#34;Heading 3 (### text)&#34; data-tag=&#34;### &#34;&gt;H3&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading4&#34; title=&#34;Heading 4 (#### text)&#34; data-tag=&#34;#### &#34;&gt;H4&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading5&#34; title=&#34;Heading 5 (##### text)&#34; data-tag=&#34;##### &#34;&gt;H5&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;heading6&#34; title=&#34;Heading 6 (###### text)&#34; data-tag=&#34;###### &#34;&gt;H6&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;bold&#34; title=&#34;Bold (**text**)&#34; data-tag=&#34;**&#34;&gt;B&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;italic&#34; title=&#34;Italic (*text*)&#34; data-tag=&#34;*&#34;&gt;I&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;strikethrough&#34; title=&#34;Strikethrough (~~text~~)&#34; data-tag=&#34;~~&#34;&gt;S&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;link&#34; title=&#34;Link ([text](url))&#34; data-tag=&#34;[](url)&#34;&gt;🔗&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;image&#34; title=&#34;Image (![alt](url))&#34; data-tag=&#34;![alt](url)&#34;&gt;🖼️&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Code&#34;&gt;📝&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;code&#34; title=&#34;Inline Code (`code`)&#34; data-tag=&#34;`&#34;&gt;Inline&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-js&#34; title=&#34;JavaScript Code Block&#34; data-tag=&#34;```javascript&#34;&gt;JavaScript&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-html&#34; title=&#34;HTML Code Block&#34; data-tag=&#34;```html&#34;&gt;HTML&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-css&#34; title=&#34;CSS Code Block&#34; data-tag=&#34;```css&#34;&gt;CSS&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock-python&#34; title=&#34;Python Code Block&#34; data-tag=&#34;```python&#34;&gt;Python&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;codeblock&#34; title=&#34;Code Block&#34; data-tag=&#34;```&#34;&gt;No Language&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;blockquote&#34; title=&#34;Blockquote (&gt; text)&#34; data-tag=&#34;&gt; &#34;&gt;❝&lt;/button&gt;
+        &lt;div class=&#34;toolbar-dropdown&#34;&gt;
+            &lt;button class=&#34;toolbar-btn dropdown-toggle&#34; title=&#34;Lists&#34;&gt;•&lt;/button&gt;
+            &lt;div class=&#34;dropdown-menu&#34;&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;unordered-list&#34; title=&#34;Unordered List (- item)&#34; data-tag=&#34;- &#34;&gt;Bullet List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;ordered-list&#34; title=&#34;Ordered List (1. item)&#34; data-tag=&#34;1. &#34;&gt;Numbered List&lt;/button&gt;
+                &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;task-list&#34; title=&#34;Task List (- [ ] task)&#34; data-tag=&#34;- [ ] &#34;&gt;Task List&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;hr&#34; title=&#34;Horizontal Rule (---)&#34; data-tag=&#34;---&#34;&gt;―&lt;/button&gt;
+        &lt;button class=&#34;toolbar-btn&#34; data-action=&#34;table&#34; title=&#34;Table (| header | header |)&#34;&gt;📊&lt;/button&gt;
+    &lt;/div&gt;
+
+    &lt;div class=&#34;editor-panels&#34;&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Markdown&lt;/h3&gt;
+            &lt;textarea id=&#34;markdown-input&#34; placeholder=&#34;Type your markdown here...&#34;&gt;&lt;/textarea&gt;
+            &lt;div class=&#34;editor-status&#34;&gt;
+                &lt;span id=&#34;word-count&#34;&gt;0 words&lt;/span&gt;
+                &lt;span id=&#34;char-count&#34;&gt;0 characters&lt;/span&gt;
+                &lt;span id=&#34;cursor-position&#34;&gt;Line: 1, Column: 1&lt;/span&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;editor-panel&#34;&gt;
+            &lt;h3&gt;Preview&lt;/h3&gt;
+            &lt;div id=&#34;markdown-preview&#34;&gt;&lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+&lt;p&gt;Here is the cost and time it took to create this working code and testing it.&lt;/p&gt;
+&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;&amp;gt; /cost 
+  ⎿  Total cost:            $1.01
+     Total duration (API):  5m 8.1s
+     Total duration (wall): 31m 43.5s
+     Total code changes:    713 lines added, 43 lines removed
+  ⎿  Set editor mode to vim
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You just have to have clear requirements and what you want and LLMs are there to make it happen.&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Your Public IP Address</title>
+      <link>https://vijay.eu/projects/my-ip/</link>
+      <pubDate>Sat, 10 Aug 2024 12:05:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/my-ip/</guid>
+      <description>&lt;div style=&#34;text-align: left; margin-top: 20vh;&#34;&gt;
+    &lt;div id=&#34;ip-address&#34; style=&#34;font-size: 2em; color: #007bff; margin-top: 20px;&#34;&gt;
+        Fetching IP address...
+    &lt;/div&gt;
+
+    &lt;script type=&#34;application/javascript&#34;&gt;
+        function getIP(json) {
+            document.getElementById(&#39;ip-address&#39;).textContent = json.ip;
+        }
+    &lt;/script&gt;
+
+    &lt;script type=&#34;application/javascript&#34; src=&#34;https://api.ipify.org?format=jsonp&amp;callback=getIP&#34;&gt;&lt;/script&gt;
+&lt;/div&gt;
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Fitness Calculator</title>
+      <link>https://vijay.eu/projects/fitness-calculator/</link>
+      <pubDate>Fri, 09 Aug 2024 18:55:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/fitness-calculator/</guid>
+      <description>&lt;div class=&#34;container&#34;&gt;
+    
+    &lt;div id=&#34;intro-text&#34;&gt;
+        &lt;p&gt;
+            The 2 Km Walk Test is a reliable way to estimate your maximal aerobic power (VO2max) and assess your fitness level.
+        &lt;/p&gt;
+        &lt;p&gt;
+            To ensure accurate results, please follow these steps before filling in the details below:
+        &lt;/p&gt;
+        &lt;ol&gt;
+            &lt;li&gt;&lt;strong&gt;Preparation:&lt;/strong&gt; Ensure you are in good health and fit to undertake the test. Wear comfortable clothing and shoes suitable for walking.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Walk 2 Kilometers:&lt;/strong&gt; Find a flat, measured course (e.g., a track or a known distance on a path). Walk a total distance of 2 kilometers at a brisk, steady pace.&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Collect Your Data:&lt;/strong&gt; As soon as you finish the 2 km walk, immediately measure your heart rate (beats per minute) and note the total time taken to complete the walk (in minutes and seconds).&lt;/li&gt;
+            &lt;li&gt;&lt;strong&gt;Enter Your Details:&lt;/strong&gt; Once you have completed the walk and collected the necessary data, fill in the information below to calculate your fitness index.&lt;/li&gt;
+        &lt;/ol&gt;
+    &lt;/div&gt;
+
+    
+    &lt;form id=&#34;fitness-form&#34;&gt;
+        
+        &lt;div&gt;
+            &lt;label for=&#34;age&#34;&gt;Age (years):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;age&#34; name=&#34;age&#34; required&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;gender&#34;&gt;Gender:&lt;/label&gt;
+            &lt;select id=&#34;gender&#34; name=&#34;gender&#34; required&gt;
+                &lt;option value=&#34;male&#34;&gt;Male&lt;/option&gt;
+                &lt;option value=&#34;female&#34;&gt;Female&lt;/option&gt;
+            &lt;/select&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;weight&#34;&gt;Weight (kg):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;weight&#34; name=&#34;weight&#34; step=&#34;0.1&#34; required&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;height&#34;&gt;Height (cm):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;height&#34; name=&#34;height&#34; required&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;time-minutes&#34;&gt;Time to complete 2 km (minutes):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;time-minutes&#34; name=&#34;time-minutes&#34; required&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;time-seconds&#34;&gt;Time to complete 2 km (seconds):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;time-seconds&#34; name=&#34;time-seconds&#34; required&gt;
+        &lt;/div&gt;
+        &lt;div&gt;
+            &lt;label for=&#34;heart-rate&#34;&gt;Heart rate at the end of the walk (bpm):&lt;/label&gt;
+            &lt;input type=&#34;number&#34; id=&#34;heart-rate&#34; name=&#34;heart-rate&#34; required&gt;
+        &lt;/div&gt;
+        &lt;button type=&#34;submit&#34;&gt;Calculate Fitness&lt;/button&gt;
+
+        
+        &lt;p class=&#34;disclaimer&#34;&gt;
+            &lt;strong&gt;Disclaimer:&lt;/strong&gt; This tool is for informational purposes only and is not a substitute for professional medical advice, diagnosis, or treatment. Always consult your doctor or a qualified health professional before making any changes to your exercise routine or lifestyle.
+        &lt;/p&gt;
+    &lt;/form&gt;
+
+    
+    &lt;div id=&#34;results&#34; style=&#34;display:none;&#34;&gt;
+        &lt;h3&gt;Your Fitness Results&lt;/h3&gt;
+        &lt;p&gt;&lt;strong&gt;Maximal Aerobic Power (VO2max):&lt;/strong&gt; &lt;span id=&#34;vo2max-result&#34;&gt;&lt;/span&gt; ml·min⁻¹·kg⁻¹&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;BMI:&lt;/strong&gt; &lt;span id=&#34;bmi-result&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Fitness Index:&lt;/strong&gt; &lt;span id=&#34;fitness-index-result&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;strong&gt;Fitness Class:&lt;/strong&gt; &lt;span id=&#34;fitness-class-result&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+
+        &lt;div id=&#34;calculation-details&#34; style=&#34;margin-top: 40px;&#34;&gt;
+            
+        &lt;/div&gt;
+
+        &lt;button id=&#34;new-calculation&#34;&gt;New Calculation&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Flag Game</title>
+      <link>https://vijay.eu/projects/flag-game/</link>
+      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/flag-game/</guid>
+      <description>&lt;div class=&#34;container&#34;&gt;
+    &lt;div class=&#34;status&#34;&gt;
+        &lt;div class=&#34;counter&#34;&gt;&lt;strong id=&#34;quiz-mini-counter&#34;&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
+        &lt;div class=&#34;correct&#34;&gt;&lt;strong id=&#34;quiz-mini-correct&#34;&gt;0&lt;/strong&gt; correctly&lt;/div&gt;
+        &lt;div class=&#34;wrong&#34;&gt;&lt;strong id=&#34;quiz-mini-wrong&#34;&gt;0&lt;/strong&gt; wrong&lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-image&#34; class=&#34;image&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-options&#34; class=&#34;options&#34;&gt;&lt;/div&gt;
+    &lt;div id=&#34;quiz-mini-result&#34; class=&#34;result&#34; style=&#34;display: none;&#34;&gt;
+        &lt;small&gt;
+            &lt;strong&gt;&lt;span id=&#34;quiz-mini-result-correct&#34;&gt;Well done!&lt;/span&gt;&lt;/strong&gt;
+            &lt;span id=&#34;quiz-mini-result-wrong&#34;&gt;False, it is &lt;strong id=&#34;quiz-mini-result-wrong-name&#34;&gt;*&lt;/strong&gt;&lt;/span&gt;
+        &lt;/small&gt;
+        &lt;button id=&#34;quiz-mini-refresh&#34; style=&#34;display: none;&#34;&gt;Restart Game&lt;/button&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+
+</description>
+    </item>
+    
+    <item>
+      <title>Paris 2024 Olympics Medal Tally</title>
+      <link>https://vijay.eu/projects/medal-tally/</link>
+      <pubDate>Thu, 01 Aug 2024 16:49:32 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/medal-tally/</guid>
+      <description>&lt;p&gt;Final medal tally for Finland and India from the Paris 2024 Olympics.&lt;/p&gt;
+&lt;div class=&#34;medal-tally-container&#34;&gt;
+    &lt;div class=&#34;medal-box&#34;&gt;
+        &lt;h2&gt;Finland&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Rank&lt;/th&gt;
+                    &lt;th&gt;Gold&lt;/th&gt;
+                    &lt;th&gt;Silver&lt;/th&gt;
+                    &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;th&gt;Total&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;92&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+    
+    &lt;div class=&#34;medal-box&#34;&gt;
+        &lt;h2&gt;India&lt;/h2&gt;
+        &lt;table&gt;
+            &lt;thead&gt;
+                &lt;tr&gt;
+                    &lt;th&gt;Rank&lt;/th&gt;
+                    &lt;th&gt;Gold&lt;/th&gt;
+                    &lt;th&gt;Silver&lt;/th&gt;
+                    &lt;th&gt;Bronze&lt;/th&gt;
+                    &lt;th&gt;Total&lt;/th&gt;
+                &lt;/tr&gt;
+            &lt;/thead&gt;
+            &lt;tbody&gt;
+                &lt;tr&gt;
+                    &lt;td&gt;71&lt;/td&gt;
+                    &lt;td&gt;0&lt;/td&gt;
+                    &lt;td&gt;1&lt;/td&gt;
+                    &lt;td&gt;5&lt;/td&gt;
+                    &lt;td&gt;6&lt;/td&gt;
+                &lt;/tr&gt;
+            &lt;/tbody&gt;
+        &lt;/table&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+&lt;style&gt;
+    .medal-tally-container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+        margin: 20px 0;
+    }
+    
+    .medal-box {
+        background-color: #fff;
+        border: 1px solid #ddd;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+        flex: 1 1 300px;
+        max-width: 300px;
+        text-align: center;
+    }
+    
+    .medal-box h2 {
+        margin-top: 0;
+        margin-bottom: 15px;
+    }
+    
+    .medal-box table {
+        width: 100%;
+        border-collapse: collapse;
+    }
+    
+    .medal-box th, .medal-box td {
+        border: 1px solid #ddd;
+        padding: 8px;
+        text-align: center;
+    }
+    
+    .medal-box th {
+        background-color: #f2f2f2;
+    }
+&lt;/style&gt;
+
+</description>
+    </item>
+    
   </channel>
 </rss>
