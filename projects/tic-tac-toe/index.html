@@ -11,10 +11,19 @@
 
 
     
-        Who goes first?
         
-            Player (X)
-            Computer (O)
+            Game Mode
+            
+                Player vs. Computer
+                Player vs. Player
+            
+        
+        
+            Who Goes First?
+            
+                Player (X)
+                Computer (O)
+            
         
         Start Game
     
@@ -40,12 +49,16 @@ Created it using Google Gemini CLI on 2nd Jul 2025">
     
   <meta name="twitter:card" content="summary">
   <meta name="twitter:title" content="Tic Tac Toe">
-  <meta name="twitter:description" content="Who goes first? Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
+  <meta name="twitter:description" content="Game Mode
+Player vs. Computer Player vs. Player Who Goes First?
+Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
 
     <meta property="og:url" content="https://vijay.eu/projects/tic-tac-toe/">
   <meta property="og:site_name" content="Vijay Kodam">
   <meta property="og:title" content="Tic Tac Toe">
-  <meta property="og:description" content="Who goes first? Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
+  <meta property="og:description" content="Game Mode
+Player vs. Computer Player vs. Player Who Goes First?
+Player (X) Computer (O) Start Game Restart Game Created it using Google Gemini CLI on 2nd Jul 2025">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="projects">
@@ -139,11 +152,20 @@ Created it using Google Gemini CLI on 2nd Jul 2025">
 
 <div class="tic-tac-toe-container">
     <div id="game-setup">
-        <label for="first-move">Who goes first?</label>
-        <select id="first-move">
-            <option value="player">Player (X)</option>
-            <option value="computer">Computer (O)</option>
-        </select>
+        <div class="setup-section">
+            <p class="setup-title">Game Mode</p>
+            <div class="button-group" id="game-mode-selector">
+                <button class="btn-toggle active" data-mode="pvc">Player vs. Computer</button>
+                <button class="btn-toggle" data-mode="pvp">Player vs. Player</button>
+            </div>
+        </div>
+        <div class="setup-section" id="first-move-container">
+            <p class="setup-title">Who Goes First?</p>
+            <div class="button-group" id="first-move-selector">
+                <button class="btn-toggle active" data-first-move="player">Player (X)</button>
+                <button class="btn-toggle" data-first-move="computer">Computer (O)</button>
+            </div>
+        </div>
         <button id="start-game">Start Game</button>
     </div>
     <div id="game-board" class="hidden">

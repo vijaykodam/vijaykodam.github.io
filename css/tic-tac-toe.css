@@ -1,144 +1,148 @@
+/* --- Google Font Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap');
+/* --- Root Variables for Material Design Dark Theme --- */
+:root {
+    --md-dark-background: #121212;
+    --md-dark-surface: #1E1E1E; /* Card color */
+    --md-primary-color: #BB86FC; /* A nice purple accent */
+    --md-primary-variant-color: #3700B3;
+    --md-secondary-color: #03DAC6; /* A teal accent */
+    --md-on-primary-color: #000000;
+    --md-on-surface-color: #FFFFFF;
+    --md-on-surface-secondary-color: rgba(255, 255, 255, 0.7);
+    --md-divider-color: rgba(255, 255, 255, 0.12);
+}
 
+/* --- General Container Styling --- */
 .tic-tac-toe-container {
-    max-width: 400px;
+    max-width: 420px;
     margin: 2rem auto;
-    text-align: center;
     font-family: 'Roboto', sans-serif;
-    background-color: #1a1a1a;
-    color: #fff;
-    padding: 20px;
-    border-radius: 15px;
-    box-shadow: 0 0 20px rgba(0, 255, 255, 0.2);
+    background-color: var(--md-dark-background);
+    color: var(--md-on-surface-color);
+    padding: 16px;
 }
 
-#game-board {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 10px;
-    margin: 20px 0;
-    width: 300px;
-    height: 300px;
-    margin-left: auto;
-    margin-right: auto;
-    border: 2px solid #0ff;
-    border-radius: 10px;
-    padding: 10px;
-    box-shadow: 0 0 15px #0ff;
-}
-
-.cell {
-    width: 100%;
-    height: 100%;
-    border: 2px solid #0ff;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 3.5rem;
-    cursor: pointer;
-    background-color: #222;
-    transition: background-color 0.3s, box-shadow 0.3s;
-    border-radius: 5px;
-}
-
-.cell:hover {
-    background-color: #333;
-    box-shadow: 0 0 10px #0ff;
-}
-
-.cell.x, .cell.o {
-    cursor: not-allowed;
-}
-
-.cell.x::before {
-    content: 'X';
-    color: #0f0;
-    text-shadow: 0 0 10px #0f0;
-}
-
-.cell.o::before {
-    content: 'O';
-    color: #f0f;
-    text-shadow: 0 0 10px #f0f;
-}
-
-#message {
-    margin: 20px 0;
-    font-size: 1.5rem;
-    font-weight: 300;
-    color: #0ff;
-    text-shadow: 0 0 5px #0ff;
-}
-
-button {
-    padding: 12px 25px;
-    font-size: 1.1rem;
-    cursor: pointer;
-    border: 2px solid #0ff;
+/* --- Setup Screen (The Card) --- */
+#game-setup {
+    background-color: var(--md-dark-surface);
     border-radius: 8px;
+    padding: 24px;
+    margin-bottom: 24px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19);
+}
+
+.setup-section {
+    margin-bottom: 28px;
+}
+
+.setup-title {
+    font-size: 1rem; /* 16px */
+    font-weight: 400;
+    color: var(--md-on-surface-secondary-color);
+    margin-bottom: 16px;
+    text-align: left;
+}
+
+/* --- Toggle Buttons --- */
+.button-group {
+    display: flex;
+    border: 1px solid var(--md-divider-color);
+    border-radius: 4px;
+    overflow: hidden; /* Ensures children conform to border-radius */
+}
+
+.btn-toggle {
+    flex-grow: 1;
+    padding: 12px 10px;
+    font-size: 0.875rem; /* 14px */
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
     background-color: transparent;
-    color: #0ff;
-    margin: 10px;
-    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
+    color: var(--md-on-surface-secondary-color);
+    transition: background-color 150ms ease-in-out, color 150ms ease-in-out;
     text-transform: uppercase;
     letter-spacing: 1px;
 }
 
-button:hover {
-    background-color: #0ff;
-    color: #1a1a1a;
-    box-shadow: 0 0 15px #0ff;
+.btn-toggle:not(:last-child) {
+    border-right: 1px solid var(--md-divider-color);
+}
+
+.btn-toggle.active {
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+}
+
+.btn-toggle:hover:not(.active) {
+    background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* --- Main Action Buttons --- */
+#start-game, #restart-game {
+    width: 100%;
+    padding: 14px 28px;
+    font-size: 0.9375rem; /* 15px */
+    font-weight: 500;
+    cursor: pointer;
+    border: none;
+    border-radius: 4px;
+    background-color: var(--md-primary-color);
+    color: var(--md-on-primary-color);
+    text-transform: uppercase;
+    letter-spacing: 1.2px;
+    box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 3px 1px -2px rgba(0,0,0,0.12), 0 1px 5px 0 rgba(0,0,0,0.2);
+    transition: box-shadow 280ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+#start-game:hover, #restart-game:hover {
+    box-shadow: 0 4px 5px 0 rgba(0,0,0,0.14), 0 1px 10px 0 rgba(0,0,0,0.12), 0 2px 4px -1px rgba(0,0,0,0.2);
 }
 
 #restart-game {
-    border-color: #ff0;
-    color: #ff0;
+    background-color: var(--md-secondary-color);
+    margin-top: 16px;
 }
 
-#restart-game:hover {
-    background-color: #ff0;
-    color: #1a1a1a;
-    box-shadow: 0 0 15px #ff0;
+/* --- Game Board --- */
+#game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    background-color: var(--md-dark-surface);
+    padding: 8px;
+    border-radius: 8px;
 }
 
-.hidden {
-    display: none;
-}
-
-#game-setup {
-    margin-bottom: 20px;
+.cell {
+    aspect-ratio: 1 / 1;
+    border-radius: 4px;
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: 15px;
-}
-
-#game-setup label {
-    margin-right: 0;
-    font-size: 1.1rem;
-    color: #0ff;
-    text-shadow: 0 0 5px #0ff;
-}
-
-#game-setup select {
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    background-image: url('data:image/svg+xml;charset=US-ASCII,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22292.4%22%20height%3D%22292.4%22%3E%3Cpath%20fill%3D%22%2300FFFF%22%20d%3D%22M287%2069.4a17.6%2017.6%200%200%200-13-5.4H18.4c-5%200-9.3%201.8-12.9%205.4A17.6%2017.6%200%200%200%200%2082.2c0%205%201.8%209.3%205.4%2012.9l128%20127.9c3.6%203.6%207.8%205.4%2012.8%205.4s9.2-1.8%2012.8-5.4L287%2095c3.5-3.5%205.4-7.8%205.4-12.8%200-5-1.9-9.4-5.4-13z%22%2F%3E%3C%2Fsvg%3E');
-    background-repeat: no-repeat;
-    background-position: right 15px top 50%;
-    background-size: .65em auto;
-    padding: 12px 40px 12px 15px;
-    font-size: 1rem;
-    border-radius: 8px;
-    border: 2px solid #0ff;
-    background-color: #222;
-    color: #fff;
+    font-size: 3rem;
+    font-weight: 500;
     cursor: pointer;
-    transition: box-shadow 0.3s;
+    background-color: var(--md-dark-background);
+    transition: background-color 150ms ease-in-out;
 }
 
-#game-setup select:hover {
-    box-shadow: 0 0 10px #0ff;
+.cell:hover {
+    background-color: #2c2c2c;
 }
+
+.cell.x::before { content: 'X'; color: var(--md-primary-color); }
+.cell.o::before { content: 'O'; color: var(--md-secondary-color); }
+
+/* --- Message and Utility --- */
+#message {
+    margin: 24px 0;
+    font-size: 1.25rem;
+    font-weight: 400;
+    color: var(--md-on-surface-color);
+}
+
+.hidden { display: none; }
+#first-move-container.hidden { display: none; }
