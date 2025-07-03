@@ -5,23 +5,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const restartButton = document.getElementById('restart-game');
     const startButton = document.getElementById('start-game');
     const gameSetup = document.getElementById('game-setup');
-    const firstMoveSelector = document.getElementById('first-move');
+    const gameModeSelector = document.getElementById('game-mode-selector');
+    const firstMoveContainer = document.getElementById('first-move-container');
+    const firstMoveSelector = document.getElementById('first-move-selector');
 
     let currentPlayer;
     let boardState = ['', '', '', '', '', '', '', '', ''];
     let gameActive = false;
-    const playerSymbol = 'x';
-    const computerSymbol = 'o';
+    let gameMode = 'pvc';
+    let firstMove = 'player';
+    const playerXSymbol = 'x';
+    const playerOSymbol = 'o';
 
     const winningConditions = [
-        [0, 1, 2],
-        [3, 4, 5],
-        [6, 7, 8],
-        [0, 3, 6],
-        [1, 4, 7],
-        [2, 5, 8],
-        [0, 4, 8],
-        [2, 4, 6]
+        [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
+        [0, 3, 6], [1, 4, 7], [2, 5, 8], // Columns
+        [0, 4, 8], [2, 4, 6]             // Diagonals
     ];
 
     function updateMessage(message) {
@@ -32,16 +31,25 @@ document.addEventListener('DOMContentLoaded', () => {
         const clickedCell = clickedCellEvent.target;
         const clickedCellIndex = parseInt(clickedCell.getAttribute('data-index'));
 
-        if (boardState[clickedCellIndex] !== '' || !gameActive || currentPlayer !== playerSymbol) {
+        if (boardState[clickedCellIndex] !== '' || !gameActive) {
             return;
         }
 
-        handleMove(clickedCellIndex, playerSymbol);
+        if (gameMode === 'pvc' && currentPlayer !== playerXSymbol) {
+            return;
+        }
+
+        handleMove(clickedCellIndex, currentPlayer);
 
         if (gameActive) {
-            currentPlayer = computerSymbol;
-            updateMessage(`Computer's turn...`);
-            setTimeout(computerMove, 500);
+            if (gameMode === 'pvc') {
+                currentPlayer = playerOSymbol;
+                updateMessage("Computer's turn...");
+                setTimeout(computerMove, 500);
+            } else { // pvp
+                currentPlayer = currentPlayer === playerXSymbol ? playerOSymbol : playerXSymbol;
+                updateMessage(`Player ${currentPlayer.toUpperCase()}'s turn`);
+            }
         }
     }
 
@@ -57,9 +65,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function checkWin(symbol) {
         return winningConditions.some(combination => {
-            return combination.every(index => {
-                return boardState[index] === symbol;
-            });
+            return combination.every(index => boardState[index] === symbol);
         });
     }
 
@@ -68,62 +74,42 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     function computerMove() {
-        if (!gameActive) return;
+        if (!gameActive || gameMode !== 'pvc') return;
 
         let move = findBestMove();
-        handleMove(move, computerSymbol);
+        handleMove(move, playerOSymbol);
 
         if (gameActive) {
-            currentPlayer = playerSymbol;
+            currentPlayer = playerXSymbol;
             updateMessage('Your turn');
         }
     }
 
     function findBestMove() {
-        // 1. Check if computer can win
         for (let i = 0; i < 9; i++) {
             if (boardState[i] === '') {
-                boardState[i] = computerSymbol;
-                if (checkWin(computerSymbol)) {
-                    boardState[i] = ''; // backtrack
-                    return i;
+                boardState[i] = playerOSymbol;
+                if (checkWin(playerOSymbol)) {
+                    boardState[i] = ''; return i;
                 }
-                boardState[i] = ''; // backtrack
+                boardState[i] = '';
             }
         }
-
-        // 2. Check if player can win and block
         for (let i = 0; i < 9; i++) {
             if (boardState[i] === '') {
-                boardState[i] = playerSymbol;
-                if (checkWin(playerSymbol)) {
-                    boardState[i] = ''; // backtrack
-                    return i;
+                boardState[i] = playerXSymbol;
+                if (checkWin(playerXSymbol)) {
+                    boardState[i] = ''; return i;
                 }
-                boardState[i] = ''; // backtrack
+                boardState[i] = '';
             }
         }
-
-        // 3. Take center if available
-        if (boardState[4] === '') {
-            return 4;
-        }
-
-        // 4. Take a random corner
-        const corners = [0, 2, 6, 8];
-        const availableCorners = corners.filter(index => boardState[index] === '');
-        if (availableCorners.length > 0) {
-            return availableCorners[Math.floor(Math.random() * availableCorners.length)];
-        }
-
-        // 5. Take a random side
-        const sides = [1, 3, 5, 7];
-        const availableSides = sides.filter(index => boardState[index] === '');
-        if (availableSides.length > 0) {
-            return availableSides[Math.floor(Math.random() * availableSides.length)];
-        }
+        if (boardState[4] === '') return 4;
+        const corners = [0, 2, 6, 8].filter(i => boardState[i] === '');
+        if (corners.length > 0) return corners[Math.floor(Math.random() * corners.length)];
+        const sides = [1, 3, 5, 7].filter(i => boardState[i] === '');
+        if (sides.length > 0) return sides[Math.floor(Math.random() * sides.length)];
         
-        // Fallback to first available spot (should not be reached in a normal game)
         return boardState.findIndex(cell => cell === '');
     }
 
@@ -132,7 +118,11 @@ document.addEventListener('DOMContentLoaded', () => {
         if (draw) {
             updateMessage("It's a draw!");
         } else {
-            updateMessage(`${currentPlayer === playerSymbol ? 'You win!' : 'Computer wins!'}`);
+            if (gameMode === 'pvc') {
+                updateMessage(currentPlayer === playerXSymbol ? 'You win!' : 'Computer wins!');
+            } else {
+                updateMessage(`Player ${currentPlayer.toUpperCase()} wins!`);
+            }
         }
         restartButton.classList.remove('hidden');
     }
@@ -141,7 +131,7 @@ document.addEventListener('DOMContentLoaded', () => {
         gameActive = true;
         boardState = ['', '', '', '', '', '', '', '', ''];
         cells.forEach(cell => {
-            cell.classList.remove(playerSymbol, computerSymbol);
+            cell.classList.remove(playerXSymbol, playerOSymbol);
         });
         
         gameSetup.classList.add('hidden');
@@ -149,22 +139,53 @@ document.addEventListener('DOMContentLoaded', () => {
         messageElement.classList.remove('hidden');
         restartButton.classList.add('hidden');
 
-        currentPlayer = firstMoveSelector.value === 'player' ? playerSymbol : computerSymbol;
-
-        if (currentPlayer === computerSymbol) {
-            updateMessage("Computer's turn...");
-            setTimeout(computerMove, 500);
-        } else {
-            updateMessage('Your turn');
+        if (gameMode === 'pvc') {
+            currentPlayer = firstMove === 'player' ? playerXSymbol : playerOSymbol;
+            if (currentPlayer === playerOSymbol) {
+                updateMessage("Computer's turn...");
+                setTimeout(computerMove, 500);
+            } else {
+                updateMessage('Your turn');
+            }
+        } else { // pvp
+            currentPlayer = playerXSymbol;
+            updateMessage("Player X's turn");
         }
     }
 
     function restartGame() {
+        gameActive = false;
+        boardState = ['', '', '', '', '', '', '', '', ''];
+        cells.forEach(cell => {
+            cell.classList.remove(playerXSymbol, playerOSymbol);
+        });
         gameSetup.classList.remove('hidden');
         board.classList.add('hidden');
         messageElement.classList.add('hidden');
         restartButton.classList.add('hidden');
     }
+
+    gameModeSelector.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            gameMode = e.target.dataset.mode;
+            gameModeSelector.querySelector('.active').classList.remove('active');
+            e.target.classList.add('active');
+
+            if (gameMode === 'pvp') {
+                firstMoveContainer.classList.add('hidden');
+            } else {
+                firstMoveContainer.classList.remove('hidden');
+            }
+        }
+    });
+
+    firstMoveSelector.addEventListener('click', (e) => {
+        if (e.target.tagName === 'BUTTON') {
+            firstMove = e.target.dataset.firstMove;
+            firstMoveSelector.querySelector('.active').classList.remove('active');
+            e.target.classList.add('active');
+        }
+    });
 
     cells.forEach(cell => cell.addEventListener('click', handleCellClick));
     restartButton.addEventListener('click', restartGame);

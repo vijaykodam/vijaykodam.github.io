@@ -21,11 +21,20 @@
 
 &lt;div class=&#34;tic-tac-toe-container&#34;&gt;
     &lt;div id=&#34;game-setup&#34;&gt;
-        &lt;label for=&#34;first-move&#34;&gt;Who goes first?&lt;/label&gt;
-        &lt;select id=&#34;first-move&#34;&gt;
-            &lt;option value=&#34;player&#34;&gt;Player (X)&lt;/option&gt;
-            &lt;option value=&#34;computer&#34;&gt;Computer (O)&lt;/option&gt;
-        &lt;/select&gt;
+        &lt;div class=&#34;setup-section&#34;&gt;
+            &lt;p class=&#34;setup-title&#34;&gt;Game Mode&lt;/p&gt;
+            &lt;div class=&#34;button-group&#34; id=&#34;game-mode-selector&#34;&gt;
+                &lt;button class=&#34;btn-toggle active&#34; data-mode=&#34;pvc&#34;&gt;Player vs. Computer&lt;/button&gt;
+                &lt;button class=&#34;btn-toggle&#34; data-mode=&#34;pvp&#34;&gt;Player vs. Player&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;setup-section&#34; id=&#34;first-move-container&#34;&gt;
+            &lt;p class=&#34;setup-title&#34;&gt;Who Goes First?&lt;/p&gt;
+            &lt;div class=&#34;button-group&#34; id=&#34;first-move-selector&#34;&gt;
+                &lt;button class=&#34;btn-toggle active&#34; data-first-move=&#34;player&#34;&gt;Player (X)&lt;/button&gt;
+                &lt;button class=&#34;btn-toggle&#34; data-first-move=&#34;computer&#34;&gt;Computer (O)&lt;/button&gt;
+            &lt;/div&gt;
+        &lt;/div&gt;
         &lt;button id=&#34;start-game&#34;&gt;Start Game&lt;/button&gt;
     &lt;/div&gt;
     &lt;div id=&#34;game-board&#34; class=&#34;hidden&#34;&gt;
