@@ -17,7 +17,8 @@
       <pubDate>Wed, 12 Mar 2025 23:28:14 +0200</pubDate>
       
       <guid>https://vijay.eu/projects/decibel-meter/</guid>
-      <description>&lt;div class=&#34;decibel-meter-wrapper&#34;&gt;
+      <description>&lt;p&gt;Built using Anthropic Claude Code CLI.&lt;/p&gt;
+&lt;div class=&#34;decibel-meter-wrapper&#34;&gt;
     &lt;div class=&#34;speedometer-container&#34;&gt;
         
         &lt;div class=&#34;needle-container&#34;&gt;

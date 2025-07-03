@@ -17,7 +17,8 @@
       <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
       
       <guid>https://vijay.eu/projects/tic-tac-toe/</guid>
-      <description>&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/tic-tac-toe.css&#34;&gt;
+      <description>&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025
+&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/tic-tac-toe.css&#34;&gt;
 
 &lt;div class=&#34;tic-tac-toe-container&#34;&gt;
     &lt;div id=&#34;game-setup&#34;&gt;
@@ -53,7 +54,7 @@
 &lt;/div&gt;
 
 &lt;script src=&#34;https://vijay.eu/js/tic-tac-toe.js&#34;&gt;&lt;/script&gt;
-&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025&lt;/p&gt;
+&lt;/p&gt;
 </description>
     </item>
     
