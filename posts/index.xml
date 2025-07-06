@@ -230,9 +230,12 @@ AWS encourages you to produce content in your  own local language. You don’t h
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/vijaykodam/kubernetes-readonly-mcp/&#34;&gt;Github Repo URL&lt;/a&gt;&lt;/p&gt;
 &lt;h2 id=&#34;model-context-protocol&#34;&gt;Model Context Protocol&lt;/h2&gt;
-&lt;p&gt; Model Context Protocol (MCP) has been very popular lately and you can see the huge adoption as every company is releasing their official MCP server.&lt;/p&gt;
-&lt;p&gt;MCP server is the new API endpoint.&lt;/p&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. Read more about it at &lt;a href=&#34;https://modelcontextprotocol.io/&#34;&gt;https://modelcontextprotocol.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Now all the major companies like OpenAI, Microsoft, AWS and Google adopted it and it has become the industry standard for exposing tools, resources and API endpoints.&lt;/p&gt;
+&lt;p&gt;MCP has been very popular lately and you can see the huge adoption as every company is releasing their official MCP server.
+MCP server is the new API endpoint.&lt;/p&gt;
 &lt;h2 id=&#34;why-yet-another-mcp-server&#34;&gt;Why Yet Another MCP Server?&lt;/h2&gt;
 &lt;p&gt;Kubernetes is equally popular and there are many Kubernetes MCP servers out there. Security is still evolving around MCP and I didn’t want to run an MCP server for K8s which can create, update or delete my K8s resources.&lt;/p&gt;
 &lt;p&gt;Then I got an idea to build my own MCP server where only read only operations are part of the MCP servers tools. If there is no capability written to modify then it cannot modify the resources.&lt;/p&gt;
