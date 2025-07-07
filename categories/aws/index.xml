@@ -6,10 +6,45 @@
     <description>Recent content in AWS on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 05 Jun 2025 16:33:12 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 23:44:09 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/aws/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Built an AI Agent using Strands Agents SDK</title>
+      <link>https://vijay.eu/posts/built-an-ai-agent/</link>
+      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
+      
+      <guid>https://vijay.eu/posts/built-an-ai-agent/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/strands.png&#34; alt=&#34;strands&#34;&gt;&lt;/p&gt;
+&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Built an AI Agent using Strands Agents SDK from Amazon Web Services (AWS) which calls my Kubernetes MCP server. Read more to find out…&lt;/p&gt;
+&lt;h2 id=&#34;agents-and-mcp&#34;&gt;Agents and MCP&lt;/h2&gt;
+&lt;p&gt;AI Agents and Model Context Protocol are the most popular concepts in Gen AI now. Now I have created an AI Agent which calls MCP server to debug issues in my K8s cluster.&lt;/p&gt;
+&lt;p&gt;Recently I created a Model Context Protocol (MCP) server for &lt;a href=&#34;https://github.com/vijaykodam/kubernetes-readonly-mcp&#34;&gt;Kubernetes read-only operations&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id=&#34;strands-agents-sdk&#34;&gt;Strands Agents SDK&lt;/h2&gt;
+&lt;p&gt;AWS has created an SDK for building AI Agents called &lt;a href=&#34;https://strandsagents.com/latest/&#34;&gt;Strands Agents SDK&lt;/a&gt;. Now it added support for MCP as well.&lt;/p&gt;
+&lt;p&gt;I used Strands Agents SDK and built an AI Agent which calls my K8s MCP server and debugs issues in my running K8s cluster.&lt;/p&gt;
+&lt;p&gt;This demonstrates the AI Agents ability to achieve goals by perceiving the environment, reasoning and acting upon it using available tools like MCP servers.&lt;/p&gt;
+&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;p&gt;Below is my detailed demo of my AI Agent. Links in comments about Strands and my MCP server.&lt;/p&gt;
+&lt;iframe 
+   src=&#34;https://www.youtube.com/embed/GDEtRssnpx4?si=7S3cvYg-2Bz5PtEa&#34; 
+   width=&#34;560&#34; 
+   height=&#34;315&#34; 
+   title=&#34;Embedded Content&#34; 
+   frameborder=&#34;0&#34; 
+   allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+   referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+   allowfullscreen&gt;
+ &lt;/iframe&gt;
+
+&lt;p&gt;What are you building with Strands Agents SDK?&lt;/p&gt;
+&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>Won Amazon Q Coding Challenge</title>

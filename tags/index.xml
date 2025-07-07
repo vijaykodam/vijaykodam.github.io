@@ -6,10 +6,46 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Wed, 02 Jul 2025 15:20:07 +0300</lastBuildDate>
+    <lastBuildDate>Mon, 07 Jul 2025 23:44:09 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>Agents</title>
+      <link>https://vijay.eu/tags/agents/</link>
+      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/agents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AWS</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/tags/genai/</link>
+      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>LLM</title>
+      <link>https://vijay.eu/tags/llm/</link>
+      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/llm/</guid>
+      <description></description>
+    </item>
     
     <item>
       <title>Classic</title>
@@ -57,29 +93,11 @@
     </item>
     
     <item>
-      <title>LLM</title>
-      <link>https://vijay.eu/tags/llm/</link>
-      <pubDate>Thu, 26 Jun 2025 22:02:48 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Video</title>
       <link>https://vijay.eu/tags/video/</link>
       <pubDate>Thu, 26 Jun 2025 22:02:48 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/video/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
       <description></description>
     </item>
     
@@ -98,15 +116,6 @@
       <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/amazon-eks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>AWS</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
       <description></description>
     </item>
     
@@ -170,15 +179,6 @@
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/vllm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Agents</title>
-      <link>https://vijay.eu/tags/agents/</link>
-      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/agents/</guid>
       <description></description>
     </item>
     
