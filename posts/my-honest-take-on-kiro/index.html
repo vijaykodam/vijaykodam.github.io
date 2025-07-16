@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="My review of Kiro from AWS">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="My Honest Take on Kiro, AI IDE from AWS">
+  <meta name="twitter:description" content="My review of Kiro from AWS">
+
+    <meta property="og:url" content="https://vijay.eu/posts/my-honest-take-on-kiro/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="My Honest Take on Kiro, AI IDE from AWS">
+  <meta property="og:description" content="My review of Kiro from AWS">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="posts">
+    <meta property="article:published_time" content="2025-07-17T00:24:38+03:00">
+    <meta property="article:modified_time" content="2025-07-17T00:24:38+03:00">
+    <meta property="article:tag" content="AWS">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="GenAI">
+    <meta property="article:tag" content="Agents">
+
+
+    
+      <base href="https://vijay.eu/posts/my-honest-take-on-kiro/">
+    
+    <title>
+  My Honest Take on Kiro, AI IDE from AWS · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/posts/my-honest-take-on-kiro/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d0f116f1384d42246f51302b93e17c289bb97388dc3472fc59f19bb2f8bd317d.css" integrity="sha256-0PEW8ThNQiRvUTArk&#43;F8KJu5c4jcNHL8WfGbsvi9MX0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">AI Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container post">
+    <article>
+      <header>
+        <div class="post-title">
+          <h1 class="title">My Honest Take on Kiro, AI IDE from AWS</h1>
+        </div>
+        <div class="post-meta">
+          <div class="date">
+            <span class="posted-on">
+              <i class="fas fa-calendar"></i>
+              <time datetime='2025-07-17T00:24:38&#43;03:00'>
+                July 17, 2025
+              </time>
+            </span>
+            <span class="reading-time">
+              <i class="fas fa-clock"></i>
+              5-minute read
+            </span>
+          </div>
+          <div class="categories">
+  <i class="fas fa-folder"></i>
+    <a href="/categories/cloud/">Cloud</a>
+      <span class="separator">•</span>
+    <a href="/categories/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="/categories/genai/">GenAI</a></div>
+
+          <div class="tags">
+  <i class="fas fa-tag"></i>
+    <a href="/tags/aws/">AWS</a>
+      <span class="separator">•</span>
+    <a href="/tags/llm/">LLM</a>
+      <span class="separator">•</span>
+    <a href="/tags/genai/">GenAI</a>
+      <span class="separator">•</span>
+    <a href="/tags/agents/">Agents</a></div>
+
+        </div>
+      </header>
+
+      <div>
+        
+        <p><img src="/images/kiro-screenshot.png" alt="kiro"></p>
+<h2 id="introduction">Introduction</h2>
+<p>Amazon Web Services (AWS) released Kiro, an agentic AI IDE yesterday. Built an app with it today. Here is my honest take of this new AI IDE.</p>
+<p>This is my first experience trying Kiro and spent around 8 hours building a TODO app with Google OAuth2 authentication.</p>
+<h2 id="what-is-kiro">What is Kiro?</h2>
+<p>AWS released an AI powered agentic IDE powered by Claude 4.0 Sonnet. Cursor and Windsurf are it&rsquo;s competetors in this area. This area has been very hot with startups cloning VS Code and building AI code editors and several of them are worth couple of billion US dollars. You can learn more about Kiro at <a href="https://kiro.dev/">https://kiro.dev/</a></p>
+<h2 id="vibe-code--spec-code">Vibe Code &amp; Spec Code</h2>
+<p>Kiro supports vibe-coding as well as spec-based coding. I felt that this is a good way to teach industry best practices for a non-software engineer on how to build a software project from scratch.</p>
+<p><img src="/images/spec-code.png" alt="spec"></p>
+<p>From your single line wish in natural language, it creates a big set of requirements, Design Document and properly structured Tasks list which includes not only functional tasks but also non-functional and security related tasks.</p>
+<p>Once it is ready, you could review them, edit them and then run tasks one-by-one sequentially.</p>
+<h2 id="important-features">Important Features</h2>
+<p>There are two more concepts/features introduced by Kiro other than spec-driven development:</p>
+<ul>
+<li>Agent Hooks and</li>
+<li>Agent Steering.</li>
+</ul>
+<p><img src="/images/hooks.png" alt="hooks"></p>
+<h3 id="agent-hooks">Agent Hooks</h3>
+<p>These hooks get called when an event occurs. Currently Agent hooks supports triggering based on file operations like create, save and delete. You then mention what the Agent should do when it is triggered in natural language. No scripting, no coding, just plain English.</p>
+<p>In a very short time, I found Agent hooks to be extremely useful.  I created an agent hook to add files to git and then git commit my changes after every task is successfully completed.</p>
+<p>Here is my Agent hook for git commit on file save:</p>
+<p><img src="/images/git-hook.png" alt="githooks"></p>
+<p>Icing on the cake was that the Agent hook actually read all my code changes, summarized and added a single line commit comment which mentions what changes were done. The power of LLMs is on display in this usecase.</p>
+<h3 id="agent-steering">Agent Steering</h3>
+<p>When you click the created steering docs, Agent steering creates three docs: product, structure and tech stack. They contain all the info related to your project.</p>
+<p>Here is the steering doc for project for my app:</p>
+<p><img src="/images/steering.png" alt="steering"></p>
+<p>You could add your coding best practices, tech stack wish list, other conditions here, which will dictate how the code is generated by LLMs.</p>
+<h2 id="my-todo-app">My TODO app</h2>
+<p>I created a TODO app with Google sign-in as authentication method, without any AWS tech involved. Kiro is advertised as an independent AI IDE so I wanted to test that aspect.</p>
+<p>You can find the screenshots of the app in the images below.
+<img src="/images/todoapp1.png" alt="todoapp1">
+<img src="/images/todoapp2.png" alt="todoapp2"></p>
+<p>I got a working app with working Google authentication. Tested it with my Gmail credentials and it was working flawlessly.</p>
+<h2 id="improvements">Improvements?</h2>
+<p>Considering Kiro is released yesterday, I believe my impressions mentioned below might be resolved sooner or later.</p>
+<p>Anyway, here I go&hellip;</p>
+<h3 id="model-choice">Model Choice</h3>
+<p>Currently Kiro is limited to only Claude 4.0 Sonnet and Claude 3.7 Sonnet. Honestly these two are the industry best for coding.</p>
+<p>However, there might be usecases where fast responses are preferred over best responses. In those case, I wish Nova models from AWS are available as a choice.</p>
+<h3 id="slowness">Slowness</h3>
+<p>Few times faced slowness, although it is expected as there will be lot of people trying out Kiro along with Claude 4.0 Sonnet.
+Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amount of people trying it out and being Kiro in preview phase, I can totally understand this.</p>
+<h3 id="agent-hooks-1">Agent Hooks</h3>
+<p>I might have caught a bug in Agent Hooks implementation or I might be wrong. Anyway, let me spell it out. Feel free to correct me if I understood it wrong.</p>
+<p>While trying out Agent hooks, I have configured an Agent hook to be triggered whenever a file is saved. This worked fine if I run one task at a time. Whenever a file save was done, Agent hook was added to the task queue and waited until the tasks before it are done.</p>
+<p>After running one task at a time, I thought I will click &ldquo;Start Task&rdquo; on all the tasks so that all tasks will be executed sequentially. Here, when the first task was being executed, my git commit Agent hook got triggered by a file save and added it to the queue at the end after all the tasks.</p>
+<p>I wanted the Agent hook to be executed after every task so that each task is saved in a separate git commit. However that did not work as I anticipated. This is my understanding of how Agent hook must be called.</p>
+<p>These are early days of the release of Kiro. Will find out more about this feature going forward.</p>
+<h3 id="debugging-loop">Debugging loop</h3>
+<p>Few times, when I asked it to debug and fix an issue, it fell into a circular debugging loop and it was doing the same changes over and over again for more than ten times. I had to cancel the task and ask it to explain what it was doing.</p>
+<p>This might not be an issue with Kiro per se but I think it is an issue with LLM.</p>
+<h2 id="final-note">Final note</h2>
+<p>Kiro, Agentic AI IDE from AWS has started on a good note and using Claude 4.0 Sonnet as their model choice might be their genius move.</p>
+<p>AI Coding IDEs have been the first multi-billion dollar usecase coming out of Generative AI. AWS move to introduce Kiro at this moment in time will surely capture sizable userbase considering you pay 19$ per month to get the industry top LLM for coding.</p>
+<p>If you have not tried Kiro, do give it a try. Let me know in comments what is your Kiro experience?</p>
+<h2 id="follow-me">Follow Me</h2>
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+      </div>
+
+
+      <footer>
+        
+
+
+        
+        
+        
+      </footer>
+    </article>
+
+    
+  </section>
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>
