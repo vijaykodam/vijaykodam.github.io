@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="How much effort is needed to recreate classic snake game using LLMs?">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Classic Snake Game using LLMs">
+  <meta name="twitter:description" content="How much effort is needed to recreate classic snake game using LLMs?">
+
+    <meta property="og:url" content="https://vijay.eu/ai-lab/snake-game/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Classic Snake Game using LLMs">
+  <meta property="og:description" content="How much effort is needed to recreate classic snake game using LLMs?">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-lab">
+    <meta property="article:published_time" content="2025-02-16T23:23:47+02:00">
+    <meta property="article:modified_time" content="2025-02-16T23:23:47+02:00">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="Anthropic">
+    <meta property="article:tag" content="SnakeGame">
+    <meta property="article:tag" content="Game">
+
+
+    
+      <base href="https://vijay.eu/ai-lab/snake-game/">
+    
+    <title>
+  Classic Snake Game using LLMs · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/ai-lab/snake-game/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d0f116f1384d42246f51302b93e17c289bb97388dc3472fc59f19bb2f8bd317d.css" integrity="sha256-0PEW8ThNQiRvUTArk&#43;F8KJu5c4jcNHL8WfGbsvi9MX0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/ai-lab/">AI Lab</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">AI Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Classic Snake Game using LLMs</h1>
+    </header>
+
+    <p><img src="/images/SnakeRedApple.jpeg" alt="snake">
+Image Credit: Generated using Google Imagen3.</p>
+<h2 id="intro">Intro</h2>
+<p>Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here <a href="https://vijay.eu/projects/">https://vijay.eu/projects/</a></p>
+<h2 id="my-initial-experience">My initial experience</h2>
+<p>This was my experience back then: Ask each LLM to generate code for a project, copy the code into local files, test it locally, come up with new suggestions and then rinse and repeat until I found the project working well as per my expectation.</p>
+<p>For this exercise I have used: Anthropic Claude, Google Gemini, and OpenAI ChatGPT.
+Each had a different way of generating code, handling code changes on top of existing code and updating code.</p>
+<p>From my experience at that time, Anthropic Claude understood prompts really well and generated code much better than all other LLMs. The quality of code was way better than others. One major advantage was Claude Artifacts. This was a deal breaker for me and game changer for testing quick prototypes in the chat window itself. Also Claude allowed you to host the code and gave you an URL to share with your friends. Getting the html files and testing locally also worked seemlessly. It let you download the files. No copy pasting code from the chat window, which was the case for the remaining two LLMs.</p>
+<h2 id="new-challenge">New Challenge</h2>
+<p>Then came the other challenge. My website(<a href="https://vijay.eu">https://vijay.eu</a>) is based on Hugo and it is a static website hosted on GitHub Pages. GitHub delivers the static webpages to your mobile/computer when you open my website. There is no dynamic content in my website so there is no need of backend server to process the requests.</p>
+<p>I wanted to host my projects created using LLMs also on my website. This means, those projects should be fully static and should not require a backend server to handle any requests for the frontend running in user&rsquo;s mobile or computer.</p>
+<p>Hugo uses templating which simplifies adding new posts, which means all posts have the same header, footer, common javascript and common CSS. However for my projects, most of the magic is handled as part of Javascript and CSS.</p>
+<p>I spent several hours tweaking the code, explaining this to LLMs and asking them to generate the code which works with my existing hugo code. This took quite an effort and took several trial and errors before the first project worked. When I wanted to create a second flag game I had to do all this over again as it included a different design and there were upto ten questions each coming one after another. I enjoyed building those games but thought these should have been handled automatically for me.</p>
+<h2 id="current-experience-with-llms">Current experience with LLMs</h2>
+<p><strong>Today after four months</strong>, I wanted to check how far these LLMs have improved. So I decided to create classic snake game for my kids to play. Asked the same prompt to Claude, Gemini and ChatGPT. ChatGPT has new feature similar to Claude&rsquo;s artifact. ChatGPT created the code and displayed the code and demo window. When I pressed Preview, it kinda worked until the green snake (a single green square) ate the first red square. After that it all went haywire. There were multiple red squares appearing randomly across the box and the green square does not move.</p>
+<p>Gemini generated code in a window and no option to run locally in the window. Copied the code to my computer and ran it locally. It didn&rsquo;t work. There was a black box and nothing else. No red or green squares.</p>
+<p>Now, Claude generated perfectly working code, tested it in the artifact window and also customized the code to work with my hugo website. It also gave me instructions to add shortcodes in my hugo to add new javascript and css for this game. I felt the snake was moving too fast and asked Claude to generate new version to add three different speeds. It did on first try. I have tested it locally then added it my blog and pushed the changes. You can try this snake game on my website at <a href="https://vijay.eu/projects/snake-game/">https://vijay.eu/projects/snake-game/</a></p>
+<h3 id="winner-this-time">Winner this time</h3>
+<p>So, in this second round of my game benchmarking of LLMs, the winner is <strong>Anthropic Claude</strong> :)</p>
+<h2 id="my-thoughts">My Thoughts</h2>
+<p>These LLMs are now getting more advanced, producing error free code and understanding user prompts much better. This took me 10 minutes to prompt, test, download and push it to my website. TEN minutes from getting the idea to publishing it live on my website. This is A-W-E-S-O-M-E. You just have to imagine and you have unlimited digital workers, a.k.a LLMs, realizing those dreams for you. Democratizing code for everyone. This gives more power to people who can create end-to-end projects from idea to design to code to deploying it in real world production.</p>
+<p>How was your experience working with LLMs? What difference have you observed over the last six months?</p>
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+  </article>
+</section>
+
+  
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

@@ -13,10 +13,10 @@
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>
-      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
+      <link>https://vijay.eu/ai-lab/decibel-meter-using-claude-code/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
+      <guid>https://vijay.eu/ai-lab/decibel-meter-using-claude-code/</guid>
       <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;

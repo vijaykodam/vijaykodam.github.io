@@ -59,11 +59,39 @@
     </item>
     
     <item>
+      <title>Word Ladder</title>
+      <link>https://vijay.eu/projects/word-ladder/</link>
+      <pubDate>Wed, 25 Jun 2025 10:00:00 +0000</pubDate>
+      
+      <guid>https://vijay.eu/projects/word-ladder/</guid>
+      <description>&lt;p&gt;Built a game using Lovable, a vibe-coding AI platform, this weekend.&lt;/p&gt;
+&lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
+&lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
+&lt;p&gt;Below is an embedded version of the Word Ladder game hosted externally on lovable.app.&lt;/p&gt;
+&lt;iframe
+  src=&#34;https://word-ladder.lovable.app/&#34;
+  title=&#34;Word Ladder&#34;
+  loading=&#34;lazy&#34;
+  style=&#34;width: 100%; max-width: 560px; height: 700px; border: 0; display: block; margin: 0 auto;&#34;
+  allow=&#34;fullscreen; clipboard-read; clipboard-write; gamepad; cross-origin-isolated&#34;
+  referrerpolicy=&#34;no-referrer&#34;
+&gt;&lt;/iframe&gt;
+&lt;p style=&#34;text-align:center; margin-top: 0.75rem;&#34;&gt;
+  Having trouble viewing? &lt;a href=&#34;https://word-ladder.lovable.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Open Word Ladder in a new tab&lt;/a&gt;.
+&lt;/p&gt;
+&lt;!-- Notes:
+- If the external site sets X-Frame-Options: DENY/SAMEORIGIN or a restrictive CSP (frame-ancestors), the iframe won’t render. The page still presents a clear “Open in new tab” fallback.
+- Adjust the padding-top above to tune aspect ratio (e.g., 56.25% for 16:9). Current 175% is tall for mobile usability.
+--&gt;
+</description>
+    </item>
+    
+    <item>
       <title>Classic Snake Game using LLMs</title>
-      <link>https://vijay.eu/posts/snake-game/</link>
+      <link>https://vijay.eu/ai-lab/snake-game/</link>
       <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/snake-game/</guid>
+      <guid>https://vijay.eu/ai-lab/snake-game/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
 Image Credit: Generated using Google Imagen3.&lt;/p&gt;
 &lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;

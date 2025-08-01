@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en">
+
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Content-Language" content="en">
+
+    <meta name="author" content="Vijay Kodam">
+    <meta name="description" content="my AI experiments">
+    <meta name="keywords" content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal">
+
+    
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="Creating decibel meter using Claude Code Agentic tool">
+  <meta name="twitter:description" content="my AI experiments">
+
+    <meta property="og:url" content="https://vijay.eu/ai-lab/decibel-meter-using-claude-code/">
+  <meta property="og:site_name" content="Vijay Kodam">
+  <meta property="og:title" content="Creating decibel meter using Claude Code Agentic tool">
+  <meta property="og:description" content="my AI experiments">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="ai-lab">
+    <meta property="article:published_time" content="2025-03-13T23:16:20+02:00">
+    <meta property="article:modified_time" content="2025-03-13T23:16:20+02:00">
+    <meta property="article:tag" content="Claude">
+    <meta property="article:tag" content="GenAI">
+    <meta property="article:tag" content="LLM">
+    <meta property="article:tag" content="AgenticAI">
+    <meta property="article:tag" content="ClaudeCode">
+    <meta property="article:tag" content="Anthropic">
+
+
+    
+      <base href="https://vijay.eu/ai-lab/decibel-meter-using-claude-code/">
+    
+    <title>
+  Creating decibel meter using Claude Code Agentic tool · Vijay Kodam
+</title>
+
+    
+      <link rel="canonical" href="https://vijay.eu/ai-lab/decibel-meter-using-claude-code/">
+    
+
+    <link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.13.0/css/all.css" integrity="sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin="anonymous" />
+
+    
+      
+      
+      <link rel="stylesheet" href="/css/coder.min.d0f116f1384d42246f51302b93e17c289bb97388dc3472fc59f19bb2f8bd317d.css" integrity="sha256-0PEW8ThNQiRvUTArk&#43;F8KJu5c4jcNHL8WfGbsvi9MX0=" crossorigin="anonymous" media="screen" />
+    
+
+    
+
+    
+
+    
+
+    
+
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-32x32.png" sizes="32x32">
+    <link rel="icon" type="image/png" href="https://vijay.eu/images/favicon-16x16.png" sizes="16x16">
+
+    <meta name="generator" content="Hugo 0.147.3">
+  </head>
+
+  
+  
+  <body class="colorscheme-light">
+    <main class="wrapper">
+      <nav class="navigation">
+  <section class="container">
+    <a class="navigation-title" href="/">
+      Vijay Kodam
+    </a>
+    
+    <input type="checkbox" id="menu-toggle" />
+    <label class="menu-button float-right" for="menu-toggle"><i class="fas fa-bars"></i></label>
+    <ul class="navigation-list">
+      
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/about/">About</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/posts/">Blog</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/ai-lab/">AI Lab</a>
+          </li>
+        
+          <li class="navigation-item">
+            <a class="navigation-link" href="https://vijay.eu/projects/">AI Projects</a>
+          </li>
+        
+      
+      
+    </ul>
+    
+  </section>
+</nav>
+
+
+      <div class="content">
+        
+  <section class="container page">
+  <article>
+    <header>
+      <h1>Creating decibel meter using Claude Code Agentic tool</h1>
+    </header>
+
+    <h2 id="claude-code">Claude Code</h2>
+<p>Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.</p>
+<p>For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.</p>
+<h2 id="idea">Idea</h2>
+<p>Yesterday, I wanted to build a decibel meter app for my kids to know about decibels, how sound is measured and just to give them a new toy to play with. For me, I was already playing with Claude code, the agentic coding toy :)</p>
+<h3 id="requirements">Requirements</h3>
+<p>I wanted a simple browser-based decibel meter that uses my device&rsquo;s microphone to measure sound levels.</p>
+<ul>
+<li>App must use the Web Audio API to access microphone data.</li>
+<li>I am okay with approximate decibel measurements as this will not be calibrated.</li>
+<li>No data must be stored or transmitted - all processing must happen locally in my browser.</li>
+</ul>
+<h3 id="my-app-building-process">My App building process</h3>
+<p>Went into my codebase for my blog, opened Claude Code and started prompting to it. After a few revisions the first version was ready in 30 mins and $1.34. It added 560 lines and removed 169 lines in total.</p>
+<p>I have reviewed the code, tested the functionality. Yesterday I learnt that browsers do not allow microphone access to localhost or HTTP websites. Only HTTPS websites are allowed. I had to copy paste my code into Codepen to test it before pushing into production. After verifying, I had published my project.</p>
+<h3 id="cost">Cost</h3>
+<p>I like the handy <code>/cost</code> command to get the amount I burned on this toy project for that session.
+You also get the final costs when you exit the claude code.</p>
+<pre tabindex="0"><code>&gt; /cost
+  ⎿  Total cost:            $1.34
+     Total duration (API):  5m 5.9s
+     Total duration (wall): 36m 57.8s
+</code></pre><h3 id="version-1">Version 1</h3>
+<p>Here is my first version UI.</p>
+<p><img src="/images/decibel-v11.webp" alt="first-version"></p>
+<h3 id="real-world-feedback">Real World Feedback</h3>
+<p>When I tested it in my mobile, I realized that the sensitivity for normal voice was very low and the decibel meter was not moving at all. This was not a usable app, if the decibel meter barely moved.</p>
+<p>Now was the time for version 2 of the decibel meter app. With the real world testing I had new set of requirements to make it any useful. Also the decibel meter was showing very tiny fraction for the normal voice range.</p>
+<h2 id="version-2">Version 2</h2>
+<p>Now for the version 2, based on my testing, real world feedback had a new set of requirements.
+The long vertical decibel meter was not usable. So the next way to represent sound was to use a speedometer.
+Also the sensitivity should be high so that there is more spectrum for normal voice range and lesser for loud or extremely loud sounds. If there was an option to set microphone sensitivity, then it would be even better.</p>
+<p>The version 2 took several iterations as old code must be removed and new functionality added. Spent nearly 50 minutes to get it working.</p>
+<h3 id="continuous-feedback">Continuous feedback</h3>
+<p>While using Claude code, realized that I was practically testing the app UI after every iteration of code change, checking for errors in console logs, and prompting it to fix those errors.</p>
+<h3 id="gotchas">Gotchas</h3>
+<p>One time, I didn&rsquo;t realize the app was using old version of javascript and I thought the app was not working.  Claude Code was trying to fix a non-existent error, happily following my instructions and generating or modifying code continuously. After opening local version in a private window to get rid of cache and cookies, it started working. This could have saved me 15 mins if I had noticed earlier.</p>
+<p>So be careful to verify and test properly. Currently, Claude code will generate or modify code if you say it is not working.</p>
+<h3 id="the-final-ui">The Final UI</h3>
+<p>After several iterations and centering the needle, fixing the needle size, colors, shape of speedometer and 50 minutes of my time, got below UI as version 2.</p>
+<p><img src="/images/decibel-v2.webp" alt="version2"></p>
+<h2 id="decibel-meter-project">Decibel Meter project</h2>
+<p>Here is my <a href="https://vijay.eu/projects/decibel-meter/">Decibel meter project</a> if you want to try and check it.</p>
+<ul>
+<li>Note that it is not been calibrated and the values are approximate.</li>
+<li>No data is stored or transmitted - all processing happens locally in your browser</li>
+</ul>
+<h3 id="version-2-cost">Version 2 Cost</h3>
+<pre tabindex="0"><code>V2 cost
+Total cost:            $2.32
+Total duration (API):  12m 14.8s
+Total duration (wall): 50m 10.9s
+Total code changes:    1373 lines added, 501 lines removed
+</code></pre><h3 id="other-projects">Other Projects</h3>
+<p>I prefer building apps to solve my problems or create apps for my kids to play or learn. These days I am only using Claude Code agentic coding tool. I like working in terminal and Claude code runs entirely in terminal, no IDE, which works perfectly for me.</p>
+<p>I have built Cookie consent functionality for my blog. Also built <a href="https://vijay.eu/projects/markdown-editor/">Markdown Editor</a> to help me while writing my blogs in markdown and <a href="https://vijay.eu/projects/snake-game/">Classic Snake Game</a>  for my kids to play.</p>
+<p>All these three apps have been built using Claude Code and spent less than an hour to get it published. End-to-end, from ideation to running in the web and using it in my Mobile/Mac.</p>
+<h2 id="final-thoughts">Final Thoughts</h2>
+<p>These days, I started coding or should I say prompting a lot and generating lot of code using Claude Code than before.
+I am constantly on the lookout for the next app idea to implement. Building feels great. Seeing end-to-end working solutions feels great.</p>
+<p>Claude code is not cheap. It is addictive as you literally have a AI coder at your disposal.</p>
+<h3 id="your-experience">Your experience</h3>
+<p>How was your experience with Claude Code? Have you used any other agentic coding tools?</p>
+<h2 id="follow-me">Follow me</h2>
+<p>If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href="https://www.linkedin.com/in/vijaykodam/">LinkedIn</a> and visit <a href="https://dev.to/vijaykodam">my dev.to posts</a>. You can find all my previous blog posts in <a href="https://vijay.eu/posts">my blog</a></p>
+
+  </article>
+</section>
+
+  
+
+      </div>
+
+      
+  <footer class="footer">
+    <section class="container">
+      
+      
+        ©
+        
+        2025
+         Vijay Kodam 
+      
+      
+         · 
+        Powered by <a href="https://gohugo.io/">Hugo </a> & <a href="https://github.com/luizdepra/hugo-coder/"> Coder</a>.
+      
+      
+    </section>
+  </footer>
+
+
+
+
+<link rel="stylesheet" href="/css/cookieconsent.css">
+<script src="/js/cookieconsent.umd.js"></script>
+
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        console.log('Cookie consent script loaded');
+        
+        setTimeout(function() {
+            if (typeof CookieConsent !== 'undefined') {
+                console.log('CookieConsent available');
+                
+                try {
+                    
+                    const GOOGLE_ANALYTICS_ID = 'G-9L86XBXWE8';
+                    
+                    
+                    function loadGoogleAnalytics() {
+                        console.log('Loading Google Analytics...');
+                        if (typeof window.gtag === 'function') {
+                            console.log('Google Analytics already loaded');
+                            return;
+                        }
+
+                        
+                        const gtagScript = document.createElement('script');
+                        gtagScript.async = true;
+                        gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=" + GOOGLE_ANALYTICS_ID;
+                        document.head.appendChild(gtagScript);
+
+                        
+                        window.dataLayer = window.dataLayer || [];
+                        function gtag(){dataLayer.push(arguments);}
+                        window.gtag = gtag;
+                        gtag('js', new Date());
+                        gtag('config', GOOGLE_ANALYTICS_ID, {
+                            'anonymize_ip': true,
+                            'cookie_flags': 'SameSite=None;Secure'
+                        });
+                        console.log('Google Analytics loaded successfully');
+                    }
+                    
+                    CookieConsent.run({
+                        categories: {
+                            necessary: {
+                                name: 'Necessary cookies',
+                                description: 'These cookies are essential for the proper functioning of the website.',
+                                enabled: true,
+                                readonly: true
+                            },
+                            analytics: {
+                                name: 'Analytics cookies',
+                                description: 'These cookies collect information about how you use our website.',
+                                enabled: false,
+                                readonly: false
+                            }
+                        },
+                        cookie: {
+                            name: 'cc_cookie',
+                            expiresAfterDays: 182,
+                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? '' : 'vijay.eu',
+                            path: '/',
+                            secure: window.location.protocol === 'https:'
+                        },
+                        language: {
+                            default: 'en',
+                            translations: {
+                                en: {
+                                    consentModal: {
+                                        title: 'We use cookies',
+                                        description: 'This website uses cookies to enhance your browsing experience and analyze our traffic.',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        showPreferencesBtn: 'Customize'
+                                    },
+                                    preferencesModal: {
+                                        title: 'Cookie Settings',
+                                        acceptAllBtn: 'Accept all',
+                                        acceptNecessaryBtn: 'Reject all',
+                                        savePreferencesBtn: 'Save preferences',
+                                        sections: [
+                                            {
+                                                title: 'Your Privacy Choices',
+                                                description: 'When you visit our website, we store cookies on your browser to collect information.'
+                                            },
+                                            {
+                                                title: 'Strictly Necessary cookies',
+                                                description: 'These cookies are essential for the proper functioning of the website.',
+                                                linkedCategory: 'necessary'
+                                            },
+                                            {
+                                                title: 'Analytics cookies',
+                                                description: 'We use Google Analytics to understand how visitors interact with our website. All data is anonymized.',
+                                                linkedCategory: 'analytics',
+                                                cookieTable: {
+                                                    headers: {
+                                                        name: 'Cookie',
+                                                        domain: 'Domain',
+                                                        desc: 'Description',
+                                                        exp: 'Expiration'
+                                                    },
+                                                    body: [
+                                                        {
+                                                            name: '_ga',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to distinguish users',
+                                                            exp: '2 years'
+                                                        },
+                                                        {
+                                                            name: '_ga_*',
+                                                            domain: window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' ? 'localhost' : 'vijay.eu',
+                                                            desc: 'Used to maintain session status',
+                                                            exp: '2 years'
+                                                        }
+                                                    ]
+                                                }
+                                            }
+                                        ]
+                                    }
+                                }
+                            }
+                        },
+                        guiOptions: {
+                            consentModal: {
+                                layout: 'cloud',
+                                position: 'bottom center',
+                                equalWeightButtons: true
+                            },
+                            preferencesModal: {
+                                layout: 'box',
+                                position: 'right',
+                                equalWeightButtons: true
+                            }
+                        },
+                        onFirstConsent: ({ cookie }) => {
+                            console.log('First consent given:', cookie);
+                        },
+                        onConsent: ({ cookie }) => {
+                            console.log('Consent updated:', cookie);
+                            
+                            if (cookie.categories.includes('analytics')) {
+                                console.log('Analytics cookies accepted - loading Google Analytics');
+                                loadGoogleAnalytics();
+                            } else {
+                                console.log('Analytics cookies rejected - NOT loading Google Analytics');
+                            }
+                        },
+                        onChange: ({ changedCategories, cookie }) => {
+                            console.log('Consent preferences changed:', changedCategories);
+                            
+                            if (changedCategories.includes('analytics')) {
+                                const analyticsAccepted = CookieConsent.acceptedCategory('analytics');
+                                console.log('Analytics preference changed to:', analyticsAccepted ? 'accepted' : 'rejected');
+                                if (analyticsAccepted) {
+                                    loadGoogleAnalytics();
+                                }
+                            }
+                        }
+                    });
+                    console.log('CookieConsent initialized');
+                } catch (error) {
+                    console.error('Error initializing cookie consent:', error);
+                }
+            } else {
+                console.error('CookieConsent not available - script not loaded correctly');
+            }
+        }, 500);
+    });
+</script>
+
+    </main>
+
+    
+
+
+    
+        
+    
+        
+
+    
+
+
+    
+
+    
+
+  </body>
+
+</html>

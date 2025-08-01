@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AI on Vijay Kodam</title>
+    <link>http://localhost:1313/categories/ai/</link>
+    <description>Recent content in AI on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Fri, 01 Aug 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/categories/ai/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>First AI Lab Post</title>
+      <link>http://localhost:1313/ai-lab/first-ai-lab-post/</link>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/ai-lab/first-ai-lab-post/</guid>
+      <description>&lt;p&gt;This is a placeholder post for the new AI Lab section. Replace this content with your first review or POC. When ready to publish, set &lt;code&gt;draft = false&lt;/code&gt;.&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
