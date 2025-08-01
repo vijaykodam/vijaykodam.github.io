@@ -5,6 +5,9 @@
     <loc>https://vijay.eu/tags/agents/</loc>
     <lastmod>2025-07-17T00:24:38+03:00</lastmod>
   </url><url>
+    <loc>https://vijay.eu/ai-lab/</loc>
+    <lastmod>2025-07-17T00:24:38+03:00</lastmod>
+  </url><url>
     <loc>https://vijay.eu/categories/aws/</loc>
     <lastmod>2025-07-17T00:24:38+03:00</lastmod>
   </url><url>
@@ -26,10 +29,7 @@
     <loc>https://vijay.eu/tags/llm/</loc>
     <lastmod>2025-07-17T00:24:38+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/my-honest-take-on-kiro/</loc>
-    <lastmod>2025-07-17T00:24:38+03:00</lastmod>
-  </url><url>
-    <loc>https://vijay.eu/posts/</loc>
+    <loc>https://vijay.eu/ai-lab/my-honest-take-on-kiro/</loc>
     <lastmod>2025-07-17T00:24:38+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/</loc>
@@ -38,7 +38,7 @@
     <loc>https://vijay.eu/</loc>
     <lastmod>2025-07-17T00:24:38+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/built-an-ai-agent/</loc>
+    <loc>https://vijay.eu/ai-lab/built-an-ai-agent/</loc>
     <lastmod>2025-07-07T23:44:09+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/classic/</loc>
@@ -68,13 +68,13 @@
     <loc>https://vijay.eu/categories/llm/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/llm-video-generation/</loc>
+    <loc>https://vijay.eu/ai-lab/llm-video-generation/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/video/</loc>
     <lastmod>2025-06-26T22:02:48+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/lovable-app/</loc>
+    <loc>https://vijay.eu/ai-lab/lovable-app/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/vibecoding/</loc>
@@ -82,6 +82,21 @@
   </url><url>
     <loc>https://vijay.eu/tags/vibecoding/</loc>
     <lastmod>2025-06-25T16:29:33+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/ai/</loc>
+    <lastmod>2025-06-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/categories/ai-projects/</loc>
+    <lastmod>2025-06-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/lovable/</loc>
+    <lastmod>2025-06-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/tags/word/</loc>
+    <lastmod>2025-06-25T10:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/projects/word-ladder/</loc>
+    <lastmod>2025-06-25T10:00:00+00:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/amazon-eks/</loc>
     <lastmod>2025-06-05T16:33:12+03:00</lastmod>
@@ -96,6 +111,9 @@
     <lastmod>2025-06-05T16:33:12+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/kubernetes/</loc>
+    <lastmod>2025-06-05T16:33:12+03:00</lastmod>
+  </url><url>
+    <loc>https://vijay.eu/posts/</loc>
     <lastmod>2025-06-05T16:33:12+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/won-q-coding-challenge/</loc>
@@ -119,7 +137,7 @@
     <loc>https://vijay.eu/tags/model-context-protocol/</loc>
     <lastmod>2025-05-14T23:17:36+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</loc>
+    <loc>https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/</loc>
     <lastmod>2025-05-11T19:43:44+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/ray/</loc>
@@ -140,7 +158,7 @@
     <loc>https://vijay.eu/tags/langgraph/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/google-genai-capstone-project/</loc>
+    <loc>https://vijay.eu/ai-lab/google-genai-capstone-project/</loc>
     <lastmod>2025-04-19T00:54:11+03:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/agenticai/</loc>
@@ -155,7 +173,7 @@
     <loc>https://vijay.eu/tags/claudecode/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/decibel-meter-using-claude-code/</loc>
+    <loc>https://vijay.eu/ai-lab/decibel-meter-using-claude-code/</loc>
     <lastmod>2025-03-13T23:16:20+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/audio/</loc>
@@ -212,7 +230,7 @@
     <loc>https://vijay.eu/tags/poddisruptionbudget/</loc>
     <lastmod>2025-03-02T23:45:23+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/claude-code-demo/</loc>
+    <loc>https://vijay.eu/ai-lab/claude-code-demo/</loc>
     <lastmod>2025-02-24T23:58:17+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/categories/demo/</loc>
@@ -221,7 +239,7 @@
     <loc>https://vijay.eu/tags/sonnet3.7/</loc>
     <lastmod>2025-02-24T23:58:17+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/snake-game/</loc>
+    <loc>https://vijay.eu/ai-lab/snake-game/</loc>
     <lastmod>2025-02-16T23:23:47+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/snakegame/</loc>
@@ -236,7 +254,7 @@
     <loc>https://vijay.eu/tags/bedrock/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/bedrock-agents-workshop/</loc>
+    <loc>https://vijay.eu/ai-lab/bedrock-agents-workshop/</loc>
     <lastmod>2025-02-15T00:22:33+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/tags/rag/</loc>
@@ -251,7 +269,7 @@
     <loc>https://vijay.eu/tags/openai/</loc>
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
-    <loc>https://vijay.eu/posts/running-deepseek-locally/</loc>
+    <loc>https://vijay.eu/ai-lab/running-deepseek-locally/</loc>
     <lastmod>2025-01-29T22:12:06+02:00</lastmod>
   </url><url>
     <loc>https://vijay.eu/posts/new-llm-metric/</loc>

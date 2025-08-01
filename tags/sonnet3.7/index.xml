@@ -13,10 +13,10 @@
     
     <item>
       <title>Claude Code Agentic CLI demo</title>
-      <link>https://vijay.eu/posts/claude-code-demo/</link>
+      <link>https://vijay.eu/ai-lab/claude-code-demo/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/claude-code-demo/</guid>
+      <guid>https://vijay.eu/ai-lab/claude-code-demo/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is my Day Zero hands-on demo of Claude Code using Claude 3.7 Sonnet. Both were released by Anthropic today.&lt;/p&gt;
 &lt;p&gt;Claude 3.7 Sonnet, is the first hybrid reasoning model on the market by Anthropic. They have also introduced a command line tool for agentic coding, Claude Code.&lt;/p&gt;

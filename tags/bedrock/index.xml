@@ -13,10 +13,10 @@
     
     <item>
       <title>Hands-on Bedrock Agents workshop</title>
-      <link>https://vijay.eu/posts/bedrock-agents-workshop/</link>
+      <link>https://vijay.eu/ai-lab/bedrock-agents-workshop/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
+      <guid>https://vijay.eu/ai-lab/bedrock-agents-workshop/</guid>
       <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;
