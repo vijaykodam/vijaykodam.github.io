@@ -38,7 +38,7 @@ Vijay has extensive experience migrating enterprise 5G platforms to AWS, impleme
 
 ### Key Technical Posts
 - [First Impressions of EKS Auto Mode](https://vijay.eu/posts/eks-auto-first-impressions/) - Comprehensive review of AWS EKS Auto Mode from production perspective
-- [Deploying LLMs on Amazon EKS using NVIDIA GPUs](https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/) - Hands-on guide for LLM deployment with Mistral 7B, Ray Serve, and vLLM
+- [Deploying LLMs on Amazon EKS using NVIDIA GPUs](https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/) - Hands-on guide for LLM deployment with Mistral 7B, Ray Serve, and vLLM
 - [Built my first MCP Server for Kubernetes](https://vijay.eu/posts/building-my-first-mcp-server/) - Creating secure read-only Kubernetes MCP server
 - [Official EKS MCP Server First Impressions](https://vijay.eu/posts/official-eks-mcp-server/) - Analysis of AWS's official EKS MCP Server
 - [EKS Auto Max Node Lifetime](https://vijay.eu/posts/eks-auto-max-node-lifetime/) - Managing node lifecycle in EKS Auto Mode
@@ -65,6 +65,9 @@ The blog features unique interactive web applications built with vanilla JavaScr
 - **[Markdown Editor](https://vijay.eu/projects/markdown-editor/)** - Live markdown editor with real-time preview
 - **[Snake Game](https://vijay.eu/projects/snake-game/)** - Classic snake game implementation
 - **[Medal Tally](https://vijay.eu/projects/medal-tally/)** - Olympic medal tracking system
+- **[My IP](https://vijay.eu/projects/my-ip/)** - Check your public IP address and network info
+- **[Tic Tac Toe](https://vijay.eu/projects/tic-tac-toe/)** - Playable tic tac toe game
+- **[Word Ladder](https://vijay.eu/projects/word-ladder/)** - Word puzzle game
 
 ## Professional Context
 
@@ -88,5 +91,29 @@ Content emphasizes:
 - **GitHub**: https://github.com/vijaykodam/
 - **LinkedIn**: https://www.linkedin.com/in/vijaykodam/
 - **DEV Community**: https://dev.to/vijaykodam
+
+---
+
+## Machine-readable index
+
+[BEGIN JSONL]
+{"url":"https://vijay.eu/projects/markdown-editor/","title":"Markdown Editor","section":"projects","date":"2025-03-09","tags":["editor","markdown","productivity","web"],"summary":"A real-time markdown editor with live preview functionality."}
+{"url":"https://vijay.eu/projects/snake-game/","title":"Classic Snake Game","section":"projects","date":"2025-02-16","tags":["game","javascript","html5"],"summary":"A classic Snake game implemented in HTML5, CSS, and JavaScript"}
+{"url":"https://vijay.eu/projects/medal-tally/","title":"Paris 2024 Olympics Medal Tally","section":"projects","date":"2024-08-01","tags":["olympics","sports","data","web"],"summary":"Final medal tally for Finland and India from the Paris 2024 Olympics."}
+{"url":"https://vijay.eu/projects/flag-game/","title":"Flag Game","section":"projects","date":"2024-08-08","tags":["game","geography","quiz","web"],"summary":"Test your knowledge of world flags in this interactive quiz game."}
+{"url":"https://vijay.eu/projects/fitness-calculator/","title":"Fitness Calculator","section":"projects","date":"2024-08-09","tags":["health","calculator","fitness","web"],"summary":"Calculate your BMI, BMR, and daily calorie needs with this comprehensive fitness calculator."}
+{"url":"https://vijay.eu/projects/my-ip/","title":"Your Public IP Address","section":"projects","date":"2024-08-10","tags":["network","utility","web","tools"],"summary":"Quickly find your public IP address and network information."}
+{"url":"https://vijay.eu/projects/decibel-meter/","title":"Decibel Meter","section":"projects"}
+{"url":"https://vijay.eu/projects/tic-tac-toe/","title":"Tic Tac Toe","section":"projects"}
+{"url":"https://vijay.eu/projects/word-ladder/","title":"Word Ladder","section":"projects"}
+
+{"url":"https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/","title":"Deploying LLMs on Amazon EKS using NVIDIA GPUs","section":"ai-lab"}
+
+{"url":"https://vijay.eu/posts/eks-auto-first-impressions/","title":"First Impressions of EKS Auto Mode","section":"posts"}
+{"url":"https://vijay.eu/posts/building-my-first-mcp-server/","title":"Built my first MCP Server for Kubernetes","section":"posts"}
+{"url":"https://vijay.eu/posts/official-eks-mcp-server/","title":"Official EKS MCP Server First Impressions","section":"posts"}
+{"url":"https://vijay.eu/posts/eks-auto-max-node-lifetime/","title":"EKS Auto Max Node Lifetime","section":"posts"}
+{"url":"https://vijay.eu/posts/surprising-side-effect-eks-auto/","title":"Surprising Side Effect of EKS Auto","section":"posts"}
+[END JSONL]
 
 The views and opinions expressed in this blog are solely those of Vijay Kodam and do not reflect the views of his employer.
