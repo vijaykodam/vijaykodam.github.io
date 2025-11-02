@@ -13,10 +13,10 @@
     
     <item>
       <title>My Honest Take on Kiro, AI IDE from AWS</title>
-      <link>https://vijay.eu/ai-lab/my-honest-take-on-kiro/</link>
+      <link>https://vijay.eu/posts/my-honest-take-on-kiro/</link>
       <pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/my-honest-take-on-kiro/</guid>
+      <guid>https://vijay.eu/posts/my-honest-take-on-kiro/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kiro-screenshot.png&#34; alt=&#34;kiro&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Amazon Web Services (AWS) released Kiro, an agentic AI IDE yesterday. Built an app with it today. Here is my honest take of this new AI IDE.&lt;/p&gt;
@@ -81,10 +81,10 @@ Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amoun
     
     <item>
       <title>Built an AI Agent using Strands Agents SDK</title>
-      <link>https://vijay.eu/ai-lab/built-an-ai-agent/</link>
+      <link>https://vijay.eu/posts/built-an-ai-agent/</link>
       <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/built-an-ai-agent/</guid>
+      <guid>https://vijay.eu/posts/built-an-ai-agent/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/strands.png&#34; alt=&#34;strands&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Built an AI Agent using Strands Agents SDK from Amazon Web Services (AWS) which calls my Kubernetes MCP server. Read more to find out…&lt;/p&gt;
@@ -116,10 +116,10 @@ Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amoun
     
     <item>
       <title>Built an app using Lovable, vibecoding startup</title>
-      <link>https://vijay.eu/ai-lab/lovable-app/</link>
+      <link>https://vijay.eu/posts/lovable-app/</link>
       <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/lovable-app/</guid>
+      <guid>https://vijay.eu/posts/lovable-app/</guid>
       <description>&lt;p&gt;Built a game using &lt;a href=&#34;https://lovable.dev/&#34;&gt;Lovable&lt;/a&gt;, a vibe-coding AI platform, this weekend.&lt;/p&gt;
 &lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
 &lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
@@ -198,10 +198,10 @@ MCP server is the new API endpoint.&lt;/p&gt;
     
     <item>
       <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
-      <link>https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/</link>
+      <link>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/</guid>
+      <guid>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
       <description>&lt;p&gt;Today I have deployed an LLM inference solution on Amazon EKS using NVidia GPU.&lt;/p&gt;
 &lt;p&gt;As part of my Generative AI hands-on learning, attended an AWS hands-on workshop, where I have deployed Mistral 7B Instruct v0.3 model using Ray Serve and vLLM on Amazon EKS.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
@@ -277,10 +277,10 @@ Watch below demo where I setup the MCP server and generate AWS architecture diag
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/ai-lab/google-genai-capstone-project/</link>
+      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/google-genai-capstone-project/</guid>
+      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
@@ -438,10 +438,10 @@ Currently we are returning hardcoded mock data.&lt;/p&gt;
     
     <item>
       <title>Creating decibel meter using Claude Code Agentic tool</title>
-      <link>https://vijay.eu/ai-lab/decibel-meter-using-claude-code/</link>
+      <link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link>
       <pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/decibel-meter-using-claude-code/</guid>
+      <guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid>
       <description>&lt;h2 id=&#34;claude-code&#34;&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
@@ -512,10 +512,10 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Claude Code Agentic CLI demo</title>
-      <link>https://vijay.eu/ai-lab/claude-code-demo/</link>
+      <link>https://vijay.eu/posts/claude-code-demo/</link>
       <pubDate>Mon, 24 Feb 2025 23:58:17 +0200</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/claude-code-demo/</guid>
+      <guid>https://vijay.eu/posts/claude-code-demo/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/claude-code-shell.png&#34; alt=&#34;claude-code&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is my Day Zero hands-on demo of Claude Code using Claude 3.7 Sonnet. Both were released by Anthropic today.&lt;/p&gt;
 &lt;p&gt;Claude 3.7 Sonnet, is the first hybrid reasoning model on the market by Anthropic. They have also introduced a command line tool for agentic coding, Claude Code.&lt;/p&gt;
@@ -542,10 +542,10 @@ I am constantly on the lookout for the next app idea to implement. Building feel
     
     <item>
       <title>Running Deepseek R1 locally</title>
-      <link>https://vijay.eu/ai-lab/running-deepseek-locally/</link>
+      <link>https://vijay.eu/posts/running-deepseek-locally/</link>
       <pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/running-deepseek-locally/</guid>
+      <guid>https://vijay.eu/posts/running-deepseek-locally/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;

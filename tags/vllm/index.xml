@@ -13,10 +13,10 @@
     
     <item>
       <title>Deploying LLMs on Amazon EKS using NVIDIA GPUs</title>
-      <link>https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/</link>
+      <link>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</link>
       <pubDate>Sun, 11 May 2025 19:43:44 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/</guid>
+      <guid>https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/</guid>
       <description>&lt;p&gt;Today I have deployed an LLM inference solution on Amazon EKS using NVidia GPU.&lt;/p&gt;
 &lt;p&gt;As part of my Generative AI hands-on learning, attended an AWS hands-on workshop, where I have deployed Mistral 7B Instruct v0.3 model using Ray Serve and vLLM on Amazon EKS.&lt;/p&gt;
 &lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;

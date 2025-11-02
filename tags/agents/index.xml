@@ -13,10 +13,10 @@
     
     <item>
       <title>My Honest Take on Kiro, AI IDE from AWS</title>
-      <link>https://vijay.eu/ai-lab/my-honest-take-on-kiro/</link>
+      <link>https://vijay.eu/posts/my-honest-take-on-kiro/</link>
       <pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/my-honest-take-on-kiro/</guid>
+      <guid>https://vijay.eu/posts/my-honest-take-on-kiro/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kiro-screenshot.png&#34; alt=&#34;kiro&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Amazon Web Services (AWS) released Kiro, an agentic AI IDE yesterday. Built an app with it today. Here is my honest take of this new AI IDE.&lt;/p&gt;
@@ -81,10 +81,10 @@ Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amoun
     
     <item>
       <title>Built an AI Agent using Strands Agents SDK</title>
-      <link>https://vijay.eu/ai-lab/built-an-ai-agent/</link>
+      <link>https://vijay.eu/posts/built-an-ai-agent/</link>
       <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/built-an-ai-agent/</guid>
+      <guid>https://vijay.eu/posts/built-an-ai-agent/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/strands.png&#34; alt=&#34;strands&#34;&gt;&lt;/p&gt;
 &lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Built an AI Agent using Strands Agents SDK from Amazon Web Services (AWS) which calls my Kubernetes MCP server. Read more to find out…&lt;/p&gt;
@@ -116,10 +116,10 @@ Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amoun
     
     <item>
       <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/ai-lab/google-genai-capstone-project/</link>
+      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
       <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/google-genai-capstone-project/</guid>
+      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
       <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
 &lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
@@ -277,10 +277,10 @@ Currently we are returning hardcoded mock data.&lt;/p&gt;
     
     <item>
       <title>Hands-on Bedrock Agents workshop</title>
-      <link>https://vijay.eu/ai-lab/bedrock-agents-workshop/</link>
+      <link>https://vijay.eu/posts/bedrock-agents-workshop/</link>
       <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/bedrock-agents-workshop/</guid>
+      <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
       <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
 &lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;

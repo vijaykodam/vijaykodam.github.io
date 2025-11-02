@@ -13,10 +13,10 @@
     
     <item>
       <title>Built an app using Lovable, vibecoding startup</title>
-      <link>https://vijay.eu/ai-lab/lovable-app/</link>
+      <link>https://vijay.eu/posts/lovable-app/</link>
       <pubDate>Wed, 25 Jun 2025 16:29:33 +0300</pubDate>
       
-      <guid>https://vijay.eu/ai-lab/lovable-app/</guid>
+      <guid>https://vijay.eu/posts/lovable-app/</guid>
       <description>&lt;p&gt;Built a game using &lt;a href=&#34;https://lovable.dev/&#34;&gt;Lovable&lt;/a&gt;, a vibe-coding AI platform, this weekend.&lt;/p&gt;
 &lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
 &lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
