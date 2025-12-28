@@ -1,7 +1,7 @@
 {
 	"version": 3,
 	"file": "coder.css",
-	"sourceRoot": "/Users/vg/git/new-vijay/vijay",
+	"sourceRoot": "/Users/vg/experiments/vg-site/vijay",
 	"sources": [
 		"themes/hugo-coder/assets/scss/coder.scss",
 		"themes/hugo-coder/assets/scss/_variables.scss",

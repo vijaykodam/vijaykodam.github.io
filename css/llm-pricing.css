@@ -1,0 +1,266 @@
+/**
+ * LLM Pricing Table Styles
+ */
+
+#llm-pricing-container {
+    max-width: 100%;
+    margin: 0 auto;
+    padding: 1rem 0;
+    font-size: 16px;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+#llm-pricing-metadata {
+    margin-top: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: #666;
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+#llm-pricing-metadata p {
+    margin: 0.25rem 0;
+}
+
+#llm-pricing-loading,
+#llm-pricing-error {
+    padding: 2rem;
+    text-align: center;
+    color: #333;
+    font-size: 16px;
+}
+
+#llm-pricing-error {
+    color: #c00;
+}
+
+#llm-pricing-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    color: #000;
+    background: #fff;
+    line-height: 1.5;
+}
+
+#llm-pricing-table thead {
+    background-color: #f5f3ef;
+}
+
+#llm-pricing-table th {
+    padding: 12px 16px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 14px;
+    color: #444;
+    border-bottom: 1px solid #e0e0e0;
+    white-space: nowrap;
+}
+
+#llm-pricing-table th.sortable {
+    cursor: pointer;
+    user-select: none;
+    position: relative;
+    padding-right: 1.5rem;
+}
+
+#llm-pricing-table th.sortable:hover {
+    background-color: #ebe9e5;
+}
+
+/* Sort indicators */
+#llm-pricing-table th.sortable::after {
+    content: '';
+    position: absolute;
+    right: 0.5rem;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 4px solid transparent;
+    opacity: 0.3;
+}
+
+#llm-pricing-table th.sort-asc::after {
+    border-bottom-color: #333;
+    border-top: none;
+    opacity: 1;
+}
+
+#llm-pricing-table th.sort-desc::after {
+    border-top-color: #333;
+    border-bottom: none;
+    opacity: 1;
+}
+
+#llm-pricing-table td {
+    padding: 10px 16px;
+    border-bottom: 1px solid #eee;
+    color: #000;
+    font-size: 15px;
+}
+
+#llm-pricing-table tbody tr:hover {
+    background-color: #fafafa;
+}
+
+/* Price columns */
+#llm-pricing-table td:nth-child(3),
+#llm-pricing-table td:nth-child(4),
+#llm-pricing-table td:nth-child(5) {
+    text-align: left;
+    white-space: nowrap;
+}
+
+#llm-pricing-table th:nth-child(3),
+#llm-pricing-table th:nth-child(4),
+#llm-pricing-table th:nth-child(5) {
+    text-align: left;
+}
+
+/* Sources section */
+#llm-pricing-sources {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #ddd;
+    font-size: 14px;
+    color: #333;
+}
+
+#llm-pricing-sources p {
+    margin-bottom: 0.5rem;
+}
+
+#llm-pricing-sources ul {
+    margin: 0;
+    padding-left: 1.5rem;
+}
+
+#llm-pricing-sources li {
+    margin: 0.25rem 0;
+}
+
+#llm-pricing-sources a {
+    color: #0066cc;
+    text-decoration: none;
+}
+
+#llm-pricing-sources a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive design */
+@media (max-width: 768px) {
+    #llm-pricing-container {
+        overflow-x: auto;
+    }
+
+    #llm-pricing-table {
+        font-size: 14px;
+        min-width: 600px;
+    }
+
+    #llm-pricing-table th,
+    #llm-pricing-table td {
+        padding: 8px 12px;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .colorscheme-auto #llm-pricing-metadata,
+    .colorscheme-auto #llm-pricing-loading {
+        color: #ccc;
+    }
+
+    .colorscheme-auto #llm-pricing-table {
+        color: #e0e0e0;
+        background: #1a1a1a;
+    }
+
+    .colorscheme-auto #llm-pricing-table thead {
+        background-color: #2a2a2a;
+    }
+
+    .colorscheme-auto #llm-pricing-table th {
+        color: #aaa;
+        border-bottom-color: #444;
+    }
+
+    .colorscheme-auto #llm-pricing-table th.sortable:hover {
+        background-color: #333;
+    }
+
+    .colorscheme-auto #llm-pricing-table th.sort-asc::after {
+        border-bottom-color: #ccc;
+    }
+
+    .colorscheme-auto #llm-pricing-table th.sort-desc::after {
+        border-top-color: #ccc;
+    }
+
+    .colorscheme-auto #llm-pricing-table td {
+        color: #e0e0e0;
+        border-bottom-color: #333;
+    }
+
+    .colorscheme-auto #llm-pricing-table tbody tr:hover {
+        background-color: #252525;
+    }
+
+    .colorscheme-auto #llm-pricing-sources {
+        color: #ccc;
+        border-top-color: #444;
+    }
+
+    .colorscheme-auto #llm-pricing-sources a {
+        color: #6ab0f3;
+    }
+}
+
+.colorscheme-dark #llm-pricing-metadata,
+.colorscheme-dark #llm-pricing-loading {
+    color: #ccc;
+}
+
+.colorscheme-dark #llm-pricing-table {
+    color: #e0e0e0;
+    background: #1a1a1a;
+}
+
+.colorscheme-dark #llm-pricing-table thead {
+    background-color: #2a2a2a;
+}
+
+.colorscheme-dark #llm-pricing-table th {
+    color: #aaa;
+    border-bottom-color: #444;
+}
+
+.colorscheme-dark #llm-pricing-table th.sortable:hover {
+    background-color: #333;
+}
+
+.colorscheme-dark #llm-pricing-table th.sort-asc::after {
+    border-bottom-color: #ccc;
+}
+
+.colorscheme-dark #llm-pricing-table th.sort-desc::after {
+    border-top-color: #ccc;
+}
+
+.colorscheme-dark #llm-pricing-table td {
+    color: #e0e0e0;
+    border-bottom-color: #333;
+}
+
+.colorscheme-dark #llm-pricing-table tbody tr:hover {
+    background-color: #252525;
+}
+
+.colorscheme-dark #llm-pricing-sources {
+    color: #ccc;
+    border-top-color: #444;
+}
+
+.colorscheme-dark #llm-pricing-sources a {
+    color: #6ab0f3;
+}

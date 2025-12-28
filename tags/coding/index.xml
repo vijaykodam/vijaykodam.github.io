@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Coding on Vijay Kodam</title>
+    <link>http://localhost:1313/tags/coding/</link>
+    <description>Recent content in Coding on Vijay Kodam</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="http://localhost:1313/tags/coding/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Claude Code CLI</title>
+      <link>http://localhost:1313/projects/claude-code-cli/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>http://localhost:1313/projects/claude-code-cli/</guid>
+      <description>&lt;p&gt;&lt;a href=&#34;https://claude.ai/claude-code&#34;&gt;Claude Code&lt;/a&gt; is Anthropic&amp;rsquo;s official command-line interface for Claude. It&amp;rsquo;s an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
+&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Agentic coding&lt;/strong&gt;: Claude can read, write, and edit files autonomously&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Terminal integration&lt;/strong&gt;: Runs shell commands and understands output&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Codebase awareness&lt;/strong&gt;: Understands project structure and context&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Multi-file editing&lt;/strong&gt;: Can work across multiple files simultaneously&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Git integration&lt;/strong&gt;: Commits, creates PRs, and manages version control&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;installation&#34;&gt;Installation&lt;/h2&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;npm install -g @anthropic-ai/claude-code
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://docs.anthropic.com/en/docs/claude-code&#34;&gt;Official Documentation&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/anthropics/claude-code&#34;&gt;GitHub&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

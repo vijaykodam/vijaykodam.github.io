@@ -6,10 +6,57 @@
     <description>Recent content in AILab on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Jul 2025 00:24:38 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/categories/ailab/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>LLM Pricing Comparison</title>
+      <link>https://vijay.eu/projects/llm-pricing/</link>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
+      
+      <guid>https://vijay.eu/projects/llm-pricing/</guid>
+      <description>&lt;p&gt;Compare API pricing for text tokens across major Large Language Model providers. All prices are per 1 million tokens in USD.&lt;/p&gt;
+&lt;p&gt;Click on any column header to sort the table.&lt;/p&gt;
+&lt;div id=&#34;llm-pricing-container&#34;&gt;
+    &lt;div id=&#34;llm-pricing-loading&#34;&gt;Loading pricing data...&lt;/div&gt;
+
+    &lt;div id=&#34;llm-pricing-error&#34; style=&#34;display: none;&#34;&gt;
+        &lt;p&gt;Failed to load pricing data. Please try again later.&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;table id=&#34;llm-pricing-table&#34; style=&#34;display: none;&#34;&gt;
+        &lt;thead&gt;
+            &lt;tr&gt;
+                &lt;th data-sort=&#34;provider&#34; class=&#34;sortable&#34;&gt;Provider&lt;/th&gt;
+                &lt;th data-sort=&#34;model&#34; class=&#34;sortable&#34;&gt;Model&lt;/th&gt;
+                &lt;th data-sort=&#34;input&#34; class=&#34;sortable&#34;&gt;Input / MTok&lt;/th&gt;
+                &lt;th data-sort=&#34;cache_input&#34; class=&#34;sortable&#34;&gt;Cache Input / MTok&lt;/th&gt;
+                &lt;th data-sort=&#34;output&#34; class=&#34;sortable&#34;&gt;Output / MTok&lt;/th&gt;
+            &lt;/tr&gt;
+        &lt;/thead&gt;
+        &lt;tbody id=&#34;llm-pricing-tbody&#34;&gt;
+        &lt;/tbody&gt;
+    &lt;/table&gt;
+
+    &lt;div id=&#34;llm-pricing-metadata&#34;&gt;
+        &lt;p&gt;&lt;span id=&#34;llm-pricing-last-checked&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+        &lt;p&gt;&lt;span id=&#34;llm-pricing-last-updated&#34;&gt;&lt;/span&gt;&lt;/p&gt;
+    &lt;/div&gt;
+
+    &lt;div id=&#34;llm-pricing-sources&#34;&gt;
+        &lt;p&gt;&lt;strong&gt;Sources:&lt;/strong&gt;&lt;/p&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href=&#34;https://platform.openai.com/docs/pricing#text-tokens&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;OpenAI API Pricing&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;https://docs.anthropic.com/en/docs/about-claude/models&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Anthropic Claude Pricing&lt;/a&gt;&lt;/li&gt;
+            &lt;li&gt;&lt;a href=&#34;https://ai.google.dev/gemini-api/docs/pricing&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Google Gemini API Pricing&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
     
     <item>
       <title>My Honest Take on Kiro, AI IDE from AWS</title>
@@ -274,7 +321,8 @@ During these times I wonder how great it would be to have a magic tool which cou
 &lt;p&gt;Recently I took this hands-on &lt;strong&gt;“5-day Gen AI Intensive Course with Google”&lt;/strong&gt; and thought this might be a good way to solve my problem with recipes.&lt;/p&gt;
 &lt;p&gt;This is the definition from Google’s whitepaper:&lt;/p&gt;
 &lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;&lt;/blockquote&gt;
+&lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;
+&lt;/blockquote&gt;
 &lt;p&gt;To put it simply: LLMs cannot interact with the external world or act  on the external events. GenAI agents use LLMs, reasoning, logic and external tools to achieve the objectives set by the user.&lt;/p&gt;
 &lt;p&gt;This fits perfectly with my personal problem I mentioned about finding recipes. If I set the objective of generating recipes for a given vegetable and if I add tools to get recipes for such vegetables then the GenAI agent will reason about my request, use logic to find the recipes using perfect tool and format it in a human-readable format and present it to me.&lt;/p&gt;
 &lt;p&gt;So, I decided to create a GenAI Agent for Veggie Recipe Generator which helps me with recipes for the vegetables I want. In this capstone project, I have used mock recipes to demonstrate what I have learnt in this course.&lt;/p&gt;
