@@ -23,6 +23,7 @@
   background: var(--bg);
   color: var(--text);
   font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji","Segoe UI Emoji";
+  padding-top: 50px;
 }
 
 .cricket-bowling-container * {
@@ -34,7 +35,7 @@
   gap: 16px;
   justify-content: space-between;
   align-items: flex-start;
-  padding: 18px 18px 10px;
+  padding: 18px;
   max-width: 1240px;
   margin: 0 auto;
 }

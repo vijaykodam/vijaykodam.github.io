@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hand-Gesture 3D Car Viewer - Vijay Kodam</title>
+    <meta name="description" content="Interactive 3D car concept viewer with hand tracking. Rotate, move, and zoom using hand gestures!">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="/css/car-concept.css">
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
+        .back-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #334155;
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            transition: background 0.15s ease;
+        }
+        .back-link:hover {
+            background: #f8fafc;
+        }
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: -2px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/projects/" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to Projects
+    </a>
+
+    <div class="car-concept-container">
+    
+    <header class="car-header">
+        <div class="car-header__content">
+            <h1 class="car-header__title">Hand-Gesture 3D Car Viewer</h1>
+            <p class="car-header__subtitle"><strong>Uses your camera to detect hand gestures</strong> - Open hand to rotate, make a fist and move to zoom</p>
+        </div>
+        <div class="car-header__status">
+            <span class="status-badge" id="statusHand">Hand: Not detected</span>
+            <span class="status-badge status-badge--muted" id="statusGesture">Use mouse or enable hand tracking</span>
+        </div>
+    </header>
+
+    
+    <div class="viewer-container">
+        <canvas id="threeCanvas"></canvas>
+        <div class="loading-overlay" id="loadingOverlay">
+            <div class="loading-spinner"></div>
+            <p>Loading 3D model...</p>
+        </div>
+    </div>
+
+    
+    <div class="webcam-preview" id="webcamPreview">
+        <div class="webcam-preview__stack">
+            <video id="webcam" playsinline autoplay muted></video>
+            <canvas id="overlay2d"></canvas>
+        </div>
+        <button class="webcam-btn" id="btnWebcam" type="button">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" />
+                <path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" />
+            </svg>
+            Enable Hand Tracking
+        </button>
+        <div class="webcam-error hidden" id="webcamError"></div>
+    </div>
+
+    
+    <div class="instructions" id="instructions">
+        <div class="instructions__item">
+            <span class="instructions__icon">🖱️</span>
+            <span>Drag to rotate, scroll to zoom</span>
+        </div>
+        <div class="instructions__item">
+            <span class="instructions__icon">✋</span>
+            <span>Open hand: rotate car</span>
+        </div>
+        <div class="instructions__item">
+            <span class="instructions__icon">✊</span>
+            <span>Fist + move: zoom in/out</span>
+        </div>
+    </div>
+</div>
+
+
+
+    <script type="module" src="/js/car-concept.js"></script>
+
+    
+</body>
+</html>

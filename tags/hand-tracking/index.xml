@@ -6,13 +6,77 @@
     <description>Recent content in Hand-Tracking on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Jan 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/hand-tracking/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Cricket Bowling</title>
+      <title>Hand-Gesture 3D Car Viewer</title>
+      <link>https://vijay.eu/projects/car-concept/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/projects/car-concept/</guid>
+      <description>&lt;div class=&#34;car-concept-container&#34;&gt;
+    
+    &lt;header class=&#34;car-header&#34;&gt;
+        &lt;div class=&#34;car-header__content&#34;&gt;
+            &lt;h1 class=&#34;car-header__title&#34;&gt;Hand-Gesture 3D Car Viewer&lt;/h1&gt;
+            &lt;p class=&#34;car-header__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Open hand to rotate, make a fist and move to zoom&lt;/p&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;car-header__status&#34;&gt;
+            &lt;span class=&#34;status-badge&#34; id=&#34;statusHand&#34;&gt;Hand: Not detected&lt;/span&gt;
+            &lt;span class=&#34;status-badge status-badge--muted&#34; id=&#34;statusGesture&#34;&gt;Use mouse or enable hand tracking&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/header&gt;
+
+    
+    &lt;div class=&#34;viewer-container&#34;&gt;
+        &lt;canvas id=&#34;threeCanvas&#34;&gt;&lt;/canvas&gt;
+        &lt;div class=&#34;loading-overlay&#34; id=&#34;loadingOverlay&#34;&gt;
+            &lt;div class=&#34;loading-spinner&#34;&gt;&lt;/div&gt;
+            &lt;p&gt;Loading 3D model...&lt;/p&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+
+    
+    &lt;div class=&#34;webcam-preview&#34; id=&#34;webcamPreview&#34;&gt;
+        &lt;div class=&#34;webcam-preview__stack&#34;&gt;
+            &lt;video id=&#34;webcam&#34; playsinline autoplay muted&gt;&lt;/video&gt;
+            &lt;canvas id=&#34;overlay2d&#34;&gt;&lt;/canvas&gt;
+        &lt;/div&gt;
+        &lt;button class=&#34;webcam-btn&#34; id=&#34;btnWebcam&#34; type=&#34;button&#34;&gt;
+            &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;1.5&#34; stroke=&#34;currentColor&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
+                &lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z&#34; /&gt;
+                &lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z&#34; /&gt;
+            &lt;/svg&gt;
+            Enable Hand Tracking
+        &lt;/button&gt;
+        &lt;div class=&#34;webcam-error hidden&#34; id=&#34;webcamError&#34;&gt;&lt;/div&gt;
+    &lt;/div&gt;
+
+    
+    &lt;div class=&#34;instructions&#34; id=&#34;instructions&#34;&gt;
+        &lt;div class=&#34;instructions__item&#34;&gt;
+            &lt;span class=&#34;instructions__icon&#34;&gt;🖱️&lt;/span&gt;
+            &lt;span&gt;Drag to rotate, scroll to zoom&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;instructions__item&#34;&gt;
+            &lt;span class=&#34;instructions__icon&#34;&gt;✋&lt;/span&gt;
+            &lt;span&gt;Open hand: rotate car&lt;/span&gt;
+        &lt;/div&gt;
+        &lt;div class=&#34;instructions__item&#34;&gt;
+            &lt;span class=&#34;instructions__icon&#34;&gt;✊&lt;/span&gt;
+            &lt;span&gt;Fist + move: zoom in/out&lt;/span&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+&lt;/div&gt;
+
+</description>
+    </item>
+    
+    <item>
+      <title>Hand-Gesture Cricket</title>
       <link>https://vijay.eu/projects/cricket-bowling/</link>
       <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
       
@@ -20,8 +84,8 @@
       <description>&lt;div class=&#34;cricket-bowling-container&#34;&gt;
     &lt;header class=&#34;cricket-header&#34;&gt;
         &lt;div class=&#34;brand&#34;&gt;
-            &lt;div class=&#34;brand__title&#34;&gt;Cricket Bowling&lt;/div&gt;
-            &lt;div class=&#34;brand__subtitle&#34;&gt;Grip, bowl, and hit the wickets! Hand tracking in your browser.&lt;/div&gt;
+            &lt;div class=&#34;brand__title&#34;&gt;Hand-Gesture Cricket&lt;/div&gt;
+            &lt;div class=&#34;brand__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
         &lt;/div&gt;
 
         &lt;div class=&#34;status&#34; aria-live=&#34;polite&#34;&gt;

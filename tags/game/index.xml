@@ -12,7 +12,7 @@
     
     
     <item>
-      <title>Cricket Bowling</title>
+      <title>Hand-Gesture Cricket</title>
       <link>https://vijay.eu/projects/cricket-bowling/</link>
       <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
       
@@ -20,8 +20,8 @@
       <description>&lt;div class=&#34;cricket-bowling-container&#34;&gt;
     &lt;header class=&#34;cricket-header&#34;&gt;
         &lt;div class=&#34;brand&#34;&gt;
-            &lt;div class=&#34;brand__title&#34;&gt;Cricket Bowling&lt;/div&gt;
-            &lt;div class=&#34;brand__subtitle&#34;&gt;Grip, bowl, and hit the wickets! Hand tracking in your browser.&lt;/div&gt;
+            &lt;div class=&#34;brand__title&#34;&gt;Hand-Gesture Cricket&lt;/div&gt;
+            &lt;div class=&#34;brand__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
         &lt;/div&gt;
 
         &lt;div class=&#34;status&#34; aria-live=&#34;polite&#34;&gt;

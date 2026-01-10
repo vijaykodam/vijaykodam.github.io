@@ -6,7 +6,7 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sat, 10 Jan 2026 10:00:00 +0300</lastBuildDate>
+    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
@@ -14,9 +14,54 @@
     <item>
       <title>3D</title>
       <link>https://vijay.eu/tags/3d/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/3d/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GlTF</title>
+      <link>https://vijay.eu/tags/gltf/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/gltf/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hand-Tracking</title>
+      <link>https://vijay.eu/tags/hand-tracking/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/hand-tracking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mediapipe</title>
+      <link>https://vijay.eu/tags/mediapipe/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/mediapipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Three.js</title>
+      <link>https://vijay.eu/tags/three.js/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/three.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://vijay.eu/tags/web/</link>
+      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/web/</guid>
       <description></description>
     </item>
     
@@ -26,42 +71,6 @@
       <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Hand-Tracking</title>
-      <link>https://vijay.eu/tags/hand-tracking/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/hand-tracking/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Mediapipe</title>
-      <link>https://vijay.eu/tags/mediapipe/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/mediapipe/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Three.js</title>
-      <link>https://vijay.eu/tags/three.js/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/three.js/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web</title>
-      <link>https://vijay.eu/tags/web/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/web/</guid>
       <description></description>
     </item>
     
@@ -138,7 +147,7 @@
     </item>
     
     <item>
-      <title>Openai</title>
+      <title>OpenAI</title>
       <link>https://vijay.eu/tags/openai/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       
