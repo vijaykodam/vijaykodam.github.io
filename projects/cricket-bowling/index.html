@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket Bowling - Vijay Kodam</title>
+    <meta name="description" content="A 3D cricket bowling game using hand tracking. Grip, bowl, and hit the wickets using your webcam!">
+    <link rel="icon" type="image/png" href="/images/favicon-32x32.png" sizes="32x32">
+    <link rel="stylesheet" href="/css/cricket-bowling.css">
+    
+    <script type="importmap">
+    {
+        "imports": {
+            "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+            "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+        }
+    }
+    </script>
+    <style>
+        html, body {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow-x: hidden;
+        }
+        .back-link {
+            position: fixed;
+            top: 12px;
+            left: 12px;
+            z-index: 1000;
+            background: rgba(255,255,255,0.95);
+            padding: 8px 14px;
+            border-radius: 8px;
+            text-decoration: none;
+            color: #334155;
+            font-family: ui-sans-serif, system-ui, -apple-system, sans-serif;
+            font-size: 13px;
+            font-weight: 500;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+            border: 1px solid #e5e7eb;
+            transition: background 0.15s ease;
+        }
+        .back-link:hover {
+            background: #f8fafc;
+        }
+        .back-link svg {
+            width: 14px;
+            height: 14px;
+            vertical-align: -2px;
+            margin-right: 4px;
+        }
+    </style>
+</head>
+<body>
+    <a href="/projects/" class="back-link">
+        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" />
+        </svg>
+        Back to Projects
+    </a>
+
+    <div class="cricket-bowling-container">
+    <header class="cricket-header">
+        <div class="brand">
+            <div class="brand__title">Cricket Bowling</div>
+            <div class="brand__subtitle">Grip, bowl, and hit the wickets! Hand tracking in your browser.</div>
+        </div>
+
+        <div class="status" aria-live="polite">
+            <span class="badge badge--phase" id="statusPhase">Ready</span>
+            <span class="badge" id="statusSpeed">Speed: --</span>
+            <span class="badge" id="statusBallType">--</span>
+            <span class="badge badge--score" id="statusScore">Wickets: 0/0</span>
+            <span class="badge badge--muted" id="statusFps">FPS: --</span>
+        </div>
+    </header>
+
+    <main class="cricket-layout">
+        <section class="panel">
+            <div class="panel__header">
+                <h2 class="panel__title">Camera</h2>
+                <div class="panel__actions">
+                    <button class="btn btn--primary" id="btnWebcam" type="button">Enable webcam</button>
+                    <button class="btn" id="btnOverlay" type="button" aria-pressed="true">Overlay: On</button>
+                </div>
+            </div>
+
+            <div class="media">
+                <div class="media__stack">
+                    <video id="webcam" playsinline autoplay muted></video>
+                    <canvas id="overlay2d" class="overlay2d" aria-hidden="true"></canvas>
+                </div>
+
+                <div class="hint" id="gameHint">
+                    <strong>How to play:</strong><br>
+                    1. Close your fist to grip the ball<br>
+                    2. Make a bowling motion (arm forward/down)<br>
+                    3. Open your hand to release<br>
+                    4. Try to hit the wickets!
+                </div>
+
+                <div class="result-display hidden" id="resultDisplay">
+                    <div class="result-icon" id="resultIcon"></div>
+                    <div class="result-text" id="resultText"></div>
+                    <div class="result-details" id="resultDetails"></div>
+                    <div class="result-hint">Close fist to bowl again</div>
+                </div>
+
+                <div class="error hidden" id="cameraError" role="alert"></div>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-row">
+                    <span class="stat-label">Fast balls:</span>
+                    <span class="stat-value" id="statFast">0</span>
+                </div>
+                <div class="stat-row">
+                    <span class="stat-label">Spin balls:</span>
+                    <span class="stat-value" id="statSpin">0</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel__header">
+                <h2 class="panel__title">3D Scene</h2>
+                <div class="panel__actions">
+                    <button class="btn" id="btnReset" type="button">Reset Game</button>
+                </div>
+            </div>
+
+            <div class="scene">
+                <canvas id="threeCanvas"></canvas>
+            </div>
+
+            <footer class="cricket-footer">
+                <span class="muted">Tip: Good lighting helps hand tracking. Works best on Chrome/Safari.</span>
+            </footer>
+        </section>
+    </main>
+</div>
+
+
+
+    <script type="module" src="/js/cricket-bowling.js"></script>
+
+    
+</body>
+</html>

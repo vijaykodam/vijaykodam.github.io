@@ -6,10 +6,47 @@
     <description>Recent content in Agents on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Thu, 17 Jul 2025 00:24:38 +0300</lastBuildDate>
+    <lastBuildDate>Tue, 30 Dec 2025 19:16:00 +0200</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/agents/index.xml" rel="self" type="application/rss+xml" />
     
+    
+    <item>
+      <title>2025 Year in Review</title>
+      <link>https://vijay.eu/posts/2025-year-in-review/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/posts/2025-year-in-review/</guid>
+      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.png&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Youtube video &lt;iframe 
+  src=&#34;https://www.youtube.com/embed/HQK5P_Mbp1g?si=LA5Z9swDLv6T7NgP&#34; 
+  width=&#34;560&#34; 
+  height=&#34;315&#34; 
+  title=&#34;Embedded Content&#34; 
+  frameborder=&#34;0&#34; 
+  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
+  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
+  allowfullscreen&gt;
+&lt;/iframe&gt;
+&lt;/p&gt;
+&lt;p&gt;If you had told me at the start of the year that I would speak at major Amazon Web Services (AWS) and Microsoft conferences in Europe, I would have called it unlikely.&lt;/p&gt;
+&lt;p&gt;2025 has been an amazing year for me. Not only I got the chance to speak at AWS Summit and Microsoft AgentCon and other conferences, I also got certified, completed GenAI courses, built MCP servers and AI agents and much more. I have spent countless hours after work this year to achieve those things.&lt;/p&gt;
+&lt;p&gt;Here are a few highlights for me in 2025:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Became AWS Community Builder for the first time&lt;/li&gt;
+&lt;li&gt;Passed AWS Certified AI Practitioner from Amazon Web Services (AWS)!&lt;/li&gt;
+&lt;li&gt;Created my own Kubernetes Read Only MCP server&lt;/li&gt;
+&lt;li&gt;Created my own AI Agent for Autonomous Troubleshooting K8s operations.&lt;/li&gt;
+&lt;li&gt;Delivered presentations at AWS Summit Zurich, Microsoft’s AgentCon and AWS Nordics Community Day!&lt;/li&gt;
+&lt;li&gt;Won two GenAI hackathons at AWS Summit Stockholm and another at AWS event in Helsinki!&lt;/li&gt;
+&lt;li&gt;Learnt a lot in hashtag#GenAI including “Building Agentic AI Applications with a Problem-First Approach”, “AI evals” and Google’s GenAI and AI Agent courses.&lt;/li&gt;
+&lt;li&gt;Built multiple AI projects. “LLM pricing” project is the latest one.&lt;/li&gt;
+&lt;li&gt;Trained a neural network for my Le Robot SO-101 arm.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;All throughout the year along my journey, many people helped me, inspired me and guided me. Thanks to all of you!&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
+</description>
+    </item>
     
     <item>
       <title>My Honest Take on Kiro, AI IDE from AWS</title>

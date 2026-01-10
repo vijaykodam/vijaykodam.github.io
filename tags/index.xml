@@ -6,13 +6,112 @@
     <description>Recent content in Tags on Vijay Kodam</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Sat, 10 Jan 2026 10:00:00 +0300</lastBuildDate>
     
 	<atom:link href="https://vijay.eu/tags/index.xml" rel="self" type="application/rss+xml" />
     
     
     <item>
-      <title>Ai</title>
+      <title>3D</title>
+      <link>https://vijay.eu/tags/3d/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/3d/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Game</title>
+      <link>https://vijay.eu/tags/game/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/game/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Hand-Tracking</title>
+      <link>https://vijay.eu/tags/hand-tracking/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/hand-tracking/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Mediapipe</title>
+      <link>https://vijay.eu/tags/mediapipe/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/mediapipe/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Three.js</title>
+      <link>https://vijay.eu/tags/three.js/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/three.js/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Web</title>
+      <link>https://vijay.eu/tags/web/</link>
+      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
+      
+      <guid>https://vijay.eu/tags/web/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Agents</title>
+      <link>https://vijay.eu/tags/agents/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/agents/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Aws</title>
+      <link>https://vijay.eu/tags/aws/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/aws/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>GenAI</title>
+      <link>https://vijay.eu/tags/genai/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/genai/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Kubernetes</title>
+      <link>https://vijay.eu/tags/kubernetes/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/kubernetes/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Llm</title>
+      <link>https://vijay.eu/tags/llm/</link>
+      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
+      
+      <guid>https://vijay.eu/tags/llm/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>AI</title>
       <link>https://vijay.eu/tags/ai/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
       
@@ -39,15 +138,6 @@
     </item>
     
     <item>
-      <title>Llm</title>
-      <link>https://vijay.eu/tags/llm/</link>
-      <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
-      
-      <guid>https://vijay.eu/tags/llm/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Openai</title>
       <link>https://vijay.eu/tags/openai/</link>
       <pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate>
@@ -66,42 +156,6 @@
     </item>
     
     <item>
-      <title>AWS</title>
-      <link>https://vijay.eu/tags/aws/</link>
-      <pubDate>Mon, 01 Dec 2025 20:39:13 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/aws/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Kubernetes</title>
-      <link>https://vijay.eu/tags/kubernetes/</link>
-      <pubDate>Mon, 01 Dec 2025 20:39:13 +0200</pubDate>
-      
-      <guid>https://vijay.eu/tags/kubernetes/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Agents</title>
-      <link>https://vijay.eu/tags/agents/</link>
-      <pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/agents/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>GenAI</title>
-      <link>https://vijay.eu/tags/genai/</link>
-      <pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/genai/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Classic</title>
       <link>https://vijay.eu/tags/classic/</link>
       <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
@@ -111,29 +165,11 @@
     </item>
     
     <item>
-      <title>Game</title>
-      <link>https://vijay.eu/tags/game/</link>
-      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/game/</guid>
-      <description></description>
-    </item>
-    
-    <item>
       <title>Javascript</title>
       <link>https://vijay.eu/tags/javascript/</link>
       <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
       
       <guid>https://vijay.eu/tags/javascript/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Web</title>
-      <link>https://vijay.eu/tags/web/</link>
-      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
-      
-      <guid>https://vijay.eu/tags/web/</guid>
       <description></description>
     </item>
     
