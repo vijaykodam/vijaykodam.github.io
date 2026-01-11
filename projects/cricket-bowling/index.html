@@ -93,9 +93,9 @@
 
                 <div class="hint" id="gameHint">
                     <strong>How to play:</strong><br>
-                    1. Close your fist to grip the ball<br>
+                    1. Show your hand to the camera<br>
                     2. Make a bowling motion (arm forward/down)<br>
-                    3. Open your hand to release<br>
+                    3. Release naturally at the end<br>
                     4. Try to hit the wickets!
                 </div>
 
@@ -103,7 +103,7 @@
                     <div class="result-icon" id="resultIcon"></div>
                     <div class="result-text" id="resultText"></div>
                     <div class="result-details" id="resultDetails"></div>
-                    <div class="result-hint">Close fist to bowl again</div>
+                    <div class="result-hint">Show hand to bowl again</div>
                 </div>
 
                 <div class="error hidden" id="cameraError" role="alert"></div>
@@ -119,6 +119,19 @@
                     <span class="stat-value" id="statSpin">0</span>
                 </div>
             </div>
+
+            
+            <div class="debug-panel hidden" id="debugPanel">
+                <div class="debug-header">
+                    <strong>DEBUG MODE</strong>
+                    <div>
+                        <button class="btn btn--small" id="btnDebugClear" type="button">Clear Recording</button>
+                        <button class="btn btn--small" id="btnDebugClose" type="button">X</button>
+                    </div>
+                </div>
+                <pre id="debugOutput" style="font-size: 11px; margin: 0; white-space: pre-wrap;"></pre>
+            </div>
+            <button class="btn btn--small" id="btnDebug" type="button" style="margin-top: 8px;">Show Debug</button>
         </section>
 
         <section class="panel">

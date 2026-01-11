@@ -16,11 +16,21 @@ const APP_NAME = "Cricket Bowling";
 const WRIST = 0;
 const INDEX_MCP = 5;
 const PINKY_MCP = 17;
+const THUMB_TIP = 4;
+const INDEX_TIP = 8;
+const MIDDLE_TIP = 12;
 const FINGERTIPS = [4, 8, 12, 16, 20]; // thumb, index, middle, ring, pinky
 
-// Grip detection thresholds
-let GRIP_CLOSED_THRESHOLD = 0.15;  // Hand is gripping ball (lower = tighter grip)
-let GRIP_OPEN_THRESHOLD = 0.22;    // Hand has released
+// Grip detection - just need hand visible, pinch is optional
+const GRIP_PINCH_THRESHOLD = 0.35;  // Very lenient - almost any hand position grips
+
+// Finger spread detection (index to middle distance)
+const FINGER_TOGETHER_THRESHOLD = 0.05;  // Fingers together = Pace grip
+const FINGER_APART_THRESHOLD = 0.09;     // Fingers spread = Spin grip
+
+// Release detection - based on arm motion, not pinch
+const RELEASE_Y_VELOCITY = -0.15;  // Arm moving downward (negative Y = down)
+const RELEASE_MIN_FRAMES = 5;      // Must see downward motion for several frames
 
 // 3D mapping (from hand landmarks to world coordinates)
 const PLANE_WIDTH_SCALE = 2.5;
@@ -94,7 +104,20 @@ const el = {
 
   statFast: document.getElementById("statFast"),
   statSpin: document.getElementById("statSpin"),
+
+  // Debug elements
+  debugPanel: document.getElementById("debugPanel"),
+  debugOutput: document.getElementById("debugOutput"),
+  btnDebug: document.getElementById("btnDebug"),
+  btnDebugClose: document.getElementById("btnDebugClose"),
+  btnDebugClear: document.getElementById("btnDebugClear"),
 };
+
+// Debug mode state
+let debugMode = false;
+let debugData = {};
+let debugRecording = [];
+let isRecording = false;
 
 /////////////////////////
 // Utilities
@@ -152,11 +175,23 @@ function drawOverlay(landmarks) {
     ctx.fill();
   }
 
-  // Grip indicator
+  // Grip type indicator
   if (gameState.phase === 'GRIPPING' || gameState.phase === 'BOWLING') {
-    ctx.fillStyle = "rgba(0, 200, 0, 0.8)";
+    const gripLabel = gameState.gripType === 'SPIN' ? 'SPIN GRIP' : 'PACE GRIP';
+    const gripColor = gameState.gripType === 'SPIN' ? "rgba(200, 100, 0, 0.9)" : "rgba(0, 150, 200, 0.9)";
+
+    ctx.fillStyle = gripColor;
     ctx.font = "bold 16px sans-serif";
-    ctx.fillText("GRIPPING", 10, 25);
+    ctx.fillText(gripLabel, 10, 25);
+
+    // Visual hint for finger position
+    if (gameState.gripType === 'SPIN') {
+      ctx.fillStyle = "rgba(200, 100, 0, 0.7)";
+      ctx.fillText("fingers apart", 10, 45);
+    } else {
+      ctx.fillStyle = "rgba(0, 150, 200, 0.7)";
+      ctx.fillText("fingers together", 10, 45);
+    }
   }
 }
 
@@ -413,12 +448,15 @@ const gameState = {
   // Grip tracking
   gripStartTime: 0,
   positionHistory: [],
+  gripType: 'PACE',  // PACE or SPIN based on finger spread
 
   // Release data
   releaseVelocity: null,
   releasePosition: null,
   spinType: 'FAST',
   spinMagnitude: 0,
+  deliveryType: null,  // 'Yorker', 'Good Length', 'Short Pitch'
+  targetBounceZ: 0,    // Where ball is aimed to bounce
 
   // Ball flight
   ballPosition: null,
@@ -447,8 +485,11 @@ let lastSmoothed = null;
 function resetToReady() {
   gameState.phase = 'READY';
   gameState.positionHistory = [];
+  gameState.gripType = 'PACE';
   gameState.releaseVelocity = null;
   gameState.releasePosition = null;
+  gameState.deliveryType = null;
+  gameState.targetBounceZ = 0;
   gameState.ballPosition = null;
   gameState.ballVelocity = null;
   gameState.trailPoints = [];
@@ -456,6 +497,7 @@ function resetToReady() {
   ball.visible = false;
   ballTrail.visible = false;
   lastSmoothed = null;
+  resetArmRelease();
 }
 
 function resetForNextBowl() {
@@ -469,19 +511,86 @@ function resetForNextBowl() {
 // Gesture Detection
 /////////////////////////
 
-function calculateGripScore(landmarks) {
-  const wrist = landmarks[WRIST];
-  let totalDist = 0;
+// Helper: 3D distance between two landmarks
+function distance3D(a, b) {
+  const dx = a.x - b.x;
+  const dy = a.y - b.y;
+  const dz = a.z - b.z;
+  return Math.sqrt(dx * dx + dy * dy + dz * dz);
+}
 
-  for (const tipIdx of FINGERTIPS) {
-    const tip = landmarks[tipIdx];
-    const dx = tip.x - wrist.x;
-    const dy = tip.y - wrist.y;
-    const dz = tip.z - wrist.z;
-    totalDist += Math.sqrt(dx * dx + dy * dy + dz * dz);
+// Helper: 2D distance (ignoring depth)
+function distance2D(a, b) {
+  const dx = a.x - b.x;
+  const dy = a.y - b.y;
+  return Math.sqrt(dx * dx + dy * dy);
+}
+
+// Pinch detection: distance from thumb to index/middle fingers
+function calculatePinchDistance(landmarks) {
+  const thumb = landmarks[THUMB_TIP];
+  const index = landmarks[INDEX_TIP];
+  const middle = landmarks[MIDDLE_TIP];
+
+  // Distance from thumb to midpoint between index and middle fingertips
+  const midX = (index.x + middle.x) / 2;
+  const midY = (index.y + middle.y) / 2;
+  const midZ = (index.z + middle.z) / 2;
+
+  const dx = thumb.x - midX;
+  const dy = thumb.y - midY;
+  const dz = thumb.z - midZ;
+
+  return Math.sqrt(dx * dx + dy * dy + dz * dz);
+}
+
+// Finger spread: distance between index and middle fingertips
+function calculateFingerSpread(landmarks) {
+  const index = landmarks[INDEX_TIP];
+  const middle = landmarks[MIDDLE_TIP];
+
+  // Use 2D distance (lateral spread matters, not depth)
+  return distance2D(index, middle);
+}
+
+// Detect grip type based on finger spread
+function detectGripType(landmarks) {
+  const spread = calculateFingerSpread(landmarks);
+
+  if (spread < FINGER_TOGETHER_THRESHOLD) {
+    return 'PACE';  // Seam bowling - fingers together on the seam
+  } else if (spread > FINGER_APART_THRESHOLD) {
+    return 'SPIN';  // Spin bowling - fingers spread for grip
+  }
+  return 'PACE';  // Default to pace
+}
+
+// Arm motion release detection state
+let downwardMotionFrames = 0;
+
+// Detect release based on arm swinging down (bowling motion)
+function detectArmRelease(handYVelocity) {
+  // Check if arm is moving downward
+  if (handYVelocity < RELEASE_Y_VELOCITY) {
+    downwardMotionFrames++;
+  } else {
+    // Reset if not moving down
+    downwardMotionFrames = Math.max(0, downwardMotionFrames - 1);
   }
 
-  return totalDist / FINGERTIPS.length;
+  // Release after sustained downward motion
+  const released = downwardMotionFrames >= RELEASE_MIN_FRAMES;
+
+  return {
+    released,
+    downwardFrames: downwardMotionFrames,
+    velocity: handYVelocity
+  };
+}
+
+// Reset arm release detection state
+function resetArmRelease() {
+  downwardMotionFrames = 0;
 }
 
 function calculateWristAngle(landmarks) {
@@ -582,6 +691,65 @@ function calculateSpinFromHistory(history) {
   } else {
     return { type: 'OFF_SPIN', magnitude: Math.abs(angularVelocity) };
   }
+}
+
+/////////////////////////
+// Ball Trajectory
+/////////////////////////
+
+// Bowling arm release height (realistic high arm position)
+const RELEASE_HEIGHT = 2.0;
+
+// Determine where ball should bounce based on bowling speed and grip type
+function calculateBounceTarget(speed, gripType) {
+  // Spin bowlers: good length to allow turn after bounce
+  if (gripType === 'SPIN') {
+    return -3.5 + (Math.random() - 0.5) * 0.6;
+  }
+
+  // Pace bowling: speed determines length
+  // High speed = yorker (fuller), medium = good length, slow = short pitch
+  if (speed > 4) {
+    return -4.3 + (Math.random() - 0.5) * 0.4;  // Yorker area
+  } else if (speed > 2) {
+    return -3.5 + (Math.random() - 0.5) * 0.6;  // Good length
+  } else {
+    return -2.2 + (Math.random() - 0.5) * 0.6;  // Short pitch
+  }
+}
+
+// Calculate initial velocity to create ballistic arc to target bounce point
+function calculateArcVelocity(releasePos, targetBounceZ) {
+  // Projectile motion physics:
+  // y = y0 + vy*t + 0.5*g*t^2
+  // z = z0 + vz*t
+
+  const y0 = releasePos.y;           // Release height (2.0)
+  const yTarget = PHYSICS.groundY;   // Ground level (ball radius)
+  const zDist = targetBounceZ - releasePos.z;  // Distance to bounce point
+
+  // Flight time determines ball speed - faster = shorter time
+  // ~8 units/sec gives realistic cricket ball speed
+  const flightTime = Math.abs(zDist) / 8;
+
+  // Calculate required Y velocity using kinematic equation
+  // yTarget = y0 + vy*t + 0.5*g*t^2
+  // vy = (yTarget - y0 - 0.5*g*t^2) / t
+  const vy = (yTarget - y0 - 0.5 * PHYSICS.gravity * flightTime * flightTime) / flightTime;
+  const vz = zDist / flightTime;
+
+  return new THREE.Vector3(
+    (Math.random() - 0.5) * 0.4,  // Slight lateral variation for line
+    vy,
+    vz
+  );
+}
+
+// Determine delivery type based on bounce position
+function getDeliveryType(bounceZ) {
+  if (bounceZ < -4.0) return 'Yorker';
+  if (bounceZ < -2.8) return 'Good Length';
+  return 'Short Pitch';
 }
 
 /////////////////////////
@@ -806,62 +974,85 @@ function processGameInput(landmarks, timestamp) {
 
   gameState.handDetected = true;
 
-  const gripScore = calculateGripScore(landmarks);
+  // Calculate hand position and velocity first
   const wristAngle = calculateWristAngle(landmarks);
   const wrist = landmarks[WRIST];
   const rawPosition = mapLandmarkTo3D(wrist);
   const handPosition = smoothPoint(rawPosition);
 
+  // Calculate hand Y velocity from position history
+  let handYVelocity = 0;
+  if (gameState.positionHistory.length >= 2) {
+    const recent = gameState.positionHistory.slice(-3);
+    const first = recent[0];
+    const last = recent[recent.length - 1];
+    const dt = (last.t - first.t) / 1000;
+    if (dt > 0.01) {
+      handYVelocity = (last.y - first.y) / dt;
+    }
+  }
+
+  // Grip and release detection
+  const pinchDistance = calculatePinchDistance(landmarks);
+  const fingerSpread = calculateFingerSpread(landmarks);
+  const gripType = detectGripType(landmarks);
+  const armRelease = detectArmRelease(handYVelocity);
+
   switch (gameState.phase) {
     case 'READY':
-      if (gripScore < GRIP_CLOSED_THRESHOLD) {
+      // Grip detected when thumb pinches toward index/middle fingers
+      if (pinchDistance < GRIP_PINCH_THRESHOLD) {
         gameState.phase = 'GRIPPING';
         gameState.gripStartTime = timestamp;
         gameState.positionHistory = [];
+        gameState.gripType = gripType;
         showBallInHand(handPosition);
       }
       break;
 
     case 'GRIPPING':
-      if (gripScore > GRIP_OPEN_THRESHOLD) {
-        // Released too early
-        resetToReady();
-      } else {
-        gameState.positionHistory.push({
-          x: handPosition.x,
-          y: handPosition.y,
-          z: handPosition.z,
-          t: timestamp,
-          wristAngle: wristAngle,
-        });
+      // Update grip type continuously
+      gameState.gripType = gripType;
 
-        // Trim old history
-        const cutoff = timestamp - 600;
-        gameState.positionHistory = gameState.positionHistory.filter(p => p.t > cutoff);
+      gameState.positionHistory.push({
+        x: handPosition.x,
+        y: handPosition.y,
+        z: handPosition.z,
+        t: timestamp,
+        wristAngle: wristAngle,
+      });
 
-        if (detectBowlingMotion(gameState.positionHistory)) {
-          gameState.phase = 'BOWLING';
-        }
+      // Trim old history
+      const cutoffGrip = timestamp - 600;
+      gameState.positionHistory = gameState.positionHistory.filter(p => p.t > cutoffGrip);
 
-        updateBallInHand(handPosition);
+      // Transition to BOWLING when arm starts moving down
+      if (detectBowlingMotion(gameState.positionHistory)) {
+        gameState.phase = 'BOWLING';
       }
+
+      updateBallInHand(handPosition);
       break;
 
     case 'BOWLING':
-      if (gripScore > GRIP_OPEN_THRESHOLD) {
-        releaseBall(timestamp);
+      // Update position history
+      gameState.positionHistory.push({
+        x: handPosition.x,
+        y: handPosition.y,
+        z: handPosition.z,
+        t: timestamp,
+        wristAngle: wristAngle,
+      });
+
+      const cutoffBowl = timestamp - 600;
+      gameState.positionHistory = gameState.positionHistory.filter(p => p.t > cutoffBowl);
+
+      // Release ball when arm swings down
+      if (armRelease.released) {
+        releaseBall(timestamp, landmarks);
       } else {
-        gameState.positionHistory.push({
-          x: handPosition.x,
-          y: handPosition.y,
-          z: handPosition.z,
-          t: timestamp,
-          wristAngle: wristAngle,
-        });
-
-        const cutoff = timestamp - 600;
-        gameState.positionHistory = gameState.positionHistory.filter(p => p.t > cutoff);
-
+        // Update grip type continuously
+        gameState.gripType = gripType;
         updateBallInHand(handPosition);
       }
       break;
@@ -871,12 +1062,13 @@ function processGameInput(landmarks, timestamp) {
       break;
 
     case 'RESULT':
-      // Check for new grip to start next bowl
-      if (gripScore < GRIP_CLOSED_THRESHOLD) {
+      // Check for new pinch grip to start next bowl
+      if (pinchDistance < GRIP_PINCH_THRESHOLD) {
         resetForNextBowl();
         gameState.phase = 'GRIPPING';
         gameState.gripStartTime = timestamp;
         gameState.positionHistory = [];
+        gameState.gripType = gripType;
         showBallInHand(handPosition);
       }
       break;
@@ -892,7 +1084,7 @@ function updateBallInHand(position) {
   ball.position.copy(position);
 }
 
-function releaseBall(timestamp) {
+function releaseBall(timestamp, landmarks) {
   const history = gameState.positionHistory;
   if (history.length < 2) {
     resetToReady();
@@ -900,27 +1092,63 @@ function releaseBall(timestamp) {
   }
 
   const velocity = calculateReleaseVelocity(history, timestamp);
-  const spinData = calculateSpinFromHistory(history);
+  const wristSpinData = calculateSpinFromHistory(history);
+
+  // Determine ball type based on grip type AND wrist rotation
+  // PACE grip + no wrist rotation = Fast ball
+  // PACE grip + wrist rotation = still counts as Fast (seam movement)
+  // SPIN grip + wrist rotation = Leg spin or Off spin based on direction
+  // SPIN grip + no rotation = defaults to Off spin
+  let finalSpinType = 'FAST';
+  let finalSpinMagnitude = 0;
+
+  if (gameState.gripType === 'SPIN') {
+    // Spin grip - use wrist rotation to determine leg spin vs off spin
+    if (wristSpinData.type === 'LEG_SPIN') {
+      finalSpinType = 'LEG_SPIN';
+      finalSpinMagnitude = wristSpinData.magnitude;
+    } else if (wristSpinData.type === 'OFF_SPIN') {
+      finalSpinType = 'OFF_SPIN';
+      finalSpinMagnitude = wristSpinData.magnitude;
+    } else {
+      // Spin grip but no clear wrist rotation - default to off spin
+      finalSpinType = 'OFF_SPIN';
+      finalSpinMagnitude = 1.0;
+    }
+  } else {
+    // Pace grip - always Fast, but wrist rotation can add seam movement
+    finalSpinType = 'FAST';
+    finalSpinMagnitude = Math.abs(wristSpinData.magnitude) * 0.3; // Subtle seam movement
+  }
 
   const lastPos = history[history.length - 1];
 
-  // Scale and adjust velocity for good gameplay feel
-  const speed = velocity.length();
-  const scaledVelocity = new THREE.Vector3(
-    velocity.x * 0.4,
-    clamp(velocity.y * 0.3, -2, 2),
-    -Math.max(Math.abs(velocity.z) * 0.5, 3) - speed * 0.3
+  // Get hand motion speed for delivery type selection
+  const handVelocity = velocity;
+  const speed = handVelocity.length();
+
+  // NEW: Set realistic release position (high arm bowling action)
+  // X from hand position for line control, fixed Y height, Z near crease
+  gameState.releasePosition = new THREE.Vector3(
+    clamp(lastPos.x, -0.5, 0.5),  // Limit horizontal range
+    RELEASE_HEIGHT,               // Fixed height (2.0m)
+    0.2                           // Near bowling crease
   );
 
-  // CRITICAL: Ensure ball has enough velocity to reach wickets (z = -5.0)
-  // Minimum z velocity of -6 ensures ball reaches wickets even with bouncing and drag
-  const MIN_Z_VELOCITY = -6;
-  if (scaledVelocity.z > MIN_Z_VELOCITY) scaledVelocity.z = MIN_Z_VELOCITY;
+  // NEW: Calculate target bounce point based on speed and grip
+  const bounceZ = calculateBounceTarget(speed, gameState.gripType);
+  gameState.targetBounceZ = bounceZ;
+  gameState.deliveryType = getDeliveryType(bounceZ);
 
-  gameState.releaseVelocity = scaledVelocity;
-  gameState.releasePosition = new THREE.Vector3(lastPos.x, lastPos.y, lastPos.z);
-  gameState.spinType = spinData.type;
-  gameState.spinMagnitude = clamp(spinData.magnitude, 0, 5);
+  // NEW: Calculate velocity for ballistic arc to bounce point
+  const arcVelocity = calculateArcVelocity(gameState.releasePosition, bounceZ);
+
+  // Add lateral movement from hand motion for line control
+  arcVelocity.x += handVelocity.x * 0.15;
+
+  gameState.releaseVelocity = arcVelocity;
+  gameState.spinType = finalSpinType;
+  gameState.spinMagnitude = clamp(finalSpinMagnitude, 0, 5);
 
   gameState.ballPosition = gameState.releasePosition.clone();
   gameState.ballVelocity = gameState.releaseVelocity.clone();
@@ -936,11 +1164,12 @@ function releaseBall(timestamp) {
 
   // Update stats
   gameState.totalBowls++;
-  if (spinData.type === 'FAST') gameState.fastBalls++;
-  else if (spinData.type === 'LEG_SPIN') gameState.legSpinBalls++;
+  if (finalSpinType === 'FAST') gameState.fastBalls++;
+  else if (finalSpinType === 'LEG_SPIN') gameState.legSpinBalls++;
   else gameState.offSpinBalls++;
 
   lastSmoothed = null;
+  resetArmRelease();
 }
 
 /////////////////////////
@@ -959,17 +1188,20 @@ function formatSpinType(type) {
 function showResult(hit, stumpsHit) {
   gameState.result = { hit, stumpsHit };
 
+  // Build delivery description: "Fast Yorker" or "Off Spin Good Length"
+  const deliveryDesc = `${formatSpinType(gameState.spinType)} ${gameState.deliveryType || ''}`.trim();
+
   if (el.resultDisplay) {
     if (hit) {
       el.resultIcon.textContent = '\u{1F3AF}';
       el.resultText.textContent = 'WICKET!';
       el.resultText.className = 'result-text hit';
-      el.resultDetails.textContent = `${formatSpinType(gameState.spinType)} ball knocks the stumps!`;
+      el.resultDetails.textContent = `${deliveryDesc} knocks the stumps!`;
     } else {
       el.resultIcon.textContent = '\u274C';
       el.resultText.textContent = 'Missed';
       el.resultText.className = 'result-text miss';
-      el.resultDetails.textContent = `${formatSpinType(gameState.spinType)} ball missed the wickets`;
+      el.resultDetails.textContent = `${deliveryDesc} missed the wickets`;
     }
 
     el.resultDisplay.classList.remove('hidden');
@@ -978,10 +1210,11 @@ function showResult(hit, stumpsHit) {
 }
 
 function updateGameStatus() {
+  const gripHint = gameState.gripType === 'SPIN' ? '(Spin)' : '(Pace)';
   const phaseLabels = {
-    'READY': 'Ready - Close fist to grip',
-    'GRIPPING': 'Gripping ball...',
-    'BOWLING': 'Bowling! Release to throw',
+    'READY': 'Ready - Show hand to camera',
+    'GRIPPING': `Gripping ${gripHint} - swing arm down`,
+    'BOWLING': `Bowling ${gripHint} - release!`,
     'IN_FLIGHT': 'Ball in flight...',
     'RESULT': gameState.result?.hit ? '\u{1F3AF} WICKET!' : '\u274C Missed',
   };
@@ -997,7 +1230,9 @@ function updateGameStatus() {
   if (gameState.phase === 'IN_FLIGHT' || gameState.phase === 'RESULT') {
     const speed = gameState.releaseVelocity ? gameState.releaseVelocity.length() * 15 : 0;
     if (el.statusSpeed) el.statusSpeed.textContent = `Speed: ${Math.round(speed)} km/h`;
-    if (el.statusBallType) el.statusBallType.textContent = formatSpinType(gameState.spinType);
+    // Show full delivery: "Fast Yorker" or "Leg Spin Good Length"
+    const deliveryDesc = `${formatSpinType(gameState.spinType)} ${gameState.deliveryType || ''}`.trim();
+    if (el.statusBallType) el.statusBallType.textContent = deliveryDesc;
   } else {
     if (el.statusSpeed) el.statusSpeed.textContent = 'Speed: --';
     if (el.statusBallType) el.statusBallType.textContent = '--';
@@ -1005,6 +1240,141 @@ function updateGameStatus() {
 
   if (el.statFast) el.statFast.textContent = gameState.fastBalls;
   if (el.statSpin) el.statSpin.textContent = gameState.legSpinBalls + gameState.offSpinBalls;
+}
+
+/////////////////////////
+// Debug Display
+/////////////////////////
+
+function updateDebugDisplay(landmarks, timestamp) {
+  if (!debugMode || !el.debugOutput) return;
+
+  if (!landmarks) {
+    // Show recording history when hand not detected
+    if (debugRecording.length > 0) {
+      const lines = [
+        `=== NO HAND - SHOWING LAST RECORDING (${debugRecording.length} frames) ===`,
+        ``,
+        `Press "Clear Recording" to reset`,
+        ``,
+        `--- Key moments from recording ---`,
+      ];
+
+      // Show min/max values from recording
+      const pinchValues = debugRecording.map(r => r.pinch);
+      const yVelValues = debugRecording.map(r => r.handYVel);
+      const minPinch = Math.min(...pinchValues);
+      const maxPinch = Math.max(...pinchValues);
+      const minYVel = Math.min(...yVelValues);
+      const maxYVel = Math.max(...yVelValues);
+
+      lines.push(`Pinch range: ${minPinch.toFixed(3)} - ${maxPinch.toFixed(3)}`);
+      lines.push(`Y velocity range: ${minYVel.toFixed(2)} - ${maxYVel.toFixed(2)}`);
+      lines.push(``);
+      lines.push(`--- Last 15 frames ---`);
+
+      // Show last 15 recorded frames
+      const recent = debugRecording.slice(-15);
+      recent.forEach((r, i) => {
+        lines.push(`${r.phase.padEnd(8)} pinch:${r.pinch.toFixed(3)} yVel:${r.handYVel.toFixed(2)} zVel:${r.handZVel.toFixed(2)}`);
+      });
+
+      el.debugOutput.textContent = lines.join('\n');
+    } else {
+      el.debugOutput.textContent = 'No hand detected\n\nShow your hand and perform bowling motion.\nValues will be recorded automatically.';
+    }
+    return;
+  }
+
+  const thumb = landmarks[THUMB_TIP];
+  const index = landmarks[INDEX_TIP];
+  const middle = landmarks[MIDDLE_TIP];
+  const wrist = landmarks[WRIST];
+
+  // Calculate all distances
+  const thumbIndexDist = distance3D(thumb, index);
+  const thumbMiddleDist = distance3D(thumb, middle);
+  const indexMiddleSpread = distance2D(index, middle);
+  const pinchDist = calculatePinchDistance(landmarks);
+
+  // Calculate velocities from history
+  let handYVel = 0, handZVel = 0;
+  const history = gameState.positionHistory;
+  if (history.length >= 2) {
+    const recent = history.slice(-3);
+    const first = recent[0];
+    const last = recent[recent.length - 1];
+    const dt = (last.t - first.t) / 1000;
+    if (dt > 0.01) {
+      handYVel = (last.y - first.y) / dt;
+      handZVel = (last.z - first.z) / dt;
+    }
+  }
+
+  // Get arm release state
+  const armRelease = detectArmRelease(handYVel);
+
+  // Store for reference
+  debugData = {
+    thumbIndexDist,
+    thumbMiddleDist,
+    indexMiddleSpread,
+    pinchDist,
+    handYVel,
+    handZVel,
+    downwardFrames: armRelease.downwardFrames,
+    released: armRelease.released
+  };
+
+  // Record every frame when hand is visible
+  debugRecording.push({
+    t: timestamp,
+    phase: gameState.phase,
+    pinch: pinchDist,
+    thumbIndex: thumbIndexDist,
+    thumbMiddle: thumbMiddleDist,
+    spread: indexMiddleSpread,
+    handYVel,
+    handZVel,
+    downwardFrames: armRelease.downwardFrames,
+    grip: pinchDist < GRIP_PINCH_THRESHOLD,
+    release: armRelease.released
+  });
+
+  // Keep last 200 frames
+  if (debugRecording.length > 200) {
+    debugRecording.shift();
+  }
+
+  // Format display
+  const lines = [
+    `Phase: ${gameState.phase}`,
+    `Grip Type: ${gameState.gripType}`,
+    `Recording: ${debugRecording.length} frames (auto-records when hand visible)`,
+    ``,
+    `=== DISTANCES ===`,
+    `Thumb-Index:  ${thumbIndexDist.toFixed(3)}`,
+    `Thumb-Middle: ${thumbMiddleDist.toFixed(3)}`,
+    `Index-Middle: ${indexMiddleSpread.toFixed(3)}`,
+    `Pinch (avg):  ${pinchDist.toFixed(3)}`,
+    ``,
+    `=== VELOCITIES ===`,
+    `Hand Y vel:   ${handYVel.toFixed(2)}  (negative = moving down)`,
+    `Hand Z vel:   ${handZVel.toFixed(2)}  (negative = moving forward)`,
+    ``,
+    `=== THRESHOLDS ===`,
+    `Grip threshold:    ${GRIP_PINCH_THRESHOLD}`,
+    `Release Y vel:     ${RELEASE_Y_VELOCITY} (need Y vel < this)`,
+    `Release frames:    ${RELEASE_MIN_FRAMES}`,
+    ``,
+    `=== DETECTION ===`,
+    `Grip: ${pinchDist < GRIP_PINCH_THRESHOLD ? 'YES' : 'NO'} (pinch ${pinchDist.toFixed(3)} < ${GRIP_PINCH_THRESHOLD})`,
+    `Release: ${armRelease.released ? 'YES!' : 'no'}`,
+    `  downward frames: ${armRelease.downwardFrames}/${RELEASE_MIN_FRAMES}`,
+    `  Y velocity: ${handYVel.toFixed(3)} (need < ${RELEASE_Y_VELOCITY})`,
+  ];
+
+  el.debugOutput.textContent = lines.join('\n');
 }
 
 /////////////////////////
@@ -1121,6 +1491,9 @@ async function predictLoop() {
   // Process game input
   processGameInput(landmarks, tNow);
 
+  // Update debug display
+  updateDebugDisplay(landmarks, tNow);
+
   // Update physics if ball is in flight
   if (gameState.phase === 'IN_FLIGHT') {
     const deltaTime = (tNow - lastPhysicsTime) / 1000;
@@ -1158,6 +1531,30 @@ function wireUI() {
       gameState.legSpinBalls = 0;
       gameState.offSpinBalls = 0;
       updateGameStatus();
+    });
+  }
+
+  // Debug panel toggle
+  if (el.btnDebug) {
+    el.btnDebug.addEventListener("click", () => {
+      debugMode = true;
+      if (el.debugPanel) el.debugPanel.classList.remove("hidden");
+      el.btnDebug.classList.add("hidden");
+    });
+  }
+
+  if (el.btnDebugClose) {
+    el.btnDebugClose.addEventListener("click", () => {
+      debugMode = false;
+      if (el.debugPanel) el.debugPanel.classList.add("hidden");
+      if (el.btnDebug) el.btnDebug.classList.remove("hidden");
+    });
+  }
+
+  if (el.btnDebugClear) {
+    el.btnDebugClear.addEventListener("click", () => {
+      debugRecording = [];
+      if (el.debugOutput) el.debugOutput.textContent = 'Recording cleared.\n\nShow your hand and perform bowling motion.';
     });
   }
 

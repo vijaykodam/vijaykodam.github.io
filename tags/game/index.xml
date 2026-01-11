@@ -51,9 +51,9 @@
 
                 &lt;div class=&#34;hint&#34; id=&#34;gameHint&#34;&gt;
                     &lt;strong&gt;How to play:&lt;/strong&gt;&lt;br&gt;
-                    1. Close your fist to grip the ball&lt;br&gt;
+                    1. Show your hand to the camera&lt;br&gt;
                     2. Make a bowling motion (arm forward/down)&lt;br&gt;
-                    3. Open your hand to release&lt;br&gt;
+                    3. Release naturally at the end&lt;br&gt;
                     4. Try to hit the wickets!
                 &lt;/div&gt;
 
@@ -61,7 +61,7 @@
                     &lt;div class=&#34;result-icon&#34; id=&#34;resultIcon&#34;&gt;&lt;/div&gt;
                     &lt;div class=&#34;result-text&#34; id=&#34;resultText&#34;&gt;&lt;/div&gt;
                     &lt;div class=&#34;result-details&#34; id=&#34;resultDetails&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-hint&#34;&gt;Close fist to bowl again&lt;/div&gt;
+                    &lt;div class=&#34;result-hint&#34;&gt;Show hand to bowl again&lt;/div&gt;
                 &lt;/div&gt;
 
                 &lt;div class=&#34;error hidden&#34; id=&#34;cameraError&#34; role=&#34;alert&#34;&gt;&lt;/div&gt;
@@ -77,6 +77,19 @@
                     &lt;span class=&#34;stat-value&#34; id=&#34;statSpin&#34;&gt;0&lt;/span&gt;
                 &lt;/div&gt;
             &lt;/div&gt;
+
+            
+            &lt;div class=&#34;debug-panel hidden&#34; id=&#34;debugPanel&#34;&gt;
+                &lt;div class=&#34;debug-header&#34;&gt;
+                    &lt;strong&gt;DEBUG MODE&lt;/strong&gt;
+                    &lt;div&gt;
+                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClear&#34; type=&#34;button&#34;&gt;Clear Recording&lt;/button&gt;
+                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClose&#34; type=&#34;button&#34;&gt;X&lt;/button&gt;
+                    &lt;/div&gt;
+                &lt;/div&gt;
+                &lt;pre id=&#34;debugOutput&#34; style=&#34;font-size: 11px; margin: 0; white-space: pre-wrap;&#34;&gt;&lt;/pre&gt;
+            &lt;/div&gt;
+            &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebug&#34; type=&#34;button&#34; style=&#34;margin-top: 8px;&#34;&gt;Show Debug&lt;/button&gt;
         &lt;/section&gt;
 
         &lt;section class=&#34;panel&#34;&gt;
