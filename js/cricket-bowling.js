@@ -51,17 +51,17 @@ const PITCH = {
 // Ball physics
 const PHYSICS = {
   gravity: -12.0,
-  airResistance: 0.015,
+  airResistance: 0.012,      // Reduced for better mobile performance
   spinCurveFactor: 1.2,
-  bounceRestitution: 0.5,
+  bounceRestitution: 0.6,    // Increased from 0.5 - ball retains more energy after bounce
   groundY: PITCH.ballRadius,
   spinBounceBoost: 0.6,
 };
 
 // Velocity calculation
-const VELOCITY_WINDOW_MS = 250;
-const MIN_SAMPLES_FOR_VELOCITY = 4;
-const BOWLING_MOTION_THRESHOLD = 0.15;
+const VELOCITY_WINDOW_MS = 350;    // Increased for mobile (lower fps = fewer samples)
+const MIN_SAMPLES_FOR_VELOCITY = 3; // Reduced for mobile compatibility
+const BOWLING_MOTION_THRESHOLD = 0.12; // Slightly lower threshold for mobile
 
 // Spin detection
 const SPIN_ANGLE_THRESHOLD = 0.25;
@@ -537,20 +537,29 @@ function calculateReleaseVelocity(history, releaseTime) {
   );
 
   if (recent.length < MIN_SAMPLES_FOR_VELOCITY) {
-    return new THREE.Vector3(0, 1, -4);
+    return new THREE.Vector3(0, 1, -6); // Increased default z velocity
   }
 
   const first = recent[0];
   const last = recent[recent.length - 1];
   const dt = (last.t - first.t) / 1000;
 
-  if (dt < 0.02) return new THREE.Vector3(0, 1, -4);
+  if (dt < 0.02) return new THREE.Vector3(0, 1, -6);
 
-  return new THREE.Vector3(
-    (last.x - first.x) / dt,
-    (last.y - first.y) / dt,
-    (last.z - first.z) / dt
-  );
+  const vx = (last.x - first.x) / dt;
+  const vy = (last.y - first.y) / dt;
+  const vz = (last.z - first.z) / dt;
+
+  // On mobile, z (depth) detection is often poor
+  // Use downward motion (negative vy) as proxy for forward motion
+  // Bowling motion involves arm coming down AND forward
+  let effectiveVz = vz;
+  if (vy < -0.5) {
+    // Strong downward motion detected - boost forward velocity
+    effectiveVz = Math.min(effectiveVz, vy * 1.5);
+  }
+
+  return new THREE.Vector3(vx, vy, effectiveVz);
 }
 
 function calculateSpinFromHistory(history) {
@@ -589,8 +598,10 @@ function updateBallPhysics(deltaTime) {
   // Gravity
   vel.y += PHYSICS.gravity * dt;
 
-  // Air resistance
-  vel.multiplyScalar(1 - PHYSICS.airResistance);
+  // Air resistance (frame-rate independent using exponential decay)
+  // At 60fps, dt ≈ 0.0167, so drag per frame ≈ 0.025% which compounds to ~1.5% per second
+  const dragFactor = Math.pow(1 - PHYSICS.airResistance, dt * 60);
+  vel.multiplyScalar(dragFactor);
 
   // Spin curve (lateral movement)
   if (gameState.spinType === 'LEG_SPIN') {
@@ -901,8 +912,10 @@ function releaseBall(timestamp) {
     -Math.max(Math.abs(velocity.z) * 0.5, 3) - speed * 0.3
   );
 
-  // Ensure ball goes toward wickets
-  if (scaledVelocity.z > -2) scaledVelocity.z = -4;
+  // CRITICAL: Ensure ball has enough velocity to reach wickets (z = -5.0)
+  // Minimum z velocity of -6 ensures ball reaches wickets even with bouncing and drag
+  const MIN_Z_VELOCITY = -6;
+  if (scaledVelocity.z > MIN_Z_VELOCITY) scaledVelocity.z = MIN_Z_VELOCITY;
 
   gameState.releaseVelocity = scaledVelocity;
   gameState.releasePosition = new THREE.Vector3(lastPos.x, lastPos.y, lastPos.z);
