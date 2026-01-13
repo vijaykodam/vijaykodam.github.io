@@ -1,0 +1,127 @@
+/* Blog Posts Custom Styling */
+
+/* ============================================
+   1. Typography Improvements
+   ============================================ */
+
+/* Better text rendering */
+.post {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Improved heading hierarchy */
+.post h2 {
+  margin-top: 2.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid #1565c0;
+}
+
+/* Better paragraph spacing */
+.post p {
+  margin-bottom: 1.5rem;
+}
+
+/* First paragraph emphasis (skip image paragraph) */
+.post > div > p:nth-of-type(2) {
+  font-size: 1.15em;
+  color: #444;
+}
+
+/* ============================================
+   2. Styled List Items (Accomplishments)
+   ============================================ */
+
+/* Card-style list items */
+.post ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+.post ul li {
+  position: relative;
+  padding: 1rem 1rem 1rem 2.5rem;
+  margin-bottom: 0.75rem;
+  background: linear-gradient(135deg, #f8f9fa 0%, #fff 100%);
+  border-left: 4px solid #1565c0;
+  border-radius: 0 8px 8px 0;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.post ul li:hover {
+  transform: translateX(4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Custom bullet icon */
+.post ul li::before {
+  content: "\2713"; /* Checkmark */
+  position: absolute;
+  left: 0.75rem;
+  color: #1565c0;
+  font-weight: bold;
+}
+
+/* ============================================
+   3. Visual Accents
+   ============================================ */
+
+/* Featured image styling */
+.post > div > p:first-child img {
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.12);
+  margin-bottom: 2rem;
+}
+
+/* Link styling */
+.post a:not(.navigation-link) {
+  color: #1565c0;
+  text-decoration: none;
+  border-bottom: 1px dashed #1565c0;
+  transition: border-bottom 0.2s;
+}
+
+.post a:not(.navigation-link):hover {
+  border-bottom: 2px solid #1565c0;
+}
+
+/* Blockquote styling */
+.post blockquote {
+  background: #f8f9fa;
+  border-radius: 0 8px 8px 0;
+  padding: 1.5rem 2rem;
+  margin: 2rem 0;
+}
+
+/* ============================================
+   4. Dark Mode Support
+   ============================================ */
+
+@media (prefers-color-scheme: dark) {
+  .post ul li {
+    background: linear-gradient(135deg, #2a2a2a 0%, #1a1a1a 100%);
+    border-left-color: #42a5f5;
+  }
+
+  .post ul li::before {
+    color: #42a5f5;
+  }
+
+  .post > div > p:nth-of-type(2) {
+    color: #b0b0b0;
+  }
+
+  .post a:not(.navigation-link) {
+    color: #42a5f5;
+    border-bottom-color: #42a5f5;
+  }
+
+  .post blockquote {
+    background: #2a2a2a;
+  }
+
+  .post h2 {
+    border-bottom-color: #42a5f5;
+  }
+}
