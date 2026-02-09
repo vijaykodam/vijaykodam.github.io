@@ -1,182 +1,127 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Mediapipe on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/mediapipe/</link>
-    <description>Recent content in Mediapipe on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0300</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/mediapipe/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Hand-Gesture 3D Car Viewer</title>
-      <link>https://vijay.eu/projects/car-concept/</link>
-      <pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/projects/car-concept/</guid>
-      <description>&lt;div class=&#34;car-concept-container&#34;&gt;
-    
-    &lt;header class=&#34;car-header&#34;&gt;
-        &lt;div class=&#34;car-header__content&#34;&gt;
-            &lt;h1 class=&#34;car-header__title&#34;&gt;Hand-Gesture 3D Car Viewer&lt;/h1&gt;
-            &lt;p class=&#34;car-header__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Open hand to rotate, make a fist and move to zoom&lt;/p&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;car-header__status&#34;&gt;
-            &lt;span class=&#34;status-badge&#34; id=&#34;statusHand&#34;&gt;Hand: Not detected&lt;/span&gt;
-            &lt;span class=&#34;status-badge status-badge--muted&#34; id=&#34;statusGesture&#34;&gt;Use mouse or enable hand tracking&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/header&gt;
-
-    
-    &lt;div class=&#34;viewer-container&#34;&gt;
-        &lt;canvas id=&#34;threeCanvas&#34;&gt;&lt;/canvas&gt;
-        &lt;div class=&#34;loading-overlay&#34; id=&#34;loadingOverlay&#34;&gt;
-            &lt;div class=&#34;loading-spinner&#34;&gt;&lt;/div&gt;
-            &lt;p&gt;Loading 3D model...&lt;/p&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
-
-    
-    &lt;div class=&#34;webcam-preview&#34; id=&#34;webcamPreview&#34;&gt;
-        &lt;div class=&#34;webcam-preview__stack&#34;&gt;
-            &lt;video id=&#34;webcam&#34; playsinline autoplay muted&gt;&lt;/video&gt;
-            &lt;canvas id=&#34;overlay2d&#34;&gt;&lt;/canvas&gt;
-        &lt;/div&gt;
-        &lt;button class=&#34;webcam-btn&#34; id=&#34;btnWebcam&#34; type=&#34;button&#34;&gt;
-            &lt;svg xmlns=&#34;http://www.w3.org/2000/svg&#34; fill=&#34;none&#34; viewBox=&#34;0 0 24 24&#34; stroke-width=&#34;1.5&#34; stroke=&#34;currentColor&#34; width=&#34;16&#34; height=&#34;16&#34;&gt;
-                &lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z&#34; /&gt;
-                &lt;path stroke-linecap=&#34;round&#34; stroke-linejoin=&#34;round&#34; d=&#34;M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z&#34; /&gt;
-            &lt;/svg&gt;
-            Enable Hand Tracking
-        &lt;/button&gt;
-        &lt;div class=&#34;webcam-error hidden&#34; id=&#34;webcamError&#34;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-
-    
-    &lt;div class=&#34;instructions&#34; id=&#34;instructions&#34;&gt;
-        &lt;div class=&#34;instructions__item&#34;&gt;
-            &lt;span class=&#34;instructions__icon&#34;&gt;🖱️&lt;/span&gt;
-            &lt;span&gt;Drag to rotate, scroll to zoom&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;instructions__item&#34;&gt;
-            &lt;span class=&#34;instructions__icon&#34;&gt;✋&lt;/span&gt;
-            &lt;span&gt;Open hand: rotate car&lt;/span&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;instructions__item&#34;&gt;
-            &lt;span class=&#34;instructions__icon&#34;&gt;✊&lt;/span&gt;
-            &lt;span&gt;Fist + move: zoom in/out&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/div&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Mediapipe on Vijay Kodam</title><link>https://vijay.eu/tags/mediapipe/</link><description>Recent content in Mediapipe on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 11 Jan 2026 00:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/mediapipe/index.xml" rel="self" type="application/rss+xml"/><item><title>Hand-Gesture 3D Car Viewer</title><link>https://vijay.eu/projects/car-concept/</link><pubDate>Sun, 11 Jan 2026 00:00:00 +0300</pubDate><guid>https://vijay.eu/projects/car-concept/</guid><description>&lt;div class="car-concept-container"&gt;
+&lt;header class="car-header"&gt;
+&lt;div class="car-header__content"&gt;
+&lt;h1 class="car-header__title"&gt;Hand-Gesture 3D Car Viewer&lt;/h1&gt;
+&lt;p class="car-header__subtitle"&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Open hand to rotate, make a fist and move to zoom&lt;/p&gt;
 &lt;/div&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Hand-Gesture Cricket</title>
-      <link>https://vijay.eu/projects/cricket-bowling/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/projects/cricket-bowling/</guid>
-      <description>&lt;div class=&#34;cricket-bowling-container&#34;&gt;
-    &lt;header class=&#34;cricket-header&#34;&gt;
-        &lt;div class=&#34;brand&#34;&gt;
-            &lt;div class=&#34;brand__title&#34;&gt;Hand-Gesture Cricket&lt;/div&gt;
-            &lt;div class=&#34;brand__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&#34;status&#34; aria-live=&#34;polite&#34;&gt;
-            &lt;span class=&#34;badge badge--phase&#34; id=&#34;statusPhase&#34;&gt;Ready&lt;/span&gt;
-            &lt;span class=&#34;badge&#34; id=&#34;statusSpeed&#34;&gt;Speed: --&lt;/span&gt;
-            &lt;span class=&#34;badge&#34; id=&#34;statusBallType&#34;&gt;--&lt;/span&gt;
-            &lt;span class=&#34;badge badge--score&#34; id=&#34;statusScore&#34;&gt;Wickets: 0/0&lt;/span&gt;
-            &lt;span class=&#34;badge badge--muted&#34; id=&#34;statusFps&#34;&gt;FPS: --&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/header&gt;
-
-    &lt;main class=&#34;cricket-layout&#34;&gt;
-        &lt;section class=&#34;panel&#34;&gt;
-            &lt;div class=&#34;panel__header&#34;&gt;
-                &lt;h2 class=&#34;panel__title&#34;&gt;Camera&lt;/h2&gt;
-                &lt;div class=&#34;panel__actions&#34;&gt;
-                    &lt;button class=&#34;btn btn--primary&#34; id=&#34;btnWebcam&#34; type=&#34;button&#34;&gt;Enable webcam&lt;/button&gt;
-                    &lt;button class=&#34;btn&#34; id=&#34;btnOverlay&#34; type=&#34;button&#34; aria-pressed=&#34;true&#34;&gt;Overlay: On&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;media&#34;&gt;
-                &lt;div class=&#34;media__stack&#34;&gt;
-                    &lt;video id=&#34;webcam&#34; playsinline autoplay muted&gt;&lt;/video&gt;
-                    &lt;canvas id=&#34;overlay2d&#34; class=&#34;overlay2d&#34; aria-hidden=&#34;true&#34;&gt;&lt;/canvas&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&#34;hint&#34; id=&#34;gameHint&#34;&gt;
-                    &lt;strong&gt;How to play:&lt;/strong&gt;&lt;br&gt;
-                    1. Show your hand to the camera&lt;br&gt;
-                    2. Make a bowling motion (arm forward/down)&lt;br&gt;
-                    3. Release naturally at the end&lt;br&gt;
-                    4. Try to hit the wickets!
-                &lt;/div&gt;
-
-                &lt;div class=&#34;result-display hidden&#34; id=&#34;resultDisplay&#34;&gt;
-                    &lt;div class=&#34;result-icon&#34; id=&#34;resultIcon&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-text&#34; id=&#34;resultText&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-details&#34; id=&#34;resultDetails&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-hint&#34;&gt;Show hand to bowl again&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&#34;error hidden&#34; id=&#34;cameraError&#34; role=&#34;alert&#34;&gt;&lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;game-stats&#34;&gt;
-                &lt;div class=&#34;stat-row&#34;&gt;
-                    &lt;span class=&#34;stat-label&#34;&gt;Fast balls:&lt;/span&gt;
-                    &lt;span class=&#34;stat-value&#34; id=&#34;statFast&#34;&gt;0&lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;stat-row&#34;&gt;
-                    &lt;span class=&#34;stat-label&#34;&gt;Spin balls:&lt;/span&gt;
-                    &lt;span class=&#34;stat-value&#34; id=&#34;statSpin&#34;&gt;0&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            
-            &lt;div class=&#34;debug-panel hidden&#34; id=&#34;debugPanel&#34;&gt;
-                &lt;div class=&#34;debug-header&#34;&gt;
-                    &lt;strong&gt;DEBUG MODE&lt;/strong&gt;
-                    &lt;div&gt;
-                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClear&#34; type=&#34;button&#34;&gt;Clear Recording&lt;/button&gt;
-                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClose&#34; type=&#34;button&#34;&gt;X&lt;/button&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;pre id=&#34;debugOutput&#34; style=&#34;font-size: 11px; margin: 0; white-space: pre-wrap;&#34;&gt;&lt;/pre&gt;
-            &lt;/div&gt;
-            &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebug&#34; type=&#34;button&#34; style=&#34;margin-top: 8px;&#34;&gt;Show Debug&lt;/button&gt;
-        &lt;/section&gt;
-
-        &lt;section class=&#34;panel&#34;&gt;
-            &lt;div class=&#34;panel__header&#34;&gt;
-                &lt;h2 class=&#34;panel__title&#34;&gt;3D Scene&lt;/h2&gt;
-                &lt;div class=&#34;panel__actions&#34;&gt;
-                    &lt;button class=&#34;btn&#34; id=&#34;btnReset&#34; type=&#34;button&#34;&gt;Reset Game&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;scene&#34;&gt;
-                &lt;canvas id=&#34;threeCanvas&#34;&gt;&lt;/canvas&gt;
-            &lt;/div&gt;
-
-            &lt;footer class=&#34;cricket-footer&#34;&gt;
-                &lt;span class=&#34;muted&#34;&gt;Tip: Good lighting helps hand tracking. Works best on Chrome/Safari.&lt;/span&gt;
-            &lt;/footer&gt;
-        &lt;/section&gt;
-    &lt;/main&gt;
+&lt;div class="car-header__status"&gt;
+&lt;span class="status-badge" id="statusHand"&gt;Hand: Not detected&lt;/span&gt;
+&lt;span class="status-badge status-badge--muted" id="statusGesture"&gt;Use mouse or enable hand tracking&lt;/span&gt;
 &lt;/div&gt;
-
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;/header&gt;
+&lt;div class="viewer-container"&gt;
+&lt;canvas id="threeCanvas"&gt;&lt;/canvas&gt;
+&lt;div class="loading-overlay" id="loadingOverlay"&gt;
+&lt;div class="loading-spinner"&gt;&lt;/div&gt;
+&lt;p&gt;Loading 3D model...&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="webcam-preview" id="webcamPreview"&gt;
+&lt;div class="webcam-preview__stack"&gt;
+&lt;video id="webcam" playsinline autoplay muted&gt;&lt;/video&gt;
+&lt;canvas id="overlay2d"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;button class="webcam-btn" id="btnWebcam" type="button"&gt;
+&lt;svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="16" height="16"&gt;
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M6.827 6.175A2.31 2.31 0 015.186 7.23c-.38.054-.757.112-1.134.175C2.999 7.58 2.25 8.507 2.25 9.574V18a2.25 2.25 0 002.25 2.25h15A2.25 2.25 0 0021.75 18V9.574c0-1.067-.75-1.994-1.802-2.169a47.865 47.865 0 00-1.134-.175 2.31 2.31 0 01-1.64-1.055l-.822-1.316a2.192 2.192 0 00-1.736-1.039 48.774 48.774 0 00-5.232 0 2.192 2.192 0 00-1.736 1.039l-.821 1.316z" /&gt;
+&lt;path stroke-linecap="round" stroke-linejoin="round" d="M16.5 12.75a4.5 4.5 0 11-9 0 4.5 4.5 0 019 0zM18.75 10.5h.008v.008h-.008V10.5z" /&gt;
+&lt;/svg&gt;
+Enable Hand Tracking
+&lt;/button&gt;
+&lt;div class="webcam-error hidden" id="webcamError"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="instructions" id="instructions"&gt;
+&lt;div class="instructions__item"&gt;
+&lt;span class="instructions__icon"&gt;🖱️&lt;/span&gt;
+&lt;span&gt;Drag to rotate, scroll to zoom&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="instructions__item"&gt;
+&lt;span class="instructions__icon"&gt;✋&lt;/span&gt;
+&lt;span&gt;Open hand: rotate car&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="instructions__item"&gt;
+&lt;span class="instructions__icon"&gt;✊&lt;/span&gt;
+&lt;span&gt;Fist + move: zoom in/out&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Hand-Gesture Cricket</title><link>https://vijay.eu/projects/cricket-bowling/</link><pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate><guid>https://vijay.eu/projects/cricket-bowling/</guid><description>&lt;div class="cricket-bowling-container"&gt;
+&lt;header class="cricket-header"&gt;
+&lt;div class="brand"&gt;
+&lt;div class="brand__title"&gt;Hand-Gesture Cricket&lt;/div&gt;
+&lt;div class="brand__subtitle"&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="status" aria-live="polite"&gt;
+&lt;span class="badge badge--phase" id="statusPhase"&gt;Ready&lt;/span&gt;
+&lt;span class="badge" id="statusSpeed"&gt;Speed: --&lt;/span&gt;
+&lt;span class="badge" id="statusBallType"&gt;--&lt;/span&gt;
+&lt;span class="badge badge--score" id="statusScore"&gt;Wickets: 0/0&lt;/span&gt;
+&lt;span class="badge badge--muted" id="statusFps"&gt;FPS: --&lt;/span&gt;
+&lt;/div&gt;
+&lt;/header&gt;
+&lt;main class="cricket-layout"&gt;
+&lt;section class="panel"&gt;
+&lt;div class="panel__header"&gt;
+&lt;h2 class="panel__title"&gt;Camera&lt;/h2&gt;
+&lt;div class="panel__actions"&gt;
+&lt;button class="btn btn--primary" id="btnWebcam" type="button"&gt;Enable webcam&lt;/button&gt;
+&lt;button class="btn" id="btnOverlay" type="button" aria-pressed="true"&gt;Overlay: On&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="media"&gt;
+&lt;div class="media__stack"&gt;
+&lt;video id="webcam" playsinline autoplay muted&gt;&lt;/video&gt;
+&lt;canvas id="overlay2d" class="overlay2d" aria-hidden="true"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="hint" id="gameHint"&gt;
+&lt;strong&gt;How to play:&lt;/strong&gt;&lt;br&gt;
+1. Show your hand to the camera&lt;br&gt;
+2. Make a bowling motion (arm forward/down)&lt;br&gt;
+3. Release naturally at the end&lt;br&gt;
+4. Try to hit the wickets!
+&lt;/div&gt;
+&lt;div class="result-display hidden" id="resultDisplay"&gt;
+&lt;div class="result-icon" id="resultIcon"&gt;&lt;/div&gt;
+&lt;div class="result-text" id="resultText"&gt;&lt;/div&gt;
+&lt;div class="result-details" id="resultDetails"&gt;&lt;/div&gt;
+&lt;div class="result-hint"&gt;Show hand to bowl again&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="error hidden" id="cameraError" role="alert"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="game-stats"&gt;
+&lt;div class="stat-row"&gt;
+&lt;span class="stat-label"&gt;Fast balls:&lt;/span&gt;
+&lt;span class="stat-value" id="statFast"&gt;0&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="stat-row"&gt;
+&lt;span class="stat-label"&gt;Spin balls:&lt;/span&gt;
+&lt;span class="stat-value" id="statSpin"&gt;0&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="debug-panel hidden" id="debugPanel"&gt;
+&lt;div class="debug-header"&gt;
+&lt;strong&gt;DEBUG MODE&lt;/strong&gt;
+&lt;div&gt;
+&lt;button class="btn btn--small" id="btnDebugClear" type="button"&gt;Clear Recording&lt;/button&gt;
+&lt;button class="btn btn--small" id="btnDebugClose" type="button"&gt;X&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre id="debugOutput" style="font-size: 11px; margin: 0; white-space: pre-wrap;"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;button class="btn btn--small" id="btnDebug" type="button" style="margin-top: 8px;"&gt;Show Debug&lt;/button&gt;
+&lt;/section&gt;
+&lt;section class="panel"&gt;
+&lt;div class="panel__header"&gt;
+&lt;h2 class="panel__title"&gt;3D Scene&lt;/h2&gt;
+&lt;div class="panel__actions"&gt;
+&lt;button class="btn" id="btnReset" type="button"&gt;Reset Game&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="scene"&gt;
+&lt;canvas id="threeCanvas"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;footer class="cricket-footer"&gt;
+&lt;span class="muted"&gt;Tip: Good lighting helps hand tracking. Works best on Chrome/Safari.&lt;/span&gt;
+&lt;/footer&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;/div&gt;</description></item></channel></rss>

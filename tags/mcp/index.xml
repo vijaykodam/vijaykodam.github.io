@@ -1,41 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>MCP on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/mcp/</link>
-    <description>Recent content in MCP on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/mcp/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Built my first MCP Server for Kubernetes</title>
-      <link>https://vijay.eu/posts/building-my-first-mcp-server/</link>
-      <pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/first-mcp.jpeg&#34; alt=&#34;first-mcp&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>MCP on Vijay Kodam</title><link>https://vijay.eu/tags/mcp/</link><description>Recent content in MCP on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 14 May 2025 23:17:36 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/mcp/index.xml" rel="self" type="application/rss+xml"/><item><title>Built my first MCP Server for Kubernetes</title><link>https://vijay.eu/posts/building-my-first-mcp-server/</link><pubDate>Wed, 14 May 2025 23:17:36 +0300</pubDate><guid>https://vijay.eu/posts/building-my-first-mcp-server/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/first-mcp.jpeg" alt="first-mcp"&gt;&lt;/p&gt;
+&lt;h2 id="intro"&gt;Intro&lt;/h2&gt;
 &lt;p&gt;Built my first MCP Server for read only Kubernetes operations.&lt;/p&gt;
 &lt;p&gt;This MCP server was created to provide a secure way to interact with Kubernetes clusters without allowing any create, update, or delete operations. It only exposes read-only APIs to ensure your clusters remain safe while still enabling AI assistants to help you monitor and troubleshoot your Kubernetes resources.&lt;/p&gt;
-&lt;p&gt;Here is the &lt;a href=&#34;https://github.com/vijaykodam/kubernetes-readonly-mcp/&#34;&gt;Github Repo URL&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;model-context-protocol&#34;&gt;Model Context Protocol&lt;/h2&gt;
-&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. Read more about it at &lt;a href=&#34;https://modelcontextprotocol.io/&#34;&gt;https://modelcontextprotocol.io/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Here is the &lt;a href="https://github.com/vijaykodam/kubernetes-readonly-mcp/"&gt;Github Repo URL&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="model-context-protocol"&gt;Model Context Protocol&lt;/h2&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. Read more about it at &lt;a href="https://modelcontextprotocol.io/"&gt;https://modelcontextprotocol.io/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Now all the major companies like OpenAI, Microsoft, AWS and Google adopted it and it has become the industry standard for exposing tools, resources and API endpoints.&lt;/p&gt;
 &lt;p&gt;MCP has been very popular lately and you can see the huge adoption as every company is releasing their official MCP server.
 MCP server is the new API endpoint.&lt;/p&gt;
-&lt;h2 id=&#34;why-yet-another-mcp-server&#34;&gt;Why Yet Another MCP Server?&lt;/h2&gt;
+&lt;h2 id="why-yet-another-mcp-server"&gt;Why Yet Another MCP Server?&lt;/h2&gt;
 &lt;p&gt;Kubernetes is equally popular and there are many Kubernetes MCP servers out there. Security is still evolving around MCP and I didn’t want to run an MCP server for K8s which can create, update or delete my K8s resources.&lt;/p&gt;
 &lt;p&gt;Then I got an idea to build my own MCP server where only read only operations are part of the MCP servers tools. If there is no capability written to modify then it cannot modify the resources.&lt;/p&gt;
 &lt;p&gt;Of course we could achieve it by creating a restrictive RBAC role in K8s cluster but I wanted to learn and what better way than building your own MCP server.&lt;/p&gt;
-&lt;h2 id=&#34;how-i-built-it&#34;&gt;How I built it?&lt;/h2&gt;
+&lt;h2 id="how-i-built-it"&gt;How I built it?&lt;/h2&gt;
 &lt;p&gt;I have used FastMCP framework for building MCP server. For calling Kubernetes API server, I have used the official Kubernetes Python client. Essentially I was plumbing both those things together and building a solution around them.&lt;/p&gt;
 &lt;p&gt;Each API call is created as a separate MCP tool. For example, there is one K8s API call for get pods which has been implemented as get_pods MCP tool.&lt;/p&gt;
 &lt;p&gt;There is a common Kubernetes context initiated once at the start which is shared across the MCP tools.&lt;/p&gt;
-&lt;h2 id=&#34;features&#34;&gt;Features&lt;/h2&gt;
+&lt;h2 id="features"&gt;Features&lt;/h2&gt;
 &lt;p&gt;This MCP server provides the following read-only tools:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;code&gt;list_pods&lt;/code&gt;: List all pods in a namespace or across all namespaces&lt;/li&gt;
@@ -46,85 +27,68 @@ MCP server is the new API endpoint.&lt;/p&gt;
 &lt;li&gt;&lt;code&gt;get_pod_logs&lt;/code&gt;: Get logs from a specific pod&lt;/li&gt;
 &lt;li&gt;&lt;code&gt;get_logs&lt;/code&gt;: Get logs from pods, deployments, jobs, or resources matching a label selector&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;todo&#34;&gt;TODO&lt;/h2&gt;
+&lt;h2 id="todo"&gt;TODO&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;Currently I have only implemented the stdio transport. MCP added streamable_http transport recently. For watch or streaming logs such functionality might be needed. I need to check it further.&lt;/li&gt;
 &lt;li&gt;Not all read only Kubernetes APIs are added.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;pypi-package&#34;&gt;PyPi package&lt;/h2&gt;
-&lt;p&gt;At first, for testing purposes, I was calling the MCP server code from a single python file directly. After that added that command in the MCP config file and tested it. Then I thought it would be better if there is a single command to run the python module and after some research decided to build &lt;a href=&#34;https://pypi.org/project/kubernetes-readonly-mcp/&#34;&gt;my own PyPi package&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="pypi-package"&gt;PyPi package&lt;/h2&gt;
+&lt;p&gt;At first, for testing purposes, I was calling the MCP server code from a single python file directly. After that added that command in the MCP config file and tested it. Then I thought it would be better if there is a single command to run the python module and after some research decided to build &lt;a href="https://pypi.org/project/kubernetes-readonly-mcp/"&gt;my own PyPi package&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;I only used pip or uv to install python packages and now I got to create one. Now you can install the MCP server using “pip install kubernetes-readonly-mcp@latest”. This was a very fun and learning experience.&lt;/p&gt;
-&lt;h2 id=&#34;final-remarks&#34;&gt;Final Remarks&lt;/h2&gt;
+&lt;h2 id="final-remarks"&gt;Final Remarks&lt;/h2&gt;
 &lt;p&gt;After building, packaging and pushing it to GitHub, I started testing it using VSCode + Cline and installed the MCP server and chat with it.&lt;/p&gt;
 &lt;p&gt;This project is still in experimental phase. Use it at your own discretion.&lt;/p&gt;
-&lt;h2 id=&#34;demo-video&#34;&gt;Demo Video&lt;/h2&gt;
+&lt;h2 id="demo-video"&gt;Demo Video&lt;/h2&gt;
 &lt;p&gt;Below is the demo of installing and usage of my first MCP server for readonly Kubernetes operations. Do let me know what is your experience with MCP?&lt;/p&gt;
-&lt;iframe 
-  src=&#34;https://www.youtube.com/embed/bIjzZz7kbDQ?si=fhcs5gvfc44DHr7d&#34; 
-  width=&#34;560&#34; 
-  height=&#34;315&#34; 
-  title=&#34;Embedded Content&#34; 
-  frameborder=&#34;0&#34; 
-  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
-  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
-  allowfullscreen&gt;
+&lt;iframe
+src="https://www.youtube.com/embed/bIjzZz7kbDQ?si=fhcs5gvfc44DHr7d"
+width="560"
+height="315"
+title="Embedded Content"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen&gt;
 &lt;/iframe&gt;
-
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title>
-      <link>https://vijay.eu/posts/mcp-amazon-q-cli/</link>
-      <pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid>
-      <description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Generate AWS Arch diagrams using AWS MCP server and Amazon Q CLI</title><link>https://vijay.eu/posts/mcp-amazon-q-cli/</link><pubDate>Sun, 04 May 2025 01:18:22 +0300</pubDate><guid>https://vijay.eu/posts/mcp-amazon-q-cli/</guid><description>&lt;p&gt;Recently AWS started adopted Model Context Protocol (MCP) and created first set of AWS MCP servers.&lt;/p&gt;
 &lt;p&gt;In this blog post, I will show you how to generate entire AWS architecture diagrams using single prompt with this new AWS MCP server and Amazon Q CLI.&lt;/p&gt;
 &lt;p&gt;Here is the generated AWS Architecture diagram:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws_data_pipeline.png&#34; alt=&#34;Data pipeline&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/aws_data_pipeline.png" alt="Data pipeline"&gt;&lt;/p&gt;
 &lt;p&gt;Read more to find out how …&lt;/p&gt;
-&lt;h2 id=&#34;what-is-mcp&#34;&gt;What is MCP?&lt;/h2&gt;
-&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href=&#34;https://modelcontextprotocol.io/introduction&#34;&gt;their website&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="what-is-mcp"&gt;What is MCP?&lt;/h2&gt;
+&lt;p&gt;Model Context Protocol (MCP) is an open protocol that standardizes how applications provide context to LLMs. MCP provides a standardized way to connect AI models to different data sources and tools. You can read more about MCP from &lt;a href="https://modelcontextprotocol.io/introduction"&gt;their website&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;LLMs are essentially text-in-text-out or data-in-data-out systems. Agents or tools give LLMs ability to interact with real world. MCP standardizes the interaction between these agents/tools and the applications, typically via MCP Client on the agent/tool side and MCP server on the application side.&lt;/p&gt;
 &lt;p&gt;MCP has become popular after AWS, OpenAI, Google, and Microsoft decided to adopt the standard making it go to protocol. Now we have lots of open source MCP servers ready to use.&lt;/p&gt;
 &lt;p&gt;I have tried many MCP Hosts/MCP Clients and Amazon Q CLI is the most simple and straight-forward one. Install Q CLI, login to your AWS Builder ID, and you are good to go on a free tier.
 AWS handles the LLM calling transparently. No need of any configurations for LLM.&lt;/p&gt;
-&lt;h2 id=&#34;amazon-q-cli&#34;&gt;Amazon Q CLI&lt;/h2&gt;
+&lt;h2 id="amazon-q-cli"&gt;Amazon Q CLI&lt;/h2&gt;
 &lt;p&gt;Amazon Q is a generative AI assistant. Recently Amazon Q CLI announced MCP support. This is a big announcement for me as it simplifies using MCP as simple as calling the Amazon Q CLI. I am a terminal guy and have been using generative AI CLI tools like Claude Code and now Amazon Q CLI.&lt;/p&gt;
-&lt;h2 id=&#34;steps-to-install-amazon-q-cli&#34;&gt;Steps to install Amazon Q CLI&lt;/h2&gt;
+&lt;h2 id="steps-to-install-amazon-q-cli"&gt;Steps to install Amazon Q CLI&lt;/h2&gt;
 &lt;p&gt;What I love about Amazon Q CLI is the installation and usage. Installation is a single command in your Mac.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install amazon-q
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install amazon-q
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;You must login using either AWS Builder ID or your AWS credentials. Use AWS Builder ID if you are just getting started. This is an easy way to try it using the free tier.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;q login
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;q login
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;And then you just use it by calling:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;q chat
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;architecture&#34;&gt;Architecture&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;q chat
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="architecture"&gt;Architecture&lt;/h2&gt;
 &lt;p&gt;Even though we don&amp;rsquo;t interact with LLM directly, Amazon Q CLI uses LLM transparent to the user in the background. Based on the user&amp;rsquo;s query it decides to use the AWS Diagram server via MCP Client inside AWS Q CLI.&lt;/p&gt;
 &lt;p&gt;The MCP Client talks to AWS Diagrams MCP server via Model Context Protocol. Internally it pulls the needs icons, generates diagrams using Python diagrams package DSL. Once the image is generated, Q CLI stores it in the user directory.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/mcp-q-cli.png&#34; alt=&#34;MCP Amazon Q CLI diagram&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;prerequisites&#34;&gt;Prerequisites&lt;/h2&gt;
-&lt;p&gt;Install GraphViz before. See &lt;a href=&#34;https://www.graphviz.org/&#34;&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/mcp-q-cli.png" alt="MCP Amazon Q CLI diagram"&gt;&lt;/p&gt;
+&lt;h2 id="prerequisites"&gt;Prerequisites&lt;/h2&gt;
+&lt;p&gt;Install GraphViz before. See &lt;a href="https://www.graphviz.org/"&gt;https://www.graphviz.org/&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;In Mac:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;brew install graphviz
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
-&lt;p&gt;In this demo I am setting up &lt;a href=&#34;https://awslabs.github.io/mcp/servers/aws-diagram-mcp-server/&#34;&gt;AWS Diagrams MCP server&lt;/a&gt; which is the tool/MCP server which Amazon Q CLI calls to generate AWS architecture diagram.
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;brew install graphviz
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="demo"&gt;Demo&lt;/h2&gt;
+&lt;p&gt;In this demo I am setting up &lt;a href="https://awslabs.github.io/mcp/servers/aws-diagram-mcp-server/"&gt;AWS Diagrams MCP server&lt;/a&gt; which is the tool/MCP server which Amazon Q CLI calls to generate AWS architecture diagram.
 Watch below demo where I setup the MCP server and generate AWS architecture diagrams using LLM with a single prompt.&lt;/p&gt;
-&lt;iframe 
-  src=&#34;https://www.youtube.com/embed/HQK5P_Mbp1g?si=LA5Z9swDLv6T7NgP&#34; 
-  width=&#34;560&#34; 
-  height=&#34;315&#34; 
-  title=&#34;Embedded Content&#34; 
-  frameborder=&#34;0&#34; 
-  allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
-  referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
-  allowfullscreen&gt;
+&lt;iframe
+src="https://www.youtube.com/embed/HQK5P_Mbp1g?si=LA5Z9swDLv6T7NgP"
+width="560"
+height="315"
+title="Embedded Content"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen&gt;
 &lt;/iframe&gt;
-
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

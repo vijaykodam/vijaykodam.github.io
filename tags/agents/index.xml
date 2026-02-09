@@ -1,168 +1,118 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Agents on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/agents/</link>
-    <description>Recent content in Agents on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 30 Dec 2025 19:16:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/agents/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>2025 Year in Review</title>
-      <link>https://vijay.eu/posts/2025-year-in-review/</link>
-      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/2025-year-in-review/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Agents on Vijay Kodam</title><link>https://vijay.eu/tags/agents/</link><description>Recent content in Agents on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 30 Dec 2025 19:16:00 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/agents/index.xml" rel="self" type="application/rss+xml"/><item><title>2025 Year in Review</title><link>https://vijay.eu/posts/2025-year-in-review/</link><pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate><guid>https://vijay.eu/posts/2025-year-in-review/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;&lt;/p&gt;
 &lt;p&gt;If you had told me at the start of the year that I would speak at major Amazon Web Services (AWS) and Microsoft conferences in Europe, I would have called it unlikely.&lt;/p&gt;
 &lt;p&gt;2025 has been an amazing year for me. Not only I got the chance to speak at AWS Summit and Microsoft AgentCon and other conferences, I also got certified, completed GenAI courses, built MCP servers and AI agents and much more. I have spent countless hours after work this year to achieve those things.&lt;/p&gt;
 &lt;p&gt;Here are a few highlights for me in 2025:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Became &lt;a href=&#34;https://vijay.eu/posts/aws-community-builders/&#34;&gt;AWS Community Builder&lt;/a&gt; for the first time&lt;/li&gt;
-&lt;li&gt;Passed &lt;a href=&#34;https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url&#34;&gt;AWS Certified AI Practitioner&lt;/a&gt; from Amazon Web Services (AWS)!&lt;/li&gt;
-&lt;li&gt;Created my own &lt;a href=&#34;https://vijay.eu/posts/building-my-first-mcp-server/&#34;&gt;Kubernetes Read Only MCP server&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Created my own &lt;a href=&#34;https://vijay.eu/posts/built-an-ai-agent/&#34;&gt;AI Agent for Autonomous Troubleshooting K8s operations&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Became &lt;a href="https://vijay.eu/posts/aws-community-builders/"&gt;AWS Community Builder&lt;/a&gt; for the first time&lt;/li&gt;
+&lt;li&gt;Passed &lt;a href="https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url"&gt;AWS Certified AI Practitioner&lt;/a&gt; from Amazon Web Services (AWS)!&lt;/li&gt;
+&lt;li&gt;Created my own &lt;a href="https://vijay.eu/posts/building-my-first-mcp-server/"&gt;Kubernetes Read Only MCP server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Created my own &lt;a href="https://vijay.eu/posts/built-an-ai-agent/"&gt;AI Agent for Autonomous Troubleshooting K8s operations&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Delivered presentations at AWS Summit Zurich, Microsoft&amp;rsquo;s AgentCon and AWS Nordics Community Day!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vijay.eu/posts/won-q-coding-challenge/&#34;&gt;Won two GenAI hackathons&lt;/a&gt; at AWS Summit Stockholm and another at AWS event in Helsinki!&lt;/li&gt;
-&lt;li&gt;Learnt a lot in #GenAI including &amp;ldquo;Building Agentic AI Applications with a Problem-First Approach&amp;rdquo;, &amp;ldquo;AI evals&amp;rdquo; and &lt;a href=&#34;https://vijay.eu/posts/google-genai-capstone-project/&#34;&gt;Google&amp;rsquo;s GenAI and AI Agent courses&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built multiple &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;AI projects&lt;/a&gt;. &amp;ldquo;&lt;a href=&#34;https://vijay.eu/projects/llm-pricing/&#34;&gt;LLM pricing&lt;/a&gt;&amp;rdquo; project is the latest one.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://vijay.eu/posts/won-q-coding-challenge/"&gt;Won two GenAI hackathons&lt;/a&gt; at AWS Summit Stockholm and another at AWS event in Helsinki!&lt;/li&gt;
+&lt;li&gt;Learnt a lot in #GenAI including &amp;ldquo;Building Agentic AI Applications with a Problem-First Approach&amp;rdquo;, &amp;ldquo;AI evals&amp;rdquo; and &lt;a href="https://vijay.eu/posts/google-genai-capstone-project/"&gt;Google&amp;rsquo;s GenAI and AI Agent courses&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built multiple &lt;a href="https://vijay.eu/projects/"&gt;AI projects&lt;/a&gt;. &amp;ldquo;&lt;a href="https://vijay.eu/projects/llm-pricing/"&gt;LLM pricing&lt;/a&gt;&amp;rdquo; project is the latest one.&lt;/li&gt;
 &lt;li&gt;Trained a neural network for my Le Robot SO-101 arm.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;All throughout the year along my journey, many people helped me, inspired me and guided me. Thanks to all of you!&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My Honest Take on Kiro, AI IDE from AWS</title>
-      <link>https://vijay.eu/posts/my-honest-take-on-kiro/</link>
-      <pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/my-honest-take-on-kiro/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/kiro-screenshot.png&#34; alt=&#34;kiro&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>My Honest Take on Kiro, AI IDE from AWS</title><link>https://vijay.eu/posts/my-honest-take-on-kiro/</link><pubDate>Thu, 17 Jul 2025 00:24:38 +0300</pubDate><guid>https://vijay.eu/posts/my-honest-take-on-kiro/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/kiro-screenshot.png" alt="kiro"&gt;&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Amazon Web Services (AWS) released Kiro, an agentic AI IDE yesterday. Built an app with it today. Here is my honest take of this new AI IDE.&lt;/p&gt;
 &lt;p&gt;This is my first experience trying Kiro and spent around 8 hours building a TODO app with Google OAuth2 authentication.&lt;/p&gt;
-&lt;h2 id=&#34;what-is-kiro&#34;&gt;What is Kiro?&lt;/h2&gt;
-&lt;p&gt;AWS released an AI powered agentic IDE powered by Claude 4.0 Sonnet. Cursor and Windsurf are it&amp;rsquo;s competetors in this area. This area has been very hot with startups cloning VS Code and building AI code editors and several of them are worth couple of billion US dollars. You can learn more about Kiro at &lt;a href=&#34;https://kiro.dev/&#34;&gt;https://kiro.dev/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;vibe-code--spec-code&#34;&gt;Vibe Code &amp;amp; Spec Code&lt;/h2&gt;
+&lt;h2 id="what-is-kiro"&gt;What is Kiro?&lt;/h2&gt;
+&lt;p&gt;AWS released an AI powered agentic IDE powered by Claude 4.0 Sonnet. Cursor and Windsurf are it&amp;rsquo;s competetors in this area. This area has been very hot with startups cloning VS Code and building AI code editors and several of them are worth couple of billion US dollars. You can learn more about Kiro at &lt;a href="https://kiro.dev/"&gt;https://kiro.dev/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="vibe-code--spec-code"&gt;Vibe Code &amp;amp; Spec Code&lt;/h2&gt;
 &lt;p&gt;Kiro supports vibe-coding as well as spec-based coding. I felt that this is a good way to teach industry best practices for a non-software engineer on how to build a software project from scratch.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/spec-code.png&#34; alt=&#34;spec&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/spec-code.png" alt="spec"&gt;&lt;/p&gt;
 &lt;p&gt;From your single line wish in natural language, it creates a big set of requirements, Design Document and properly structured Tasks list which includes not only functional tasks but also non-functional and security related tasks.&lt;/p&gt;
 &lt;p&gt;Once it is ready, you could review them, edit them and then run tasks one-by-one sequentially.&lt;/p&gt;
-&lt;h2 id=&#34;important-features&#34;&gt;Important Features&lt;/h2&gt;
+&lt;h2 id="important-features"&gt;Important Features&lt;/h2&gt;
 &lt;p&gt;There are two more concepts/features introduced by Kiro other than spec-driven development:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Agent Hooks and&lt;/li&gt;
 &lt;li&gt;Agent Steering.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/hooks.png&#34; alt=&#34;hooks&#34;&gt;&lt;/p&gt;
-&lt;h3 id=&#34;agent-hooks&#34;&gt;Agent Hooks&lt;/h3&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/hooks.png" alt="hooks"&gt;&lt;/p&gt;
+&lt;h3 id="agent-hooks"&gt;Agent Hooks&lt;/h3&gt;
 &lt;p&gt;These hooks get called when an event occurs. Currently Agent hooks supports triggering based on file operations like create, save and delete. You then mention what the Agent should do when it is triggered in natural language. No scripting, no coding, just plain English.&lt;/p&gt;
-&lt;p&gt;In a very short time, I found Agent hooks to be extremely useful.  I created an agent hook to add files to git and then git commit my changes after every task is successfully completed.&lt;/p&gt;
+&lt;p&gt;In a very short time, I found Agent hooks to be extremely useful. I created an agent hook to add files to git and then git commit my changes after every task is successfully completed.&lt;/p&gt;
 &lt;p&gt;Here is my Agent hook for git commit on file save:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/git-hook.png&#34; alt=&#34;githooks&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/git-hook.png" alt="githooks"&gt;&lt;/p&gt;
 &lt;p&gt;Icing on the cake was that the Agent hook actually read all my code changes, summarized and added a single line commit comment which mentions what changes were done. The power of LLMs is on display in this usecase.&lt;/p&gt;
-&lt;h3 id=&#34;agent-steering&#34;&gt;Agent Steering&lt;/h3&gt;
+&lt;h3 id="agent-steering"&gt;Agent Steering&lt;/h3&gt;
 &lt;p&gt;When you click the created steering docs, Agent steering creates three docs: product, structure and tech stack. They contain all the info related to your project.&lt;/p&gt;
 &lt;p&gt;Here is the steering doc for project for my app:&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/steering.png&#34; alt=&#34;steering&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/steering.png" alt="steering"&gt;&lt;/p&gt;
 &lt;p&gt;You could add your coding best practices, tech stack wish list, other conditions here, which will dictate how the code is generated by LLMs.&lt;/p&gt;
-&lt;h2 id=&#34;my-todo-app&#34;&gt;My TODO app&lt;/h2&gt;
+&lt;h2 id="my-todo-app"&gt;My TODO app&lt;/h2&gt;
 &lt;p&gt;I created a TODO app with Google sign-in as authentication method, without any AWS tech involved. Kiro is advertised as an independent AI IDE so I wanted to test that aspect.&lt;/p&gt;
 &lt;p&gt;You can find the screenshots of the app in the images below.
-&lt;img src=&#34;https://vijay.eu/images/todoapp1.png&#34; alt=&#34;todoapp1&#34;&gt;
-&lt;img src=&#34;https://vijay.eu/images/todoapp2.png&#34; alt=&#34;todoapp2&#34;&gt;&lt;/p&gt;
+&lt;img src="https://vijay.eu/images/todoapp1.png" alt="todoapp1"&gt;
+&lt;img src="https://vijay.eu/images/todoapp2.png" alt="todoapp2"&gt;&lt;/p&gt;
 &lt;p&gt;I got a working app with working Google authentication. Tested it with my Gmail credentials and it was working flawlessly.&lt;/p&gt;
-&lt;h2 id=&#34;improvements&#34;&gt;Improvements?&lt;/h2&gt;
+&lt;h2 id="improvements"&gt;Improvements?&lt;/h2&gt;
 &lt;p&gt;Considering Kiro is released yesterday, I believe my impressions mentioned below might be resolved sooner or later.&lt;/p&gt;
 &lt;p&gt;Anyway, here I go&amp;hellip;&lt;/p&gt;
-&lt;h3 id=&#34;model-choice&#34;&gt;Model Choice&lt;/h3&gt;
+&lt;h3 id="model-choice"&gt;Model Choice&lt;/h3&gt;
 &lt;p&gt;Currently Kiro is limited to only Claude 4.0 Sonnet and Claude 3.7 Sonnet. Honestly these two are the industry best for coding.&lt;/p&gt;
 &lt;p&gt;However, there might be usecases where fast responses are preferred over best responses. In those case, I wish Nova models from AWS are available as a choice.&lt;/p&gt;
-&lt;h3 id=&#34;slowness&#34;&gt;Slowness&lt;/h3&gt;
+&lt;h3 id="slowness"&gt;Slowness&lt;/h3&gt;
 &lt;p&gt;Few times faced slowness, although it is expected as there will be lot of people trying out Kiro along with Claude 4.0 Sonnet.
 Claude 3.7 Sonnet felt bit more faster compared to 4.0 but considering the amount of people trying it out and being Kiro in preview phase, I can totally understand this.&lt;/p&gt;
-&lt;h3 id=&#34;agent-hooks-1&#34;&gt;Agent Hooks&lt;/h3&gt;
+&lt;h3 id="agent-hooks-1"&gt;Agent Hooks&lt;/h3&gt;
 &lt;p&gt;I might have caught a bug in Agent Hooks implementation or I might be wrong. Anyway, let me spell it out. Feel free to correct me if I understood it wrong.&lt;/p&gt;
 &lt;p&gt;While trying out Agent hooks, I have configured an Agent hook to be triggered whenever a file is saved. This worked fine if I run one task at a time. Whenever a file save was done, Agent hook was added to the task queue and waited until the tasks before it are done.&lt;/p&gt;
 &lt;p&gt;After running one task at a time, I thought I will click &amp;ldquo;Start Task&amp;rdquo; on all the tasks so that all tasks will be executed sequentially. Here, when the first task was being executed, my git commit Agent hook got triggered by a file save and added it to the queue at the end after all the tasks.&lt;/p&gt;
 &lt;p&gt;I wanted the Agent hook to be executed after every task so that each task is saved in a separate git commit. However that did not work as I anticipated. This is my understanding of how Agent hook must be called.&lt;/p&gt;
 &lt;p&gt;These are early days of the release of Kiro. Will find out more about this feature going forward.&lt;/p&gt;
-&lt;h3 id=&#34;debugging-loop&#34;&gt;Debugging loop&lt;/h3&gt;
+&lt;h3 id="debugging-loop"&gt;Debugging loop&lt;/h3&gt;
 &lt;p&gt;Few times, when I asked it to debug and fix an issue, it fell into a circular debugging loop and it was doing the same changes over and over again for more than ten times. I had to cancel the task and ask it to explain what it was doing.&lt;/p&gt;
 &lt;p&gt;This might not be an issue with Kiro per se but I think it is an issue with LLM.&lt;/p&gt;
-&lt;h2 id=&#34;final-note&#34;&gt;Final note&lt;/h2&gt;
+&lt;h2 id="final-note"&gt;Final note&lt;/h2&gt;
 &lt;p&gt;Kiro, Agentic AI IDE from AWS has started on a good note and using Claude 4.0 Sonnet as their model choice might be their genius move.&lt;/p&gt;
 &lt;p&gt;AI Coding IDEs have been the first multi-billion dollar usecase coming out of Generative AI. AWS move to introduce Kiro at this moment in time will surely capture sizable userbase considering you pay 19$ per month to get the industry top LLM for coding.&lt;/p&gt;
 &lt;p&gt;If you have not tried Kiro, do give it a try. Let me know in comments what is your Kiro experience?&lt;/p&gt;
-&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Built an AI Agent using Strands Agents SDK</title>
-      <link>https://vijay.eu/posts/built-an-ai-agent/</link>
-      <pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/built-an-ai-agent/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/strands.png&#34; alt=&#34;strands&#34;&gt;&lt;/p&gt;
-&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;h2 id="follow-me"&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Built an AI Agent using Strands Agents SDK</title><link>https://vijay.eu/posts/built-an-ai-agent/</link><pubDate>Mon, 07 Jul 2025 23:44:09 +0300</pubDate><guid>https://vijay.eu/posts/built-an-ai-agent/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/strands.png" alt="strands"&gt;&lt;/p&gt;
+&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Built an AI Agent using Strands Agents SDK from Amazon Web Services (AWS) which calls my Kubernetes MCP server. Read more to find out…&lt;/p&gt;
-&lt;h2 id=&#34;agents-and-mcp&#34;&gt;Agents and MCP&lt;/h2&gt;
+&lt;h2 id="agents-and-mcp"&gt;Agents and MCP&lt;/h2&gt;
 &lt;p&gt;AI Agents and Model Context Protocol are the most popular concepts in Gen AI now. Now I have created an AI Agent which calls MCP server to debug issues in my K8s cluster.&lt;/p&gt;
-&lt;p&gt;Recently I created a Model Context Protocol (MCP) server for &lt;a href=&#34;https://github.com/vijaykodam/kubernetes-readonly-mcp&#34;&gt;Kubernetes read-only operations&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;strands-agents-sdk&#34;&gt;Strands Agents SDK&lt;/h2&gt;
-&lt;p&gt;AWS has created an SDK for building AI Agents called &lt;a href=&#34;https://strandsagents.com/latest/&#34;&gt;Strands Agents SDK&lt;/a&gt;. Now it added support for MCP as well.&lt;/p&gt;
+&lt;p&gt;Recently I created a Model Context Protocol (MCP) server for &lt;a href="https://github.com/vijaykodam/kubernetes-readonly-mcp"&gt;Kubernetes read-only operations&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="strands-agents-sdk"&gt;Strands Agents SDK&lt;/h2&gt;
+&lt;p&gt;AWS has created an SDK for building AI Agents called &lt;a href="https://strandsagents.com/latest/"&gt;Strands Agents SDK&lt;/a&gt;. Now it added support for MCP as well.&lt;/p&gt;
 &lt;p&gt;I used Strands Agents SDK and built an AI Agent which calls my K8s MCP server and debugs issues in my running K8s cluster.&lt;/p&gt;
 &lt;p&gt;This demonstrates the AI Agents ability to achieve goals by perceiving the environment, reasoning and acting upon it using available tools like MCP servers.&lt;/p&gt;
-&lt;h2 id=&#34;demo&#34;&gt;Demo&lt;/h2&gt;
+&lt;h2 id="demo"&gt;Demo&lt;/h2&gt;
 &lt;p&gt;Below is my detailed demo of my AI Agent. Links in comments about Strands and my MCP server.&lt;/p&gt;
-&lt;iframe 
-   src=&#34;https://www.youtube.com/embed/GDEtRssnpx4?si=7S3cvYg-2Bz5PtEa&#34; 
-   width=&#34;560&#34; 
-   height=&#34;315&#34; 
-   title=&#34;Embedded Content&#34; 
-   frameborder=&#34;0&#34; 
-   allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&#34; 
-   referrerpolicy=&#34;strict-origin-when-cross-origin&#34;
-   allowfullscreen&gt;
- &lt;/iframe&gt;
-
+&lt;iframe
+src="https://www.youtube.com/embed/GDEtRssnpx4?si=7S3cvYg-2Bz5PtEa"
+width="560"
+height="315"
+title="Embedded Content"
+frameborder="0"
+allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+referrerpolicy="strict-origin-when-cross-origin"
+allowfullscreen&gt;
+&lt;/iframe&gt;
 &lt;p&gt;What are you building with Strands Agents SDK?&lt;/p&gt;
-&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My Capstone project for Google GenAI course</title>
-      <link>https://vijay.eu/posts/google-genai-capstone-project/</link>
-      <pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/google-genai-capstone-project/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/veggie2.webp&#34; alt=&#34;veggie-recipe-generator&#34;&gt;
+&lt;h2 id="follow-me"&gt;Follow Me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>My Capstone project for Google GenAI course</title><link>https://vijay.eu/posts/google-genai-capstone-project/</link><pubDate>Sat, 19 Apr 2025 00:54:11 +0300</pubDate><guid>https://vijay.eu/posts/google-genai-capstone-project/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/veggie2.webp" alt="veggie-recipe-generator"&gt;
 Image credit: Generated using GPT-4o.&lt;/p&gt;
-&lt;h1 id=&#34;how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini&#34;&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
-&lt;h2 id=&#34;my-problem-with-finding-best-recipes&#34;&gt;My Problem with finding best recipes&lt;/h2&gt;
+&lt;h1 id="how-i-built-generative-ai-agent-for-veg-recipe-generator-with-langgraph-and-gemini"&gt;How I built Generative AI Agent for Veg Recipe generator with LangGraph and Gemini&lt;/h1&gt;
+&lt;h2 id="my-problem-with-finding-best-recipes"&gt;My Problem with finding best recipes&lt;/h2&gt;
 &lt;p&gt;Lately I have been spending lot of time browsing Internet or youtube cooking videos to find perfect recipe for cooking specific vegetables.
 Sometimes I over boil broccoli and sometimes I spend time figuring out how to cook Mexican version of bell peppers dish.
 During these times I wonder how great it would be to have a magic tool which could answer my queries directly.&lt;/p&gt;
-&lt;h2 id=&#34;how-generative-ai-agent-saved-my-day&#34;&gt;How Generative AI agent saved my day?&lt;/h2&gt;
+&lt;h2 id="how-generative-ai-agent-saved-my-day"&gt;How Generative AI agent saved my day?&lt;/h2&gt;
 &lt;p&gt;Recently I took this hands-on &lt;strong&gt;“5-day Gen AI Intensive Course with Google”&lt;/strong&gt; and thought this might be a good way to solve my problem with recipes.&lt;/p&gt;
 &lt;p&gt;This is the definition from Google’s whitepaper:&lt;/p&gt;
 &lt;blockquote&gt;
 &lt;p&gt;&lt;em&gt;“Generative AI agents are applications that strive to achieve goals by perceiving their environment and acting upon it using available tools. They extend the capabilities of standalone Generative AI models by integrating reasoning, logic, and access to external information.”&lt;/em&gt;&lt;/p&gt;
 &lt;/blockquote&gt;
-&lt;p&gt;To put it simply: LLMs cannot interact with the external world or act  on the external events. GenAI agents use LLMs, reasoning, logic and external tools to achieve the objectives set by the user.&lt;/p&gt;
+&lt;p&gt;To put it simply: LLMs cannot interact with the external world or act on the external events. GenAI agents use LLMs, reasoning, logic and external tools to achieve the objectives set by the user.&lt;/p&gt;
 &lt;p&gt;This fits perfectly with my personal problem I mentioned about finding recipes. If I set the objective of generating recipes for a given vegetable and if I add tools to get recipes for such vegetables then the GenAI agent will reason about my request, use logic to find the recipes using perfect tool and format it in a human-readable format and present it to me.&lt;/p&gt;
 &lt;p&gt;So, I decided to create a GenAI Agent for Veggie Recipe Generator which helps me with recipes for the vegetables I want. In this capstone project, I have used mock recipes to demonstrate what I have learnt in this course.&lt;/p&gt;
-&lt;h3 id=&#34;demonstrates-three-genai-capabilities&#34;&gt;Demonstrates three GenAI capabilities&lt;/h3&gt;
+&lt;h3 id="demonstrates-three-genai-capabilities"&gt;Demonstrates three GenAI capabilities&lt;/h3&gt;
 &lt;p&gt;This project uses Google gemini-2.0-flash API and LangGraph.&lt;/p&gt;
 &lt;p&gt;It will be demonstrating these GenAI capabilities using :&lt;/p&gt;
 &lt;ul&gt;
@@ -170,7 +120,7 @@ During these times I wonder how great it would be to have a magic tool which cou
 &lt;li&gt;&lt;strong&gt;Structured output:&lt;/strong&gt; Making the LLM return information in a predictable human-readable format.&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Few-shot prompting:&lt;/strong&gt; Guiding LLM’s behavior with clear examples.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;the-solution&#34;&gt;The Solution&lt;/h2&gt;
+&lt;h2 id="the-solution"&gt;The Solution&lt;/h2&gt;
 &lt;p&gt;This solution uses an &lt;em&gt;agent&lt;/em&gt; built with LangGraph and powered by Google Gemini API. It follows defined graph to manage the conversation.&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;It greets the user.&lt;/li&gt;
@@ -182,145 +132,130 @@ During these times I wonder how great it would be to have a magic tool which cou
 &lt;li&gt;It asks the user if they want another recipe or want to quit.&lt;/li&gt;
 &lt;li&gt;It loops back or exits based on the user&amp;rsquo;s response.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;the-code&#34;&gt;The Code&lt;/h2&gt;
-&lt;h3 id=&#34;state-management&#34;&gt;State Management&lt;/h3&gt;
+&lt;h2 id="the-code"&gt;The Code&lt;/h2&gt;
+&lt;h3 id="state-management"&gt;State Management&lt;/h3&gt;
 &lt;p&gt;LangGraph uses state dictionary to pass between nodes. Here is it’s structure.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Annotated, List, Literal, TypedDict &lt;span style=&#34;color:#66d9ef&#34;&gt;as&lt;/span&gt; TypeHint
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing_extensions &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; TypedDict
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langgraph.graph.message &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; add_messages
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langchain_core.messages &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; BaseMessage
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;### Define the structure for the recipe data returned by the tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;Recipe&lt;/span&gt;(TypeHint):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    title: str
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    ingredients: List[str]
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    instructions: str
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;class&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;RecipeState&lt;/span&gt;(TypedDict):
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;State representing the user&amp;#39;s recipe conversation.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    messages: Annotated[List[BaseMessage], add_messages] &lt;span style=&#34;color:#75715e&#34;&gt;# Conversation history&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    finished: bool &lt;span style=&#34;color:#75715e&#34;&gt;# Flag to end the conversation&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;guiding-llm-using-few-shot-prompting-and-structured-output&#34;&gt;Guiding LLM using few-shot prompting and structured output&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Annotated, List, Literal, TypedDict &lt;span style="color:#66d9ef"&gt;as&lt;/span&gt; TypeHint
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing_extensions &lt;span style="color:#f92672"&gt;import&lt;/span&gt; TypedDict
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; langgraph.graph.message &lt;span style="color:#f92672"&gt;import&lt;/span&gt; add_messages
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; langchain_core.messages &lt;span style="color:#f92672"&gt;import&lt;/span&gt; BaseMessage
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;### Define the structure for the recipe data returned by the tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;Recipe&lt;/span&gt;(TypeHint):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; title: str
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; ingredients: List[str]
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; instructions: str
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;class&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;RecipeState&lt;/span&gt;(TypedDict):
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&amp;#34;State representing the user&amp;#39;s recipe conversation.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; messages: Annotated[List[BaseMessage], add_messages] &lt;span style="color:#75715e"&gt;# Conversation history&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; finished: bool &lt;span style="color:#75715e"&gt;# Flag to end the conversation&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="guiding-llm-using-few-shot-prompting-and-structured-output"&gt;Guiding LLM using few-shot prompting and structured output&lt;/h3&gt;
 &lt;p&gt;The core instructions tell the AI its role, limitations, &lt;em&gt;how&lt;/em&gt; to use tools, and crucially, &lt;em&gt;how to format the structured output&lt;/em&gt; it receives from the tool. We include examples (few-shot prompting) to make these instructions clearer:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Snippet from RECIPEBOT_SYSINT&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;RECIPEBOT_SYSINT &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; (
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;system&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;You are RecipeBot... You can provide recipes ONLY for... Carrot, Broccoli, Spinach, Potato, Bell Pepper.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;When the user asks for a recipe... you MUST use the &amp;#39;get_recipe&amp;#39; tool...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;The &amp;#39;get_recipe&amp;#39; tool will return structured information with &amp;#39;title&amp;#39;, &amp;#39;ingredients&amp;#39;, and &amp;#39;instructions&amp;#39;.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;When you receive the recipe from the tool, present it clearly to the user in this format:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Okay, here is a recipe for [Vegetable Name]:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;**[Recipe Title]**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Ingredients:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- [Ingredient 1]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- [Ingredient 2]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Instructions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n [Instructions text]&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;If the user asks for a vegetable not on the list ..., politely tell them you only have recipes for those listed vegetables, and ask if they want one of those instead.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\n\n&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;After providing a recipe... ALWAYS ask the user if they would like another recipe... or if they want to quit.&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Example Interactions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Human: Can I get a recipe for carrots?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: &amp;lt;tool_call&amp;gt;get_recipe(vegetable=&amp;#39;carrot&amp;#39;)&amp;lt;/tool_call&amp;gt;&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Tool: {&amp;#39;title&amp;#39;: &amp;#39;Simple Roasted Carrots&amp;#39;, &amp;#39;ingredients&amp;#39;: [&amp;#39;1lb chopped carrots&amp;#39;, ...], &amp;#39;instructions&amp;#39;: &amp;#39;Toss chopped carrots...&amp;#39;}&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: Okay, here is a recipe for Carrot:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n**Simple Roasted Carrots**&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nIngredients:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n- 1lb chopped carrots&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nInstructions:&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nToss chopped carrots...&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;nWould you like another recipe... or would you like to quit?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Human: Do you have one for Zucchini?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;AI: I&amp;#39;m sorry, I only have recipes for Carrot, Broccoli, Spinach, Potato, and Bell Pepper. Would you like one for those?&lt;/span&gt;&lt;span style=&#34;color:#ae81ff&#34;&gt;\\&lt;/span&gt;&lt;span style=&#34;color:#e6db74&#34;&gt;n&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... more examples ...&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id=&#34;get_recipe-tool&#34;&gt;get_recipe tool&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Snippet from RECIPEBOT_SYSINT&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;RECIPEBOT_SYSINT &lt;span style="color:#f92672"&gt;=&lt;/span&gt; (
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;system&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;You are RecipeBot... You can provide recipes ONLY for... Carrot, Broccoli, Spinach, Potato, Bell Pepper.&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;When the user asks for a recipe... you MUST use the &amp;#39;get_recipe&amp;#39; tool...&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;The &amp;#39;get_recipe&amp;#39; tool will return structured information with &amp;#39;title&amp;#39;, &amp;#39;ingredients&amp;#39;, and &amp;#39;instructions&amp;#39;.&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;When you receive the recipe from the tool, present it clearly to the user in this format:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Okay, here is a recipe for [Vegetable Name]:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;**[Recipe Title]**&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Ingredients:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n- [Ingredient 1]&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n- [Ingredient 2]&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n...&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Instructions:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n [Instructions text]&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;If the user asks for a vegetable not on the list ..., politely tell them you only have recipes for those listed vegetables, and ask if they want one of those instead.&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\n\n&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;After providing a recipe... ALWAYS ask the user if they would like another recipe... or if they want to quit.&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Example Interactions:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Human: Can I get a recipe for carrots?&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;AI: &amp;lt;tool_call&amp;gt;get_recipe(vegetable=&amp;#39;carrot&amp;#39;)&amp;lt;/tool_call&amp;gt;&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Tool: {&amp;#39;title&amp;#39;: &amp;#39;Simple Roasted Carrots&amp;#39;, &amp;#39;ingredients&amp;#39;: [&amp;#39;1lb chopped carrots&amp;#39;, ...], &amp;#39;instructions&amp;#39;: &amp;#39;Toss chopped carrots...&amp;#39;}&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;AI: Okay, here is a recipe for Carrot:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n**Simple Roasted Carrots**&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;nIngredients:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n- 1lb chopped carrots&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n...&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;nInstructions:&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;nToss chopped carrots...&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;nWould you like another recipe... or would you like to quit?&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;Human: Do you have one for Zucchini?&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;AI: I&amp;#39;m sorry, I only have recipes for Carrot, Broccoli, Spinach, Potato, and Bell Pepper. Would you like one for those?&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;\\&lt;/span&gt;&lt;span style="color:#e6db74"&gt;n&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# ... more examples ...&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="get_recipe-tool"&gt;get_recipe tool&lt;/h3&gt;
 &lt;p&gt;We define a Python function decorated with LangChain&amp;rsquo;s &lt;code&gt;@tool&lt;/code&gt;. This function simulates looking up a recipe and returns it as a structured Python dictionary (&lt;code&gt;Recipe&lt;/code&gt;), not just a block of text.&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langchain_core.tools &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; tool
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; typing &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; Dict, Any, Optional
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Mock Recipe Data (Structured)&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;MOCK_RECIPES: Dict[str, Recipe] &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;carrot&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Simple Roasted Carrots&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;broccoli&amp;#34;&lt;/span&gt;: {&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;Steamed Broccoli with Lemon&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style=&#34;color:#f92672&#34;&gt;...&lt;/span&gt;], &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#75715e&#34;&gt;# ... other recipes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;}
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#a6e22e&#34;&gt;@tool&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#66d9ef&#34;&gt;def&lt;/span&gt; &lt;span style=&#34;color:#a6e22e&#34;&gt;get_recipe&lt;/span&gt;(vegetable: str) &lt;span style=&#34;color:#f92672&#34;&gt;-&amp;gt;&lt;/span&gt; Optional[Recipe]: &lt;span style=&#34;color:#75715e&#34;&gt;# Returns structured Recipe or None&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;&amp;#34;&amp;#34;Provides a simple structured vegetarian recipe (title, ingredients, instructions) for the specified vegetable. Only works for Carrot, Broccoli, Spinach, Potato, Bell Pepper.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    recipe_data &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; MOCK_RECIPES&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;get(vegetable&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;lower())
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;if&lt;/span&gt; recipe_data:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; recipe_data
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#66d9ef&#34;&gt;else&lt;/span&gt;:
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#66d9ef&#34;&gt;return&lt;/span&gt; &lt;span style=&#34;color:#66d9ef&#34;&gt;None&lt;/span&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; langchain_core.tools &lt;span style="color:#f92672"&gt;import&lt;/span&gt; tool
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; typing &lt;span style="color:#f92672"&gt;import&lt;/span&gt; Dict, Any, Optional
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Mock Recipe Data (Structured)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;MOCK_RECIPES: Dict[str, Recipe] &lt;span style="color:#f92672"&gt;=&lt;/span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;carrot&amp;#34;&lt;/span&gt;: {&lt;span style="color:#e6db74"&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;Simple Roasted Carrots&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style="color:#f92672"&gt;...&lt;/span&gt;], &lt;span style="color:#e6db74"&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;broccoli&amp;#34;&lt;/span&gt;: {&lt;span style="color:#e6db74"&gt;&amp;#34;title&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;Steamed Broccoli with Lemon&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;ingredients&amp;#34;&lt;/span&gt;: [&lt;span style="color:#f92672"&gt;...&lt;/span&gt;], &lt;span style="color:#e6db74"&gt;&amp;#34;instructions&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;...&amp;#34;&lt;/span&gt;},
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#75715e"&gt;# ... other recipes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#a6e22e"&gt;@tool&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#66d9ef"&gt;def&lt;/span&gt; &lt;span style="color:#a6e22e"&gt;get_recipe&lt;/span&gt;(vegetable: str) &lt;span style="color:#f92672"&gt;-&amp;gt;&lt;/span&gt; Optional[Recipe]: &lt;span style="color:#75715e"&gt;# Returns structured Recipe or None&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&amp;#34;Provides a simple structured vegetarian recipe (title, ingredients, instructions) for the specified vegetable. Only works for Carrot, Broccoli, Spinach, Potato, Bell Pepper.&amp;#34;&amp;#34;&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; recipe_data &lt;span style="color:#f92672"&gt;=&lt;/span&gt; MOCK_RECIPES&lt;span style="color:#f92672"&gt;.&lt;/span&gt;get(vegetable&lt;span style="color:#f92672"&gt;.&lt;/span&gt;lower())
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;if&lt;/span&gt; recipe_data:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; recipe_data
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;else&lt;/span&gt;:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#66d9ef"&gt;return&lt;/span&gt; &lt;span style="color:#66d9ef"&gt;None&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Returning &lt;em&gt;structured output&lt;/em&gt; from the tool allows the chatbot node to reliably extract and format the title, ingredients, and instructions according to the system prompt&amp;rsquo;s rules.
 Currently we are returning hardcoded mock data.&lt;/p&gt;
-&lt;h3 id=&#34;building-the-graph-with-langgraph&#34;&gt;Building the graph with LangGraph&lt;/h3&gt;
+&lt;h3 id="building-the-graph-with-langgraph"&gt;Building the graph with LangGraph&lt;/h3&gt;
 &lt;p&gt;We combine the nodes which perform actions, edges which define flow between the nodes and conditional logic to when to call a tool? or When to quit?&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-python&#34; data-lang=&#34;python&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#f92672&#34;&gt;from&lt;/span&gt; langgraph.graph &lt;span style=&#34;color:#f92672&#34;&gt;import&lt;/span&gt; StateGraph, START, END
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# --- Build Graph ---&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# print(&amp;#34;Building graph...&amp;#34;) # Debug&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; StateGraph(RecipeState)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Add nodes&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;, chatbot_node)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;, human_node)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_node(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, tool_node)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Define entry point&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(START, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Define edges with conditional routing&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_conditional_edges(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    route_logic,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_conditional_edges(
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    exit_logic,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    {
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;        END: END
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;    }
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Tool node always returns to chatbot&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;add_edge(&lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;&lt;span style=&#34;color:#75715e&#34;&gt;# Compile the graph&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;recipe_graph &lt;span style=&#34;color:#f92672&#34;&gt;=&lt;/span&gt; graph_builder&lt;span style=&#34;color:#f92672&#34;&gt;.&lt;/span&gt;compile()
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;kaggle-notebook&#34;&gt;Kaggle notebook&lt;/h2&gt;
-&lt;p&gt;If you want to see the code or would like to run it, you can find the jupyter notebook on &lt;a href=&#34;https://www.kaggle.com/code/vijaykodam/gen-ai-agent-for-veg-recipe-generator&#34;&gt;Kaggle here.&lt;/a&gt;&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-python" data-lang="python"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#f92672"&gt;from&lt;/span&gt; langgraph.graph &lt;span style="color:#f92672"&gt;import&lt;/span&gt; StateGraph, START, END
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# --- Build Graph ---&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# print(&amp;#34;Building graph...&amp;#34;) # Debug&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder &lt;span style="color:#f92672"&gt;=&lt;/span&gt; StateGraph(RecipeState)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Add nodes&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_node(&lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;, chatbot_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_node(&lt;span style="color:#e6db74"&gt;&amp;#34;human&amp;#34;&lt;/span&gt;, human_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_node(&lt;span style="color:#e6db74"&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, tool_node)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Define entry point&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_edge(START, &lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Define edges with conditional routing&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_conditional_edges(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; route_logic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;human&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_conditional_edges(
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;human&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; exit_logic,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; {
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;,
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; END: END
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Tool node always returns to chatbot&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;add_edge(&lt;span style="color:#e6db74"&gt;&amp;#34;tools&amp;#34;&lt;/span&gt;, &lt;span style="color:#e6db74"&gt;&amp;#34;chatbot&amp;#34;&lt;/span&gt;)
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Compile the graph&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;recipe_graph &lt;span style="color:#f92672"&gt;=&lt;/span&gt; graph_builder&lt;span style="color:#f92672"&gt;.&lt;/span&gt;compile()
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="kaggle-notebook"&gt;Kaggle notebook&lt;/h2&gt;
+&lt;p&gt;If you want to see the code or would like to run it, you can find the jupyter notebook on &lt;a href="https://www.kaggle.com/code/vijaykodam/gen-ai-agent-for-veg-recipe-generator"&gt;Kaggle here.&lt;/a&gt;&lt;/p&gt;
 &lt;p&gt;Feel free to give me your feedback!&lt;/p&gt;
-&lt;h2 id=&#34;limitations&#34;&gt;Limitations&lt;/h2&gt;
+&lt;h2 id="limitations"&gt;Limitations&lt;/h2&gt;
 &lt;ol&gt;
 &lt;li&gt;Currently get_recipes tool uses MOCK_RECIPES dictionary hardcoded. In the future, it would be great to search the Internet or use RAG to search from an embedding vector database.&lt;/li&gt;
 &lt;li&gt;Limited it to only 5 vegetables to keep it simple. It could be expanded to include list of ingredients and also allergies and some ingredients to avoid.&lt;/li&gt;
 &lt;li&gt;Current chat box is very basic. It would be great to add voice input.&lt;/li&gt;
 &lt;li&gt;Add more tools to find supermarkets to buy the ingredients.&lt;/li&gt;
 &lt;/ol&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;This capstone project demonstrates how combining the conversational power of Google&amp;rsquo;s Gemini model with the structured workflow capabilities of LangGraph allows for the creation of useful and interactive AI agents. By leveraging &lt;strong&gt;few-shot prompting&lt;/strong&gt; and handling &lt;strong&gt;structured tool outputs&lt;/strong&gt; within an &lt;strong&gt;agentic framework&lt;/strong&gt;, I have solved my recipe issue. There is a lot more one can build with Generative AI Agents.&lt;/p&gt;
-&lt;h3 id=&#34;follow-me&#34;&gt;Follow me&lt;/h3&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Hands-on Bedrock Agents workshop</title>
-      <link>https://vijay.eu/posts/bedrock-agents-workshop/</link>
-      <pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid>
-      <description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-1.webp&#34; alt=&#34;bedrock-workshop&#34;&gt;&lt;/p&gt;
+&lt;h3 id="follow-me"&gt;Follow me&lt;/h3&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Hands-on Bedrock Agents workshop</title><link>https://vijay.eu/posts/bedrock-agents-workshop/</link><pubDate>Sat, 15 Feb 2025 00:22:33 +0200</pubDate><guid>https://vijay.eu/posts/bedrock-agents-workshop/</guid><description>&lt;p&gt;Are agents the missing piece for LLMs to super-charge real-world adoption? Today, I had the opportunity to attend AWS Immersion Day at AWS Helsinki office and try hands-on workshop on Agents, RAG, and more.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/bedrock-ws-1.webp" alt="bedrock-workshop"&gt;&lt;/p&gt;
 &lt;p&gt;Thanks Amazon Web Services (AWS), Ankit Nigam, Kimmo Isosomppi, Heidi Tähtinen, Ezaldeen Arafat for organizing this workshop. This was immensely useful and improved my understanding of Agents, RAG, Guardrails and inference.&lt;/p&gt;
 &lt;p&gt;As part of the hands-on workshop, I have created a mortage-processing-agent which uses RAG to add domain specific knowledge base and then created agents which can determine if end-user can afford it based on their financial situation.
 After that, created Amazon Bedrock Flows that orchestrates entire workflow. Last but not the least, created Guardrails to implement safeguards and enforce responsible AI policies for my GenAI application.&lt;/p&gt;
 &lt;p&gt;Here is the mortgage processing agent I built during the hands-on workshop.
 The highlighted yellow box is the prompt user enters followed by the response from Bedrock.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-handson.webp&#34; alt=&#34;bedrock-handson&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/bedrock-ws-handson.webp" alt="bedrock-handson"&gt;&lt;/p&gt;
 &lt;p&gt;All in all, this was a very good way to get hands-on experience on Amazon Bedrock Agents, RAG, Flows and Guardrails.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/bedrock-ws-agents.webp&#34; alt=&#34;bedrock-agents&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;&lt;img src="https://vijay.eu/images/bedrock-ws-agents.webp" alt="bedrock-agents"&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>

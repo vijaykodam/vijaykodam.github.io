@@ -1,583 +1,451 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Game on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/game/</link>
-    <description>Recent content in Game on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sat, 10 Jan 2026 10:00:00 +0300</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/game/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Hand-Gesture Cricket</title>
-      <link>https://vijay.eu/projects/cricket-bowling/</link>
-      <pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate>
-      
-      <guid>https://vijay.eu/projects/cricket-bowling/</guid>
-      <description>&lt;div class=&#34;cricket-bowling-container&#34;&gt;
-    &lt;header class=&#34;cricket-header&#34;&gt;
-        &lt;div class=&#34;brand&#34;&gt;
-            &lt;div class=&#34;brand__title&#34;&gt;Hand-Gesture Cricket&lt;/div&gt;
-            &lt;div class=&#34;brand__subtitle&#34;&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
-        &lt;/div&gt;
-
-        &lt;div class=&#34;status&#34; aria-live=&#34;polite&#34;&gt;
-            &lt;span class=&#34;badge badge--phase&#34; id=&#34;statusPhase&#34;&gt;Ready&lt;/span&gt;
-            &lt;span class=&#34;badge&#34; id=&#34;statusSpeed&#34;&gt;Speed: --&lt;/span&gt;
-            &lt;span class=&#34;badge&#34; id=&#34;statusBallType&#34;&gt;--&lt;/span&gt;
-            &lt;span class=&#34;badge badge--score&#34; id=&#34;statusScore&#34;&gt;Wickets: 0/0&lt;/span&gt;
-            &lt;span class=&#34;badge badge--muted&#34; id=&#34;statusFps&#34;&gt;FPS: --&lt;/span&gt;
-        &lt;/div&gt;
-    &lt;/header&gt;
-
-    &lt;main class=&#34;cricket-layout&#34;&gt;
-        &lt;section class=&#34;panel&#34;&gt;
-            &lt;div class=&#34;panel__header&#34;&gt;
-                &lt;h2 class=&#34;panel__title&#34;&gt;Camera&lt;/h2&gt;
-                &lt;div class=&#34;panel__actions&#34;&gt;
-                    &lt;button class=&#34;btn btn--primary&#34; id=&#34;btnWebcam&#34; type=&#34;button&#34;&gt;Enable webcam&lt;/button&gt;
-                    &lt;button class=&#34;btn&#34; id=&#34;btnOverlay&#34; type=&#34;button&#34; aria-pressed=&#34;true&#34;&gt;Overlay: On&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;media&#34;&gt;
-                &lt;div class=&#34;media__stack&#34;&gt;
-                    &lt;video id=&#34;webcam&#34; playsinline autoplay muted&gt;&lt;/video&gt;
-                    &lt;canvas id=&#34;overlay2d&#34; class=&#34;overlay2d&#34; aria-hidden=&#34;true&#34;&gt;&lt;/canvas&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&#34;hint&#34; id=&#34;gameHint&#34;&gt;
-                    &lt;strong&gt;How to play:&lt;/strong&gt;&lt;br&gt;
-                    1. Show your hand to the camera&lt;br&gt;
-                    2. Make a bowling motion (arm forward/down)&lt;br&gt;
-                    3. Release naturally at the end&lt;br&gt;
-                    4. Try to hit the wickets!
-                &lt;/div&gt;
-
-                &lt;div class=&#34;result-display hidden&#34; id=&#34;resultDisplay&#34;&gt;
-                    &lt;div class=&#34;result-icon&#34; id=&#34;resultIcon&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-text&#34; id=&#34;resultText&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-details&#34; id=&#34;resultDetails&#34;&gt;&lt;/div&gt;
-                    &lt;div class=&#34;result-hint&#34;&gt;Show hand to bowl again&lt;/div&gt;
-                &lt;/div&gt;
-
-                &lt;div class=&#34;error hidden&#34; id=&#34;cameraError&#34; role=&#34;alert&#34;&gt;&lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;game-stats&#34;&gt;
-                &lt;div class=&#34;stat-row&#34;&gt;
-                    &lt;span class=&#34;stat-label&#34;&gt;Fast balls:&lt;/span&gt;
-                    &lt;span class=&#34;stat-value&#34; id=&#34;statFast&#34;&gt;0&lt;/span&gt;
-                &lt;/div&gt;
-                &lt;div class=&#34;stat-row&#34;&gt;
-                    &lt;span class=&#34;stat-label&#34;&gt;Spin balls:&lt;/span&gt;
-                    &lt;span class=&#34;stat-value&#34; id=&#34;statSpin&#34;&gt;0&lt;/span&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            
-            &lt;div class=&#34;debug-panel hidden&#34; id=&#34;debugPanel&#34;&gt;
-                &lt;div class=&#34;debug-header&#34;&gt;
-                    &lt;strong&gt;DEBUG MODE&lt;/strong&gt;
-                    &lt;div&gt;
-                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClear&#34; type=&#34;button&#34;&gt;Clear Recording&lt;/button&gt;
-                        &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebugClose&#34; type=&#34;button&#34;&gt;X&lt;/button&gt;
-                    &lt;/div&gt;
-                &lt;/div&gt;
-                &lt;pre id=&#34;debugOutput&#34; style=&#34;font-size: 11px; margin: 0; white-space: pre-wrap;&#34;&gt;&lt;/pre&gt;
-            &lt;/div&gt;
-            &lt;button class=&#34;btn btn--small&#34; id=&#34;btnDebug&#34; type=&#34;button&#34; style=&#34;margin-top: 8px;&#34;&gt;Show Debug&lt;/button&gt;
-        &lt;/section&gt;
-
-        &lt;section class=&#34;panel&#34;&gt;
-            &lt;div class=&#34;panel__header&#34;&gt;
-                &lt;h2 class=&#34;panel__title&#34;&gt;3D Scene&lt;/h2&gt;
-                &lt;div class=&#34;panel__actions&#34;&gt;
-                    &lt;button class=&#34;btn&#34; id=&#34;btnReset&#34; type=&#34;button&#34;&gt;Reset Game&lt;/button&gt;
-                &lt;/div&gt;
-            &lt;/div&gt;
-
-            &lt;div class=&#34;scene&#34;&gt;
-                &lt;canvas id=&#34;threeCanvas&#34;&gt;&lt;/canvas&gt;
-            &lt;/div&gt;
-
-            &lt;footer class=&#34;cricket-footer&#34;&gt;
-                &lt;span class=&#34;muted&#34;&gt;Tip: Good lighting helps hand tracking. Works best on Chrome/Safari.&lt;/span&gt;
-            &lt;/footer&gt;
-        &lt;/section&gt;
-    &lt;/main&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Game on Vijay Kodam</title><link>https://vijay.eu/tags/game/</link><description>Recent content in Game on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 10 Jan 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/game/index.xml" rel="self" type="application/rss+xml"/><item><title>Hand-Gesture Cricket</title><link>https://vijay.eu/projects/cricket-bowling/</link><pubDate>Sat, 10 Jan 2026 10:00:00 +0300</pubDate><guid>https://vijay.eu/projects/cricket-bowling/</guid><description>&lt;div class="cricket-bowling-container"&gt;
+&lt;header class="cricket-header"&gt;
+&lt;div class="brand"&gt;
+&lt;div class="brand__title"&gt;Hand-Gesture Cricket&lt;/div&gt;
+&lt;div class="brand__subtitle"&gt;&lt;strong&gt;Uses your camera to detect hand gestures&lt;/strong&gt; - Grip, bowl, and hit the wickets with real hand motions!&lt;/div&gt;
 &lt;/div&gt;
-
-</description>
-    </item>
-    
-    <item>
-      <title>Tic Tac Toe</title>
-      <link>https://vijay.eu/projects/tic-tac-toe/</link>
-      <pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate>
-      
-      <guid>https://vijay.eu/projects/tic-tac-toe/</guid>
-      <description>&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025
-&lt;link rel=&#34;stylesheet&#34; href=&#34;https://vijay.eu/css/tic-tac-toe.css&#34;&gt;
-
-&lt;div class=&#34;tic-tac-toe-container&#34;&gt;
-    &lt;div id=&#34;game-setup&#34;&gt;
-        &lt;div class=&#34;setup-section&#34;&gt;
-            &lt;p class=&#34;setup-title&#34;&gt;Game Mode&lt;/p&gt;
-            &lt;div class=&#34;button-group&#34; id=&#34;game-mode-selector&#34;&gt;
-                &lt;button class=&#34;btn-toggle active&#34; data-mode=&#34;pvc&#34;&gt;Player vs. Computer&lt;/button&gt;
-                &lt;button class=&#34;btn-toggle&#34; data-mode=&#34;pvp&#34;&gt;Player vs. Player&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;div class=&#34;setup-section&#34; id=&#34;first-move-container&#34;&gt;
-            &lt;p class=&#34;setup-title&#34;&gt;Who Goes First?&lt;/p&gt;
-            &lt;div class=&#34;button-group&#34; id=&#34;first-move-selector&#34;&gt;
-                &lt;button class=&#34;btn-toggle active&#34; data-first-move=&#34;player&#34;&gt;Player (X)&lt;/button&gt;
-                &lt;button class=&#34;btn-toggle&#34; data-first-move=&#34;computer&#34;&gt;Computer (O)&lt;/button&gt;
-            &lt;/div&gt;
-        &lt;/div&gt;
-        &lt;button id=&#34;start-game&#34;&gt;Start Game&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;game-board&#34; class=&#34;hidden&#34;&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;0&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;1&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;2&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;3&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;4&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;5&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;6&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;7&#34;&gt;&lt;/div&gt;
-        &lt;div class=&#34;cell&#34; data-index=&#34;8&#34;&gt;&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;message&#34; class=&#34;hidden&#34;&gt;&lt;/div&gt;
-    &lt;button id=&#34;restart-game&#34; class=&#34;hidden&#34;&gt;Restart Game&lt;/button&gt;
+&lt;div class="status" aria-live="polite"&gt;
+&lt;span class="badge badge--phase" id="statusPhase"&gt;Ready&lt;/span&gt;
+&lt;span class="badge" id="statusSpeed"&gt;Speed: --&lt;/span&gt;
+&lt;span class="badge" id="statusBallType"&gt;--&lt;/span&gt;
+&lt;span class="badge badge--score" id="statusScore"&gt;Wickets: 0/0&lt;/span&gt;
+&lt;span class="badge badge--muted" id="statusFps"&gt;FPS: --&lt;/span&gt;
 &lt;/div&gt;
-
-&lt;script src=&#34;https://vijay.eu/js/tic-tac-toe.js&#34;&gt;&lt;/script&gt;
-&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Word Ladder</title>
-      <link>https://vijay.eu/projects/word-ladder/</link>
-      <pubDate>Wed, 25 Jun 2025 10:00:00 +0000</pubDate>
-      
-      <guid>https://vijay.eu/projects/word-ladder/</guid>
-      <description>&lt;p&gt;Built a game using Lovable, a vibe-coding AI platform, this weekend.&lt;/p&gt;
+&lt;/header&gt;
+&lt;main class="cricket-layout"&gt;
+&lt;section class="panel"&gt;
+&lt;div class="panel__header"&gt;
+&lt;h2 class="panel__title"&gt;Camera&lt;/h2&gt;
+&lt;div class="panel__actions"&gt;
+&lt;button class="btn btn--primary" id="btnWebcam" type="button"&gt;Enable webcam&lt;/button&gt;
+&lt;button class="btn" id="btnOverlay" type="button" aria-pressed="true"&gt;Overlay: On&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="media"&gt;
+&lt;div class="media__stack"&gt;
+&lt;video id="webcam" playsinline autoplay muted&gt;&lt;/video&gt;
+&lt;canvas id="overlay2d" class="overlay2d" aria-hidden="true"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;div class="hint" id="gameHint"&gt;
+&lt;strong&gt;How to play:&lt;/strong&gt;&lt;br&gt;
+1. Show your hand to the camera&lt;br&gt;
+2. Make a bowling motion (arm forward/down)&lt;br&gt;
+3. Release naturally at the end&lt;br&gt;
+4. Try to hit the wickets!
+&lt;/div&gt;
+&lt;div class="result-display hidden" id="resultDisplay"&gt;
+&lt;div class="result-icon" id="resultIcon"&gt;&lt;/div&gt;
+&lt;div class="result-text" id="resultText"&gt;&lt;/div&gt;
+&lt;div class="result-details" id="resultDetails"&gt;&lt;/div&gt;
+&lt;div class="result-hint"&gt;Show hand to bowl again&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="error hidden" id="cameraError" role="alert"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="game-stats"&gt;
+&lt;div class="stat-row"&gt;
+&lt;span class="stat-label"&gt;Fast balls:&lt;/span&gt;
+&lt;span class="stat-value" id="statFast"&gt;0&lt;/span&gt;
+&lt;/div&gt;
+&lt;div class="stat-row"&gt;
+&lt;span class="stat-label"&gt;Spin balls:&lt;/span&gt;
+&lt;span class="stat-value" id="statSpin"&gt;0&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="debug-panel hidden" id="debugPanel"&gt;
+&lt;div class="debug-header"&gt;
+&lt;strong&gt;DEBUG MODE&lt;/strong&gt;
+&lt;div&gt;
+&lt;button class="btn btn--small" id="btnDebugClear" type="button"&gt;Clear Recording&lt;/button&gt;
+&lt;button class="btn btn--small" id="btnDebugClose" type="button"&gt;X&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;pre id="debugOutput" style="font-size: 11px; margin: 0; white-space: pre-wrap;"&gt;&lt;/pre&gt;
+&lt;/div&gt;
+&lt;button class="btn btn--small" id="btnDebug" type="button" style="margin-top: 8px;"&gt;Show Debug&lt;/button&gt;
+&lt;/section&gt;
+&lt;section class="panel"&gt;
+&lt;div class="panel__header"&gt;
+&lt;h2 class="panel__title"&gt;3D Scene&lt;/h2&gt;
+&lt;div class="panel__actions"&gt;
+&lt;button class="btn" id="btnReset" type="button"&gt;Reset Game&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="scene"&gt;
+&lt;canvas id="threeCanvas"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;footer class="cricket-footer"&gt;
+&lt;span class="muted"&gt;Tip: Good lighting helps hand tracking. Works best on Chrome/Safari.&lt;/span&gt;
+&lt;/footer&gt;
+&lt;/section&gt;
+&lt;/main&gt;
+&lt;/div&gt;</description></item><item><title>Tic Tac Toe</title><link>https://vijay.eu/projects/tic-tac-toe/</link><pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate><guid>https://vijay.eu/projects/tic-tac-toe/</guid><description>&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025
+&lt;link rel="stylesheet" href="https://vijay.eu/css/tic-tac-toe.css"&gt;
+&lt;div class="tic-tac-toe-container"&gt;
+&lt;div id="game-setup"&gt;
+&lt;div class="setup-section"&gt;
+&lt;p class="setup-title"&gt;Game Mode&lt;/p&gt;
+&lt;div class="button-group" id="game-mode-selector"&gt;
+&lt;button class="btn-toggle active" data-mode="pvc"&gt;Player vs. Computer&lt;/button&gt;
+&lt;button class="btn-toggle" data-mode="pvp"&gt;Player vs. Player&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="setup-section" id="first-move-container"&gt;
+&lt;p class="setup-title"&gt;Who Goes First?&lt;/p&gt;
+&lt;div class="button-group" id="first-move-selector"&gt;
+&lt;button class="btn-toggle active" data-first-move="player"&gt;Player (X)&lt;/button&gt;
+&lt;button class="btn-toggle" data-first-move="computer"&gt;Computer (O)&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;button id="start-game"&gt;Start Game&lt;/button&gt;
+&lt;/div&gt;
+&lt;div id="game-board" class="hidden"&gt;
+&lt;div class="cell" data-index="0"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="1"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="2"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="3"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="4"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="5"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="6"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="7"&gt;&lt;/div&gt;
+&lt;div class="cell" data-index="8"&gt;&lt;/div&gt;
+&lt;/div&gt;
+&lt;div id="message" class="hidden"&gt;&lt;/div&gt;
+&lt;button id="restart-game" class="hidden"&gt;Restart Game&lt;/button&gt;
+&lt;/div&gt;
+&lt;script src="https://vijay.eu/js/tic-tac-toe.js"&gt;&lt;/script&gt;
+&lt;/p&gt;</description></item><item><title>Word Ladder</title><link>https://vijay.eu/projects/word-ladder/</link><pubDate>Wed, 25 Jun 2025 10:00:00 +0000</pubDate><guid>https://vijay.eu/projects/word-ladder/</guid><description>&lt;p&gt;Built a game using Lovable, a vibe-coding AI platform, this weekend.&lt;/p&gt;
 &lt;p&gt;Lovable organized AI Showdown during the weekend where users can build projects and compete using code-generating AI Models from OpenAI, Anthropic and Google.&lt;/p&gt;
 &lt;p&gt;As part of my project, I have created a simple word ladder game, where the player can only change only single letter in each rung to add a valid English word. The game is to change the existing word one letter at a time into the target word.&lt;/p&gt;
 &lt;p&gt;Below is an embedded version of the Word Ladder game hosted externally on lovable.app.&lt;/p&gt;
 &lt;iframe
-  src=&#34;https://word-ladder.lovable.app/&#34;
-  title=&#34;Word Ladder&#34;
-  loading=&#34;lazy&#34;
-  style=&#34;width: 100%; max-width: 560px; height: 700px; border: 0; display: block; margin: 0 auto;&#34;
-  allow=&#34;fullscreen; clipboard-read; clipboard-write; gamepad; cross-origin-isolated&#34;
-  referrerpolicy=&#34;no-referrer&#34;
+src="https://word-ladder.lovable.app/"
+title="Word Ladder"
+loading="lazy"
+style="width: 100%; max-width: 560px; height: 700px; border: 0; display: block; margin: 0 auto;"
+allow="fullscreen; clipboard-read; clipboard-write; gamepad; cross-origin-isolated"
+referrerpolicy="no-referrer"
 &gt;&lt;/iframe&gt;
-&lt;p style=&#34;text-align:center; margin-top: 0.75rem;&#34;&gt;
-  Having trouble viewing? &lt;a href=&#34;https://word-ladder.lovable.app/&#34; target=&#34;_blank&#34; rel=&#34;noopener noreferrer&#34;&gt;Open Word Ladder in a new tab&lt;/a&gt;.
+&lt;p style="text-align:center; margin-top: 0.75rem;"&gt;
+Having trouble viewing? &lt;a href="https://word-ladder.lovable.app/" target="_blank" rel="noopener noreferrer"&gt;Open Word Ladder in a new tab&lt;/a&gt;.
 &lt;/p&gt;
 &lt;!-- Notes:
 - If the external site sets X-Frame-Options: DENY/SAMEORIGIN or a restrictive CSP (frame-ancestors), the iframe won’t render. The page still presents a clear “Open in new tab” fallback.
 - Adjust the padding-top above to tune aspect ratio (e.g., 56.25% for 16:9). Current 175% is tall for mobile usability.
---&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Classic Snake Game using LLMs</title>
-      <link>https://vijay.eu/posts/snake-game/</link>
-      <pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/snake-game/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/SnakeRedApple.jpeg&#34; alt=&#34;snake&#34;&gt;
+--&gt;</description></item><item><title>Classic Snake Game using LLMs</title><link>https://vijay.eu/posts/snake-game/</link><pubDate>Sun, 16 Feb 2025 23:23:47 +0200</pubDate><guid>https://vijay.eu/posts/snake-game/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/SnakeRedApple.jpeg" alt="snake"&gt;
 Image Credit: Generated using Google Imagen3.&lt;/p&gt;
-&lt;h2 id=&#34;intro&#34;&gt;Intro&lt;/h2&gt;
-&lt;p&gt;Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;https://vijay.eu/projects/&lt;/a&gt;&lt;/p&gt;
-&lt;h2 id=&#34;my-initial-experience&#34;&gt;My initial experience&lt;/h2&gt;
+&lt;h2 id="intro"&gt;Intro&lt;/h2&gt;
+&lt;p&gt;Last August, I have spent a week trying to create working applications using GenAI models. These were meant to be useful for me and my kids and to assess the capabilities of the then popular LLMs like ChatGPT, Claude, and Gemini. You can find them here &lt;a href="https://vijay.eu/projects/"&gt;https://vijay.eu/projects/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="my-initial-experience"&gt;My initial experience&lt;/h2&gt;
 &lt;p&gt;This was my experience back then: Ask each LLM to generate code for a project, copy the code into local files, test it locally, come up with new suggestions and then rinse and repeat until I found the project working well as per my expectation.&lt;/p&gt;
 &lt;p&gt;For this exercise I have used: Anthropic Claude, Google Gemini, and OpenAI ChatGPT.
 Each had a different way of generating code, handling code changes on top of existing code and updating code.&lt;/p&gt;
 &lt;p&gt;From my experience at that time, Anthropic Claude understood prompts really well and generated code much better than all other LLMs. The quality of code was way better than others. One major advantage was Claude Artifacts. This was a deal breaker for me and game changer for testing quick prototypes in the chat window itself. Also Claude allowed you to host the code and gave you an URL to share with your friends. Getting the html files and testing locally also worked seemlessly. It let you download the files. No copy pasting code from the chat window, which was the case for the remaining two LLMs.&lt;/p&gt;
-&lt;h2 id=&#34;new-challenge&#34;&gt;New Challenge&lt;/h2&gt;
-&lt;p&gt;Then came the other challenge. My website(&lt;a href=&#34;https://vijay.eu&#34;&gt;https://vijay.eu&lt;/a&gt;) is based on Hugo and it is a static website hosted on GitHub Pages. GitHub delivers the static webpages to your mobile/computer when you open my website. There is no dynamic content in my website so there is no need of backend server to process the requests.&lt;/p&gt;
+&lt;h2 id="new-challenge"&gt;New Challenge&lt;/h2&gt;
+&lt;p&gt;Then came the other challenge. My website(&lt;a href="https://vijay.eu"&gt;https://vijay.eu&lt;/a&gt;) is based on Hugo and it is a static website hosted on GitHub Pages. GitHub delivers the static webpages to your mobile/computer when you open my website. There is no dynamic content in my website so there is no need of backend server to process the requests.&lt;/p&gt;
 &lt;p&gt;I wanted to host my projects created using LLMs also on my website. This means, those projects should be fully static and should not require a backend server to handle any requests for the frontend running in user&amp;rsquo;s mobile or computer.&lt;/p&gt;
 &lt;p&gt;Hugo uses templating which simplifies adding new posts, which means all posts have the same header, footer, common javascript and common CSS. However for my projects, most of the magic is handled as part of Javascript and CSS.&lt;/p&gt;
 &lt;p&gt;I spent several hours tweaking the code, explaining this to LLMs and asking them to generate the code which works with my existing hugo code. This took quite an effort and took several trial and errors before the first project worked. When I wanted to create a second flag game I had to do all this over again as it included a different design and there were upto ten questions each coming one after another. I enjoyed building those games but thought these should have been handled automatically for me.&lt;/p&gt;
-&lt;h2 id=&#34;current-experience-with-llms&#34;&gt;Current experience with LLMs&lt;/h2&gt;
+&lt;h2 id="current-experience-with-llms"&gt;Current experience with LLMs&lt;/h2&gt;
 &lt;p&gt;&lt;strong&gt;Today after four months&lt;/strong&gt;, I wanted to check how far these LLMs have improved. So I decided to create classic snake game for my kids to play. Asked the same prompt to Claude, Gemini and ChatGPT. ChatGPT has new feature similar to Claude&amp;rsquo;s artifact. ChatGPT created the code and displayed the code and demo window. When I pressed Preview, it kinda worked until the green snake (a single green square) ate the first red square. After that it all went haywire. There were multiple red squares appearing randomly across the box and the green square does not move.&lt;/p&gt;
 &lt;p&gt;Gemini generated code in a window and no option to run locally in the window. Copied the code to my computer and ran it locally. It didn&amp;rsquo;t work. There was a black box and nothing else. No red or green squares.&lt;/p&gt;
-&lt;p&gt;Now, Claude generated perfectly working code, tested it in the artifact window and also customized the code to work with my hugo website. It also gave me instructions to add shortcodes in my hugo to add new javascript and css for this game. I felt the snake was moving too fast and asked Claude to generate new version to add three different speeds. It did on first try. I have tested it locally then added it my blog and pushed the changes. You can try this snake game on my website at &lt;a href=&#34;https://vijay.eu/projects/snake-game/&#34;&gt;https://vijay.eu/projects/snake-game/&lt;/a&gt;&lt;/p&gt;
-&lt;h3 id=&#34;winner-this-time&#34;&gt;Winner this time&lt;/h3&gt;
+&lt;p&gt;Now, Claude generated perfectly working code, tested it in the artifact window and also customized the code to work with my hugo website. It also gave me instructions to add shortcodes in my hugo to add new javascript and css for this game. I felt the snake was moving too fast and asked Claude to generate new version to add three different speeds. It did on first try. I have tested it locally then added it my blog and pushed the changes. You can try this snake game on my website at &lt;a href="https://vijay.eu/projects/snake-game/"&gt;https://vijay.eu/projects/snake-game/&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="winner-this-time"&gt;Winner this time&lt;/h3&gt;
 &lt;p&gt;So, in this second round of my game benchmarking of LLMs, the winner is &lt;strong&gt;Anthropic Claude&lt;/strong&gt; :)&lt;/p&gt;
-&lt;h2 id=&#34;my-thoughts&#34;&gt;My Thoughts&lt;/h2&gt;
+&lt;h2 id="my-thoughts"&gt;My Thoughts&lt;/h2&gt;
 &lt;p&gt;These LLMs are now getting more advanced, producing error free code and understanding user prompts much better. This took me 10 minutes to prompt, test, download and push it to my website. TEN minutes from getting the idea to publishing it live on my website. This is A-W-E-S-O-M-E. You just have to imagine and you have unlimited digital workers, a.k.a LLMs, realizing those dreams for you. Democratizing code for everyone. This gives more power to people who can create end-to-end projects from idea to design to code to deploying it in real world production.&lt;/p&gt;
 &lt;p&gt;How was your experience working with LLMs? What difference have you observed over the last six months?&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Classic Snake Game</title>
-      <link>https://vijay.eu/projects/snake-game/</link>
-      <pubDate>Sun, 16 Feb 2025 19:58:58 +0200</pubDate>
-      
-      <guid>https://vijay.eu/projects/snake-game/</guid>
-      <description>
-
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Classic Snake Game</title><link>https://vijay.eu/projects/snake-game/</link><pubDate>Sun, 16 Feb 2025 19:58:58 +0200</pubDate><guid>https://vijay.eu/projects/snake-game/</guid><description>
 &lt;style&gt;
-    .game-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        margin: 20px auto;
-        max-width: 100%;
-    }
-
-    .game-title {
-        font-size: 36px;
-        font-weight: bold;
-        margin-bottom: 20px;
-        text-align: center;
-        font-family: Arial, sans-serif;
-    }
-
-    .speed-selector {
-        margin: 10px 0;
-        padding: 10px;
-        display: flex;
-        gap: 10px;
-        justify-content: center;
-    }
-
-    .speed-btn {
-        padding: 8px 16px;
-        border: 2px solid #333;
-        border-radius: 5px;
-        background: white;
-        cursor: pointer;
-        font-family: Arial, sans-serif;
-        transition: all 0.3s ease;
-    }
-
-    .speed-btn.active {
-        background: #333;
-        color: white;
-    }
-
-    #gameCanvas {
-        border: 2px solid #333;
-        background: #f0f0f0;
-        max-width: 100%;
-        touch-action: none;
-    }
-
-    .controls {
-        display: none;
-        margin-top: 20px;
-        touch-action: none;
-    }
-
-    @media (max-width: 768px) {
-        .controls {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 10px;
-            width: 200px;
-        }
-
-        .control-btn {
-            padding: 15px;
-            background: #333;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            font-size: 18px;
-            touch-action: none;
-        }
-
-        .control-btn:active {
-            background: #555;
-        }
-
-        #up { grid-column: 2; grid-row: 1; }
-        #left { grid-column: 1; grid-row: 2; }
-        #right { grid-column: 3; grid-row: 2; }
-        #down { grid-column: 2; grid-row: 3; }
-    }
-
-    .score {
-        font-size: 24px;
-        margin: 10px 0;
-        font-family: Arial, sans-serif;
-    }
-
-    .game-over {
-        display: none;
-        position: fixed;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        background: rgba(0, 0, 0, 0.8);
-        color: white;
-        padding: 20px;
-        border-radius: 10px;
-        text-align: center;
-        z-index: 1000;
-    }
-
-    .restart-btn {
-        margin-top: 10px;
-        padding: 10px 20px;
-        background: #4CAF50;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    .restart-btn:hover {
-        background: #45a049;
-    }
+.game-container {
+display: flex;
+flex-direction: column;
+align-items: center;
+margin: 20px auto;
+max-width: 100%;
+}
+.game-title {
+font-size: 36px;
+font-weight: bold;
+margin-bottom: 20px;
+text-align: center;
+font-family: Arial, sans-serif;
+}
+.speed-selector {
+margin: 10px 0;
+padding: 10px;
+display: flex;
+gap: 10px;
+justify-content: center;
+}
+.speed-btn {
+padding: 8px 16px;
+border: 2px solid #333;
+border-radius: 5px;
+background: white;
+cursor: pointer;
+font-family: Arial, sans-serif;
+transition: all 0.3s ease;
+}
+.speed-btn.active {
+background: #333;
+color: white;
+}
+#gameCanvas {
+border: 2px solid #333;
+background: #f0f0f0;
+max-width: 100%;
+touch-action: none;
+}
+.controls {
+display: none;
+margin-top: 20px;
+touch-action: none;
+}
+@media (max-width: 768px) {
+.controls {
+display: grid;
+grid-template-columns: repeat(3, 1fr);
+gap: 10px;
+width: 200px;
+}
+.control-btn {
+padding: 15px;
+background: #333;
+color: white;
+border: none;
+border-radius: 5px;
+font-size: 18px;
+touch-action: none;
+}
+.control-btn:active {
+background: #555;
+}
+#up { grid-column: 2; grid-row: 1; }
+#left { grid-column: 1; grid-row: 2; }
+#right { grid-column: 3; grid-row: 2; }
+#down { grid-column: 2; grid-row: 3; }
+}
+.score {
+font-size: 24px;
+margin: 10px 0;
+font-family: Arial, sans-serif;
+}
+.game-over {
+display: none;
+position: fixed;
+top: 50%;
+left: 50%;
+transform: translate(-50%, -50%);
+background: rgba(0, 0, 0, 0.8);
+color: white;
+padding: 20px;
+border-radius: 10px;
+text-align: center;
+z-index: 1000;
+}
+.restart-btn {
+margin-top: 10px;
+padding: 10px 20px;
+background: #4CAF50;
+color: white;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+}
+.restart-btn:hover {
+background: #45a049;
+}
 &lt;/style&gt;
-
-&lt;div class=&#34;game-container&#34;&gt;
-    &lt;div class=&#34;speed-selector&#34;&gt;
-        &lt;button class=&#34;speed-btn&#34; data-speed=&#34;slow&#34;&gt;Slow&lt;/button&gt;
-        &lt;button class=&#34;speed-btn active&#34; data-speed=&#34;normal&#34;&gt;Normal&lt;/button&gt;
-        &lt;button class=&#34;speed-btn&#34; data-speed=&#34;fast&#34;&gt;Fast&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;score&#34;&gt;Score: &lt;span id=&#34;scoreValue&#34;&gt;0&lt;/span&gt;&lt;/div&gt;
-    &lt;canvas id=&#34;gameCanvas&#34; width=&#34;400&#34; height=&#34;400&#34;&gt;&lt;/canvas&gt;
-    &lt;div class=&#34;controls&#34;&gt;
-        &lt;button id=&#34;up&#34; class=&#34;control-btn&#34;&gt;↑&lt;/button&gt;
-        &lt;button id=&#34;left&#34; class=&#34;control-btn&#34;&gt;←&lt;/button&gt;
-        &lt;button id=&#34;right&#34; class=&#34;control-btn&#34;&gt;→&lt;/button&gt;
-        &lt;button id=&#34;down&#34; class=&#34;control-btn&#34;&gt;↓&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;div class=&#34;game-over&#34; id=&#34;gameOver&#34;&gt;
-        &lt;h2&gt;Game Over!&lt;/h2&gt;
-        &lt;p&gt;Final Score: &lt;span id=&#34;finalScore&#34;&gt;0&lt;/span&gt;&lt;/p&gt;
-        &lt;button class=&#34;restart-btn&#34; onclick=&#34;restartGame()&#34;&gt;Play Again&lt;/button&gt;
-    &lt;/div&gt;
-    &lt;p&gt;This classic snake game has been created using Anthropic Claude in a single prompt on 16 Feb 2025. Documenting it for future reference to track the speed of development in GenAI/LLMs. &lt;/p&gt;
+&lt;div class="game-container"&gt;
+&lt;div class="speed-selector"&gt;
+&lt;button class="speed-btn" data-speed="slow"&gt;Slow&lt;/button&gt;
+&lt;button class="speed-btn active" data-speed="normal"&gt;Normal&lt;/button&gt;
+&lt;button class="speed-btn" data-speed="fast"&gt;Fast&lt;/button&gt;
 &lt;/div&gt;
-
+&lt;div class="score"&gt;Score: &lt;span id="scoreValue"&gt;0&lt;/span&gt;&lt;/div&gt;
+&lt;canvas id="gameCanvas" width="400" height="400"&gt;&lt;/canvas&gt;
+&lt;div class="controls"&gt;
+&lt;button id="up" class="control-btn"&gt;↑&lt;/button&gt;
+&lt;button id="left" class="control-btn"&gt;←&lt;/button&gt;
+&lt;button id="right" class="control-btn"&gt;→&lt;/button&gt;
+&lt;button id="down" class="control-btn"&gt;↓&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="game-over" id="gameOver"&gt;
+&lt;h2&gt;Game Over!&lt;/h2&gt;
+&lt;p&gt;Final Score: &lt;span id="finalScore"&gt;0&lt;/span&gt;&lt;/p&gt;
+&lt;button class="restart-btn" onclick="restartGame()"&gt;Play Again&lt;/button&gt;
+&lt;/div&gt;
+&lt;p&gt;This classic snake game has been created using Anthropic Claude in a single prompt on 16 Feb 2025. Documenting it for future reference to track the speed of development in GenAI/LLMs. &lt;/p&gt;
+&lt;/div&gt;
 &lt;script&gt;
-    (function() {
-        const canvas = document.getElementById(&#39;gameCanvas&#39;);
-        const ctx = canvas.getContext(&#39;2d&#39;);
-        const scoreElement = document.getElementById(&#39;scoreValue&#39;);
-        const finalScoreElement = document.getElementById(&#39;finalScore&#39;);
-        const gameOverElement = document.getElementById(&#39;gameOver&#39;);
-        const speedButtons = document.querySelectorAll(&#39;.speed-btn&#39;);
-
-        const gridSize = 20;
-        const tileCount = canvas.width / gridSize;
-
-        let snake = [{ x: 10, y: 10 }];
-        let food = { x: 15, y: 15 };
-        let dx = 0;
-        let dy = 0;
-        let score = 0;
-        let gameLoop;
-        
-        const speeds = {
-            slow: 150,
-            normal: 100,
-            fast: 70
-        };
-        let currentSpeed = speeds.normal;
-        let baseSpeed = speeds.normal;
-
-        function setSpeed(speedType) {
-            baseSpeed = speeds[speedType];
-            currentSpeed = baseSpeed;
-            if (gameLoop) {
-                clearInterval(gameLoop);
-                gameLoop = setInterval(drawGame, currentSpeed);
-            }
-            
-            speedButtons.forEach(btn =&gt; {
-                btn.classList.remove(&#39;active&#39;);
-                if (btn.dataset.speed === speedType) {
-                    btn.classList.add(&#39;active&#39;);
-                }
-            });
-        }
-
-        speedButtons.forEach(button =&gt; {
-            button.addEventListener(&#39;click&#39;, () =&gt; {
-                setSpeed(button.dataset.speed);
-            });
-        });
-
-        function drawGame() {
-            clearCanvas();
-            moveSnake();
-            checkCollision();
-            drawFood();
-            drawSnake();
-        }
-
-        function clearCanvas() {
-            ctx.fillStyle = &#39;#f0f0f0&#39;;
-            ctx.fillRect(0, 0, canvas.width, canvas.height);
-        }
-
-        function drawSnake() {
-            ctx.fillStyle = &#39;#4CAF50&#39;;
-            snake.forEach(segment =&gt; {
-                ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
-            });
-        }
-
-        function drawFood() {
-            ctx.fillStyle = &#39;#FF0000&#39;;
-            ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
-        }
-
-        function moveSnake() {
-            const head = { x: snake[0].x + dx, y: snake[0].y + dy };
-            snake.unshift(head);
-
-            if (head.x === food.x &amp;&amp; head.y === food.y) {
-                score += 10;
-                scoreElement.textContent = score;
-                generateFood();
-                increaseSpeed();
-            } else {
-                snake.pop();
-            }
-        }
-
-        function generateFood() {
-            food = {
-                x: Math.floor(Math.random() * tileCount),
-                y: Math.floor(Math.random() * tileCount)
-            };
-            if (snake.some(segment =&gt; segment.x === food.x &amp;&amp; segment.y === food.y)) {
-                generateFood();
-            }
-        }
-
-        function checkCollision() {
-            const head = snake[0];
-
-            if (head.x &lt; 0 || head.x &gt;= tileCount || head.y &lt; 0 || head.y &gt;= tileCount) {
-                gameOver();
-            }
-
-            for (let i = 1; i &lt; snake.length; i++) {
-                if (head.x === snake[i].x &amp;&amp; head.y === snake[i].y) {
-                    gameOver();
-                }
-            }
-        }
-
-        function gameOver() {
-            clearInterval(gameLoop);
-            finalScoreElement.textContent = score;
-            gameOverElement.style.display = &#39;block&#39;;
-        }
-
-        window.restartGame = function() {
-            snake = [{ x: 10, y: 10 }];
-            food = { x: 15, y: 15 };
-            dx = 0;
-            dy = 0;
-            score = 0;
-            currentSpeed = baseSpeed;
-            scoreElement.textContent = &#39;0&#39;;
-            gameOverElement.style.display = &#39;none&#39;;
-            gameLoop = setInterval(drawGame, currentSpeed);
-        }
-
-        function increaseSpeed() {
-            if (currentSpeed &gt; baseSpeed * 0.5) {
-                clearInterval(gameLoop);
-                currentSpeed -= 2;
-                gameLoop = setInterval(drawGame, currentSpeed);
-            }
-        }
-
-        document.addEventListener(&#39;keydown&#39;, (event) =&gt; {
-            switch(event.key) {
-                case &#39;ArrowUp&#39;:
-                    if (dy === 0) { dx = 0; dy = -1; }
-                    break;
-                case &#39;ArrowDown&#39;:
-                    if (dy === 0) { dx = 0; dy = 1; }
-                    break;
-                case &#39;ArrowLeft&#39;:
-                    if (dx === 0) { dx = -1; dy = 0; }
-                    break;
-                case &#39;ArrowRight&#39;:
-                    if (dx === 0) { dx = 1; dy = 0; }
-                    break;
-            }
-        });
-
-        const controlButtons = document.querySelectorAll(&#39;.control-btn&#39;);
-        controlButtons.forEach(button =&gt; {
-            button.addEventListener(&#39;touchstart&#39;, (e) =&gt; {
-                e.preventDefault();
-                switch(button.id) {
-                    case &#39;up&#39;:
-                        if (dy === 0) { dx = 0; dy = -1; }
-                        break;
-                    case &#39;down&#39;:
-                        if (dy === 0) { dx = 0; dy = 1; }
-                        break;
-                    case &#39;left&#39;:
-                        if (dx === 0) { dx = -1; dy = 0; }
-                        break;
-                    case &#39;right&#39;:
-                        if (dx === 0) { dx = 1; dy = 0; }
-                        break;
-                }
-            });
-        });
-
-        gameLoop = setInterval(drawGame, currentSpeed);
-    })();
-&lt;/script&gt;
-
-
-</description>
-    </item>
-    
-    <item>
-      <title>Flag Game</title>
-      <link>https://vijay.eu/projects/flag-game/</link>
-      <pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/projects/flag-game/</guid>
-      <description>&lt;div class=&#34;container&#34;&gt;
-    &lt;div class=&#34;status&#34;&gt;
-        &lt;div class=&#34;counter&#34;&gt;&lt;strong id=&#34;quiz-mini-counter&#34;&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
-        &lt;div class=&#34;correct&#34;&gt;&lt;strong id=&#34;quiz-mini-correct&#34;&gt;0&lt;/strong&gt; correctly&lt;/div&gt;
-        &lt;div class=&#34;wrong&#34;&gt;&lt;strong id=&#34;quiz-mini-wrong&#34;&gt;0&lt;/strong&gt; wrong&lt;/div&gt;
-    &lt;/div&gt;
-    &lt;div id=&#34;quiz-mini-image&#34; class=&#34;image&#34;&gt;&lt;/div&gt;
-    &lt;div id=&#34;quiz-mini-options&#34; class=&#34;options&#34;&gt;&lt;/div&gt;
-    &lt;div id=&#34;quiz-mini-result&#34; class=&#34;result&#34; style=&#34;display: none;&#34;&gt;
-        &lt;small&gt;
-            &lt;strong&gt;&lt;span id=&#34;quiz-mini-result-correct&#34;&gt;Well done!&lt;/span&gt;&lt;/strong&gt;
-            &lt;span id=&#34;quiz-mini-result-wrong&#34;&gt;False, it is &lt;strong id=&#34;quiz-mini-result-wrong-name&#34;&gt;*&lt;/strong&gt;&lt;/span&gt;
-        &lt;/small&gt;
-        &lt;button id=&#34;quiz-mini-refresh&#34; style=&#34;display: none;&#34;&gt;Restart Game&lt;/button&gt;
-    &lt;/div&gt;
+(function() {
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+const scoreElement = document.getElementById('scoreValue');
+const finalScoreElement = document.getElementById('finalScore');
+const gameOverElement = document.getElementById('gameOver');
+const speedButtons = document.querySelectorAll('.speed-btn');
+const gridSize = 20;
+const tileCount = canvas.width / gridSize;
+let snake = [{ x: 10, y: 10 }];
+let food = { x: 15, y: 15 };
+let dx = 0;
+let dy = 0;
+let score = 0;
+let gameLoop;
+const speeds = {
+slow: 150,
+normal: 100,
+fast: 70
+};
+let currentSpeed = speeds.normal;
+let baseSpeed = speeds.normal;
+function setSpeed(speedType) {
+baseSpeed = speeds[speedType];
+currentSpeed = baseSpeed;
+if (gameLoop) {
+clearInterval(gameLoop);
+gameLoop = setInterval(drawGame, currentSpeed);
+}
+speedButtons.forEach(btn =&gt; {
+btn.classList.remove('active');
+if (btn.dataset.speed === speedType) {
+btn.classList.add('active');
+}
+});
+}
+speedButtons.forEach(button =&gt; {
+button.addEventListener('click', () =&gt; {
+setSpeed(button.dataset.speed);
+});
+});
+function drawGame() {
+clearCanvas();
+moveSnake();
+checkCollision();
+drawFood();
+drawSnake();
+}
+function clearCanvas() {
+ctx.fillStyle = '#f0f0f0';
+ctx.fillRect(0, 0, canvas.width, canvas.height);
+}
+function drawSnake() {
+ctx.fillStyle = '#4CAF50';
+snake.forEach(segment =&gt; {
+ctx.fillRect(segment.x * gridSize, segment.y * gridSize, gridSize - 2, gridSize - 2);
+});
+}
+function drawFood() {
+ctx.fillStyle = '#FF0000';
+ctx.fillRect(food.x * gridSize, food.y * gridSize, gridSize - 2, gridSize - 2);
+}
+function moveSnake() {
+const head = { x: snake[0].x + dx, y: snake[0].y + dy };
+snake.unshift(head);
+if (head.x === food.x &amp;&amp; head.y === food.y) {
+score += 10;
+scoreElement.textContent = score;
+generateFood();
+increaseSpeed();
+} else {
+snake.pop();
+}
+}
+function generateFood() {
+food = {
+x: Math.floor(Math.random() * tileCount),
+y: Math.floor(Math.random() * tileCount)
+};
+if (snake.some(segment =&gt; segment.x === food.x &amp;&amp; segment.y === food.y)) {
+generateFood();
+}
+}
+function checkCollision() {
+const head = snake[0];
+if (head.x &lt; 0 || head.x &gt;= tileCount || head.y &lt; 0 || head.y &gt;= tileCount) {
+gameOver();
+}
+for (let i = 1; i &lt; snake.length; i++) {
+if (head.x === snake[i].x &amp;&amp; head.y === snake[i].y) {
+gameOver();
+}
+}
+}
+function gameOver() {
+clearInterval(gameLoop);
+finalScoreElement.textContent = score;
+gameOverElement.style.display = 'block';
+}
+window.restartGame = function() {
+snake = [{ x: 10, y: 10 }];
+food = { x: 15, y: 15 };
+dx = 0;
+dy = 0;
+score = 0;
+currentSpeed = baseSpeed;
+scoreElement.textContent = '0';
+gameOverElement.style.display = 'none';
+gameLoop = setInterval(drawGame, currentSpeed);
+}
+function increaseSpeed() {
+if (currentSpeed &gt; baseSpeed * 0.5) {
+clearInterval(gameLoop);
+currentSpeed -= 2;
+gameLoop = setInterval(drawGame, currentSpeed);
+}
+}
+document.addEventListener('keydown', (event) =&gt; {
+switch(event.key) {
+case 'ArrowUp':
+if (dy === 0) { dx = 0; dy = -1; }
+break;
+case 'ArrowDown':
+if (dy === 0) { dx = 0; dy = 1; }
+break;
+case 'ArrowLeft':
+if (dx === 0) { dx = -1; dy = 0; }
+break;
+case 'ArrowRight':
+if (dx === 0) { dx = 1; dy = 0; }
+break;
+}
+});
+const controlButtons = document.querySelectorAll('.control-btn');
+controlButtons.forEach(button =&gt; {
+button.addEventListener('touchstart', (e) =&gt; {
+e.preventDefault();
+switch(button.id) {
+case 'up':
+if (dy === 0) { dx = 0; dy = -1; }
+break;
+case 'down':
+if (dy === 0) { dx = 0; dy = 1; }
+break;
+case 'left':
+if (dx === 0) { dx = -1; dy = 0; }
+break;
+case 'right':
+if (dx === 0) { dx = 1; dy = 0; }
+break;
+}
+});
+});
+gameLoop = setInterval(drawGame, currentSpeed);
+})();
+&lt;/script&gt;</description></item><item><title>Flag Game</title><link>https://vijay.eu/projects/flag-game/</link><pubDate>Thu, 08 Aug 2024 07:00:32 +0300</pubDate><guid>https://vijay.eu/projects/flag-game/</guid><description>&lt;div class="container"&gt;
+&lt;div class="status"&gt;
+&lt;div class="counter"&gt;&lt;strong id="quiz-mini-counter"&gt;1&lt;/strong&gt; / 10&lt;/div&gt;
+&lt;div class="correct"&gt;&lt;strong id="quiz-mini-correct"&gt;0&lt;/strong&gt; correctly&lt;/div&gt;
+&lt;div class="wrong"&gt;&lt;strong id="quiz-mini-wrong"&gt;0&lt;/strong&gt; wrong&lt;/div&gt;
 &lt;/div&gt;
-
-
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;div id="quiz-mini-image" class="image"&gt;&lt;/div&gt;
+&lt;div id="quiz-mini-options" class="options"&gt;&lt;/div&gt;
+&lt;div id="quiz-mini-result" class="result" style="display: none;"&gt;
+&lt;small&gt;
+&lt;strong&gt;&lt;span id="quiz-mini-result-correct"&gt;Well done!&lt;/span&gt;&lt;/strong&gt;
+&lt;span id="quiz-mini-result-wrong"&gt;False, it is &lt;strong id="quiz-mini-result-wrong-name"&gt;*&lt;/strong&gt;&lt;/span&gt;
+&lt;/small&gt;
+&lt;button id="quiz-mini-refresh" style="display: none;"&gt;Restart Game&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item></channel></rss>

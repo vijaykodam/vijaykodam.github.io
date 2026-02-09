@@ -1,31 +1,12 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Cloud Computing on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/cloud-computing/</link>
-    <description>Recent content in Cloud Computing on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/cloud-computing/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Unlock Up to 40% AWS Cost Savings with Graviton!</title>
-      <link>https://vijay.eu/posts/save-costs-with-graviton/</link>
-      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Cloud Computing on Vijay Kodam</title><link>https://vijay.eu/tags/cloud-computing/</link><description>Recent content in Cloud Computing on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 27 Oct 2024 00:14:32 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/cloud-computing/index.xml" rel="self" type="application/rss+xml"/><item><title>Unlock Up to 40% AWS Cost Savings with Graviton!</title><link>https://vijay.eu/posts/save-costs-with-graviton/</link><pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate><guid>https://vijay.eu/posts/save-costs-with-graviton/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/graviton.png" alt="Graviton"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
-&lt;h3 id=&#34;climate-friendly-computing-with-graviton&#34;&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
+&lt;h3 id="climate-friendly-computing-with-graviton"&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
 &lt;p&gt;Using Graviton also has climate benefits: it reduces your carbon footprint by using up to &lt;strong&gt;60% less energy&lt;/strong&gt; than comparable EC2 instances for the same performance.&lt;/p&gt;
 &lt;p&gt;By choosing Graviton-based instances over traditional x86 instances, you can unlock significant savings. Since Apple adopted ARM processors for their MacBooks, ARM has gained widespread support across operating systems and applications, ensuring seamless compatibility. AWS’s push for Graviton has further motivated the software industry to embrace ARM-based processors.&lt;/p&gt;
 &lt;p&gt;AWS has been steadily expanding Graviton support across its services, making it easier than ever to leverage cost savings with ARM-based processors.&lt;/p&gt;
-&lt;h3 id=&#34;graviton-support-across-aws-managed-services&#34;&gt;Graviton Support Across AWS Managed Services&lt;/h3&gt;
+&lt;h3 id="graviton-support-across-aws-managed-services"&gt;Graviton Support Across AWS Managed Services&lt;/h3&gt;
 &lt;p&gt;Here are some of the popular AWS managed services that support Graviton:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
@@ -35,8 +16,8 @@
 &lt;li&gt;&lt;strong&gt;AWS Lambda&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Amazon OpenSearch Service&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md&#34;&gt;link&lt;/a&gt; for a full list of supported AWS services.&lt;/p&gt;
-&lt;h3 id=&#34;graviton-support-in-kubernetes-and-the-container-ecosystem&#34;&gt;Graviton Support in Kubernetes and the Container Ecosystem&lt;/h3&gt;
+&lt;p&gt;For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this &lt;a href="https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md"&gt;link&lt;/a&gt; for a full list of supported AWS services.&lt;/p&gt;
+&lt;h3 id="graviton-support-in-kubernetes-and-the-container-ecosystem"&gt;Graviton Support in Kubernetes and the Container Ecosystem&lt;/h3&gt;
 &lt;p&gt;Kubernetes and containers have become the de facto platform for running microservices today. Graviton is supported by:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
@@ -50,68 +31,53 @@
 &lt;li&gt;&lt;strong&gt;ArgoCD&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Terraform&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;…and many other tools. Here is the &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support&#34;&gt;full list of popular software&lt;/a&gt; within the container ecosystem that explicitly supports arm64/Graviton.&lt;/p&gt;
+&lt;p&gt;…and many other tools. Here is the &lt;a href="https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support"&gt;full list of popular software&lt;/a&gt; within the container ecosystem that explicitly supports arm64/Graviton.&lt;/p&gt;
 &lt;p&gt;Additionally, &lt;strong&gt;.NET 9&lt;/strong&gt; and many older versions support Graviton.&lt;/p&gt;
-&lt;h3 id=&#34;operating-systems-supporting-graviton&#34;&gt;Operating Systems Supporting Graviton&lt;/h3&gt;
+&lt;h3 id="operating-systems-supporting-graviton"&gt;Operating Systems Supporting Graviton&lt;/h3&gt;
 &lt;p&gt;Several major operating systems also support Graviton, including &lt;strong&gt;Amazon Linux 2023&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt;, &lt;strong&gt;RHEL&lt;/strong&gt;, &lt;strong&gt;SUSE&lt;/strong&gt;, &lt;strong&gt;Alpine Linux&lt;/strong&gt;, and more.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;try-amazon-ec2-t4g-instances-for-free-today&#34;&gt;Try Amazon EC2 T4g Instances for Free Today&lt;/h3&gt;
-&lt;p&gt;Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 &lt;code&gt;t4g.small&lt;/code&gt; instances powered by AWS Graviton2 processors free for up to &lt;strong&gt;750 hours per month until Dec 31st, 2024&lt;/strong&gt;. Refer to the &lt;a href=&#34;https://aws.amazon.com/ec2/faqs/&#34;&gt;Amazon EC2 FAQ&lt;/a&gt; for additional details.&lt;/p&gt;
-&lt;p&gt;With this &lt;a href=&#34;https://aws.amazon.com/ec2/graviton/getting-started/&#34;&gt;step-by-step guide from AWS&lt;/a&gt;, you can adopt Graviton-based instances for your workloads.&lt;/p&gt;
-&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;h3 id="try-amazon-ec2-t4g-instances-for-free-today"&gt;Try Amazon EC2 T4g Instances for Free Today&lt;/h3&gt;
+&lt;p&gt;Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 &lt;code&gt;t4g.small&lt;/code&gt; instances powered by AWS Graviton2 processors free for up to &lt;strong&gt;750 hours per month until Dec 31st, 2024&lt;/strong&gt;. Refer to the &lt;a href="https://aws.amazon.com/ec2/faqs/"&gt;Amazon EC2 FAQ&lt;/a&gt; for additional details.&lt;/p&gt;
+&lt;p&gt;With this &lt;a href="https://aws.amazon.com/ec2/graviton/getting-started/"&gt;step-by-step guide from AWS&lt;/a&gt;, you can adopt Graviton-based instances for your workloads.&lt;/p&gt;
+&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Consider including Graviton-based instances in your workload, whether in your Kubernetes clusters, EC2 instances, Lambda functions, or databases.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Save money and save the planet.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</title>
-      <link>https://vijay.eu/posts/s3-delete-millions-of-files/</link>
-      <pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/s3-delete-millions-of-files/</guid>
-      <description>&lt;h2 id=&#34;introduction&#34;&gt;Introduction&lt;/h2&gt;
+&lt;p&gt;Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3</title><link>https://vijay.eu/posts/s3-delete-millions-of-files/</link><pubDate>Mon, 14 Oct 2024 00:42:32 +0300</pubDate><guid>https://vijay.eu/posts/s3-delete-millions-of-files/</guid><description>&lt;h2 id="introduction"&gt;Introduction&lt;/h2&gt;
 &lt;p&gt;Managing data in &lt;strong&gt;Amazon S3&lt;/strong&gt; can be a daunting task, especially when you&amp;rsquo;re faced with the need to delete millions of objects. Whether you’re dealing with old backups, temporary files, or simply restructuring your data, choosing the right method to delete these files is crucial. The right approach can save you time and money, ensuring that you maintain an efficient cloud environment.&lt;/p&gt;
 &lt;p&gt;In this post, we’ll explore various methods to delete files from an S3 bucket, highlighting the &lt;strong&gt;fastest&lt;/strong&gt; and &lt;strong&gt;cheapest&lt;/strong&gt; options available.&lt;/p&gt;
-&lt;h2 id=&#34;different-ways-to-delete-files-from-s3&#34;&gt;Different Ways to Delete Files from S3&lt;/h2&gt;
-&lt;h3 id=&#34;1-aws-management-console&#34;&gt;1. AWS Management Console&lt;/h3&gt;
+&lt;h2 id="different-ways-to-delete-files-from-s3"&gt;Different Ways to Delete Files from S3&lt;/h2&gt;
+&lt;h3 id="1-aws-management-console"&gt;1. AWS Management Console&lt;/h3&gt;
 &lt;p&gt;The &lt;strong&gt;AWS Management Console&lt;/strong&gt; allows you to manually delete files through a user-friendly interface. While this method is straightforward and suitable for small batches, it becomes impractical for large datasets.&lt;/p&gt;
-&lt;h3 id=&#34;2-aws-cli&#34;&gt;2. AWS CLI&lt;/h3&gt;
+&lt;h3 id="2-aws-cli"&gt;2. AWS CLI&lt;/h3&gt;
 &lt;p&gt;The &lt;strong&gt;AWS Command Line Interface (CLI)&lt;/strong&gt; is a popular choice for users who prefer script-based operations. You can use the following command to delete files recursively:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;aws s3 rm s3://bucket-name --recursive
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;aws s3 rm s3://bucket-name --recursive
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;However, it’s important to note that the AWS CLI is primarily &lt;strong&gt;single-threaded&lt;/strong&gt;, which can lead to slower performance when deleting large numbers of objects.&lt;/p&gt;
-&lt;h3 id=&#34;3-s3cmd&#34;&gt;3. s3cmd&lt;/h3&gt;
+&lt;h3 id="3-s3cmd"&gt;3. s3cmd&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;s3cmd&lt;/strong&gt; is another command-line tool that offers more features than the AWS CLI. It allows for some level of parallelism, making it &lt;strong&gt;slightly faster&lt;/strong&gt; than the AWS CLI. The command for recursive deletion is:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s3cmd del s3://bucket-name --recursive
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;s3cmd del s3://bucket-name --recursive
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;While it provides a better performance boost, it still doesn’t match the speed of more advanced tools.&lt;/p&gt;
-&lt;h3 id=&#34;4-s3-batch-operations&#34;&gt;4. S3 Batch Operations&lt;/h3&gt;
+&lt;h3 id="4-s3-batch-operations"&gt;4. S3 Batch Operations&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;S3 Batch Operations&lt;/strong&gt; are designed for large-scale tasks and can delete billions of objects. However, this method incurs additional costs based on the number of objects processed, which may not be ideal for budget-conscious users.&lt;/p&gt;
-&lt;h3 id=&#34;5-s3-lifecycle-policies&#34;&gt;5. S3 Lifecycle Policies&lt;/h3&gt;
+&lt;h3 id="5-s3-lifecycle-policies"&gt;5. S3 Lifecycle Policies&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; are an excellent way to automate the deletion of files without incurring extra costs. You can set rules to automatically delete objects after a specified duration or based on specific conditions. However, deletions may take &lt;strong&gt;up to 24 hours&lt;/strong&gt; to execute.&lt;/p&gt;
-&lt;h3 id=&#34;6-s5cmd&#34;&gt;6. s5cmd&lt;/h3&gt;
+&lt;h3 id="6-s5cmd"&gt;6. s5cmd&lt;/h3&gt;
 &lt;p&gt;&lt;strong&gt;s5cmd&lt;/strong&gt; is a newer, highly parallelized tool that excels in speed. It can delete thousands of files per second and is particularly useful for massive deletions. To delete files using s5cmd, you can use the following command:&lt;/p&gt;
-&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;s5cmd rm s3://bucket-name/*
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id=&#34;comparing-methods-fastest-vs-cheapest&#34;&gt;Comparing Methods: Fastest vs. Cheapest&lt;/h2&gt;
-&lt;h3 id=&#34;fastest-method-s5cmd&#34;&gt;Fastest Method: s5cmd&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;s5cmd rm s3://bucket-name/*
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="comparing-methods-fastest-vs-cheapest"&gt;Comparing Methods: Fastest vs. Cheapest&lt;/h2&gt;
+&lt;h3 id="fastest-method-s5cmd"&gt;Fastest Method: s5cmd&lt;/h3&gt;
 &lt;p&gt;When it comes to speed, &lt;strong&gt;s5cmd&lt;/strong&gt; is the clear winner. It is designed for high-performance operations and leverages &lt;strong&gt;multi-threading&lt;/strong&gt; and &lt;strong&gt;batch processing&lt;/strong&gt; to maximize efficiency. With &lt;strong&gt;s5cmd&lt;/strong&gt;, you can expect deletion rates to be up to &lt;strong&gt;100x faster&lt;/strong&gt; than the AWS CLI, making it an excellent choice for scenarios where time is critical.&lt;/p&gt;
-&lt;h3 id=&#34;cheapest-method-s3-lifecycle-policies&#34;&gt;Cheapest Method: S3 Lifecycle Policies&lt;/h3&gt;
+&lt;h3 id="cheapest-method-s3-lifecycle-policies"&gt;Cheapest Method: S3 Lifecycle Policies&lt;/h3&gt;
 &lt;p&gt;If minimizing costs is your primary concern, &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; are the way to go. This method allows you to automate deletions without incurring additional charges. You can set lifecycle rules that trigger deletions based on file age or other criteria, making it ideal for long-term data management. While it may take longer to process (up to 24 hours), it eliminates the need for any new costs, making it perfect for &lt;strong&gt;cost-conscious&lt;/strong&gt; environments.&lt;/p&gt;
-&lt;h2 id=&#34;why-these-methods-are-the-best&#34;&gt;Why These Methods Are the Best&lt;/h2&gt;
-&lt;h3 id=&#34;speed-considerations&#34;&gt;Speed Considerations&lt;/h3&gt;
+&lt;h2 id="why-these-methods-are-the-best"&gt;Why These Methods Are the Best&lt;/h2&gt;
+&lt;h3 id="speed-considerations"&gt;Speed Considerations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;For Speed&lt;/strong&gt;: When you need to delete millions of objects quickly, &lt;strong&gt;s5cmd&lt;/strong&gt; stands out due to its ability to handle multiple requests simultaneously. This is particularly advantageous in environments where data is frequently updated or removed.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;cost-considerations&#34;&gt;Cost Considerations&lt;/h3&gt;
+&lt;h3 id="cost-considerations"&gt;Cost Considerations&lt;/h3&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;For Cost&lt;/strong&gt;: &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; allow you to automate data management tasks without incurring any additional charges. This is crucial for businesses looking to optimize their cloud costs while maintaining a clean and organized data structure.&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;Choosing the right method to delete millions of files from an S3 bucket depends on your specific use case. If speed is your priority, &lt;strong&gt;s5cmd&lt;/strong&gt; is the best tool for the job. Conversely, if you’re focused on minimizing costs, &lt;strong&gt;S3 Lifecycle Policies&lt;/strong&gt; offer an automated, no-cost solution for managing your data over time.&lt;/p&gt;
 &lt;p&gt;By understanding these options, you can make informed decisions that streamline your data management processes in AWS S3, saving both time and money in the long run.&lt;/p&gt;
-&lt;p&gt;Follow me on LinkedIn at &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt;  where I post articles about AWS, Kubernetes and cloud computing in general.&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;p&gt;Follow me on LinkedIn at &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;https://www.linkedin.com/in/vijaykodam/&lt;/a&gt; where I post articles about AWS, Kubernetes and cloud computing in general.&lt;/p&gt;</description></item></channel></rss>

@@ -1,98 +1,39 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>EKS Auto on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/eks-auto/</link>
-    <description>Recent content in EKS Auto on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Thu, 05 Jun 2025 16:33:12 +0300</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/eks-auto/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>Won Amazon Q Coding Challenge</title>
-      <link>https://vijay.eu/posts/won-q-coding-challenge/</link>
-      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/won-q-coding-challenge/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/amazonq-win.jpeg&#34; alt=&#34;amazonqwin&#34;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EKS Auto on Vijay Kodam</title><link>https://vijay.eu/tags/eks-auto/</link><description>Recent content in EKS Auto on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 05 Jun 2025 16:33:12 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/eks-auto/index.xml" rel="self" type="application/rss+xml"/><item><title>Won Amazon Q Coding Challenge</title><link>https://vijay.eu/posts/won-q-coding-challenge/</link><pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate><guid>https://vijay.eu/posts/won-q-coding-challenge/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/amazonq-win.jpeg" alt="amazonqwin"&gt;&lt;/p&gt;
 &lt;p&gt;Wow! I won 1st place in the Amazon Q Coding challenge today at AWS Summit Stockholm.&lt;/p&gt;
 &lt;p&gt;I had to summon my newfound GenAI vibe coding skills. My experience in working with Amazon Q CLI and Claude Code definitely helped.&lt;/p&gt;
 &lt;p&gt;It was a python coding challenge with 40 coding exercises starting with easy level and increasing difficulty with each question. You can use Q developer as a vibe coding tool to solve it. Time also matters and I managed to complete all 40 tasks in 35mins.&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My First Impressions of official EKS MCP Server</title>
-      <link>https://vijay.eu/posts/official-eks-mcp-server/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/official-eks-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eksmcp.png&#34; alt=&#34;eksmcp&#34;&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>My First Impressions of official EKS MCP Server</title><link>https://vijay.eu/posts/official-eks-mcp-server/</link><pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate><guid>https://vijay.eu/posts/official-eks-mcp-server/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/eksmcp.png" alt="eksmcp"&gt;
 Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;AWS released official EKS MCP Server today!&lt;/p&gt;
-&lt;p&gt;I have already created &lt;a href=&#34;https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10&#34;&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
-&lt;h2 id=&#34;mcp-tools&#34;&gt;MCP Tools&lt;/h2&gt;
+&lt;p&gt;I have already created &lt;a href="https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10"&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
+&lt;h2 id="mcp-tools"&gt;MCP Tools&lt;/h2&gt;
 &lt;p&gt;Instead of one-to-one mapping of K8s CLI commands to EKS MCP Server tools they have created very few tools by combining functionality. For eg, manage_k8s_resource tool manages all K8s resources and supports create, replace, patch, delete, and read Kubernetes operations.&lt;/p&gt;
-&lt;h2 id=&#34;manages-eks-clusters&#34;&gt;Manages EKS Clusters&lt;/h2&gt;
+&lt;h2 id="manages-eks-clusters"&gt;Manages EKS Clusters&lt;/h2&gt;
 &lt;p&gt;This EKS MCP Server not only can access your EKS clusters but it can also create and manage new EKS clusters. It creates EKS Auto mode clusters by default. It uses CloudFormation to create new EKS Clusters.&lt;/p&gt;
-&lt;h2 id=&#34;troubleshooting-support&#34;&gt;Troubleshooting support&lt;/h2&gt;
+&lt;h2 id="troubleshooting-support"&gt;Troubleshooting support&lt;/h2&gt;
 &lt;p&gt;Really like how they have given access to LLMs their EKS troubleshooting guide via a tool so that LLM can check AWS in-house knowledge of their experience troubleshooting EKS clusters. The tool name is &amp;ldquo;search_eks_troubleshoot_guide&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;secure&#34;&gt;Secure&lt;/h2&gt;
+&lt;h2 id="secure"&gt;Secure&lt;/h2&gt;
 &lt;p&gt;It is always important to have least privileged access. Keeping in with that best practice, EKS MCP Server supports read only mode by default. If you are feeling adventurous add &amp;ldquo;&amp;ndash;allow-write&amp;rdquo; option to give write access. This will still block access to sensitive info. There is another option to give access to that as well.&lt;/p&gt;
-&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;h2 id="final-thoughts"&gt;Final thoughts&lt;/h2&gt;
 &lt;p&gt;Creating my own kubernetes MCP server gave me valuable insights into how the MCP server creation is done. This EKS MCP server has simplified MCP tooling, added own knowledge of troubleshooting, added least-privileged option and can create EKS clusters using CloudFormation.&lt;/p&gt;
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-&lt;p&gt;You can access the official &lt;a href=&#34;https://awslabs.github.io/mcp/servers/eks-mcp-server/&#34;&gt;EKS MCP server here&lt;/a&gt;. You can read about it in &lt;a href=&#34;https://aws.amazon.com/blogs/containers/accelerating-application-development-with-the-amazon-eks-model-context-protocol-server/&#34;&gt;their Blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="links"&gt;Links&lt;/h2&gt;
+&lt;p&gt;You can access the official &lt;a href="https://awslabs.github.io/mcp/servers/eks-mcp-server/"&gt;EKS MCP server here&lt;/a&gt;. You can read about it in &lt;a href="https://aws.amazon.com/blogs/containers/accelerating-application-development-with-the-amazon-eks-model-context-protocol-server/"&gt;their Blog post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Really appreciate how EKS MCP server has handled all the functionality really well. Kudos to the EKS team.&lt;/p&gt;
-&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;h2 id="follow-me"&gt;Follow Me&lt;/h2&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics.&lt;/p&gt;
-&lt;p&gt;Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title>
-      <link>https://vijay.eu/posts/presented-at-aws-meetup/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title><link>https://vijay.eu/posts/presented-at-aws-meetup/</link><pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate><guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-meetup-1.webp" alt="AWS Meetup Presenting"&gt;&lt;/p&gt;
 &lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
-&lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
+&lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives. Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
 &lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
 &lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Surprising side effect of running EKS Auto Mode</title>
-      <link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link>
-      <pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid>
-      <description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-meetup-2.webp" alt="AWS Meetup Presenting 2"&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Surprising side effect of running EKS Auto Mode</title><link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link><pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate><guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid><description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
 &lt;p&gt;This restriction came into place due to the automatic inclusion of AWS Load Balancer controller as an add-on in EKS Auto mode. AFAIK, there is no way to disable or remove that add-on from EKS Auto mode cluster.&lt;/p&gt;
 &lt;p&gt;If you are utilizing other ingress controllers like HAProxy, then you cannot create a CLB (HTTPS) using Service annotations. You can only create NLBs using Service annotations and route the traffic through HAProxy ingress controller. After that you can create ingresses which can utilize HAProxy as ingress controller.&lt;/p&gt;
 &lt;p&gt;This means that if you have been using HAProxy ingress controller or other similar ingress controllers then this limitation restricts you to service HTTP/HTTPS traffic through them.&lt;/p&gt;
 &lt;p&gt;Since this is a new release, I haven&amp;rsquo;t seen any update in their docs. I am curious on how other ingress controllers handle this change.&lt;/p&gt;
 &lt;p&gt;Have you faced this issue in EKS Auto mode? Did you manage to fix it? I would like to know your thoughts on this?&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>What is ARC Zonal shift feature in EKS?</title>
-      <link>https://vijay.eu/posts/eks-arc-zonal-shift/</link>
-      <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>What is ARC Zonal shift feature in EKS?</title><link>https://vijay.eu/posts/eks-arc-zonal-shift/</link><pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate><guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;
 &lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
@@ -104,18 +45,8 @@ Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;With zonal shift, you can temporarily mitigate issues and incidents by triggering a shift and redirecting in-cluster network traffic to a healthy AZ.&lt;/p&gt;
 &lt;p&gt;For this to work, you should already be running EKS worker nodes in multiple AZs (at least three) for HA and resiliency and your applications are already running in multiple AZs. So if your application is already running in three different AZs and if one AZ is impaired then Zonal shift will redirect traffic away from impaired AZ to healthy AZs. In this case, you will have your application running in two AZs as highly available after the third one went down.&lt;/p&gt;
 &lt;p&gt;Ideally such setup comes with cost so use it for highly critical workloads where you need such level of high-availability and resiliency.&lt;/p&gt;
-&lt;p&gt;Check the EKS Zonal shift documentation to learn more: &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&#34;&gt;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Follow me on LinkedIn for more content related to Kubernetes, EKS and AWS in general. Visit my website at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt; for all my posts in one place.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title>
-      <link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link>
-      <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Check the EKS Zonal shift documentation to learn more: &lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html"&gt;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn for more content related to Kubernetes, EKS and AWS in general. Visit my website at &lt;a href="https://vijay.eu/posts"&gt;https://vijay.eu/posts&lt;/a&gt; for all my posts in one place.&lt;/p&gt;</description></item><item><title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title><link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link><pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate><guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/EKS-Auto-Mode.webp" alt="Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
 &lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
 Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;
@@ -126,28 +57,18 @@ Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node 
 &lt;li&gt;component upgrades&lt;/li&gt;
 &lt;li&gt;improves security posture&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;what-if-you-want-to-modify-the-maximum-node-lifetime&#34;&gt;What if you want to modify the maximum node lifetime?&lt;/h2&gt;
+&lt;h2 id="what-if-you-want-to-modify-the-maximum-node-lifetime"&gt;What if you want to modify the maximum node lifetime?&lt;/h2&gt;
 &lt;p&gt;You can reduce the maximum node lifetime by creating a custom NodePool with “spec.template.spec.expireAfter” with a value of node lifetime in hours. Max is 21 days.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-disable-it&#34;&gt;How to disable it?&lt;/h2&gt;
+&lt;h2 id="how-to-disable-it"&gt;How to disable it?&lt;/h2&gt;
 &lt;p&gt;If for some reason, you do not want to delete worker nodes so frequent or if you want to keep the nodes static then you can create a new Managed Node Group and add nodes in it.
 You can create both EKS Auto mode nodepools and Managed Node groups (without auto mode) in the same EKS cluster. These are called mixed-mode clusters.
 I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
-&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and check out &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt; for all my blog posts in one place.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>First Impressions of EKS Auto Mode – A Game Changer!</title>
-      <link>https://vijay.eu/posts/eks-auto-first-impressions/</link>
-      <pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;
+&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and check out &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt; for all my blog posts in one place.&lt;/p&gt;</description></item><item><title>First Impressions of EKS Auto Mode – A Game Changer!</title><link>https://vijay.eu/posts/eks-auto-first-impressions/</link><pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate><guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-eks-pic.png" alt="Kubernetes"&gt;
 &lt;em&gt;Image Credit: From AWS EKS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here are my thoughts after initial few days of using &lt;strong&gt;EKS Auto mode&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;AWS has truly raised the bar with EKS Auto Mode, a new feature announced at &lt;strong&gt;re:Invent 2024&lt;/strong&gt;. This innovation automates much of the undifferentiated heavy lifting, allowing customers to focus on what matters most: building great applications.&lt;/p&gt;
-&lt;h2 id=&#34;my-hands-on-experience&#34;&gt;My Hands-On Experience&lt;/h2&gt;
-&lt;p&gt;I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in &lt;a href=&#34;https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/&#34;&gt;more detail about it here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="my-hands-on-experience"&gt;My Hands-On Experience&lt;/h2&gt;
+&lt;p&gt;I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in &lt;a href="https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/"&gt;more detail about it here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Let me break down what &lt;em&gt;Day 2 operations&lt;/em&gt; typically involve:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -173,7 +94,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Now, imagine all these tasks being automated by AWS. That’s EKS Auto Mode for you!&lt;/p&gt;
-&lt;h2 id=&#34;key-highlights-from-my-testing&#34;&gt;Key Highlights from My Testing&lt;/h2&gt;
+&lt;h2 id="key-highlights-from-my-testing"&gt;Key Highlights from My Testing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;No Idle Nodes&lt;/strong&gt;: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &amp;ldquo;general-purpose&amp;rdquo; and &amp;ldquo;system&amp;rdquo; node pools.&lt;/p&gt;
@@ -186,14 +107,9 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This level of automation simplifies cluster operations and significantly reduces costs.&lt;/p&gt;
-&lt;h2 id=&#34;pricing-update&#34;&gt;Pricing Update&lt;/h2&gt;
-&lt;p&gt;EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about &lt;a href=&#34;https://aws.amazon.com/eks/pricing/&#34;&gt;EKS Auto mode pricing here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;whats-next&#34;&gt;What’s Next?&lt;/h2&gt;
-&lt;p&gt;I’ve &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/&#34;&gt;created a demo video&lt;/a&gt; showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!&lt;/p&gt;
-&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; or check out my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Let me know your thoughts on this exciting new feature! 👇&lt;/p&gt;
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;h2 id="pricing-update"&gt;Pricing Update&lt;/h2&gt;
+&lt;p&gt;EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about &lt;a href="https://aws.amazon.com/eks/pricing/"&gt;EKS Auto mode pricing here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What’s Next?&lt;/h2&gt;
+&lt;p&gt;I’ve &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/"&gt;created a demo video&lt;/a&gt; showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!&lt;/p&gt;
+&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; or check out my blog at &lt;a href="https://vijay.eu/posts"&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let me know your thoughts on this exciting new feature! 👇&lt;/p&gt;</description></item></channel></rss>

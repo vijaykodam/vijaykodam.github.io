@@ -1,110 +1,51 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-  <channel>
-    <title>Kubernetes on Vijay Kodam</title>
-    <link>https://vijay.eu/tags/kubernetes/</link>
-    <description>Recent content in Kubernetes on Vijay Kodam</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <lastBuildDate>Tue, 30 Dec 2025 19:16:00 +0200</lastBuildDate>
-    
-	<atom:link href="https://vijay.eu/tags/kubernetes/index.xml" rel="self" type="application/rss+xml" />
-    
-    
-    <item>
-      <title>2025 Year in Review</title>
-      <link>https://vijay.eu/posts/2025-year-in-review/</link>
-      <pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/2025-year-in-review/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Kubernetes on Vijay Kodam</title><link>https://vijay.eu/tags/kubernetes/</link><description>Recent content in Kubernetes on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 30 Dec 2025 19:16:00 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/kubernetes/index.xml" rel="self" type="application/rss+xml"/><item><title>2025 Year in Review</title><link>https://vijay.eu/posts/2025-year-in-review/</link><pubDate>Tue, 30 Dec 2025 19:16:00 +0200</pubDate><guid>https://vijay.eu/posts/2025-year-in-review/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;&lt;/p&gt;
 &lt;p&gt;If you had told me at the start of the year that I would speak at major Amazon Web Services (AWS) and Microsoft conferences in Europe, I would have called it unlikely.&lt;/p&gt;
 &lt;p&gt;2025 has been an amazing year for me. Not only I got the chance to speak at AWS Summit and Microsoft AgentCon and other conferences, I also got certified, completed GenAI courses, built MCP servers and AI agents and much more. I have spent countless hours after work this year to achieve those things.&lt;/p&gt;
 &lt;p&gt;Here are a few highlights for me in 2025:&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;Became &lt;a href=&#34;https://vijay.eu/posts/aws-community-builders/&#34;&gt;AWS Community Builder&lt;/a&gt; for the first time&lt;/li&gt;
-&lt;li&gt;Passed &lt;a href=&#34;https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url&#34;&gt;AWS Certified AI Practitioner&lt;/a&gt; from Amazon Web Services (AWS)!&lt;/li&gt;
-&lt;li&gt;Created my own &lt;a href=&#34;https://vijay.eu/posts/building-my-first-mcp-server/&#34;&gt;Kubernetes Read Only MCP server&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;Created my own &lt;a href=&#34;https://vijay.eu/posts/built-an-ai-agent/&#34;&gt;AI Agent for Autonomous Troubleshooting K8s operations&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Became &lt;a href="https://vijay.eu/posts/aws-community-builders/"&gt;AWS Community Builder&lt;/a&gt; for the first time&lt;/li&gt;
+&lt;li&gt;Passed &lt;a href="https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url"&gt;AWS Certified AI Practitioner&lt;/a&gt; from Amazon Web Services (AWS)!&lt;/li&gt;
+&lt;li&gt;Created my own &lt;a href="https://vijay.eu/posts/building-my-first-mcp-server/"&gt;Kubernetes Read Only MCP server&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Created my own &lt;a href="https://vijay.eu/posts/built-an-ai-agent/"&gt;AI Agent for Autonomous Troubleshooting K8s operations&lt;/a&gt;.&lt;/li&gt;
 &lt;li&gt;Delivered presentations at AWS Summit Zurich, Microsoft&amp;rsquo;s AgentCon and AWS Nordics Community Day!&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;https://vijay.eu/posts/won-q-coding-challenge/&#34;&gt;Won two GenAI hackathons&lt;/a&gt; at AWS Summit Stockholm and another at AWS event in Helsinki!&lt;/li&gt;
-&lt;li&gt;Learnt a lot in #GenAI including &amp;ldquo;Building Agentic AI Applications with a Problem-First Approach&amp;rdquo;, &amp;ldquo;AI evals&amp;rdquo; and &lt;a href=&#34;https://vijay.eu/posts/google-genai-capstone-project/&#34;&gt;Google&amp;rsquo;s GenAI and AI Agent courses&lt;/a&gt;.&lt;/li&gt;
-&lt;li&gt;Built multiple &lt;a href=&#34;https://vijay.eu/projects/&#34;&gt;AI projects&lt;/a&gt;. &amp;ldquo;&lt;a href=&#34;https://vijay.eu/projects/llm-pricing/&#34;&gt;LLM pricing&lt;/a&gt;&amp;rdquo; project is the latest one.&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://vijay.eu/posts/won-q-coding-challenge/"&gt;Won two GenAI hackathons&lt;/a&gt; at AWS Summit Stockholm and another at AWS event in Helsinki!&lt;/li&gt;
+&lt;li&gt;Learnt a lot in #GenAI including &amp;ldquo;Building Agentic AI Applications with a Problem-First Approach&amp;rdquo;, &amp;ldquo;AI evals&amp;rdquo; and &lt;a href="https://vijay.eu/posts/google-genai-capstone-project/"&gt;Google&amp;rsquo;s GenAI and AI Agent courses&lt;/a&gt;.&lt;/li&gt;
+&lt;li&gt;Built multiple &lt;a href="https://vijay.eu/projects/"&gt;AI projects&lt;/a&gt;. &amp;ldquo;&lt;a href="https://vijay.eu/projects/llm-pricing/"&gt;LLM pricing&lt;/a&gt;&amp;rdquo; project is the latest one.&lt;/li&gt;
 &lt;li&gt;Trained a neural network for my Le Robot SO-101 arm.&lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;All throughout the year along my journey, many people helped me, inspired me and guided me. Thanks to all of you!&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Amazon EKS Capabilities</title>
-      <link>https://vijay.eu/posts/eks-capabilities/</link>
-      <pubDate>Mon, 01 Dec 2025 20:39:13 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-capabilities/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a6l05jg2q2jt9i3tg15s.png&#34; alt=&#34;EKS Capabilities&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Amazon EKS Capabilities</title><link>https://vijay.eu/posts/eks-capabilities/</link><pubDate>Mon, 01 Dec 2025 20:39:13 +0200</pubDate><guid>https://vijay.eu/posts/eks-capabilities/</guid><description>&lt;p&gt;&lt;img src="https://dev-to-uploads.s3.amazonaws.com/uploads/articles/a6l05jg2q2jt9i3tg15s.png" alt="EKS Capabilities"&gt;&lt;/p&gt;
 &lt;p&gt;A quick summary typed by my own thumbs and infographic generated by Nano Banana Pro :)&lt;/p&gt;
 &lt;p&gt;Last year, AWS offloaded EKS node management and scaling by introducing EKS Auto Mode. Customers did not have to deal with scaling nodes, upgrading nodes etc. This gave the customers more time to deploy and manage their applications.&lt;/p&gt;
 &lt;p&gt;This year, EKS has decided to offload managing your ArgoCD, ACK and kro. EKS would manage them for you by running them separately. There are pros and cons for this feature. Pro being there is now one less thing to manage. Since ArgoCD, ACK and kro are not running in your EKS worker nodes, you don&amp;rsquo;t pay for them. AWS takes care of running them, scaling, upgrading them and making sure they are running fine. Con is that EKS charges it as part of EKS Capabilities pricing. Not all features might be supported. Customization is not possible.&lt;/p&gt;
 &lt;p&gt;So you need to decide whether this extra cost is worth it or not. It depends on the expertise of the team, how many clusters they are managing and how many applications each ArgoCD is managing.&lt;/p&gt;
 &lt;p&gt;From the pricing, number of ArgoCD applications dictates how costly it is going to be, rest all other features and capabilities are relatively cheaper.&lt;/p&gt;
-&lt;p&gt;My dear friend Jatin Mehrotra wrote an &lt;a href=&#34;https://dev.to/aws-builders/i-created-s3-buckets-using-argocd-ack-with-eks-capabilities-no-controllers-installed-cm0&#34;&gt;excellent blog&lt;/a&gt; about EKS capabilities and also found a bug.&lt;/p&gt;
+&lt;p&gt;My dear friend Jatin Mehrotra wrote an &lt;a href="https://dev.to/aws-builders/i-created-s3-buckets-using-argocd-ack-with-eks-capabilities-no-controllers-installed-cm0"&gt;excellent blog&lt;/a&gt; about EKS capabilities and also found a bug.&lt;/p&gt;
 &lt;p&gt;Image generated using Nano Banana Pro.&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Won Amazon Q Coding Challenge</title>
-      <link>https://vijay.eu/posts/won-q-coding-challenge/</link>
-      <pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/won-q-coding-challenge/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/amazonq-win.jpeg&#34; alt=&#34;amazonqwin&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Won Amazon Q Coding Challenge</title><link>https://vijay.eu/posts/won-q-coding-challenge/</link><pubDate>Thu, 05 Jun 2025 16:33:12 +0300</pubDate><guid>https://vijay.eu/posts/won-q-coding-challenge/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/amazonq-win.jpeg" alt="amazonqwin"&gt;&lt;/p&gt;
 &lt;p&gt;Wow! I won 1st place in the Amazon Q Coding challenge today at AWS Summit Stockholm.&lt;/p&gt;
 &lt;p&gt;I had to summon my newfound GenAI vibe coding skills. My experience in working with Amazon Q CLI and Claude Code definitely helped.&lt;/p&gt;
 &lt;p&gt;It was a python coding challenge with 40 coding exercises starting with easy level and increasing difficulty with each question. You can use Q developer as a vibe coding tool to solve it. Time also matters and I managed to complete all 40 tasks in 35mins.&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>My First Impressions of official EKS MCP Server</title>
-      <link>https://vijay.eu/posts/official-eks-mcp-server/</link>
-      <pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/official-eks-mcp-server/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/eksmcp.png&#34; alt=&#34;eksmcp&#34;&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>My First Impressions of official EKS MCP Server</title><link>https://vijay.eu/posts/official-eks-mcp-server/</link><pubDate>Fri, 30 May 2025 01:04:32 +0300</pubDate><guid>https://vijay.eu/posts/official-eks-mcp-server/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/eksmcp.png" alt="eksmcp"&gt;
 Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;AWS released official EKS MCP Server today!&lt;/p&gt;
-&lt;p&gt;I have already created &lt;a href=&#34;https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10&#34;&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
-&lt;h2 id=&#34;mcp-tools&#34;&gt;MCP Tools&lt;/h2&gt;
+&lt;p&gt;I have already created &lt;a href="https://dev.to/vijaykodam/building-mcp-server-for-kubernetes-4l10"&gt;my own MCP server&lt;/a&gt; for read-only Kubernetes operations which made me appreciate these four things about it.&lt;/p&gt;
+&lt;h2 id="mcp-tools"&gt;MCP Tools&lt;/h2&gt;
 &lt;p&gt;Instead of one-to-one mapping of K8s CLI commands to EKS MCP Server tools they have created very few tools by combining functionality. For eg, manage_k8s_resource tool manages all K8s resources and supports create, replace, patch, delete, and read Kubernetes operations.&lt;/p&gt;
-&lt;h2 id=&#34;manages-eks-clusters&#34;&gt;Manages EKS Clusters&lt;/h2&gt;
+&lt;h2 id="manages-eks-clusters"&gt;Manages EKS Clusters&lt;/h2&gt;
 &lt;p&gt;This EKS MCP Server not only can access your EKS clusters but it can also create and manage new EKS clusters. It creates EKS Auto mode clusters by default. It uses CloudFormation to create new EKS Clusters.&lt;/p&gt;
-&lt;h2 id=&#34;troubleshooting-support&#34;&gt;Troubleshooting support&lt;/h2&gt;
+&lt;h2 id="troubleshooting-support"&gt;Troubleshooting support&lt;/h2&gt;
 &lt;p&gt;Really like how they have given access to LLMs their EKS troubleshooting guide via a tool so that LLM can check AWS in-house knowledge of their experience troubleshooting EKS clusters. The tool name is &amp;ldquo;search_eks_troubleshoot_guide&amp;rdquo;.&lt;/p&gt;
-&lt;h2 id=&#34;secure&#34;&gt;Secure&lt;/h2&gt;
+&lt;h2 id="secure"&gt;Secure&lt;/h2&gt;
 &lt;p&gt;It is always important to have least privileged access. Keeping in with that best practice, EKS MCP Server supports read only mode by default. If you are feeling adventurous add &amp;ldquo;&amp;ndash;allow-write&amp;rdquo; option to give write access. This will still block access to sensitive info. There is another option to give access to that as well.&lt;/p&gt;
-&lt;h2 id=&#34;final-thoughts&#34;&gt;Final thoughts&lt;/h2&gt;
+&lt;h2 id="final-thoughts"&gt;Final thoughts&lt;/h2&gt;
 &lt;p&gt;Creating my own kubernetes MCP server gave me valuable insights into how the MCP server creation is done. This EKS MCP server has simplified MCP tooling, added own knowledge of troubleshooting, added least-privileged option and can create EKS clusters using CloudFormation.&lt;/p&gt;
-&lt;h2 id=&#34;links&#34;&gt;Links&lt;/h2&gt;
-&lt;p&gt;You can access the official &lt;a href=&#34;https://awslabs.github.io/mcp/servers/eks-mcp-server/&#34;&gt;EKS MCP server here&lt;/a&gt;. You can read about it in &lt;a href=&#34;https://aws.amazon.com/blogs/containers/accelerating-application-development-with-the-amazon-eks-model-context-protocol-server/&#34;&gt;their Blog post&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="links"&gt;Links&lt;/h2&gt;
+&lt;p&gt;You can access the official &lt;a href="https://awslabs.github.io/mcp/servers/eks-mcp-server/"&gt;EKS MCP server here&lt;/a&gt;. You can read about it in &lt;a href="https://aws.amazon.com/blogs/containers/accelerating-application-development-with-the-amazon-eks-model-context-protocol-server/"&gt;their Blog post&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Really appreciate how EKS MCP server has handled all the functionality really well. Kudos to the EKS team.&lt;/p&gt;
-&lt;h2 id=&#34;follow-me&#34;&gt;Follow Me&lt;/h2&gt;
+&lt;h2 id="follow-me"&gt;Follow Me&lt;/h2&gt;
 &lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics.&lt;/p&gt;
-&lt;p&gt;Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Pod Disruption Budget vs NodePool Disruption Budget?</title>
-      <link>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link>
-      <pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid>
-      <description>&lt;p&gt;In Kubernetes, managing downtimes is very critical to maintain High Availability. &lt;strong&gt;Pod Disruption Budget&lt;/strong&gt; (PDB in short) and &lt;strong&gt;NodePool Disruption Budget&lt;/strong&gt; (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.&lt;/p&gt;
+&lt;p&gt;Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Pod Disruption Budget vs NodePool Disruption Budget?</title><link>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</link><pubDate>Sun, 02 Mar 2025 23:45:23 +0200</pubDate><guid>https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/</guid><description>&lt;p&gt;In Kubernetes, managing downtimes is very critical to maintain High Availability. &lt;strong&gt;Pod Disruption Budget&lt;/strong&gt; (PDB in short) and &lt;strong&gt;NodePool Disruption Budget&lt;/strong&gt; (NDB in short) plays an important role in managing high availability at different layers of Kubernetes.&lt;/p&gt;
 &lt;p&gt;PDBs ensure that a minimum number of application pods are running when one or more nodes are disrupted voluntarily, for example during cluster upgrades, node drain etc.&lt;/p&gt;
 &lt;p&gt;You can set pdb value to either &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; or &amp;ldquo;&lt;code&gt;maxUnavailable&lt;/code&gt;&amp;rdquo;.&lt;/p&gt;
 &lt;p&gt;Here are some example usages of PDB:&lt;/p&gt;
@@ -113,73 +54,43 @@ Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;By setting &amp;ldquo;&lt;code&gt;minAvailable&lt;/code&gt;&amp;rdquo; to quorum size of 3 when scale is 5 for an etcd cluster, you make sure etcd pods do not reduce below quorum thus keeping the writes from failing.&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;If you only run single replica of your application pod and you don&amp;rsquo;t want voluntary disruptions to terminate the application then set &amp;ldquo;&lt;code&gt;maxUnavailable=0&lt;/code&gt;&amp;rdquo;.  In this case, you have to manually evict the pod. This allows you to plan for downtime and then delete the pod manually.&lt;/p&gt;
+&lt;p&gt;If you only run single replica of your application pod and you don&amp;rsquo;t want voluntary disruptions to terminate the application then set &amp;ldquo;&lt;code&gt;maxUnavailable=0&lt;/code&gt;&amp;rdquo;. In this case, you have to manually evict the pod. This allows you to plan for downtime and then delete the pod manually.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;PDBs help prevent downtime by ensuring enough replicas are running when the nodes are down voluntarily.&lt;/p&gt;
-&lt;p&gt;Check the popular statefulsets to see how they have configured pdb in their K8s yamls. Here is one such &lt;a href=&#34;https://github.com/strimzi/strimzi-kafka-operator/blob/main/install/cluster-operator/040-Crd-kafka.yaml#L3241&#34;&gt;example&lt;/a&gt; from strimzi-kafka-operator.&lt;/p&gt;
+&lt;p&gt;Check the popular statefulsets to see how they have configured pdb in their K8s yamls. Here is one such &lt;a href="https://github.com/strimzi/strimzi-kafka-operator/blob/main/install/cluster-operator/040-Crd-kafka.yaml#L3241"&gt;example&lt;/a&gt; from strimzi-kafka-operator.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;NodePool Disruption Budgets&lt;/strong&gt; (NDB) controls how many nodes in a node pool can be disrupted simultaneously, e.g., during rolling updates, Karpenter autoscaling etc.&lt;/p&gt;
 &lt;p&gt;NodePools and NDBs are part of Karpenter and you must have Karpenter installed in your Kubernetes cluster before configuring NDBs.&lt;/p&gt;
-&lt;p&gt;Karpenter uses NDBs to rate limit Karpenter&amp;rsquo;s disruption. If undefined, it defaults to &amp;ldquo;node:10%&amp;rdquo;. NDBs do not prevent Karpenter from terminating  expired nodes.&lt;/p&gt;
+&lt;p&gt;Karpenter uses NDBs to rate limit Karpenter&amp;rsquo;s disruption. If undefined, it defaults to &amp;ldquo;node:10%&amp;rdquo;. NDBs do not prevent Karpenter from terminating expired nodes.&lt;/p&gt;
 &lt;p&gt;Examples of NDB:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&amp;ldquo;&lt;code&gt;spec.disruption.budgets.nodes: 10%&lt;/code&gt;&amp;rdquo; will only allow 10% nodes in that nodepool to be disrupted. You can add reasons like &amp;ldquo;if nodes are Empty&amp;rdquo; along with 10% limit.&lt;/li&gt;
 &lt;li&gt;Another example for NDB would be to block node disruption first hour during the day for underutilized nodes using:&lt;/li&gt;
 &lt;/ul&gt;
-&lt;pre tabindex=&#34;0&#34;&gt;&lt;code&gt;     - nodes: &amp;#34;0&amp;#34;
-        schedule: &amp;#34;@daily&amp;#34;
-        duration: 1h
-        reasons:
-        - &amp;#34;Underutilized&amp;#34;
+&lt;pre tabindex="0"&gt;&lt;code&gt; - nodes: &amp;#34;0&amp;#34;
+schedule: &amp;#34;@daily&amp;#34;
+duration: 1h
+reasons:
+- &amp;#34;Underutilized&amp;#34;
 &lt;/code&gt;&lt;/pre&gt;&lt;p&gt;You can attach multiple budgets to the same NDB.&lt;/p&gt;
 &lt;p&gt;Set &amp;ldquo;&lt;code&gt;karpenter.sh/do-not-disrupt: true&lt;/code&gt;&amp;rdquo; to block Karpenter from voluntarily choosing you pod, Deployment, Node or NodePool. Note that setting this annotation does not prevent nodes from forceful disruptions like Expiration, Node Repair etc.&lt;/p&gt;
 &lt;p&gt;As you can see in this below diagram, PDB is attached to specific set of pods using a label selector &lt;code&gt;.spec.selector&lt;/code&gt;. You add NDB budget in the NodeClass YAML.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/pdb-ndb-v1.png&#34; alt=&#34;PDB vs NDB&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/pdb-ndb-v1.png" alt="PDB vs NDB"&gt;&lt;/p&gt;
 &lt;p&gt;To summarize, use PDB to maintain availability of critical application pods and use NDB to limit disruptions at nodepool level. By combining both, you can increase your pod availability and cluster stability.&lt;/p&gt;
-&lt;p&gt;Do you use PDB or NDB? Share your experience in my &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/&#34;&gt;LinkedIn post&lt;/a&gt; comments!&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title>
-      <link>https://vijay.eu/posts/presented-at-aws-meetup/</link>
-      <pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-1.webp&#34; alt=&#34;AWS Meetup Presenting&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Do you use PDB or NDB? Share your experience in my &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7302022325053353984/"&gt;LinkedIn post&lt;/a&gt; comments!&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Presented on EKS Auto Mode at the AWS Helsinki Meetup</title><link>https://vijay.eu/posts/presented-at-aws-meetup/</link><pubDate>Thu, 06 Feb 2025 20:17:49 +0200</pubDate><guid>https://vijay.eu/posts/presented-at-aws-meetup/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-meetup-1.webp" alt="AWS Meetup Presenting"&gt;&lt;/p&gt;
 &lt;p&gt;Had an amazing time presenting at the AWS meetup today! It was great to share my insights on how EKS Auto mode can help the customers get rid off undifferentiated heavy lifting.&lt;/p&gt;
-&lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives.  Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
+&lt;p&gt;Started with the basics of Kubernetes for those new to it and then went on to explain how EKS helps customers and how EKS Auto mode will simplify K8s Day 2 operations. The lively Q&amp;amp;A was a highlight, and I learned a lot from the audience&amp;rsquo;s perspectives. Public speaking is a journey, and I&amp;rsquo;m grateful for the opportunity to practice and grow.&lt;/p&gt;
 &lt;p&gt;A huge thank you to Petri Rosenström, Rolf Koski and Accenture for organizing the Amazon Web Services (AWS) meetup today in Helsinki.&lt;/p&gt;
 &lt;p&gt;Also learnt about Accenture&amp;rsquo;s technology vision from Juha Takala, Emil Nyback and interesting GenAI talk from Niklas Liljestrand !!! All great talks.&lt;/p&gt;
-&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-meetup-2.webp&#34; alt=&#34;AWS Meetup Presenting 2&#34;&gt;&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Surprising side effect of running EKS Auto Mode</title>
-      <link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link>
-      <pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid>
-      <description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-meetup-2.webp" alt="AWS Meetup Presenting 2"&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Surprising side effect of running EKS Auto Mode</title><link>https://vijay.eu/posts/surprising-side-effect-eks-auto/</link><pubDate>Tue, 21 Jan 2025 12:10:31 +0200</pubDate><guid>https://vijay.eu/posts/surprising-side-effect-eks-auto/</guid><description>&lt;p&gt;One surprising side effect you will notice when you move to EKS Auto mode is that you cannot create a Classic Load Balancer (CLB) using Kubernetes Service annotations. You can only create Network Load Balancers (NLB) using K8s Service annotations.&lt;/p&gt;
 &lt;p&gt;This restriction came into place due to the automatic inclusion of AWS Load Balancer controller as an add-on in EKS Auto mode. AFAIK, there is no way to disable or remove that add-on from EKS Auto mode cluster.&lt;/p&gt;
 &lt;p&gt;If you are utilizing other ingress controllers like HAProxy, then you cannot create a CLB (HTTPS) using Service annotations. You can only create NLBs using Service annotations and route the traffic through HAProxy ingress controller. After that you can create ingresses which can utilize HAProxy as ingress controller.&lt;/p&gt;
 &lt;p&gt;This means that if you have been using HAProxy ingress controller or other similar ingress controllers then this limitation restricts you to service HTTP/HTTPS traffic through them.&lt;/p&gt;
 &lt;p&gt;Since this is a new release, I haven&amp;rsquo;t seen any update in their docs. I am curious on how other ingress controllers handle this change.&lt;/p&gt;
 &lt;p&gt;Have you faced this issue in EKS Auto mode? Did you manage to fix it? I would like to know your thoughts on this?&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Do you run your database on Kubernetes?</title>
-      <link>https://vijay.eu/posts/database-on-kubernetes/</link>
-      <pubDate>Fri, 10 Jan 2025 11:34:54 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/database-on-kubernetes/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/dbink8s.webp&#34; alt=&#34;dbink8s&#34;&gt;&lt;/p&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Do you run your database on Kubernetes?</title><link>https://vijay.eu/posts/database-on-kubernetes/</link><pubDate>Fri, 10 Jan 2025 11:34:54 +0200</pubDate><guid>https://vijay.eu/posts/database-on-kubernetes/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/dbink8s.webp" alt="dbink8s"&gt;&lt;/p&gt;
 &lt;p&gt;Do you run your database on Kubernetes? This has been an evergreen debate. Where does it stand now?&lt;/p&gt;
 &lt;p&gt;Kubernetes has come a long way from running only stateless workloads early on to now supporting statefulsets with improvements in sticky identity, persistent storage and unique network identity. Kubernetes has democratized the container orchestration and given the world tools to run most software at scale. This is only one part of the solution.&lt;/p&gt;
 &lt;p&gt;Databases built to run directly on servers or virtual machines have different features to make them highly available, resilient and scalable. Now if you bring those databases and run them on Kubernetes then it is a recipe for disaster. In the recent years, there have been cloud native databases built to run on Kubernetes. This is the remaining part of the solution.&lt;/p&gt;
@@ -187,18 +98,8 @@ Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;Best of both worlds? What about latency? How do you handle frequent k8s release upgrades every three months? Now with EKS Auto mode, the worker nodes max lifetime is just 21 days. Imagine moving around your database nodes every two-three weeks? Is it recommended in production? Do you instead use managed database service from hashtag#AWS hashtag#GoogleCloud or hashtag#Azure?&lt;/p&gt;
 &lt;p&gt;There is no right or wrong answer and &amp;ldquo;It Depends&amp;rdquo; on the software architecture and business constraints.&lt;/p&gt;
 &lt;p&gt;I would like to hear from you all. Write your opinion in the comments below. Do you run your database on Kubernetes? Why? Why not? What are your reasons? Are you using it in production? What is the adoption for such databases?&lt;/p&gt;
-&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and visit &lt;a href=&#34;https://dev.to/vijaykodam&#34;&gt;my dev.to posts&lt;/a&gt;.&lt;/p&gt;
-&lt;p&gt;Image generated using DALL.E to depict storage in the cloud.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>What is ARC Zonal shift feature in EKS?</title>
-      <link>https://vijay.eu/posts/eks-arc-zonal-shift/</link>
-      <pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/snowdrop.webp&#34; alt=&#34;snowdrop&#34;&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Image generated using DALL.E to depict storage in the cloud.&lt;/p&gt;</description></item><item><title>What is ARC Zonal shift feature in EKS?</title><link>https://vijay.eu/posts/eks-arc-zonal-shift/</link><pubDate>Mon, 30 Dec 2024 01:04:17 +0200</pubDate><guid>https://vijay.eu/posts/eks-arc-zonal-shift/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;
 &lt;em&gt;Image Credits:&lt;/em&gt; Generated using DALL.E. &lt;em&gt;This image depicts &lt;strong&gt;resiliency&lt;/strong&gt; in nature similar to what is expected from your AWS architecture :)&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Recently I have created an EKS Auto mode cluster and observed that &lt;strong&gt;“ARC Zonal shift”&lt;/strong&gt; feature was enabled for my EKS cluster.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Amazon Application Recovery Controller (ARC)&lt;/strong&gt; helps simplify and automate recovery for highly available applications. It was initially known as “Route 53 ARC” and since then has expanded to support Amazon EC2 Auto scaling groups, ALB, NLB and now EKS. So it is now just Amazon ARC.&lt;/p&gt;
@@ -210,18 +111,8 @@ Image Credits: Generated using ChatGPT 3o&lt;/p&gt;
 &lt;p&gt;With zonal shift, you can temporarily mitigate issues and incidents by triggering a shift and redirecting in-cluster network traffic to a healthy AZ.&lt;/p&gt;
 &lt;p&gt;For this to work, you should already be running EKS worker nodes in multiple AZs (at least three) for HA and resiliency and your applications are already running in multiple AZs. So if your application is already running in three different AZs and if one AZ is impaired then Zonal shift will redirect traffic away from impaired AZ to healthy AZs. In this case, you will have your application running in two AZs as highly available after the third one went down.&lt;/p&gt;
 &lt;p&gt;Ideally such setup comes with cost so use it for highly critical workloads where you need such level of high-availability and resiliency.&lt;/p&gt;
-&lt;p&gt;Check the EKS Zonal shift documentation to learn more: &lt;a href=&#34;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&#34;&gt;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Follow me on LinkedIn for more content related to Kubernetes, EKS and AWS in general. Visit my website at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt; for all my posts in one place.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title>
-      <link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link>
-      <pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/EKS-Auto-Mode.webp&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Check the EKS Zonal shift documentation to learn more: &lt;a href="https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html"&gt;https://docs.aws.amazon.com/eks/latest/userguide/zone-shift.html&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Follow me on LinkedIn for more content related to Kubernetes, EKS and AWS in general. Visit my website at &lt;a href="https://vijay.eu/posts"&gt;https://vijay.eu/posts&lt;/a&gt; for all my posts in one place.&lt;/p&gt;</description></item><item><title>Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?</title><link>https://vijay.eu/posts/eks-auto-max-node-lifetime/</link><pubDate>Thu, 12 Dec 2024 14:13:02 +0530</pubDate><guid>https://vijay.eu/posts/eks-auto-max-node-lifetime/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/EKS-Auto-Mode.webp" alt="Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;Do you know that EKS Auto Mode enforces a 21-day maximum node lifetime?&lt;/p&gt;
 &lt;p&gt;EKS Auto mode cluster manages worker nodes on your behalf.
 Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node lifetime. This is the maximum node lifetime. It will be replaced with a new node.&lt;/p&gt;
@@ -232,28 +123,18 @@ Karpenter deletes worker nodes in EKS auto mode nodepools after 21 days of node 
 &lt;li&gt;component upgrades&lt;/li&gt;
 &lt;li&gt;improves security posture&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h2 id=&#34;what-if-you-want-to-modify-the-maximum-node-lifetime&#34;&gt;What if you want to modify the maximum node lifetime?&lt;/h2&gt;
+&lt;h2 id="what-if-you-want-to-modify-the-maximum-node-lifetime"&gt;What if you want to modify the maximum node lifetime?&lt;/h2&gt;
 &lt;p&gt;You can reduce the maximum node lifetime by creating a custom NodePool with “spec.template.spec.expireAfter” with a value of node lifetime in hours. Max is 21 days.&lt;/p&gt;
-&lt;h2 id=&#34;how-to-disable-it&#34;&gt;How to disable it?&lt;/h2&gt;
+&lt;h2 id="how-to-disable-it"&gt;How to disable it?&lt;/h2&gt;
 &lt;p&gt;If for some reason, you do not want to delete worker nodes so frequent or if you want to keep the nodes static then you can create a new Managed Node Group and add nodes in it.
 You can create both EKS Auto mode nodepools and Managed Node groups (without auto mode) in the same EKS cluster. These are called mixed-mode clusters.
 I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
-&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; and check out &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt; for all my blog posts in one place.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>First Impressions of EKS Auto Mode – A Game Changer!</title>
-      <link>https://vijay.eu/posts/eks-auto-first-impressions/</link>
-      <pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/aws-eks-pic.png&#34; alt=&#34;Kubernetes&#34;&gt;
+&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and check out &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt; for all my blog posts in one place.&lt;/p&gt;</description></item><item><title>First Impressions of EKS Auto Mode – A Game Changer!</title><link>https://vijay.eu/posts/eks-auto-first-impressions/</link><pubDate>Wed, 04 Dec 2024 23:13:15 +0530</pubDate><guid>https://vijay.eu/posts/eks-auto-first-impressions/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/aws-eks-pic.png" alt="Kubernetes"&gt;
 &lt;em&gt;Image Credit: From AWS EKS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;Here are my thoughts after initial few days of using &lt;strong&gt;EKS Auto mode&lt;/strong&gt;.&lt;/p&gt;
 &lt;p&gt;AWS has truly raised the bar with EKS Auto Mode, a new feature announced at &lt;strong&gt;re:Invent 2024&lt;/strong&gt;. This innovation automates much of the undifferentiated heavy lifting, allowing customers to focus on what matters most: building great applications.&lt;/p&gt;
-&lt;h2 id=&#34;my-hands-on-experience&#34;&gt;My Hands-On Experience&lt;/h2&gt;
-&lt;p&gt;I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in &lt;a href=&#34;https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/&#34;&gt;more detail about it here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="my-hands-on-experience"&gt;My Hands-On Experience&lt;/h2&gt;
+&lt;p&gt;I set up an EKS Auto Mode cluster from scratch and was pleasantly surprised by how much AWS now handles post-installation. You can read in &lt;a href="https://www.linkedin.com/pulse/how-create-eks-auto-mode-cluster-vijay-kumar-kodam-oqw4f/"&gt;more detail about it here&lt;/a&gt;.&lt;/p&gt;
 &lt;p&gt;Let me break down what &lt;em&gt;Day 2 operations&lt;/em&gt; typically involve:&lt;/p&gt;
 &lt;ol&gt;
 &lt;li&gt;
@@ -279,7 +160,7 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ol&gt;
 &lt;p&gt;Now, imagine all these tasks being automated by AWS. That’s EKS Auto Mode for you!&lt;/p&gt;
-&lt;h2 id=&#34;key-highlights-from-my-testing&#34;&gt;Key Highlights from My Testing&lt;/h2&gt;
+&lt;h2 id="key-highlights-from-my-testing"&gt;Key Highlights from My Testing&lt;/h2&gt;
 &lt;ul&gt;
 &lt;li&gt;
 &lt;p&gt;&lt;strong&gt;No Idle Nodes&lt;/strong&gt;: When I launched my first EKS Auto Mode cluster, there were no worker nodes running initially—just built-in &amp;ldquo;general-purpose&amp;rdquo; and &amp;ldquo;system&amp;rdquo; node pools.&lt;/p&gt;
@@ -292,30 +173,20 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
 &lt;p&gt;This level of automation simplifies cluster operations and significantly reduces costs.&lt;/p&gt;
-&lt;h2 id=&#34;pricing-update&#34;&gt;Pricing Update&lt;/h2&gt;
-&lt;p&gt;EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about &lt;a href=&#34;https://aws.amazon.com/eks/pricing/&#34;&gt;EKS Auto mode pricing here&lt;/a&gt;.&lt;/p&gt;
-&lt;h2 id=&#34;whats-next&#34;&gt;What’s Next?&lt;/h2&gt;
-&lt;p&gt;I’ve &lt;a href=&#34;https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/&#34;&gt;created a demo video&lt;/a&gt; showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!&lt;/p&gt;
-&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href=&#34;https://www.linkedin.com/in/vijaykodam/&#34;&gt;LinkedIn&lt;/a&gt; or check out my blog at &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
-&lt;p&gt;Let me know your thoughts on this exciting new feature! 👇&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Unlock Up to 40% AWS Cost Savings with Graviton!</title>
-      <link>https://vijay.eu/posts/save-costs-with-graviton/</link>
-      <pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/save-costs-with-graviton/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/graviton.png&#34; alt=&#34;Graviton&#34;&gt;&lt;/p&gt;
+&lt;h2 id="pricing-update"&gt;Pricing Update&lt;/h2&gt;
+&lt;p&gt;EKS Auto Mode introduces a pay-as-you-go control plane pricing model based on the number of EC2 worker nodes, a shift from the flat fee for the standard EKS control plane. While it’s a slight increase in cost, the time and effort saved make it a Win-Win for both AWS and customers. Find more about &lt;a href="https://aws.amazon.com/eks/pricing/"&gt;EKS Auto mode pricing here&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="whats-next"&gt;What’s Next?&lt;/h2&gt;
+&lt;p&gt;I’ve &lt;a href="https://www.linkedin.com/feed/update/urn:li:activity:7269311743338663936/"&gt;created a demo video&lt;/a&gt; showcasing EKS Auto Mode in action. If you’re curious, I highly recommend giving this feature a try!&lt;/p&gt;
+&lt;p&gt;For more insights on EKS, AWS, Kubernetes, and Cloud Architecture, follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; or check out my blog at &lt;a href="https://vijay.eu/posts"&gt;https://vijay.eu/posts&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Let me know your thoughts on this exciting new feature! 👇&lt;/p&gt;</description></item><item><title>Unlock Up to 40% AWS Cost Savings with Graviton!</title><link>https://vijay.eu/posts/save-costs-with-graviton/</link><pubDate>Sun, 27 Oct 2024 00:14:32 +0300</pubDate><guid>https://vijay.eu/posts/save-costs-with-graviton/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/graviton.png" alt="Graviton"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;em&gt;Image Credits: From AWS Blog&lt;/em&gt;&lt;/p&gt;
 &lt;p&gt;There are multiple ways to cost optimize your applications running in AWS. One effective way to achieve this is by using &lt;strong&gt;Graviton-based instance types&lt;/strong&gt;. Graviton processor-based instances are gaining popularity as more applications and AWS services now support them.&lt;/p&gt;
 &lt;p&gt;Amazon EC2 instances powered by AWS Graviton2 processors provide up to &lt;strong&gt;40% better price performance&lt;/strong&gt; compared to fifth-generation x86-based instances for a wide variety of workloads.&lt;/p&gt;
-&lt;h3 id=&#34;climate-friendly-computing-with-graviton&#34;&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
+&lt;h3 id="climate-friendly-computing-with-graviton"&gt;Climate-Friendly Computing with Graviton&lt;/h3&gt;
 &lt;p&gt;Using Graviton also has climate benefits: it reduces your carbon footprint by using up to &lt;strong&gt;60% less energy&lt;/strong&gt; than comparable EC2 instances for the same performance.&lt;/p&gt;
 &lt;p&gt;By choosing Graviton-based instances over traditional x86 instances, you can unlock significant savings. Since Apple adopted ARM processors for their MacBooks, ARM has gained widespread support across operating systems and applications, ensuring seamless compatibility. AWS’s push for Graviton has further motivated the software industry to embrace ARM-based processors.&lt;/p&gt;
 &lt;p&gt;AWS has been steadily expanding Graviton support across its services, making it easier than ever to leverage cost savings with ARM-based processors.&lt;/p&gt;
-&lt;h3 id=&#34;graviton-support-across-aws-managed-services&#34;&gt;Graviton Support Across AWS Managed Services&lt;/h3&gt;
+&lt;h3 id="graviton-support-across-aws-managed-services"&gt;Graviton Support Across AWS Managed Services&lt;/h3&gt;
 &lt;p&gt;Here are some of the popular AWS managed services that support Graviton:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
@@ -325,8 +196,8 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;AWS Lambda&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Amazon OpenSearch Service&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md&#34;&gt;link&lt;/a&gt; for a full list of supported AWS services.&lt;/p&gt;
-&lt;h3 id=&#34;graviton-support-in-kubernetes-and-the-container-ecosystem&#34;&gt;Graviton Support in Kubernetes and the Container Ecosystem&lt;/h3&gt;
+&lt;p&gt;For AWS managed services where Graviton-based instances are supported, like EKS, you can create Graviton-based instances for the worker nodes. Refer to this &lt;a href="https://github.com/aws/aws-graviton-getting-started/blob/main/managed_services.md"&gt;link&lt;/a&gt; for a full list of supported AWS services.&lt;/p&gt;
+&lt;h3 id="graviton-support-in-kubernetes-and-the-container-ecosystem"&gt;Graviton Support in Kubernetes and the Container Ecosystem&lt;/h3&gt;
 &lt;p&gt;Kubernetes and containers have become the de facto platform for running microservices today. Graviton is supported by:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;&lt;strong&gt;Amazon EKS&lt;/strong&gt;&lt;/li&gt;
@@ -340,47 +211,27 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;li&gt;&lt;strong&gt;ArgoCD&lt;/strong&gt;&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;Terraform&lt;/strong&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;…and many other tools. Here is the &lt;a href=&#34;https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support&#34;&gt;full list of popular software&lt;/a&gt; within the container ecosystem that explicitly supports arm64/Graviton.&lt;/p&gt;
+&lt;p&gt;…and many other tools. Here is the &lt;a href="https://github.com/aws/aws-graviton-getting-started/blob/main/containers.md#ecosystem-support"&gt;full list of popular software&lt;/a&gt; within the container ecosystem that explicitly supports arm64/Graviton.&lt;/p&gt;
 &lt;p&gt;Additionally, &lt;strong&gt;.NET 9&lt;/strong&gt; and many older versions support Graviton.&lt;/p&gt;
-&lt;h3 id=&#34;operating-systems-supporting-graviton&#34;&gt;Operating Systems Supporting Graviton&lt;/h3&gt;
+&lt;h3 id="operating-systems-supporting-graviton"&gt;Operating Systems Supporting Graviton&lt;/h3&gt;
 &lt;p&gt;Several major operating systems also support Graviton, including &lt;strong&gt;Amazon Linux 2023&lt;/strong&gt;, &lt;strong&gt;Ubuntu&lt;/strong&gt;, &lt;strong&gt;RHEL&lt;/strong&gt;, &lt;strong&gt;SUSE&lt;/strong&gt;, &lt;strong&gt;Alpine Linux&lt;/strong&gt;, and more.&lt;/p&gt;
 &lt;hr&gt;
-&lt;h3 id=&#34;try-amazon-ec2-t4g-instances-for-free-today&#34;&gt;Try Amazon EC2 T4g Instances for Free Today&lt;/h3&gt;
-&lt;p&gt;Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 &lt;code&gt;t4g.small&lt;/code&gt; instances powered by AWS Graviton2 processors free for up to &lt;strong&gt;750 hours per month until Dec 31st, 2024&lt;/strong&gt;. Refer to the &lt;a href=&#34;https://aws.amazon.com/ec2/faqs/&#34;&gt;Amazon EC2 FAQ&lt;/a&gt; for additional details.&lt;/p&gt;
-&lt;p&gt;With this &lt;a href=&#34;https://aws.amazon.com/ec2/graviton/getting-started/&#34;&gt;step-by-step guide from AWS&lt;/a&gt;, you can adopt Graviton-based instances for your workloads.&lt;/p&gt;
-&lt;h3 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h3&gt;
+&lt;h3 id="try-amazon-ec2-t4g-instances-for-free-today"&gt;Try Amazon EC2 T4g Instances for Free Today&lt;/h3&gt;
+&lt;p&gt;Amazon EC2 T4g instances are the next generation of general-purpose burstable instances powered by Arm-based AWS Graviton2 processors. Try Amazon EC2 &lt;code&gt;t4g.small&lt;/code&gt; instances powered by AWS Graviton2 processors free for up to &lt;strong&gt;750 hours per month until Dec 31st, 2024&lt;/strong&gt;. Refer to the &lt;a href="https://aws.amazon.com/ec2/faqs/"&gt;Amazon EC2 FAQ&lt;/a&gt; for additional details.&lt;/p&gt;
+&lt;p&gt;With this &lt;a href="https://aws.amazon.com/ec2/graviton/getting-started/"&gt;step-by-step guide from AWS&lt;/a&gt;, you can adopt Graviton-based instances for your workloads.&lt;/p&gt;
+&lt;h3 id="conclusion"&gt;Conclusion&lt;/h3&gt;
 &lt;p&gt;Consider including Graviton-based instances in your workload, whether in your Kubernetes clusters, EC2 instances, Lambda functions, or databases.&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Save money and save the planet.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on &lt;a href=&#34;https://vijay.eu/posts&#34;&gt;my blog&lt;/a&gt;.&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title>
-      <link>https://vijay.eu/posts/eks-upgrade-insights/</link>
-      <pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/eks-upgrade-insights/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;Graviton is one of several ways to optimize costs in AWS. I will cover more cost optimization strategies in future posts, so follow me to learn more about AWS, cost optimization, and Kubernetes. I also post all my articles on &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>Save Hours During Amazon EKS Upgrades with This One Simple Step!</title><link>https://vijay.eu/posts/eks-upgrade-insights/</link><pubDate>Thu, 03 Oct 2024 01:00:19 +0300</pubDate><guid>https://vijay.eu/posts/eks-upgrade-insights/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/K8s.png" alt="Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;🚀 Save Hours During Amazon EKS Upgrades with This One Simple Step! 🚀&lt;/p&gt;
 &lt;p&gt;If you’ve ever managed EKS clusters in production, you know how crucial it is to keep them updated to leverage the latest features and maintain security.&lt;/p&gt;
 &lt;p&gt;🔄 But before starting an upgrade, have you checked the &amp;ldquo;Upgrade Insights&amp;rdquo; tab on the EKS cluster page?&lt;/p&gt;
 &lt;p&gt;Previously, our team had to manually check for deprecations and potential issues before every upgrade, spending hours in the process. Now, with the &amp;ldquo;Upgrade Insights&amp;rdquo; feature, EKS continuously monitors audit logs, detects deprecation errors, and updates the insights daily.&lt;/p&gt;
 &lt;p&gt;This small step has transformed our process and saved us countless hours of debugging and maintenance. 💡&lt;/p&gt;
 &lt;p&gt;✅ &lt;strong&gt;Pro tip&lt;/strong&gt;: Always review the &amp;ldquo;Upgrade Insights&amp;rdquo; tab before upgrading your clusters to ensure a smooth transition to newer Kubernetes versions.&lt;/p&gt;
-&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;h3 id="comments"&gt;Comments&lt;/h3&gt;
 &lt;p&gt;Send your feedback by commenting on my LinkedIn post below.&lt;/p&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&#34;&gt;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&lt;/a&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Kubernetes 10th Birthday</title>
-      <link>https://vijay.eu/posts/kubernetes-10th-birthday/</link>
-      <pubDate>Thu, 06 Jun 2024 06:06:36 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/kubernetes-10th-birthday/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/k8s10.jpg&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.linkedin.com/posts/activity-7247354293660356609-IT7t"&gt;https://www.linkedin.com/posts/activity-7247354293660356609-IT7t&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Kubernetes 10th Birthday</title><link>https://vijay.eu/posts/kubernetes-10th-birthday/</link><pubDate>Thu, 06 Jun 2024 06:06:36 +0300</pubDate><guid>https://vijay.eu/posts/kubernetes-10th-birthday/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/k8s10.jpg" alt="Kubernetes"&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Celebrating 10 Years of Kubernetes!&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;I&amp;rsquo;m thrilled to be part of the incredible Kubernetes journey that started 10 years ago!&lt;/p&gt;
 &lt;p&gt;Back in the early days, I was deep in the world of containers. Then came the chance to build Nokia&amp;rsquo;s Digital Automation Cloud and we chose Kubernetes as the foundation. Those were wild times – Kubernetes didn&amp;rsquo;t even had ingress yet, so we had to get creative to manage incoming traffic!&lt;/p&gt;
@@ -390,18 +241,8 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;p&gt;Today, cloud providers like AWS (EKS) and Microsoft (AKS) offer managed Kubernetes services, making it easier than ever to deploy and manage containerized applications.&lt;/p&gt;
 &lt;p&gt;The impact of Kubernetes is undeniable. Now, when companies build software, Kubernetes is the de-facto standard platform, regardless of cloud provider. It&amp;rsquo;s become the expected foundation for modern application development.&lt;/p&gt;
 &lt;p&gt;Here&amp;rsquo;s to many more years of innovation with Kubernetes!&lt;/p&gt;
-&lt;p&gt;&lt;strong&gt;#kubernetes #containerorchestration #cloudnative #devops #opensource&lt;/strong&gt;&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Where Should I Deploy My K8s Cluster?</title>
-      <link>https://vijay.eu/posts/deploy-k8s/</link>
-      <pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate>
-      
-      <guid>https://vijay.eu/posts/deploy-k8s/</guid>
-      <description>&lt;p&gt;&lt;img src=&#34;https://vijay.eu/images/K8s.png&#34; alt=&#34;Kubernetes&#34;&gt;&lt;/p&gt;
-&lt;p&gt;This week there was an &lt;a href=&#34;https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift&#34;&gt;announcement&lt;/a&gt; about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&amp;rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;#kubernetes #containerorchestration #cloudnative #devops #opensource&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Where Should I Deploy My K8s Cluster?</title><link>https://vijay.eu/posts/deploy-k8s/</link><pubDate>Sun, 17 May 2020 01:00:19 +0300</pubDate><guid>https://vijay.eu/posts/deploy-k8s/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/K8s.png" alt="Kubernetes"&gt;&lt;/p&gt;
+&lt;p&gt;This week there was an &lt;a href="https://www.redhat.com/en/blog/red-hat-and-aws-extend-collaboration-introducing-amazon-red-hat-openshift"&gt;announcement&lt;/a&gt; about Amazon Red Hat Openshift. It is an enterprise Kubernetes (K8s) service on AWS jointly managed and supported by AWS and Red Hat. Upon reading more about the service, found out that Red Hat already has two more OpenShift services available on AWS. If you count AWS&amp;rsquo; own managed K8s service Amazon Elastic Kubernetes Service (EKS) then there are four different ways you can run a K8s cluster on top of AWS. I am sure there are many other companies providing similar managed K8s services on top of AWS.&lt;/p&gt;
 &lt;p&gt;For a beginner starting to use K8s this is overwhelming. This brings us to the question: &lt;strong&gt;Where should I deploy my K8s cluster?&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;As always, the answer is: &lt;strong&gt;It Depends&lt;/strong&gt;&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;It depends&lt;/strong&gt; on:&lt;/p&gt;
@@ -421,45 +262,38 @@ I will be covering more about mixed-mode clusters in future posts.&lt;/p&gt;
 &lt;li&gt;PaaS&lt;/li&gt;
 &lt;li&gt;Others&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h3 id=&#34;on-premises&#34;&gt;On Premises&lt;/h3&gt;
+&lt;h3 id="on-premises"&gt;On Premises&lt;/h3&gt;
 &lt;p&gt;If you already own datacenters or if you have strict privacy/security requirements for making sure the data does not leave your premises then &lt;em&gt;On Premises&lt;/em&gt; solution is the way to go.&lt;/p&gt;
 &lt;p&gt;Install host operating system on the bare metal servers and then install K8s on top of it. Kubeadm is one option. However, be aware that this is a bare bones solution. You have to build/integrate authentication, authorization, dashboard, security, networking plugins, service mesh, storage, the list goes on.&lt;/p&gt;
 &lt;p&gt;You could choose to install Openshift or Rancher. These come fully loaded.&lt;/p&gt;
-&lt;p&gt;On Premises solutions are usually the slowest ones  to complete the installation as you have to deal  with hardware. It takes time to order, ship, install and configure them.&lt;/p&gt;
-&lt;h3 id=&#34;hybrid-cloud&#34;&gt;Hybrid Cloud&lt;/h3&gt;
+&lt;p&gt;On Premises solutions are usually the slowest ones to complete the installation as you have to deal with hardware. It takes time to order, ship, install and configure them.&lt;/p&gt;
+&lt;h3 id="hybrid-cloud"&gt;Hybrid Cloud&lt;/h3&gt;
 &lt;p&gt;Amazon Outposts, Google Anthos and Azure Stack provide rack full of servers which you can install in your datacenter. These racks are connected to their Public cloud and you manage it just like VMs on public cloud.&lt;/p&gt;
 &lt;p&gt;This option gives you the flexibility of cloud deployment with the advantage of not managing the hardware.&lt;/p&gt;
 &lt;p&gt;Keep in mind that this is the most costliest option. Bill can run into millions easily.&lt;/p&gt;
 &lt;p&gt;Once you have Outposts, Anthos or Azure Stack rack on premises, you can use their managed K8s solution on top of it. Google Anthos GKE is one such option.&lt;/p&gt;
 &lt;p&gt;The timeline depends on the cloud provider and honestly I have no idea about it.&lt;/p&gt;
-&lt;h3 id=&#34;iaas&#34;&gt;IaaS&lt;/h3&gt;
+&lt;h3 id="iaas"&gt;IaaS&lt;/h3&gt;
 &lt;p&gt;If you need full control of the K8s cluster and you are a pro in managing K8s then this is the option to go.&lt;/p&gt;
 &lt;p&gt;You install K8s on top of Amazon EC2 or Google Compute Engine or Azure Virtual Machine.&lt;/p&gt;
 &lt;p&gt;Several K8s deployment tools like kops, kubespray or KRIB exist. You can also install Red Hat Openshift or Rancher on the virtual machines.&lt;/p&gt;
 &lt;p&gt;Use this option only when you have experience running k8s clusters.&lt;/p&gt;
-&lt;h3 id=&#34;paas&#34;&gt;PaaS&lt;/h3&gt;
+&lt;h3 id="paas"&gt;PaaS&lt;/h3&gt;
 &lt;p&gt;If all you wanted is a K8s cluster and don&amp;rsquo;t know or don&amp;rsquo;t want to know K8s cluster management then this option is for you.&lt;/p&gt;
 &lt;p&gt;Managed K8s solutions like Google GKE, Amazon EKS, Amazon Red Hat Openshift, Azure AKS does fit the bill.&lt;/p&gt;
 &lt;p&gt;You click a button and you get a cluster and the kubeconfig/credentials to the cluster.&lt;/p&gt;
 &lt;p&gt;You might want to customize some options, enable logging, move the API server to private endpoint etc.&lt;/p&gt;
 &lt;p&gt;Usually this is a good place to start for development clusters. Deploy the k8s cluster, tune it, test it, run your applications and then customize more.&lt;/p&gt;
 &lt;p&gt;Since this is a managed solution, you will not have full control of the cluster. You have to use whatever version they support, don&amp;rsquo;t get access to the API server or etcd servers barring some flags.&lt;/p&gt;
-&lt;h3 id=&#34;others&#34;&gt;Others&lt;/h3&gt;
+&lt;h3 id="others"&gt;Others&lt;/h3&gt;
 &lt;p&gt;Minikube, kind, k3s are for developments purposes. These software are light weight and are designed to run on your laptop.&lt;/p&gt;
 &lt;p&gt;These solutions can be used for learning about k8s, for local testing of your applications.&lt;/p&gt;
-&lt;p&gt;K8s distributions like Red Hat Openshift or Rancher can be installed on bare metal, IaaS, and  PaaS. Usually this option is useful if you have more than one type of infrastructure and you want to use the same K8s distribution everywhere. You could build automation on top of it and deploy it any where you want.&lt;/p&gt;
-&lt;h2 id=&#34;conclusion&#34;&gt;Conclusion&lt;/h2&gt;
+&lt;p&gt;K8s distributions like Red Hat Openshift or Rancher can be installed on bare metal, IaaS, and PaaS. Usually this option is useful if you have more than one type of infrastructure and you want to use the same K8s distribution everywhere. You could build automation on top of it and deploy it any where you want.&lt;/p&gt;
+&lt;h2 id="conclusion"&gt;Conclusion&lt;/h2&gt;
 &lt;p&gt;In this blog post I have tried to cover different ways you can deploy your kubernetes cluster. This list is not exhaustive and I might have missed some options.&lt;/p&gt;
 &lt;p&gt;Kubernetes has become the industry standard for running containers and all the major public cloud providers have K8s services.&lt;/p&gt;
 &lt;p&gt;Purpose of writing this blog post is to showcase the variety of K8s deployment options you have, be it on a bare metal server, or virtual machine or managed solution like this week&amp;rsquo;s announcement of Amazon Red Hat Openshift.&lt;/p&gt;
-&lt;h3 id=&#34;comments&#34;&gt;Comments&lt;/h3&gt;
+&lt;h3 id="comments"&gt;Comments&lt;/h3&gt;
 &lt;p&gt;Send your feedback by commenting on my tweet below.&lt;/p&gt;
-&lt;blockquote class=&#34;twitter-tweet&#34;&gt;&lt;p lang=&#34;en&#34; dir=&#34;ltr&#34;&gt;Where should I deploy my K8s cluster?&lt;br&gt;My new blog post on this topic.&lt;a href=&#34;https://t.co/sflPzY3Rnt&#34;&gt;https://t.co/sflPzY3Rnt&lt;/a&gt;&lt;br&gt;&lt;br&gt;Do read it and give me feedback.&lt;/p&gt;&amp;mdash; Vijay Kodam (@vijaykodam) &lt;a href=&#34;https://twitter.com/vijaykodam/status/1261783876596350976?ref_src=twsrc%5Etfw&#34;&gt;May 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
-&lt;script async src=&#34;https://platform.twitter.com/widgets.js&#34; charset=&#34;utf-8&#34;&gt;&lt;/script&gt;
-
-
-</description>
-    </item>
-    
-  </channel>
-</rss>
+&lt;blockquote class="twitter-tweet"&gt;&lt;p lang="en" dir="ltr"&gt;Where should I deploy my K8s cluster?&lt;br&gt;My new blog post on this topic.&lt;a href="https://t.co/sflPzY3Rnt"&gt;https://t.co/sflPzY3Rnt&lt;/a&gt;&lt;br&gt;&lt;br&gt;Do read it and give me feedback.&lt;/p&gt;&amp;mdash; Vijay Kodam (@vijaykodam) &lt;a href="https://twitter.com/vijaykodam/status/1261783876596350976?ref_src=twsrc%5Etfw"&gt;May 16, 2020&lt;/a&gt;&lt;/blockquote&gt;
+&lt;script async src="https://platform.twitter.com/widgets.js" charset="utf-8"&gt;&lt;/script&gt;</description></item></channel></rss>
