@@ -95,7 +95,35 @@
 }
 
 /* ============================================
-   4. Dark Mode Support
+   4. Navigation: keep multi-word menu items on one line
+   ============================================ */
+
+.navigation .navigation-list .navigation-item a {
+  white-space: nowrap;
+}
+
+/* ============================================
+   5. List pages: date + title on a single line
+   ============================================ */
+
+.list ul li {
+  display: flex;
+  align-items: baseline;
+  white-space: nowrap;
+}
+
+.list ul li .date {
+  flex-shrink: 0;
+}
+
+.list ul li .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+}
+
+/* ============================================
+   6. Dark Mode Support
    ============================================ */
 
 @media (prefers-color-scheme: dark) {

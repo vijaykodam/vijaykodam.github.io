@@ -1,4 +1,301 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ClaudeCode on Vijay Kodam</title><link>https://vijay.eu/tags/claudecode/</link><description>Recent content in ClaudeCode on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 13 Mar 2025 23:16:20 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/claudecode/index.xml" rel="self" type="application/rss+xml"/><item><title>Creating decibel meter using Claude Code Agentic tool</title><link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link><pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate><guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid><description>&lt;h2 id="claude-code"&gt;Claude Code&lt;/h2&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>ClaudeCode on Vijay Kodam</title><link>https://vijay.eu/tags/claudecode/</link><description>Recent content in ClaudeCode on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 14 Feb 2026 18:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/claudecode/index.xml" rel="self" type="application/rss+xml"/><item><title>Why Claude Code with Ollama took 1 hour instead of 9 minutes, and how I fixed it</title><link>https://vijay.eu/co-authored/ollama-claude-code-performance-guide/</link><pubDate>Sat, 14 Feb 2026 18:00:00 +0300</pubDate><guid>https://vijay.eu/co-authored/ollama-claude-code-performance-guide/</guid><description>&lt;h2 id="the-dream-setup"&gt;The Dream Setup&lt;/h2&gt;
+&lt;p&gt;I finally got Claude Code running with my own local LLM. Everything local, everything private, running on my Mac Mini M4 Pro. No API keys, no cloud costs, no data leaving my network. Just me, my hardware, and a 79.7 billion parameter coding model.&lt;/p&gt;
+&lt;p&gt;But something was very wrong. A simple task (scaffolding a Django REST API with JWT authentication) took &lt;strong&gt;1 hour&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;At 23 tokens per second, the ~13,000 tokens of output should have taken about &lt;strong&gt;9 minutes&lt;/strong&gt;. Where did the other 51 minutes go?&lt;/p&gt;
+&lt;p&gt;This post walks through how I diagnosed the problem, what I learned about how LLM inference actually works, and the specific fixes that brought the time down significantly. If you&amp;rsquo;re running Claude Code with Ollama (or any local LLM), this will save you a lot of frustration.&lt;/p&gt;
+&lt;h2 id="my-setup"&gt;My Setup&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Hardware&lt;/strong&gt;: Mac Mini M4 Pro, 64GB unified memory&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Model&lt;/strong&gt;: &lt;code&gt;qwen3-coder-next:q4_K_M&lt;/code&gt;, a 79.7B parameter coding model, quantized to Q4_K_M (~48 GB on disk, ~54 GB in GPU memory)&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Inference server&lt;/strong&gt;: Ollama, running on the Mac Mini&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Client&lt;/strong&gt;: Claude Code v2.1.42, connecting to Ollama from another Mac on the local network&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Launch command&lt;/strong&gt;:
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_AUTH_TOKEN&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ollama &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_BASE_URL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;http://192.168.10.1:11434 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_API_KEY&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude --model qwen3-coder-next:q4_K_M
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Raw benchmarks looked promising. When I tested the model directly via Ollama&amp;rsquo;s API:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Token generation&lt;/strong&gt;: ~23 tokens/second&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Prompt evaluation&lt;/strong&gt;: ~20 tokens/second&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Those numbers aren&amp;rsquo;t blazing fast, but they&amp;rsquo;re perfectly usable. So why was the full Claude Code session so painfully slow?&lt;/p&gt;
+&lt;h2 id="the-problem"&gt;The Problem&lt;/h2&gt;
+&lt;p&gt;The numbers told a clear story:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Value&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Total wall time&lt;/td&gt;
+&lt;td&gt;~66 minutes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Output tokens&lt;/td&gt;
+&lt;td&gt;~13,000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Generation speed&lt;/td&gt;
+&lt;td&gt;23 tok/s&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Expected generation time&lt;/td&gt;
+&lt;td&gt;~9 minutes&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Unexplained overhead&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~57 minutes&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;Nearly 90% of the time was spent doing something other than generating tokens. But what?&lt;/p&gt;
+&lt;h2 id="how-i-found-the-bottleneck"&gt;How I Found the Bottleneck&lt;/h2&gt;
+&lt;p&gt;Claude Code writes debug logs to &lt;code&gt;~/.claude/debug/&lt;/code&gt;. Each session gets its own log file. I opened up the log for my slow session (&lt;code&gt;f519f739-d0f9-41b1-ab4c-a7e01a0e447e.txt&lt;/code&gt;, 395 KB of trace data) and started looking at timestamps.&lt;/p&gt;
+&lt;p&gt;The key was comparing two events for each API call:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;API request sent&lt;/strong&gt;: when Claude Code sends a request to Ollama&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Stream started&lt;/strong&gt;: when the first token comes back&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The gap between these two timestamps is the &lt;strong&gt;prompt evaluation time&lt;/strong&gt;, the model &amp;ldquo;reading&amp;rdquo; all the input before it can start &amp;ldquo;writing&amp;rdquo; a response.&lt;/p&gt;
+&lt;p&gt;Here&amp;rsquo;s what I found:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Request&lt;/th&gt;
+&lt;th&gt;Wait Time&lt;/th&gt;
+&lt;th&gt;Input Tokens&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;First call (cold start)&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;77 seconds&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;121&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Call at 17K tokens&lt;/td&gt;
+&lt;td&gt;15 seconds&lt;/td&gt;
+&lt;td&gt;17,173&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Mid-session&lt;/td&gt;
+&lt;td&gt;66 seconds&lt;/td&gt;
+&lt;td&gt;~25,000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Late session&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;132 seconds&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;~30,000&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Near the end&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;194 seconds&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;~34,566&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The wait times were growing because the input context was growing, and it was growing far beyond what the model could actually handle. More on that in a moment.&lt;/p&gt;
+&lt;p&gt;With &lt;strong&gt;57 API round-trips&lt;/strong&gt; in a single session, each one incurring 15–194 seconds of prompt evaluation overhead, the math becomes obvious: most of the hour was spent waiting for the model to re-read the conversation history before generating each response.&lt;/p&gt;
+&lt;h2 id="understanding-what-happens-during-inference"&gt;Understanding What Happens During Inference&lt;/h2&gt;
+&lt;p&gt;Before getting into the fixes, it helps to understand what happens when a local LLM processes your request. I&amp;rsquo;ll use analogies here. For the full technical breakdown with formulas and memory calculations, see my companion post: &lt;a href="https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/"&gt;LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon&lt;/a&gt;.&lt;/p&gt;
+&lt;h3 id="two-phases-reading-vs-writing"&gt;Two Phases: Reading vs Writing&lt;/h3&gt;
+&lt;p&gt;LLM inference has two distinct phases:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Prompt evaluation (prefill)&lt;/strong&gt;: The model reads the entire input (system prompt, conversation history, tool definitions, your latest message). This is like reading an entire book before you can answer a question about it. It processes all tokens in parallel, but it still takes time proportional to how much there is to read.&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;&lt;strong&gt;Token generation (decode)&lt;/strong&gt;: The model writes its response, one token at a time. This is the &amp;ldquo;thinking and typing&amp;rdquo; phase. Each new token depends on everything that came before, so it can only produce one at a time.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;The generation speed (23 tok/s) is what you see as the response streams in. The prompt evaluation (20 tok/s) happens silently before any text appears. It&amp;rsquo;s the &amp;ldquo;thinking pause&amp;rdquo; before the model starts responding.&lt;/p&gt;
+&lt;h3 id="the-kv-cache-bookmarks-for-the-model"&gt;The KV Cache: Bookmarks for the Model&lt;/h3&gt;
+&lt;p&gt;When the model reads your input during prompt evaluation, it computes something called the &lt;strong&gt;KV cache&lt;/strong&gt; (Key-Value cache). Think of these as bookmarks. They capture what the model &amp;ldquo;understood&amp;rdquo; about each part of the text, so it doesn&amp;rsquo;t have to re-read everything for every single token it generates.&lt;/p&gt;
+&lt;p&gt;Without the KV cache, generating a 500-token response would require re-reading the entire input 500 times. With it, the model reads once and then references its bookmarks.&lt;/p&gt;
+&lt;p&gt;The catch: the KV cache takes memory, and it grows with the length of the conversation. A 16K token context needs significantly less KV cache memory than a 32K token context.&lt;/p&gt;
+&lt;h3 id="context-window-the-models-reading-capacity"&gt;Context Window: The Model&amp;rsquo;s Reading Capacity&lt;/h3&gt;
+&lt;p&gt;The &lt;strong&gt;context window&lt;/strong&gt; is how much total text the model can consider at once (input and output combined). It&amp;rsquo;s like the size of the desk the model is working at. Bigger desk means more documents can be open at once, but it also means more memory used.&lt;/p&gt;
+&lt;p&gt;My model&amp;rsquo;s native context length is 262K tokens, but Ollama was configured with a 16K context window (&lt;code&gt;num_ctx: 16384&lt;/code&gt;). That&amp;rsquo;s the actual working size.&lt;/p&gt;
+&lt;h3 id="flash-attention-speed-reading"&gt;Flash Attention: Speed-Reading&lt;/h3&gt;
+&lt;p&gt;&lt;strong&gt;Flash Attention&lt;/strong&gt; is an optimization for how the model processes attention (the mechanism that relates different parts of the text to each other). Standard attention requires memory proportional to the &lt;em&gt;square&lt;/em&gt; of the sequence length. Flash Attention brings that down to linear by processing the attention in small tiles rather than all at once.&lt;/p&gt;
+&lt;p&gt;Think of it as the difference between spreading out every page of a book on the floor to compare them all simultaneously (standard attention) versus reading through the book chapter by chapter, keeping only the current chapter in front of you (Flash Attention).&lt;/p&gt;
+&lt;h3 id="autocompaction-summarizing-old-messages"&gt;Autocompaction: Summarizing Old Messages&lt;/h3&gt;
+&lt;p&gt;Claude Code has a built-in mechanism called &lt;strong&gt;autocompaction&lt;/strong&gt;. When the conversation gets too long for the context window, it summarizes older messages to free up space. This keeps the conversation going without hitting the context limit.&lt;/p&gt;
+&lt;p&gt;The trigger point is based on what Claude Code thinks the context window size is. This turns out to be very important, as we&amp;rsquo;ll see.&lt;/p&gt;
+&lt;h3 id="prompt-caching-reusing-the-bookmarks"&gt;Prompt Caching: Reusing the Bookmarks&lt;/h3&gt;
+&lt;p&gt;When Ollama receives a new request where the beginning of the prompt is identical to the previous request (which is typical in a conversation, since the history stays the same and you just add a new message at the end), it can &lt;strong&gt;reuse the KV cache&lt;/strong&gt; from the previous request. Only the new tokens at the end need to be evaluated.&lt;/p&gt;
+&lt;p&gt;This is a big optimization, but only works if the model stays loaded in memory and the context hasn&amp;rsquo;t been evicted.&lt;/p&gt;
+&lt;h2 id="the-five-root-causes"&gt;The Five Root Causes&lt;/h2&gt;
+&lt;p&gt;Armed with an understanding of inference, I could now identify exactly what was going wrong.&lt;/p&gt;
+&lt;h3 id="1-prompt-evaluation-dominated-every-request"&gt;1. Prompt Evaluation Dominated Every Request&lt;/h3&gt;
+&lt;p&gt;Each of the 57 API round-trips paid a prompt evaluation cost. Even with KV cache reuse, the model had to evaluate the new portion of the prompt each time. As the conversation grew, these costs escalated from 6 seconds to over 3 minutes per request.&lt;/p&gt;
+&lt;p&gt;Total prompt evaluation time across 57 calls: &lt;strong&gt;~50 minutes&lt;/strong&gt; out of the 66-minute session.&lt;/p&gt;
+&lt;h3 id="2-context-window-mismatch"&gt;2. Context Window Mismatch&lt;/h3&gt;
+&lt;p&gt;This was the biggest problem. Claude Code was configured to think the model had a &lt;strong&gt;180,000 token&lt;/strong&gt; context window (its default assumption for Claude models). The autocompaction threshold was set at 167,000 tokens:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;autocompact: tokens=34566 threshold=167000 effectiveWindow=180000
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;But Ollama&amp;rsquo;s actual context window was only &lt;strong&gt;16,384 tokens&lt;/strong&gt;. This meant:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Claude Code never triggered autocompaction (it thought there was tons of room)&lt;/li&gt;
+&lt;li&gt;The conversation context ballooned to 34,566 tokens, more than &lt;strong&gt;2x&lt;/strong&gt; what Ollama could actually fit&lt;/li&gt;
+&lt;li&gt;Ollama was silently truncating or struggling with context that exceeded its window&lt;/li&gt;
+&lt;li&gt;Each prompt evaluation was processing far more tokens than necessary&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="3-fifty-seven-api-round-trips"&gt;3. Fifty-Seven API Round-Trips&lt;/h3&gt;
+&lt;p&gt;Claude Code is an agentic system. It doesn&amp;rsquo;t just answer once. It plans, calls tools (file reads, writes, bash commands), observes results, and iterates. For my Django project, this meant 57 separate API calls in one session. Each one triggered a new prompt evaluation cycle.&lt;/p&gt;
+&lt;p&gt;This is normal behavior for Claude Code, but it means prompt evaluation speed is the dominant factor in session time, not token generation speed.&lt;/p&gt;
+&lt;h3 id="4-failed-haiku-calls"&gt;4. Failed Haiku Calls&lt;/h3&gt;
+&lt;p&gt;After nearly every API call, Claude Code tried to count tokens by calling &lt;code&gt;claude-haiku-4-5-20251001&lt;/code&gt;, a cheap, fast model used for token counting in the normal Claude API setup. But this model doesn&amp;rsquo;t exist in Ollama:&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;countTokensWithFallback: haiku fallback failed: 404
+{&amp;#34;type&amp;#34;:&amp;#34;error&amp;#34;,&amp;#34;error&amp;#34;:{&amp;#34;type&amp;#34;:&amp;#34;not_found_error&amp;#34;,
+&amp;#34;message&amp;#34;:&amp;#34;model &amp;#39;claude-haiku-4-5-20251001&amp;#39; not found&amp;#34;}}
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Each failed call involved a streaming attempt (404), then a non-streaming fallback (also 404). That&amp;rsquo;s two wasted HTTP round-trips per token counting attempt, happening dozens of times per session.&lt;/p&gt;
+&lt;h3 id="5-streaming-404-fallback-pattern"&gt;5. Streaming 404 Fallback Pattern&lt;/h3&gt;
+&lt;p&gt;For each haiku call, the sequence was:&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;Try streaming endpoint → 404&lt;/li&gt;
+&lt;li&gt;Fall back to non-streaming endpoint → also 404&lt;/li&gt;
+&lt;li&gt;Give up and continue without token count&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;This wasn&amp;rsquo;t a big deal on its own, but multiplied across 57+ attempts, it added up to unnecessary network overhead and wasted time.&lt;/p&gt;
+&lt;h2 id="the-fixes"&gt;The Fixes&lt;/h2&gt;
+&lt;h3 id="ollama-server-optimizations"&gt;Ollama Server Optimizations&lt;/h3&gt;
+&lt;p&gt;Start Ollama with these environment variables:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_FLASH_ATTENTION&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_KV_CACHE_TYPE&lt;span style="color:#f92672"&gt;=&lt;/span&gt;q8_0 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_KEEP_ALIVE&lt;span style="color:#f92672"&gt;=&lt;/span&gt;60m &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_NUM_BATCH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;2048&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ollama serve
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;What each one does:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_FLASH_ATTENTION=1&lt;/code&gt;&lt;/strong&gt;: Enables Flash Attention, reducing attention memory from O(n²) to O(n) and speeding up prompt evaluation&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_KV_CACHE_TYPE=q8_0&lt;/code&gt;&lt;/strong&gt;: Quantizes the KV cache to 8-bit, cutting KV cache memory roughly in half with minimal quality loss. This frees up room for larger context&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_KEEP_ALIVE=60m&lt;/code&gt;&lt;/strong&gt;: Keeps the model loaded in memory for 60 minutes between requests. Prevents expensive cold-start reloads and enables KV cache reuse&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_NUM_BATCH=2048&lt;/code&gt;&lt;/strong&gt;: Increases the prompt evaluation batch size from the default 512 to 2048. Processes more tokens per forward pass, speeding up prompt eval by roughly 2-3x&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Optionally, pre-load the model with a larger context:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate -d &lt;span style="color:#e6db74"&gt;&amp;#39;{
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;model&amp;#34;: &amp;#34;qwen3-coder-next:q4_K_M&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;keep_alive&amp;#34;: &amp;#34;60m&amp;#34;,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;options&amp;#34;: {
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;num_ctx&amp;#34;: 32768,
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;num_batch&amp;#34;: 2048
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;}&amp;#39;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="claude-code-client-optimizations"&gt;Claude Code Client Optimizations&lt;/h3&gt;
+&lt;p&gt;Launch with the correct context length and effort level:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_AUTH_TOKEN&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ollama &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_BASE_URL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;http://192.168.10.1:11434 &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_API_KEY&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#e6db74"&gt;&amp;#34;&amp;#34;&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_MODEL_CONTEXT_LENGTH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;32768&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;CLAUDE_CODE_MAX_TURNS&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;30&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude --model qwen3-coder-next:q4_K_M
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The key fix here is &lt;strong&gt;&lt;code&gt;ANTHROPIC_MODEL_CONTEXT_LENGTH=32768&lt;/code&gt;&lt;/strong&gt;. This tells Claude Code the real context window size, matching the 32K &lt;code&gt;num_ctx&lt;/code&gt; configured on the Ollama server. Now autocompaction triggers at ~30K tokens instead of 167K, keeping the prompt small and manageable. This works because we enabled q8_0 KV cache quantization, which halves KV cache memory and makes 32K context fit comfortably alongside the 54 GB model in 64 GB RAM.&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;&lt;code&gt;CLAUDE_CODE_MAX_TURNS=30&lt;/code&gt;&lt;/strong&gt; caps the number of agentic turns per session. Without this, Claude Code can make 57+ round-trips in a single session, each one paying a prompt evaluation cost. Even with autocompaction keeping prompts manageable, capping turns prevents runaway sessions from burning through time.&lt;/p&gt;
+&lt;p&gt;Also set the effort level in &lt;code&gt;~/.claude/settings.json&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-json" data-lang="json"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;{
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#f92672"&gt;&amp;#34;effortLevel&amp;#34;&lt;/span&gt;: &lt;span style="color:#e6db74"&gt;&amp;#34;low&amp;#34;&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;}
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;This reduces the system prompt size, leaving more of the context window for actual conversation.&lt;/p&gt;
+&lt;h2 id="inference-tools-for-apple-silicon"&gt;Inference Tools for Apple Silicon&lt;/h2&gt;
+&lt;p&gt;If you&amp;rsquo;re running local LLMs on a Mac, there are several inference engines to consider:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Engine&lt;/th&gt;
+&lt;th&gt;Backend&lt;/th&gt;
+&lt;th&gt;Apple Silicon Optimized&lt;/th&gt;
+&lt;th&gt;Best For&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Ollama&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;llama.cpp + Metal&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;General use, Claude Code integration&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;llama.cpp&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Native + Metal&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;Maximum control, latest features&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;MLX / mlx-lm&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;Apple ML framework&lt;/td&gt;
+&lt;td&gt;Best (native Metal)&lt;/td&gt;
+&lt;td&gt;Maximum Apple Silicon performance&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;LM Studio&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;llama.cpp&lt;/td&gt;
+&lt;td&gt;Yes&lt;/td&gt;
+&lt;td&gt;GUI-based experimentation&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;vLLM&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;CUDA-based&lt;/td&gt;
+&lt;td&gt;No (CPU fallback)&lt;/td&gt;
+&lt;td&gt;NVIDIA GPU servers only&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;&lt;strong&gt;Ollama&lt;/strong&gt; is the easiest path for Claude Code since it provides the Anthropic-compatible API that Claude Code expects. &lt;strong&gt;MLX&lt;/strong&gt; is potentially the fastest on Apple Silicon (native Metal optimization with better memory access patterns), but requires model conversion and an API proxy.&lt;/p&gt;
+&lt;p&gt;For a detailed technical breakdown of how these engines work internally (KV cache memory math, Flash Attention algorithms, and Apple Silicon memory architecture), read my companion post: &lt;a href="https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/"&gt;LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon&lt;/a&gt;.&lt;/p&gt;
+&lt;h2 id="results-and-conclusion"&gt;Results and Conclusion&lt;/h2&gt;
+&lt;p&gt;Here&amp;rsquo;s what changed:&lt;/p&gt;
+&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Metric&lt;/th&gt;
+&lt;th&gt;Before&lt;/th&gt;
+&lt;th&gt;After (Expected)&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Context window used&lt;/td&gt;
+&lt;td&gt;Up to 34K+ (unbounded)&lt;/td&gt;
+&lt;td&gt;Capped at ~30K (autocompaction at 32K window)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Prompt eval per call&lt;/td&gt;
+&lt;td&gt;30–194 seconds&lt;/td&gt;
+&lt;td&gt;10–40 seconds&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Batch size&lt;/td&gt;
+&lt;td&gt;512 (default)&lt;/td&gt;
+&lt;td&gt;2048 (~2–3x faster eval)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Flash Attention&lt;/td&gt;
+&lt;td&gt;Off&lt;/td&gt;
+&lt;td&gt;On&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;KV cache type&lt;/td&gt;
+&lt;td&gt;fp16&lt;/td&gt;
+&lt;td&gt;q8_0 (half memory)&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;strong&gt;Estimated session time&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~60 minutes&lt;/strong&gt;&lt;/td&gt;
+&lt;td&gt;&lt;strong&gt;~15–20 minutes&lt;/strong&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;The biggest single win was fixing the context window mismatch. That alone prevents the conversation from growing to 2x the model&amp;rsquo;s actual capacity and triggering huge prompt evaluations.&lt;/p&gt;
+&lt;p&gt;There&amp;rsquo;s a fundamental reality to accept: a 79.7B model running locally at 20 tok/s prompt eval will always be slower than cloud APIs. Each agentic round-trip inherently takes seconds for prompt evaluation. But the difference between &amp;ldquo;painfully slow&amp;rdquo; and &amp;ldquo;totally usable&amp;rdquo; comes down to configuration. The model was fine. The wiring between Claude Code and Ollama just needed tuning.&lt;/p&gt;
+&lt;p&gt;Running local is worth it for privacy and cost. You just need to understand what&amp;rsquo;s happening under the hood.&lt;/p&gt;
+&lt;h2 id="follow-me"&gt;Follow me&lt;/h2&gt;
+&lt;p&gt;If you are new to my posts, I regularly post about AI, LLMs, AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in &lt;a href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt; and visit &lt;a href="https://dev.to/vijaykodam"&gt;my dev.to posts&lt;/a&gt;. You can find all my previous blog posts in &lt;a href="https://vijay.eu/posts"&gt;my blog&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Creating decibel meter using Claude Code Agentic tool</title><link>https://vijay.eu/posts/decibel-meter-using-claude-code/</link><pubDate>Thu, 13 Mar 2025 23:16:20 +0200</pubDate><guid>https://vijay.eu/posts/decibel-meter-using-claude-code/</guid><description>&lt;h2 id="claude-code"&gt;Claude Code&lt;/h2&gt;
 &lt;p&gt;Claude Code is an agentic coding tool that lives in your terminal, understands your codebase, and helps you code faster through natural language commands.&lt;/p&gt;
 &lt;p&gt;For the last few weeks, I have been experimenting with Claude Code. The more I use, the more I am in awe of this product. It is not perfect but almost there. Works very nicely with small codebase.&lt;/p&gt;
 &lt;h2 id="idea"&gt;Idea&lt;/h2&gt;
