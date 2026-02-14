@@ -2,6 +2,8 @@
 &lt;p&gt;This is a companion post to my &lt;a href="https://vijay.eu/co-authored/ollama-claude-code-performance-guide/"&gt;Claude Code + Ollama troubleshooting guide&lt;/a&gt;, where I debugged why a local LLM session took 1 hour instead of 9 minutes. That post covers the practical diagnosis and fixes. This one gets into the inference internals that explain &lt;em&gt;why&lt;/em&gt; local LLM inference behaves the way it does.&lt;/p&gt;
 &lt;p&gt;If you work with local LLMs (whether through Ollama, llama.cpp, MLX, or any other engine), understanding these internals will help you reason about performance, tune parameters effectively, and avoid pitfalls that waste memory and time.&lt;/p&gt;
 &lt;p&gt;The reference model throughout this post is &lt;strong&gt;qwen3-coder-next:q4_K_M&lt;/strong&gt; (79.7B parameters, Q4_K_M quantization, 48 layers) running on a &lt;strong&gt;Mac Mini M4 Pro with 64GB unified memory&lt;/strong&gt;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/llm-inference-insider.webp" alt="llm-inference"&gt;&lt;/p&gt;
+&lt;p&gt;Credits: Generated using NotebookLM&lt;/p&gt;
 &lt;h2 id="the-two-phases-of-llm-inference"&gt;The Two Phases of LLM Inference&lt;/h2&gt;
 &lt;p&gt;Every time you send a prompt to an LLM and get a response, two distinct computational phases occur.&lt;/p&gt;
 &lt;h3 id="phase-1-prefill-prompt-evaluation"&gt;Phase 1: Prefill (Prompt Evaluation)&lt;/h3&gt;
@@ -378,6 +380,8 @@
 &lt;/table&gt;
 &lt;p&gt;The wait times were growing because the input context was growing, and it was growing far beyond what the model could actually handle. More on that in a moment.&lt;/p&gt;
 &lt;p&gt;With &lt;strong&gt;57 API round-trips&lt;/strong&gt; in a single session, each one incurring 15–194 seconds of prompt evaluation overhead, the math becomes obvious: most of the hour was spent waiting for the model to re-read the conversation history before generating each response.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/optimizing-local-inference.webp" alt="optimizingllms"&gt;&lt;/p&gt;
+&lt;p&gt;Credits: Generated using NotebookLM&lt;/p&gt;
 &lt;h2 id="understanding-what-happens-during-inference"&gt;Understanding What Happens During Inference&lt;/h2&gt;
 &lt;p&gt;Before getting into the fixes, it helps to understand what happens when a local LLM processes your request. I&amp;rsquo;ll use analogies here. For the full technical breakdown with formulas and memory calculations, see my companion post: &lt;a href="https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/"&gt;LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon&lt;/a&gt;.&lt;/p&gt;
 &lt;h3 id="two-phases-reading-vs-writing"&gt;Two Phases: Reading vs Writing&lt;/h3&gt;
