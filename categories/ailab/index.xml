@@ -380,7 +380,7 @@
 &lt;/table&gt;
 &lt;p&gt;The wait times were growing because the input context was growing, and it was growing far beyond what the model could actually handle. More on that in a moment.&lt;/p&gt;
 &lt;p&gt;With &lt;strong&gt;57 API round-trips&lt;/strong&gt; in a single session, each one incurring 15–194 seconds of prompt evaluation overhead, the math becomes obvious: most of the hour was spent waiting for the model to re-read the conversation history before generating each response.&lt;/p&gt;
-&lt;p&gt;&lt;img src="https://vijay.eu/images/optimizing-80bmodel-claudecode-final.webp" alt="optimizingllms"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/running80Bmodel.jpeg" alt="optimizingllms"&gt;&lt;/p&gt;
 &lt;p&gt;Credits: Generated using NotebookLM&lt;/p&gt;
 &lt;h2 id="understanding-what-happens-during-inference"&gt;Understanding What Happens During Inference&lt;/h2&gt;
 &lt;p&gt;Before getting into the fixes, it helps to understand what happens when a local LLM processes your request. I&amp;rsquo;ll use analogies here. For the full technical breakdown with formulas and memory calculations, see my companion post: &lt;a href="https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/"&gt;LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon&lt;/a&gt;.&lt;/p&gt;
