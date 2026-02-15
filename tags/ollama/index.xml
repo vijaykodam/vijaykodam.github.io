@@ -167,7 +167,12 @@
 &lt;p&gt;This wasn&amp;rsquo;t a big deal on its own, but multiplied across 57+ attempts, it added up to unnecessary network overhead and wasted time.&lt;/p&gt;
 &lt;h2 id="the-fixes"&gt;The Fixes&lt;/h2&gt;
 &lt;h3 id="ollama-server-optimizations"&gt;Ollama Server Optimizations&lt;/h3&gt;
-&lt;p&gt;Start Ollama with these environment variables:&lt;/p&gt;
+&lt;p&gt;If you&amp;rsquo;re running the Ollama Mac app, set these environment variables using &lt;code&gt;launchctl setenv&lt;/code&gt; (and create a LaunchAgent plist to make them persist across reboots):&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;launchctl setenv OLLAMA_FLASH_ATTENTION &lt;span style="color:#ae81ff"&gt;1&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;launchctl setenv OLLAMA_KV_CACHE_TYPE q8_0
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;launchctl setenv OLLAMA_KEEP_ALIVE 60m
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;launchctl setenv OLLAMA_NUM_BATCH &lt;span style="color:#ae81ff"&gt;2048&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;If you&amp;rsquo;re running &lt;code&gt;ollama serve&lt;/code&gt; from the command line instead, set them as environment variables:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_FLASH_ATTENTION&lt;span style="color:#f92672"&gt;=&lt;/span&gt;&lt;span style="color:#ae81ff"&gt;1&lt;/span&gt; &lt;span style="color:#ae81ff"&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_KV_CACHE_TYPE&lt;span style="color:#f92672"&gt;=&lt;/span&gt;q8_0 &lt;span style="color:#ae81ff"&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;OLLAMA_KEEP_ALIVE&lt;span style="color:#f92672"&gt;=&lt;/span&gt;60m &lt;span style="color:#ae81ff"&gt;\
@@ -180,16 +185,13 @@
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_KEEP_ALIVE=60m&lt;/code&gt;&lt;/strong&gt;: Keeps the model loaded in memory for 60 minutes between requests. Prevents expensive cold-start reloads and enables KV cache reuse&lt;/li&gt;
 &lt;li&gt;&lt;strong&gt;&lt;code&gt;OLLAMA_NUM_BATCH=2048&lt;/code&gt;&lt;/strong&gt;: Increases the prompt evaluation batch size from the default 512 to 2048. Processes more tokens per forward pass, speeding up prompt eval by roughly 2-3x&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;Optionally, pre-load the model with a larger context:&lt;/p&gt;
+&lt;p&gt;Also set &lt;strong&gt;Context Length&lt;/strong&gt; to &lt;strong&gt;32768&lt;/strong&gt; in the Ollama app settings (menu bar icon &amp;gt; Settings). Then quit and reopen Ollama, and warm the model:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;curl http://localhost:11434/api/generate -d &lt;span style="color:#e6db74"&gt;&amp;#39;{
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;model&amp;#34;: &amp;#34;qwen3-coder-next:q4_K_M&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;keep_alive&amp;#34;: &amp;#34;60m&amp;#34;,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;options&amp;#34;: {
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;num_ctx&amp;#34;: 32768,
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;num_batch&amp;#34;: 2048
-&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; }
+&lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt; &amp;#34;keep_alive&amp;#34;: &amp;#34;60m&amp;#34;
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#e6db74"&gt;}&amp;#39;&lt;/span&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h3 id="claude-code-client-optimizations"&gt;Claude Code Client Optimizations&lt;/h3&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;strong&gt;Note&lt;/strong&gt;: Do not specify &lt;code&gt;num_ctx&lt;/code&gt; in API calls when the Ollama Mac app GUI already has Context Length configured. Setting it in both places causes the model to fail to load.&lt;/p&gt;
+&lt;h3 id="claude-code-client-optimizations"&gt;Claude Code Client Optimizations&lt;/h3&gt;
 &lt;p&gt;Launch with the correct context length and effort level:&lt;/p&gt;
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_AUTH_TOKEN&lt;span style="color:#f92672"&gt;=&lt;/span&gt;ollama &lt;span style="color:#ae81ff"&gt;\
 &lt;/span&gt;&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;ANTHROPIC_BASE_URL&lt;span style="color:#f92672"&gt;=&lt;/span&gt;http://192.168.10.1:11434 &lt;span style="color:#ae81ff"&gt;\
