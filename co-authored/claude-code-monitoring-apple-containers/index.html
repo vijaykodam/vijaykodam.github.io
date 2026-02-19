@@ -1,0 +1,298 @@
+<!doctype html><html lang=en><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1"><meta http-equiv=Content-Language content="en"><meta name=author content="Vijay Kodam"><meta name=description content="Setting up a local Prometheus, Grafana, and OpenTelemetry monitoring stack for Claude Code using Apple Containers on macOS, with full resource comparison against Docker Desktop"><meta name=keywords content="Hands-on Solutions Architect,AWS,EKS,Kubernetes,personal,bare metal"><meta name=twitter:card content="summary"><meta name=twitter:title content="Monitoring Claude Code with Apple Containers Instead of Docker"><meta name=twitter:description content="Setting up a local Prometheus, Grafana, and OpenTelemetry monitoring stack for Claude Code using Apple Containers on macOS, with full resource comparison against Docker Desktop"><meta property="og:url" content="https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/"><meta property="og:site_name" content="Vijay Kodam"><meta property="og:title" content="Monitoring Claude Code with Apple Containers Instead of Docker"><meta property="og:description" content="Setting up a local Prometheus, Grafana, and OpenTelemetry monitoring stack for Claude Code using Apple Containers on macOS, with full resource comparison against Docker Desktop"><meta property="og:locale" content="en"><meta property="og:type" content="article"><meta property="article:section" content="co-authored"><meta property="article:published_time" content="2026-02-20T00:00:00+03:00"><meta property="article:modified_time" content="2026-02-20T00:00:00+03:00"><meta property="article:tag" content="ClaudeCode"><meta property="article:tag" content="AppleContainers"><meta property="article:tag" content="Docker"><meta property="article:tag" content="Monitoring"><meta property="article:tag" content="Prometheus"><meta property="article:tag" content="Grafana"><base href=https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/><title>Monitoring Claude Code with Apple Containers Instead of Docker · Vijay Kodam</title><link rel=canonical href=https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/><link href="https://fonts.googleapis.com/css?family=Lato:400,700%7CMerriweather:300,700%7CSource+Code+Pro:400,700&display=swap" rel=stylesheet><link rel=stylesheet href=https://use.fontawesome.com/releases/v5.13.0/css/all.css integrity=sha384-Bfad6CLCknfcloXFOyFnlgtENryhrpZCe29RTifKEixXQZ38WheV+i/6YWSzkz3V crossorigin=anonymous><link rel=stylesheet href=https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css integrity="sha256-l85OmPOjvil/SOvVt3HnSSjzF1TUMyT9eV0c2BzEGzU=" crossorigin=anonymous><link rel=stylesheet href=/css/coder.min.d0f116f1384d42246f51302b93e17c289bb97388dc3472fc59f19bb2f8bd317d.css integrity="sha256-0PEW8ThNQiRvUTArk+F8KJu5c4jcNHL8WfGbsvi9MX0=" crossorigin=anonymous media=screen><link rel=stylesheet href=/css/blog-posts.css><link rel=icon type=image/png href=https://vijay.eu/images/favicon-32x32.png sizes=32x32><link rel=icon type=image/png href=https://vijay.eu/images/favicon-16x16.png sizes=16x16><meta name=generator content="Hugo 0.153.3"></head><body class=colorscheme-light><main class=wrapper><nav class=navigation><section class=container><a class=navigation-title href=/>Vijay Kodam
+</a><input type=checkbox id=menu-toggle>
+<label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://vijay.eu/about/>About</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/ai-lab/>AI Lab</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/projects/>AI Projects</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/co-authored/>Co-Authored with AI</a></li></ul></section></nav><div class=content><section class="container post"><article><header><div class=post-title><h1 class=title>Monitoring Claude Code with Apple Containers Instead of Docker</h1></div><div class=post-meta><div class=date><span class=posted-on><i class="fas fa-calendar"></i>
+<time datetime=2026-02-20T00:00:00+03:00>February 20, 2026
+</time></span><span class=reading-time><i class="fas fa-clock"></i>
+8-minute read</span></div><div class=categories><i class="fas fa-folder"></i>
+<a href=/categories/genai/>GenAI</a>
+<span class=separator>•</span>
+<a href=/categories/llm/>LLM</a>
+<span class=separator>•</span>
+<a href=/categories/ailab/>AILab</a></div><div class=tags><i class="fas fa-tag"></i>
+<a href=/tags/claudecode/>ClaudeCode</a>
+<span class=separator>•</span>
+<a href=/tags/applecontainers/>AppleContainers</a>
+<span class=separator>•</span>
+<a href=/tags/docker/>Docker</a>
+<span class=separator>•</span>
+<a href=/tags/monitoring/>Monitoring</a>
+<span class=separator>•</span>
+<a href=/tags/prometheus/>Prometheus</a>
+<span class=separator>•</span>
+<a href=/tags/grafana/>Grafana</a>
+<span class=separator>•</span>
+<a href=/tags/coauthoredwithai/>CoAuthoredWithAI</a></div></div></header><div><h2 id=what-were-building>What We&rsquo;re Building</h2><p>Claude Code emits OpenTelemetry metrics: cost per model, token counts by type, active time, and more. To see what&rsquo;s happening across sessions, you need somewhere to collect, store, and visualize those metrics.</p><p>This post walks through setting up a local monitoring stack on macOS using <strong>Apple Containers</strong> instead of Docker Desktop. The stack has three services:</p><ul><li><strong>OpenTelemetry Collector</strong> receives OTLP metrics from Claude Code and exposes them in Prometheus format</li><li><strong>Prometheus</strong> scrapes and stores the metrics</li><li><strong>Grafana</strong> visualizes everything via dashboards</li></ul><p>By the end, you&rsquo;ll have a working Grafana dashboard showing cost, token usage, active time, and model breakdowns for your Claude Code sessions.</p><p><img src=/images/apple-containers-monitoring-grafana-screenshot2.webp alt="Grafana dashboard showing Claude Code metrics including total cost, active users, token counts, and cost-by-model breakdown"></p><h2 id=why-apple-containers-over-docker>Why Apple Containers Over Docker</h2><p>Docker Desktop runs a persistent Linux VM that reserves 2-4 GB of RAM whether your containers are running or not. Apple Containers launches lightweight microVMs on demand with no background daemon. You start them when you need them, and when you stop them, you get the memory back.</p><p>Here&rsquo;s what the monitoring stack actually costs:</p><table><thead><tr><th>Container</th><th>CPU</th><th>Memory Limit</th></tr></thead><tbody><tr><td>Prometheus</td><td>1</td><td>256 MB</td></tr><tr><td>Grafana</td><td>1</td><td>256 MB</td></tr><tr><td>OTel Collector</td><td>1</td><td>128 MB</td></tr><tr><td><strong>Total</strong></td><td><strong>3</strong></td><td><strong>640 MB</strong></td></tr></tbody></table><p>Actual memory usage at idle was around <strong>216 MB</strong> combined. Compare that to Docker Desktop&rsquo;s 2-4 GB reserved VM sitting in memory permanently, and the difference is clear.</p><h2 id=prerequisites>Prerequisites</h2><p>You need Apple Containers CLI (<code>container</code>) installed on your Mac. It ships with macOS 26 (Tahoe) or can be installed separately. Verify it&rsquo;s available:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>container --version
+</span></span></code></pre></div><p>You also need Claude Code configured to emit OTLP metrics. Add to your <code>~/.claude/settings.json</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-json data-lang=json><span style=display:flex><span>{
+</span></span><span style=display:flex><span>  <span style=color:#f92672>&#34;env&#34;</span>: {
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;OTEL_EXPORTER_OTLP_ENDPOINT&#34;</span>: <span style=color:#e6db74>&#34;http://localhost:4318&#34;</span>,
+</span></span><span style=display:flex><span>    <span style=color:#f92672>&#34;OTEL_METRICS_ENABLED&#34;</span>: <span style=color:#e6db74>&#34;true&#34;</span>
+</span></span><span style=display:flex><span>  }
+</span></span><span style=display:flex><span>}
+</span></span></code></pre></div><h2 id=setting-up-config-directories>Setting Up Config Directories</h2><p>Apple Containers only supports <strong>directory mounts</strong>, not individual file mounts. Where Docker lets you do <code>-v ./prometheus.yml:/etc/prometheus/prometheus.yml</code>, Apple Containers requires mounting the parent directory.</p><p>Create the config directory structure:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>mkdir -p ~/monitoring/container-configs/<span style=color:#f92672>{</span>prometheus-config,otel-config,grafana-provisioning,grafana-dashboards<span style=color:#f92672>}</span>
+</span></span></code></pre></div><h3 id=otel-collector-config>OTel Collector Config</h3><p>Create <code>~/monitoring/container-configs/otel-config/otel-collector-config.yaml</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>receivers</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>otlp</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>protocols</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>grpc</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>endpoint</span>: <span style=color:#ae81ff>0.0.0.0</span>:<span style=color:#ae81ff>4317</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>http</span>:
+</span></span><span style=display:flex><span>        <span style=color:#f92672>endpoint</span>: <span style=color:#ae81ff>0.0.0.0</span>:<span style=color:#ae81ff>4318</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>processors</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>batch</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>timeout</span>: <span style=color:#ae81ff>1s</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>send_batch_size</span>: <span style=color:#ae81ff>1024</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>memory_limiter</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>check_interval</span>: <span style=color:#ae81ff>1s</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>limit_mib</span>: <span style=color:#ae81ff>512</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>exporters</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>prometheus</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>endpoint</span>: <span style=color:#e6db74>&#34;0.0.0.0:8889&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>send_timestamps</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metric_expiration</span>: <span style=color:#ae81ff>180m</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>enable_open_metrics</span>: <span style=color:#66d9ef>true</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>debug</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>verbosity</span>: <span style=color:#ae81ff>detailed</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>sampling_initial</span>: <span style=color:#ae81ff>5</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>sampling_thereafter</span>: <span style=color:#ae81ff>200</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>service</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>pipelines</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>metrics</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>receivers</span>: [<span style=color:#ae81ff>otlp]</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>processors</span>: [<span style=color:#ae81ff>memory_limiter, batch]</span>
+</span></span><span style=display:flex><span>      <span style=color:#f92672>exporters</span>: [<span style=color:#ae81ff>prometheus, debug]</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>extensions</span>: []
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>telemetry</span>:
+</span></span><span style=display:flex><span>    <span style=color:#f92672>logs</span>:
+</span></span><span style=display:flex><span>      <span style=color:#f92672>level</span>: <span style=color:#e6db74>&#34;debug&#34;</span>
+</span></span></code></pre></div><h3 id=prometheus-config>Prometheus Config</h3><p>Create <code>~/monitoring/container-configs/prometheus-config/prometheus.yml</code>:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-yaml data-lang=yaml><span style=display:flex><span><span style=color:#f92672>global</span>:
+</span></span><span style=display:flex><span>  <span style=color:#f92672>scrape_interval</span>: <span style=color:#ae81ff>15s</span>
+</span></span><span style=display:flex><span>  <span style=color:#f92672>evaluation_interval</span>: <span style=color:#ae81ff>15s</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#f92672>scrape_configs</span>:
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>job_name</span>: <span style=color:#e6db74>&#39;otel-collector&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>static_configs</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>targets</span>: [<span style=color:#e6db74>&#39;192.168.64.1:8889&#39;</span>]
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>  - <span style=color:#f92672>job_name</span>: <span style=color:#e6db74>&#39;prometheus&#39;</span>
+</span></span><span style=display:flex><span>    <span style=color:#f92672>static_configs</span>:
+</span></span><span style=display:flex><span>      - <span style=color:#f92672>targets</span>: [<span style=color:#e6db74>&#39;localhost:9090&#39;</span>]
+</span></span></code></pre></div><p>Note the <code>192.168.64.1</code> address. More on that in the networking section below.</p><h2 id=container-run-commands>Container Run Commands</h2><p>Each container is started individually with resource limits set via <code>-c</code> (CPUs) and <code>-m</code> (memory). Without these flags, Apple Containers defaults to 4 CPUs and 1 GB RAM per container.</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Prometheus</span>
+</span></span><span style=display:flex><span>container run -d --name prometheus <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -c <span style=color:#ae81ff>1</span> -m 256m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -p 9090:9090 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -v ~/monitoring/container-configs/prometheus-config:/etc/prometheus <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  prom/prometheus:latest <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --config.file<span style=color:#f92672>=</span>/etc/prometheus/prometheus.yml <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --storage.tsdb.path<span style=color:#f92672>=</span>/prometheus <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --storage.tsdb.retention.time<span style=color:#f92672>=</span>200h <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --web.enable-lifecycle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Grafana</span>
+</span></span><span style=display:flex><span>container run -d --name grafana <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -c <span style=color:#ae81ff>1</span> -m 256m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -p 3000:3000 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -e GF_SECURITY_ADMIN_PASSWORD<span style=color:#f92672>=</span>admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -v ~/monitoring/container-configs/grafana-provisioning:/etc/grafana/provisioning <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -v ~/monitoring/container-configs/grafana-dashboards:/var/lib/grafana/dashboards <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  grafana/grafana:latest
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># OTel Collector</span>
+</span></span><span style=display:flex><span>container run -d --name otel-collector <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -c <span style=color:#ae81ff>1</span> -m 128m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -p 4317:4317 -p 4318:4318 -p 8889:8889 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -v ~/monitoring/container-configs/otel-config:/etc/otel <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  otel/opentelemetry-collector-contrib:latest <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  --config<span style=color:#f92672>=</span>/etc/otel/otel-collector-config.yaml
+</span></span></code></pre></div><h2 id=configuring-grafana>Configuring Grafana</h2><h3 id=adding-the-prometheus-datasource>Adding the Prometheus Datasource</h3><p>Apple Containers doesn&rsquo;t provision Grafana datasources automatically. You need to add the Prometheus datasource via the API after Grafana starts:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -X POST http://localhost:3000/api/datasources <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -u admin:admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -d <span style=color:#e6db74>&#39;{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;name&#34;: &#34;Prometheus&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;type&#34;: &#34;prometheus&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;url&#34;: &#34;http://192.168.64.1:9090&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;access&#34;: &#34;proxy&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#34;isDefault&#34;: true
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>  }&#39;</span>
+</span></span></code></pre></div><p>The URL is <code>192.168.64.1:9090</code>, not <code>localhost:9090</code>. Grafana runs inside its own microVM, so it needs the host gateway IP to reach Prometheus. More on this in the networking section.</p><h3 id=the-dashboard-uid-problem>The Dashboard UID Problem</h3><p>When the datasource is created, Grafana assigns it a UID. If your dashboard JSON panels reference a different datasource UID, they will show &ldquo;No data&rdquo; even though the metrics exist.</p><p>The fix: after creating the datasource, grab its UID from the API response, update your dashboard JSON to use that UID, and import via the dashboards API:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>curl -X POST http://localhost:3000/api/dashboards/db <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -u admin:admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>  -d <span style=color:#e6db74>&#34;{\&#34;dashboard\&#34;: </span><span style=color:#66d9ef>$(</span>cat ~/monitoring/container-configs/grafana-dashboards/working-dashboard.json<span style=color:#66d9ef>)</span><span style=color:#e6db74>, \&#34;overwrite\&#34;: true}&#34;</span>
+</span></span></code></pre></div><p>This is tedious to do manually. The convenience script below handles it automatically.</p><h2 id=networking-between-containers>Networking Between Containers</h2><p>In Docker Compose, containers talk to each other by service name (e.g., <code>otel-collector:8889</code>). Apple Containers runs each container as an isolated microVM with no shared DNS or container network. There is no equivalent of Docker&rsquo;s bridge network.</p><p>Since all three containers publish ports to the host Mac, they reach each other through the host gateway IP: <strong><code>192.168.64.1</code></strong>.</p><p>This is the gateway IP assigned by Apple&rsquo;s Virtualization framework. It is stable across restarts and standard across macOS. You can verify it from inside any container:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span>container exec prometheus ip route
+</span></span></code></pre></div><p>In practice, this means:</p><ul><li>Prometheus scrapes OTel Collector at <code>192.168.64.1:8889</code> (not <code>otel-collector:8889</code>)</li><li>Grafana queries Prometheus at <code>192.168.64.1:9090</code> (not <code>localhost:9090</code>)</li><li>Claude Code on the host sends metrics to <code>localhost:4318</code> (this one works because it&rsquo;s host-to-container, not container-to-container)</li></ul><h2 id=the-convenience-script>The Convenience Script</h2><p>Managing three containers, a datasource, and a dashboard import by hand gets old fast. Here&rsquo;s a script that handles everything:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e>#!/bin/bash
+</span></span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Monitoring stack management script for Apple Containers</span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Usage: ./monitoring.sh [start|stop|status]</span>
+</span></span><span style=display:flex><span><span style=color:#75715e>#</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>CONFIG_DIR<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$HOME<span style=color:#e6db74>/monitoring/container-configs&#34;</span>
+</span></span><span style=display:flex><span>DASHBOARD_JSON<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span>$CONFIG_DIR<span style=color:#e6db74>/grafana-dashboards/working-dashboard.json&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>start_stack<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Starting monitoring stack...&#34;</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Prometheus</span>
+</span></span><span style=display:flex><span>    container run -d --name prometheus <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -c <span style=color:#ae81ff>1</span> -m 256m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -p 9090:9090 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -v <span style=color:#e6db74>&#34;</span>$CONFIG_DIR<span style=color:#e6db74>/prometheus-config:/etc/prometheus&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        prom/prometheus:latest <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        --config.file<span style=color:#f92672>=</span>/etc/prometheus/prometheus.yml <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        --storage.tsdb.path<span style=color:#f92672>=</span>/prometheus <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        --storage.tsdb.retention.time<span style=color:#f92672>=</span>200h <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        --web.enable-lifecycle
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Grafana</span>
+</span></span><span style=display:flex><span>    container run -d --name grafana <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -c <span style=color:#ae81ff>1</span> -m 256m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -p 3000:3000 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -e GF_SECURITY_ADMIN_PASSWORD<span style=color:#f92672>=</span>admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -v <span style=color:#e6db74>&#34;</span>$CONFIG_DIR<span style=color:#e6db74>/grafana-provisioning:/etc/grafana/provisioning&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -v <span style=color:#e6db74>&#34;</span>$CONFIG_DIR<span style=color:#e6db74>/grafana-dashboards:/var/lib/grafana/dashboards&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        grafana/grafana:latest
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># OTel Collector</span>
+</span></span><span style=display:flex><span>    container run -d --name otel-collector <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -c <span style=color:#ae81ff>1</span> -m 128m <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -p 4317:4317 -p 4318:4318 -p 8889:8889 <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -v <span style=color:#e6db74>&#34;</span>$CONFIG_DIR<span style=color:#e6db74>/otel-config:/etc/otel&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        otel/opentelemetry-collector-contrib:latest <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        --config<span style=color:#f92672>=</span>/etc/otel/otel-collector-config.yaml
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Wait for Grafana to be ready</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Waiting for Grafana to start...&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> i in <span style=color:#66d9ef>$(</span>seq <span style=color:#ae81ff>1</span> 30<span style=color:#66d9ef>)</span>; <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> curl -s -o /dev/null -w <span style=color:#e6db74>&#34;%{http_code}&#34;</span> http://localhost:3000/api/health | grep -q 200; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>            break
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>        sleep <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Add Prometheus datasource (ignore error if already exists)</span>
+</span></span><span style=display:flex><span>    DS_RESPONSE<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>curl -s -X POST http://localhost:3000/api/datasources <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -u admin:admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -H <span style=color:#e6db74>&#34;Content-Type: application/json&#34;</span> <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        -d <span style=color:#e6db74>&#39;{
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;name&#34;: &#34;Prometheus&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;type&#34;: &#34;prometheus&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;url&#34;: &#34;http://192.168.64.1:9090&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;access&#34;: &#34;proxy&#34;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            &#34;isDefault&#34;: true
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        }&#39;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#75715e># Get the datasource UID</span>
+</span></span><span style=display:flex><span>    DS_UID<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>curl -s http://localhost:3000/api/datasources -u admin:admin <span style=color:#ae81ff>\
+</span></span></span><span style=display:flex><span>        | python3 -c <span style=color:#e6db74>&#34;import sys,json; ds=json.load(sys.stdin); print(ds[0][&#39;uid&#39;] if ds else &#39;&#39;)&#34;</span><span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> -n <span style=color:#e6db74>&#34;</span>$DS_UID<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]</span> <span style=color:#f92672>&amp;&amp;</span> <span style=color:#f92672>[</span> -f <span style=color:#e6db74>&#34;</span>$DASHBOARD_JSON<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>        <span style=color:#75715e># Update dashboard JSON with correct datasource UID and import</span>
+</span></span><span style=display:flex><span>        python3 -c <span style=color:#e6db74>&#34;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>import json
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>with open(&#39;</span>$DASHBOARD_JSON<span style=color:#e6db74>&#39;) as f:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    dash = json.load(f)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>for p in dash.get(&#39;panels&#39;, []):
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    if &#39;datasource&#39; in p:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        p[&#39;datasource&#39;][&#39;uid&#39;] = &#39;</span>$DS_UID<span style=color:#e6db74>&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    for t in p.get(&#39;targets&#39;, []):
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        if &#39;datasource&#39; in t:
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>            t[&#39;datasource&#39;][&#39;uid&#39;] = &#39;</span>$DS_UID<span style=color:#e6db74>&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>dash[&#39;id&#39;] = None
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>dash[&#39;version&#39;] = 0
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>payload = json.dumps({&#39;dashboard&#39;: dash, &#39;overwrite&#39;: True})
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>import urllib.request, base64
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>req = urllib.request.Request(
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    &#39;http://localhost:3000/api/dashboards/db&#39;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    data=payload.encode(),
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    headers={
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#39;Content-Type&#39;: &#39;application/json&#39;,
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>        &#39;Authorization&#39;: &#39;Basic &#39; + base64.b64encode(b&#39;admin:admin&#39;).decode()
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    },
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>    method=&#39;POST&#39;
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>urllib.request.urlopen(req)
+</span></span></span><span style=display:flex><span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Dashboard imported successfully.&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Monitoring stack is up:&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;  Prometheus:     http://localhost:9090&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;  Grafana:        http://localhost:3000 (admin/admin)&#34;</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;  OTel Collector: localhost:4317 (gRPC), localhost:4318 (HTTP)&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>stop_stack<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Stopping monitoring stack...&#34;</span>
+</span></span><span style=display:flex><span>    container stop prometheus grafana otel-collector 2&gt;/dev/null
+</span></span><span style=display:flex><span>    container rm prometheus grafana otel-collector 2&gt;/dev/null
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;Monitoring stack stopped and removed.&#34;</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span>show_status<span style=color:#f92672>()</span> <span style=color:#f92672>{</span>
+</span></span><span style=display:flex><span>    container list 2&gt;/dev/null
+</span></span><span style=display:flex><span>    echo <span style=color:#e6db74>&#34;&#34;</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>for</span> svc in <span style=color:#e6db74>&#34;prometheus:9090/-/healthy&#34;</span> <span style=color:#e6db74>&#34;grafana:3000/api/health&#34;</span> <span style=color:#e6db74>&#34;otel-collector:8889/metrics&#34;</span>; <span style=color:#66d9ef>do</span>
+</span></span><span style=display:flex><span>        name<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>svc%%:*<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        url<span style=color:#f92672>=</span><span style=color:#e6db74>&#34;http://localhost:</span><span style=color:#e6db74>${</span>svc#*:<span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span>
+</span></span><span style=display:flex><span>        code<span style=color:#f92672>=</span><span style=color:#66d9ef>$(</span>curl -s -o /dev/null -w <span style=color:#e6db74>&#34;%{http_code}&#34;</span> <span style=color:#e6db74>&#34;</span>$url<span style=color:#e6db74>&#34;</span> 2&gt;/dev/null<span style=color:#66d9ef>)</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>if</span> <span style=color:#f92672>[</span> <span style=color:#e6db74>&#34;</span>$code<span style=color:#e6db74>&#34;</span> <span style=color:#f92672>=</span> <span style=color:#e6db74>&#34;200&#34;</span> <span style=color:#f92672>]</span>; <span style=color:#66d9ef>then</span>
+</span></span><span style=display:flex><span>            echo <span style=color:#e6db74>&#34;</span>$name<span style=color:#e6db74>: healthy&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>else</span>
+</span></span><span style=display:flex><span>            echo <span style=color:#e6db74>&#34;</span>$name<span style=color:#e6db74>: not responding (HTTP </span>$code<span style=color:#e6db74>)&#34;</span>
+</span></span><span style=display:flex><span>        <span style=color:#66d9ef>fi</span>
+</span></span><span style=display:flex><span>    <span style=color:#66d9ef>done</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>}</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>case</span> <span style=color:#e6db74>&#34;</span><span style=color:#e6db74>${</span>1<span style=color:#66d9ef>:-</span><span style=color:#e6db74>}</span><span style=color:#e6db74>&#34;</span> in
+</span></span><span style=display:flex><span>    start<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        start_stack
+</span></span><span style=display:flex><span>        ;;
+</span></span><span style=display:flex><span>    stop<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        stop_stack
+</span></span><span style=display:flex><span>        ;;
+</span></span><span style=display:flex><span>    status<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        show_status
+</span></span><span style=display:flex><span>        ;;
+</span></span><span style=display:flex><span>    *<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>        echo <span style=color:#e6db74>&#34;Usage: </span>$0<span style=color:#e6db74> {start|stop|status}&#34;</span>
+</span></span><span style=display:flex><span>        exit <span style=color:#ae81ff>1</span>
+</span></span><span style=display:flex><span>        ;;
+</span></span><span style=display:flex><span><span style=color:#66d9ef>esac</span>
+</span></span></code></pre></div><p>Save this as <code>monitoring.sh</code>, make it executable with <code>chmod +x monitoring.sh</code>, and use it:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-bash data-lang=bash><span style=display:flex><span><span style=color:#75715e># Start everything (creates containers, configures datasource, imports dashboard)</span>
+</span></span><span style=display:flex><span>./monitoring.sh start
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Check health of all services</span>
+</span></span><span style=display:flex><span>./monitoring.sh status
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Stop and remove all containers</span>
+</span></span><span style=display:flex><span>./monitoring.sh stop
+</span></span></code></pre></div><p>The <code>start</code> command creates all three containers, waits for Grafana to become ready, adds the Prometheus datasource, and imports the dashboard JSON with the correct datasource UID so panels display data immediately.</p><p>The <code>stop</code> command removes all containers. No resources are consumed after stopping. These containers <strong>do not auto-start after a Mac restart</strong>, so you run them only when you need them.</p><h2 id=available-metrics>Available Metrics</h2><p>Once Claude Code is running with OTLP export enabled, you can query these metrics in Grafana or Prometheus directly:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-promql data-lang=promql><span style=display:flex><span><span style=color:#75715e># Total cost by model</span>
+</span></span><span style=display:flex><span>claude_code_cost_usage_USD_total
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Token usage by model and type (input, output, cacheRead, cacheCreation)</span>
+</span></span><span style=display:flex><span>claude_code_token_usage_tokens_total
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Active time in seconds (cli vs user)</span>
+</span></span><span style=display:flex><span>claude_code_active_time_seconds_total
+</span></span></code></pre></div><p>Some useful dashboard panel queries:</p><div class=highlight><pre tabindex=0 style=color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4><code class=language-promql data-lang=promql><span style=display:flex><span><span style=color:#75715e># Total cost across all models</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>sum</span><span style=color:#f92672>(</span>claude_code_cost_usage_USD_total<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cost breakdown by model</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>sum</span> <span style=color:#66d9ef>by</span> <span style=color:#f92672>(</span>model<span style=color:#f92672>)</span> <span style=color:#f92672>(</span>claude_code_cost_usage_USD_total<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Total tokens by type</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>sum</span> <span style=color:#66d9ef>by</span> <span style=color:#f92672>(</span>type<span style=color:#f92672>)</span> <span style=color:#f92672>(</span>claude_code_token_usage_tokens_total<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span>
+</span></span><span style=display:flex><span><span style=color:#75715e># Cache hit ratio (how much is served from cache vs fresh input)</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>sum</span><span style=color:#f92672>(</span>claude_code_token_usage_tokens_total{type<span style=color:#f92672>=</span>&#34;<span style=color:#e6db74>cacheRead</span>&#34;}<span style=color:#f92672>)</span>
+</span></span><span style=display:flex><span><span style=color:#f92672>/</span>
+</span></span><span style=display:flex><span><span style=color:#66d9ef>sum</span><span style=color:#f92672>(</span>claude_code_token_usage_tokens_total{type<span style=color:#f92672>=~</span>&#34;<span style=color:#e6db74>input|cacheRead|cacheCreation</span>&#34;}<span style=color:#f92672>)</span>
+</span></span></code></pre></div><h2 id=accessing-the-stack>Accessing the Stack</h2><table><thead><tr><th>Service</th><th>URL</th></tr></thead><tbody><tr><td>Prometheus</td><td>http://localhost:9090</td></tr><tr><td>Grafana</td><td>http://localhost:3000 (admin/admin)</td></tr><tr><td>OTel Collector metrics</td><td>http://localhost:8889/metrics</td></tr></tbody></table><blockquote><p><strong>Security Notes</strong></p><ul><li><strong>Change the default Grafana password.</strong> The examples above use <code>admin</code>/<code>admin</code> for convenience. Change this to a strong password before use, either via the <code>GF_SECURITY_ADMIN_PASSWORD</code> environment variable or through the Grafana UI after first login.</li><li><strong>All services bind to localhost only.</strong> Prometheus (9090), Grafana (3000), and the OTel Collector (4317, 4318, 8889) are exposed on <code>localhost</code> and are only accessible from your own Mac. They are not reachable from other devices on your network.</li></ul></blockquote><h2 id=disclaimer>Disclaimer</h2><p>THE SOFTWARE AND INSTRUCTIONS ARE PROVIDED &ldquo;AS IS&rdquo;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p><p>This setup is intended for <strong>local development and experimentation only</strong> and is <strong>not suitable for production use</strong>. Use at your own discretion and risk.</p><h2 id=follow-me>Follow me</h2><p>If you are new to my posts, I regularly post about AI, LLMs, AWS, EKS, Kubernetes and Cloud computing related topics. Do follow me in <a href=https://www.linkedin.com/in/vijaykodam/>LinkedIn</a> and visit <a href=https://dev.to/vijaykodam>my dev.to posts</a>. You can find all my previous blog posts in <a href=https://vijay.eu/posts>my blog</a></p></div><footer></footer></article></section></div><footer class=footer><section class=container>©
+2026
+Vijay Kodam
+·
+Powered by <a href=https://gohugo.io/>Hugo </a>& <a href=https://github.com/luizdepra/hugo-coder/>Coder</a>.</section></footer><link rel=stylesheet href=/css/cookieconsent.css><script src=/js/cookieconsent.umd.js></script><script>document.addEventListener("DOMContentLoaded",function(){console.log("Cookie consent script loaded"),setTimeout(function(){if(typeof CookieConsent!="undefined"){console.log("CookieConsent available");try{const t="G-9L86XBXWE8";function e(){if(console.log("Loading Google Analytics..."),typeof window.gtag=="function"){console.log("Google Analytics already loaded");return}const e=document.createElement("script");e.async=!0,e.src="https://www.googletagmanager.com/gtag/js?id="+t,document.head.appendChild(e),window.dataLayer=window.dataLayer||[];function n(){dataLayer.push(arguments)}window.gtag=n,n("js",new Date),n("config",t,{anonymize_ip:!0,cookie_flags:"SameSite=None;Secure"}),console.log("Google Analytics loaded successfully")}CookieConsent.run({categories:{necessary:{name:"Necessary cookies",description:"These cookies are essential for the proper functioning of the website.",enabled:!0,readonly:!0},analytics:{name:"Analytics cookies",description:"These cookies collect information about how you use our website.",enabled:!1,readonly:!1}},cookie:{name:"cc_cookie",expiresAfterDays:182,domain:window.location.hostname==="localhost"||window.location.hostname==="127.0.0.1"?"":"vijay.eu",path:"/",secure:window.location.protocol==="https:"},language:{default:"en",translations:{en:{consentModal:{title:"We use cookies",description:"This website uses cookies to enhance your browsing experience and analyze our traffic.",acceptAllBtn:"Accept all",acceptNecessaryBtn:"Reject all",showPreferencesBtn:"Customize"},preferencesModal:{title:"Cookie Settings",acceptAllBtn:"Accept all",acceptNecessaryBtn:"Reject all",savePreferencesBtn:"Save preferences",sections:[{title:"Your Privacy Choices",description:"When you visit our website, we store cookies on your browser to collect information."},{title:"Strictly Necessary cookies",description:"These cookies are essential for the proper functioning of the website.",linkedCategory:"necessary"},{title:"Analytics cookies",description:"We use Google Analytics to understand how visitors interact with our website. All data is anonymized.",linkedCategory:"analytics",cookieTable:{headers:{name:"Cookie",domain:"Domain",desc:"Description",exp:"Expiration"},body:[{name:"_ga",domain:window.location.hostname==="localhost"||window.location.hostname==="127.0.0.1"?"localhost":"vijay.eu",desc:"Used to distinguish users",exp:"2 years"},{name:"_ga_*",domain:window.location.hostname==="localhost"||window.location.hostname==="127.0.0.1"?"localhost":"vijay.eu",desc:"Used to maintain session status",exp:"2 years"}]}}]}}}},guiOptions:{consentModal:{layout:"cloud",position:"bottom center",equalWeightButtons:!0},preferencesModal:{layout:"box",position:"right",equalWeightButtons:!0}},onFirstConsent:({cookie:e})=>{console.log("First consent given:",e)},onConsent:({cookie:t})=>{console.log("Consent updated:",t),t.categories.includes("analytics")?(console.log("Analytics cookies accepted - loading Google Analytics"),e()):console.log("Analytics cookies rejected - NOT loading Google Analytics")},onChange:({changedCategories:t,cookie:n})=>{if(console.log("Consent preferences changed:",t),t.includes("analytics")){const t=CookieConsent.acceptedCategory("analytics");console.log("Analytics preference changed to:",t?"accepted":"rejected"),t&&e()}}}),console.log("CookieConsent initialized")}catch(e){console.error("Error initializing cookie consent:",e)}}else console.error("CookieConsent not available - script not loaded correctly")},500)})</script></main></body></html>
