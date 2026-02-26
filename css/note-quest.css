@@ -1,0 +1,301 @@
+.note-quest-wrapper {
+  --nq-bg: #f0e6ff;
+  --nq-card: #ffffff;
+  --nq-primary: #7c3aed;
+  --nq-primary-light: #a78bfa;
+  --nq-correct: #22c55e;
+  --nq-wrong: #ef4444;
+  --nq-text: #1e1b4b;
+  --nq-text-light: #6b7280;
+  --nq-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  color: var(--nq-text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-x: hidden;
+  padding: 24px 0;
+}
+
+.note-quest-wrapper .nq-header {
+  width: 100%;
+  max-width: 600px;
+  padding: 16px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note-quest-wrapper .nq-logo {
+  font-size: 1.4rem;
+  font-weight: 800;
+  color: var(--nq-primary);
+}
+
+.note-quest-wrapper .nq-progress {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--nq-text-light);
+}
+
+.note-quest-wrapper .nq-container {
+  width: 100%;
+  max-width: 600px;
+  padding: 0 16px 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.note-quest-wrapper .staff-card {
+  background: var(--nq-card);
+  border-radius: 20px;
+  box-shadow: var(--nq-shadow);
+  width: 100%;
+  padding: 10px 10px 0 10px;
+  margin-bottom: 20px;
+  display: flex;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.note-quest-wrapper .staff-card svg {
+  display: block;
+}
+
+.note-quest-wrapper .choices {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+  width: 100%;
+  margin-bottom: 16px;
+}
+
+.note-quest-wrapper .choice-btn {
+  font-size: 1.75rem;
+  font-weight: 700;
+  padding: 24px;
+  border: 3px solid var(--nq-primary-light);
+  border-radius: 16px;
+  background: var(--nq-card);
+  color: var(--nq-primary);
+  cursor: pointer;
+  transition: all 0.15s;
+  -webkit-tap-highlight-color: transparent;
+  user-select: none;
+}
+
+.note-quest-wrapper .choice-btn:active:not(.disabled) {
+  transform: scale(0.96);
+}
+
+.note-quest-wrapper .choice-btn:hover:not(.disabled) {
+  border-color: var(--nq-primary);
+  background: #f5f0ff;
+  box-shadow: 0 4px 16px rgba(124, 58, 237, 0.15);
+}
+
+.note-quest-wrapper .choice-btn.correct {
+  background: var(--nq-correct);
+  border-color: var(--nq-correct);
+  color: white;
+  animation: nqPopCorrect 0.4s ease;
+}
+
+.note-quest-wrapper .choice-btn.wrong {
+  background: var(--nq-wrong);
+  border-color: var(--nq-wrong);
+  color: white;
+  animation: nqShake 0.4s ease;
+}
+
+.note-quest-wrapper .choice-btn.reveal {
+  background: var(--nq-correct);
+  border-color: var(--nq-correct);
+  color: white;
+}
+
+.note-quest-wrapper .choice-btn.disabled {
+  cursor: default;
+  opacity: 0.7;
+}
+
+@keyframes nqPopCorrect {
+  0% { transform: scale(1); }
+  40% { transform: scale(1.1); }
+  100% { transform: scale(1); }
+}
+
+@keyframes nqShake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-8px); }
+  40% { transform: translateX(8px); }
+  60% { transform: translateX(-6px); }
+  80% { transform: translateX(4px); }
+}
+
+.note-quest-wrapper .stats-bar {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  padding: 14px 16px;
+  background: var(--nq-card);
+  border-radius: 14px;
+  box-shadow: var(--nq-shadow);
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: var(--nq-text-light);
+}
+
+.note-quest-wrapper .stats-bar span {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.note-quest-wrapper .nq-screen {
+  display: none;
+  width: 100%;
+  max-width: 600px;
+  flex-direction: column;
+  align-items: center;
+  padding: 0 16px;
+  flex: 1;
+}
+
+.note-quest-wrapper .nq-screen.active {
+  display: flex;
+}
+
+.note-quest-wrapper .start-screen {
+  justify-content: center;
+  gap: 24px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.note-quest-wrapper .start-screen p {
+  font-size: 1.1rem;
+  color: var(--nq-text-light);
+  max-width: 360px;
+}
+
+.note-quest-wrapper .difficulty-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  width: 100%;
+  max-width: 460px;
+}
+
+.note-quest-wrapper .diff-btn {
+  font-size: 1.8rem;
+  font-weight: 700;
+  padding: 26px 28px;
+  border: none;
+  border-radius: 16px;
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s, box-shadow 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.note-quest-wrapper .diff-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+}
+
+.note-quest-wrapper .diff-btn:active {
+  transform: scale(0.97);
+}
+
+.note-quest-wrapper .diff-btn.easy {
+  background: linear-gradient(135deg, #22c55e, #16a34a);
+}
+
+.note-quest-wrapper .diff-btn.medium {
+  background: linear-gradient(135deg, #f59e0b, #d97706);
+}
+
+.note-quest-wrapper .diff-btn.hard {
+  background: linear-gradient(135deg, #ef4444, #dc2626);
+}
+
+.note-quest-wrapper .diff-btn small {
+  font-weight: 400;
+  opacity: 0.85;
+  display: block;
+  font-size: 1.15rem;
+  margin-top: 4px;
+}
+
+.note-quest-wrapper .results-screen {
+  justify-content: center;
+  gap: 20px;
+  text-align: center;
+  padding-bottom: 60px;
+}
+
+.note-quest-wrapper .results-screen h2 {
+  font-size: 2.6rem;
+  color: var(--nq-primary);
+}
+
+.note-quest-wrapper .stars {
+  font-size: 3rem;
+  letter-spacing: 8px;
+}
+
+.note-quest-wrapper .results-stats {
+  background: var(--nq-card);
+  border-radius: 16px;
+  padding: 32px 44px;
+  box-shadow: var(--nq-shadow);
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  min-width: 300px;
+}
+
+.note-quest-wrapper .results-stats .stat-row {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.5rem;
+}
+
+.note-quest-wrapper .stat-row .label {
+  color: var(--nq-text-light);
+}
+
+.note-quest-wrapper .stat-row .value {
+  font-weight: 700;
+}
+
+.note-quest-wrapper .play-again-btn {
+  font-size: 1.6rem;
+  font-weight: 700;
+  padding: 22px 56px;
+  border: none;
+  border-radius: 16px;
+  background: var(--nq-primary);
+  color: white;
+  cursor: pointer;
+  transition: transform 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.note-quest-wrapper .play-again-btn:active {
+  transform: scale(0.97);
+}
+
+.note-quest-wrapper #nqConfetti {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 100;
+}

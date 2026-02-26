@@ -1,4 +1,46 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on Vijay Kodam</title><link>https://vijay.eu/tags/javascript/</link><description>Recent content in Javascript on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 02 Jul 2025 15:20:07 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Tic Tac Toe</title><link>https://vijay.eu/projects/tic-tac-toe/</link><pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate><guid>https://vijay.eu/projects/tic-tac-toe/</guid><description>&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Javascript on Vijay Kodam</title><link>https://vijay.eu/tags/javascript/</link><description>Recent content in Javascript on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/javascript/index.xml" rel="self" type="application/rss+xml"/><item><title>Note Quest</title><link>https://vijay.eu/projects/note-quest/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0200</pubDate><guid>https://vijay.eu/projects/note-quest/</guid><description>&lt;p&gt;Learn to read music notes on the grand staff! Pick the correct note name for each question.&lt;/p&gt;
+&lt;p&gt;Created using Claude Code CLI on 26th Feb 2026
+&lt;link rel="stylesheet" href="https://vijay.eu/css/note-quest.css"&gt;
+&lt;script src="https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js"&gt;&lt;/script&gt;
+&lt;div class="note-quest-wrapper"&gt;
+&lt;div class="nq-screen start-screen active" id="nqStartScreen"&gt;
+&lt;div class="difficulty-btns"&gt;
+&lt;button class="diff-btn easy"&gt;
+Easy &lt;small&gt;Treble clef &amp;middot; C4 to G5&lt;/small&gt;
+&lt;/button&gt;
+&lt;button class="diff-btn medium"&gt;
+Medium &lt;small&gt;Both clefs &amp;middot; A3 to C6&lt;/small&gt;
+&lt;/button&gt;
+&lt;button class="diff-btn hard"&gt;
+Hard &lt;small&gt;Full range &amp;middot; with ledger lines&lt;/small&gt;
+&lt;/button&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="nq-screen" id="nqGameScreen"&gt;
+&lt;div class="nq-header"&gt;
+&lt;div class="nq-logo"&gt;Note Quest&lt;/div&gt;
+&lt;div class="nq-progress" id="nqProgress"&gt;1 / 20&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="nq-container"&gt;
+&lt;div class="staff-card" id="nqStaffCard"&gt;&lt;/div&gt;
+&lt;div class="choices" id="nqChoices"&gt;&lt;/div&gt;
+&lt;div class="stats-bar"&gt;
+&lt;span&gt;Streak: &lt;strong id="nqStreakDisplay"&gt;0&lt;/strong&gt;&lt;/span&gt;
+&lt;span&gt;Score: &lt;strong id="nqScoreDisplay"&gt;0&lt;/strong&gt;&lt;/span&gt;
+&lt;span id="nqTimerDisplay"&gt;0:00&lt;/span&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+&lt;div class="nq-screen results-screen" id="nqResultsScreen"&gt;
+&lt;h2&gt;Round Complete!&lt;/h2&gt;
+&lt;div class="stars" id="nqStarsDisplay"&gt;&lt;/div&gt;
+&lt;div class="results-stats" id="nqResultsStats"&gt;&lt;/div&gt;
+&lt;button class="play-again-btn"&gt;Play Again&lt;/button&gt;
+&lt;/div&gt;
+&lt;canvas id="nqConfetti"&gt;&lt;/canvas&gt;
+&lt;/div&gt;
+&lt;script src="https://vijay.eu/js/note-quest.js"&gt;&lt;/script&gt;
+&lt;/p&gt;</description></item><item><title>Tic Tac Toe</title><link>https://vijay.eu/projects/tic-tac-toe/</link><pubDate>Wed, 02 Jul 2025 15:20:07 +0300</pubDate><guid>https://vijay.eu/projects/tic-tac-toe/</guid><description>&lt;p&gt;Created it using Google Gemini CLI on 2nd Jul 2025
 &lt;link rel="stylesheet" href="https://vijay.eu/css/tic-tac-toe.css"&gt;
 &lt;div class="tic-tac-toe-container"&gt;
 &lt;div id="game-setup"&gt;
