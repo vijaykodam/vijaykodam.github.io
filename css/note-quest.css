@@ -1,3 +1,5 @@
+/* ── Note Quest — Mobile-first responsive + dark mode ── */
+
 .note-quest-wrapper {
   --nq-bg: #f0e6ff;
   --nq-card: #ffffff;
@@ -8,6 +10,7 @@
   --nq-text: #1e1b4b;
   --nq-text-light: #6b7280;
   --nq-shadow: 0 4px 20px rgba(124, 58, 237, 0.15);
+  --nq-hover-bg: #f5f0ff;
 
   font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
   color: var(--nq-text);
@@ -15,47 +18,82 @@
   flex-direction: column;
   align-items: center;
   overflow-x: hidden;
-  padding: 24px 0;
+  padding: 16px 0;
 }
 
+/* ── Dark mode (system preference via site's colorscheme-auto) ── */
+body.colorscheme-auto .note-quest-wrapper {
+  @media (prefers-color-scheme: dark) {
+    --nq-bg: #1a1625;
+    --nq-card: #2d2640;
+    --nq-text: #e8e0f0;
+    --nq-text-light: #9b8fb8;
+    --nq-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --nq-hover-bg: #3a3055;
+  }
+}
+
+body.colorscheme-dark .note-quest-wrapper {
+  --nq-bg: #1a1625;
+  --nq-card: #2d2640;
+  --nq-text: #e8e0f0;
+  --nq-text-light: #9b8fb8;
+  --nq-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  --nq-hover-bg: #3a3055;
+}
+
+/* Invert VexFlow SVG for dark mode (staff lines, noteheads) */
+body.colorscheme-auto .note-quest-wrapper .staff-card svg {
+  @media (prefers-color-scheme: dark) {
+    filter: invert(1) hue-rotate(180deg);
+  }
+}
+
+body.colorscheme-dark .note-quest-wrapper .staff-card svg {
+  filter: invert(1) hue-rotate(180deg);
+}
+
+/* ── Header ── */
 .note-quest-wrapper .nq-header {
   width: 100%;
   max-width: 600px;
-  padding: 16px 20px;
+  padding: 12px 16px;
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
 .note-quest-wrapper .nq-logo {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   font-weight: 800;
   color: var(--nq-primary);
 }
 
 .note-quest-wrapper .nq-progress {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-weight: 600;
   color: var(--nq-text-light);
 }
 
+/* ── Container ── */
 .note-quest-wrapper .nq-container {
   width: 100%;
   max-width: 600px;
-  padding: 0 16px 24px;
+  padding: 0 12px 16px;
   display: flex;
   flex-direction: column;
   align-items: center;
   flex: 1;
 }
 
+/* ── Staff card ── */
 .note-quest-wrapper .staff-card {
   background: var(--nq-card);
-  border-radius: 20px;
+  border-radius: 16px;
   box-shadow: var(--nq-shadow);
   width: 100%;
-  padding: 10px 10px 0 10px;
-  margin-bottom: 20px;
+  padding: 8px 8px 0 8px;
+  margin-bottom: 16px;
   display: flex;
   justify-content: center;
   overflow: hidden;
@@ -63,22 +101,25 @@
 
 .note-quest-wrapper .staff-card svg {
   display: block;
+  max-width: 100%;
+  height: auto;
 }
 
+/* ── Choice buttons ── */
 .note-quest-wrapper .choices {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 14px;
+  gap: 10px;
   width: 100%;
-  margin-bottom: 16px;
+  margin-bottom: 12px;
 }
 
 .note-quest-wrapper .choice-btn {
-  font-size: 1.75rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  padding: 24px;
+  padding: 16px;
   border: 3px solid var(--nq-primary-light);
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--nq-card);
   color: var(--nq-primary);
   cursor: pointer;
@@ -93,7 +134,7 @@
 
 .note-quest-wrapper .choice-btn:hover:not(.disabled) {
   border-color: var(--nq-primary);
-  background: #f5f0ff;
+  background: var(--nq-hover-bg);
   box-shadow: 0 4px 16px rgba(124, 58, 237, 0.15);
 }
 
@@ -136,32 +177,34 @@
   80% { transform: translateX(4px); }
 }
 
+/* ── Stats bar ── */
 .note-quest-wrapper .stats-bar {
   width: 100%;
   display: flex;
   justify-content: space-around;
-  padding: 14px 16px;
+  padding: 12px 12px;
   background: var(--nq-card);
-  border-radius: 14px;
+  border-radius: 12px;
   box-shadow: var(--nq-shadow);
   font-weight: 600;
-  font-size: 1.4rem;
+  font-size: 1rem;
   color: var(--nq-text-light);
 }
 
 .note-quest-wrapper .stats-bar span {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 6px;
 }
 
+/* ── Screens ── */
 .note-quest-wrapper .nq-screen {
   display: none;
   width: 100%;
   max-width: 600px;
   flex-direction: column;
   align-items: center;
-  padding: 0 16px;
+  padding: 0 12px;
   flex: 1;
 }
 
@@ -169,15 +212,16 @@
   display: flex;
 }
 
+/* ── Start screen ── */
 .note-quest-wrapper .start-screen {
   justify-content: center;
-  gap: 24px;
+  gap: 20px;
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
 }
 
 .note-quest-wrapper .start-screen p {
-  font-size: 1.1rem;
+  font-size: 1rem;
   color: var(--nq-text-light);
   max-width: 360px;
 }
@@ -185,17 +229,17 @@
 .note-quest-wrapper .difficulty-btns {
   display: flex;
   flex-direction: column;
-  gap: 16px;
+  gap: 12px;
   width: 100%;
   max-width: 460px;
 }
 
 .note-quest-wrapper .diff-btn {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   font-weight: 700;
-  padding: 26px 28px;
+  padding: 18px 20px;
   border: none;
-  border-radius: 16px;
+  border-radius: 14px;
   color: white;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
@@ -227,42 +271,43 @@
   font-weight: 400;
   opacity: 0.85;
   display: block;
-  font-size: 1.15rem;
-  margin-top: 4px;
+  font-size: 1rem;
+  margin-top: 2px;
 }
 
+/* ── Results screen ── */
 .note-quest-wrapper .results-screen {
   justify-content: center;
-  gap: 20px;
+  gap: 16px;
   text-align: center;
-  padding-bottom: 60px;
+  padding-bottom: 40px;
 }
 
 .note-quest-wrapper .results-screen h2 {
-  font-size: 2.6rem;
+  font-size: 2rem;
   color: var(--nq-primary);
 }
 
 .note-quest-wrapper .stars {
-  font-size: 3rem;
-  letter-spacing: 8px;
+  font-size: 2.2rem;
+  letter-spacing: 6px;
 }
 
 .note-quest-wrapper .results-stats {
   background: var(--nq-card);
-  border-radius: 16px;
-  padding: 32px 44px;
+  border-radius: 14px;
+  padding: 20px 24px;
   box-shadow: var(--nq-shadow);
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  min-width: 300px;
+  gap: 14px;
+  width: 100%;
 }
 
 .note-quest-wrapper .results-stats .stat-row {
   display: flex;
   justify-content: space-between;
-  font-size: 1.5rem;
+  font-size: 1.2rem;
 }
 
 .note-quest-wrapper .stat-row .label {
@@ -274,11 +319,11 @@
 }
 
 .note-quest-wrapper .play-again-btn {
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 700;
-  padding: 22px 56px;
+  padding: 18px 44px;
   border: none;
-  border-radius: 16px;
+  border-radius: 14px;
   background: var(--nq-primary);
   color: white;
   cursor: pointer;
@@ -290,6 +335,7 @@
   transform: scale(0.97);
 }
 
+/* ── Confetti ── */
 .note-quest-wrapper #nqConfetti {
   position: fixed;
   top: 0;
@@ -298,4 +344,114 @@
   height: 100%;
   pointer-events: none;
   z-index: 100;
+}
+
+/* ── Desktop / tablet breakpoint ── */
+@media (min-width: 480px) {
+  .note-quest-wrapper {
+    padding: 24px 0;
+  }
+
+  .note-quest-wrapper .nq-header {
+    padding: 16px 20px;
+  }
+
+  .note-quest-wrapper .nq-logo {
+    font-size: 1.4rem;
+  }
+
+  .note-quest-wrapper .nq-progress {
+    font-size: 1.1rem;
+  }
+
+  .note-quest-wrapper .nq-container {
+    padding: 0 16px 24px;
+  }
+
+  .note-quest-wrapper .staff-card {
+    border-radius: 20px;
+    padding: 10px 10px 0 10px;
+    margin-bottom: 20px;
+  }
+
+  .note-quest-wrapper .choices {
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .note-quest-wrapper .choice-btn {
+    font-size: 1.75rem;
+    padding: 24px;
+    border-radius: 16px;
+  }
+
+  .note-quest-wrapper .stats-bar {
+    padding: 14px 16px;
+    border-radius: 14px;
+    font-size: 1.4rem;
+  }
+
+  .note-quest-wrapper .stats-bar span {
+    gap: 8px;
+  }
+
+  .note-quest-wrapper .nq-screen {
+    padding: 0 16px;
+  }
+
+  .note-quest-wrapper .start-screen {
+    gap: 24px;
+    padding-bottom: 60px;
+  }
+
+  .note-quest-wrapper .start-screen p {
+    font-size: 1.1rem;
+  }
+
+  .note-quest-wrapper .difficulty-btns {
+    gap: 16px;
+  }
+
+  .note-quest-wrapper .diff-btn {
+    font-size: 1.8rem;
+    padding: 26px 28px;
+    border-radius: 16px;
+  }
+
+  .note-quest-wrapper .diff-btn small {
+    font-size: 1.15rem;
+    margin-top: 4px;
+  }
+
+  .note-quest-wrapper .results-screen {
+    gap: 20px;
+    padding-bottom: 60px;
+  }
+
+  .note-quest-wrapper .results-screen h2 {
+    font-size: 2.6rem;
+  }
+
+  .note-quest-wrapper .stars {
+    font-size: 3rem;
+    letter-spacing: 8px;
+  }
+
+  .note-quest-wrapper .results-stats {
+    padding: 32px 44px;
+    border-radius: 16px;
+    gap: 18px;
+    min-width: 300px;
+    width: auto;
+  }
+
+  .note-quest-wrapper .results-stats .stat-row {
+    font-size: 1.5rem;
+  }
+
+  .note-quest-wrapper .play-again-btn {
+    font-size: 1.6rem;
+    padding: 22px 56px;
+    border-radius: 16px;
+  }
 }

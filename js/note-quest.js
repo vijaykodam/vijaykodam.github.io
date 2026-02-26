@@ -87,13 +87,20 @@ document.addEventListener('DOMContentLoaded', function () {
     bestStreak: 0,
     startTime: 0,
     answered: false,
+    currentNote: null,
   };
 
   // ── Scoped element queries ──
   function qs(selector) { return wrapper.querySelector(selector); }
   function qsa(selector) { return wrapper.querySelectorAll(selector); }
 
-  // ── VexFlow rendering ──
+  // ── VexFlow rendering (responsive) ──
+  function getRendererWidth() {
+    var container = qs('#nqStaffCard');
+    var available = container.clientWidth - 16; // account for card padding
+    return Math.min(420, Math.max(280, available));
+  }
+
   function renderStaff(note) {
     var container = qs('#nqStaffCard');
     container.innerHTML = '';
@@ -101,13 +108,14 @@ document.addEventListener('DOMContentLoaded', function () {
     var div = document.createElement('div');
     container.appendChild(div);
 
+    var rendererWidth = getRendererWidth();
     var renderer = new Renderer(div, Renderer.Backends.SVG);
-    renderer.resize(420, 260);
+    renderer.resize(rendererWidth, 260);
     var context = renderer.getContext();
     context.scale(1, 1);
 
-    var staveWidth = 330;
-    var staveX = 50;
+    var staveX = rendererWidth < 340 ? 40 : 50;
+    var staveWidth = rendererWidth - staveX - 40;
 
     var trebleStave = new Stave(staveX, 10, staveWidth);
     trebleStave.addClef('treble');
@@ -140,6 +148,17 @@ document.addEventListener('DOMContentLoaded', function () {
     new Formatter().joinVoices([voice]).format([voice], staveWidth - 80);
     voice.draw(context, targetStave);
   }
+
+  // ── Re-render on resize (orientation change, etc.) ──
+  var resizeTimer;
+  window.addEventListener('resize', function () {
+    clearTimeout(resizeTimer);
+    resizeTimer = setTimeout(function () {
+      if (gameState.currentNote) {
+        renderStaff(gameState.currentNote);
+      }
+    }, 150);
+  });
 
   // ── Distractor generation ──
   function generateChoices(correctNote) {
@@ -180,6 +199,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameState.bestStreak = 0;
     gameState.startTime = Date.now();
     gameState.answered = false;
+    gameState.currentNote = null;
 
     var available = getNotesForDifficulty(difficulty);
     var notes = [];
@@ -201,6 +221,7 @@ document.addEventListener('DOMContentLoaded', function () {
   function showQuestion() {
     var note = gameState.notes[gameState.current];
     gameState.answered = false;
+    gameState.currentNote = note;
 
     qs('#nqProgress').textContent = (gameState.current + 1) + ' / 20';
     qs('#nqScoreDisplay').textContent = gameState.score;
@@ -210,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var choices = generateChoices(note);
     var choicesEl = qs('#nqChoices');
-    choicesEl.innerHTML = '';
+    choicesEl.textContent = '';
 
     choices.forEach(function (c) {
       var btn = document.createElement('button');
@@ -269,6 +290,7 @@ document.addEventListener('DOMContentLoaded', function () {
   // Results
   function showResults() {
     clearInterval(timerInterval);
+    gameState.currentNote = null;
 
     var elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
     var mins = Math.floor(elapsed / 60);
@@ -283,12 +305,29 @@ document.addEventListener('DOMContentLoaded', function () {
     qs('#nqStarsDisplay').textContent =
       '\u2B50'.repeat(starCount) + '\u2606'.repeat(3 - starCount);
 
-    qs('#nqResultsStats').innerHTML =
-      '<div class="stat-row"><span class="label">Score</span><span class="value">' + gameState.score + ' / 20</span></div>' +
-      '<div class="stat-row"><span class="label">Accuracy</span><span class="value">' + accuracy + '%</span></div>' +
-      '<div class="stat-row"><span class="label">Time</span><span class="value">' + mins + ':' + String(secs).padStart(2, '0') + '</span></div>' +
-      '<div class="stat-row"><span class="label">Best Streak</span><span class="value">' + gameState.bestStreak + '</span></div>' +
-      '<div class="stat-row"><span class="label">Difficulty</span><span class="value">' + gameState.difficulty.charAt(0).toUpperCase() + gameState.difficulty.slice(1) + '</span></div>';
+    // Build results stats using safe DOM methods
+    var statsEl = qs('#nqResultsStats');
+    statsEl.textContent = '';
+    var statsData = [
+      ['Score', gameState.score + ' / 20'],
+      ['Accuracy', accuracy + '%'],
+      ['Time', mins + ':' + String(secs).padStart(2, '0')],
+      ['Best Streak', String(gameState.bestStreak)],
+      ['Difficulty', gameState.difficulty.charAt(0).toUpperCase() + gameState.difficulty.slice(1)],
+    ];
+    statsData.forEach(function (row) {
+      var div = document.createElement('div');
+      div.className = 'stat-row';
+      var labelSpan = document.createElement('span');
+      labelSpan.className = 'label';
+      labelSpan.textContent = row[0];
+      var valueSpan = document.createElement('span');
+      valueSpan.className = 'value';
+      valueSpan.textContent = row[1];
+      div.appendChild(labelSpan);
+      div.appendChild(valueSpan);
+      statsEl.appendChild(div);
+    });
 
     showScreen('nqResultsScreen');
     if (starCount === 3) launchConfetti();
