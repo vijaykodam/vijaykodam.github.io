@@ -97,6 +97,7 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   display: flex;
   justify-content: center;
   overflow: hidden;
+  scroll-margin-top: 12px;
 }
 
 .note-quest-wrapper .staff-card svg {

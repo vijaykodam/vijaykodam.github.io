@@ -94,6 +94,32 @@ document.addEventListener('DOMContentLoaded', function () {
   function qs(selector) { return wrapper.querySelector(selector); }
   function qsa(selector) { return wrapper.querySelectorAll(selector); }
 
+  function prefersReducedMotion() {
+    return window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  }
+
+  function needsQuestionReanchor() {
+    var staffCard = qs('#nqStaffCard');
+    var choices = qs('#nqChoices');
+    if (!staffCard || !choices) return false;
+
+    var staffRect = staffCard.getBoundingClientRect();
+    var choicesRect = choices.getBoundingClientRect();
+    var viewportHeight = window.innerHeight || document.documentElement.clientHeight;
+    return staffRect.top < 8 || choicesRect.bottom > viewportHeight - 8;
+  }
+
+  function anchorQuestionInView(force) {
+    var staffCard = qs('#nqStaffCard');
+    if (!staffCard) return;
+    if (!force && !needsQuestionReanchor()) return;
+
+    staffCard.scrollIntoView({
+      block: 'start',
+      behavior: prefersReducedMotion() ? 'auto' : 'smooth',
+    });
+  }
+
   // ── VexFlow rendering (responsive) ──
   function getRendererWidth() {
     var container = qs('#nqStaffCard');
@@ -215,6 +241,7 @@ document.addEventListener('DOMContentLoaded', function () {
     gameState.notes = notes;
     showScreen('nqGameScreen');
     showQuestion();
+    requestAnimationFrame(function () { anchorQuestionInView(true); });
     startTimer();
   }
 
@@ -231,6 +258,10 @@ document.addEventListener('DOMContentLoaded', function () {
 
     var choices = generateChoices(note);
     var choicesEl = qs('#nqChoices');
+    if (document.activeElement && document.activeElement.classList &&
+      document.activeElement.classList.contains('choice-btn')) {
+      document.activeElement.blur();
+    }
     choicesEl.textContent = '';
 
     choices.forEach(function (c) {
@@ -271,6 +302,7 @@ document.addEventListener('DOMContentLoaded', function () {
         showResults();
       } else {
         showQuestion();
+        requestAnimationFrame(function () { anchorQuestionInView(true); });
       }
     }, 1000);
   }
