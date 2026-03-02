@@ -4,6 +4,12 @@
       "name": "Anthropic",
       "models": [
         {
+          "model": "Claude Opus 4.6",
+          "input": 5.0,
+          "cache_input": 0.5,
+          "output": 25.0
+        },
+        {
           "model": "Claude Opus 4.5",
           "input": 5.0,
           "cache_input": 0.5,
@@ -20,6 +26,12 @@
           "input": 15.0,
           "cache_input": 1.5,
           "output": 75.0
+        },
+        {
+          "model": "Claude Sonnet 4.6",
+          "input": 3.0,
+          "cache_input": 0.3,
+          "output": 15.0
         },
         {
           "model": "Claude Sonnet 4.5",
@@ -176,6 +188,12 @@
       "name": "Google",
       "models": [
         {
+          "model": "Gemini 3.1 Pro Preview",
+          "input": 2.0,
+          "cache_input": 0.2,
+          "output": 12.0
+        },
+        {
           "model": "Gemini 3 Pro Preview",
           "input": 2.0,
           "cache_input": 0.2,
@@ -195,12 +213,6 @@
         },
         {
           "model": "Gemini 2.5 Flash",
-          "input": 0.3,
-          "cache_input": 0.03,
-          "output": 2.5
-        },
-        {
-          "model": "Gemini 2.5 Flash Preview",
           "input": 0.3,
           "cache_input": 0.03,
           "output": 2.5
