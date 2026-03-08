@@ -108,17 +108,20 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
 
 /* ── Choice buttons ── */
 .note-quest-wrapper .choices {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
   gap: 10px;
   width: 100%;
   margin-bottom: 12px;
 }
 
 .note-quest-wrapper .choice-btn {
+  flex: 0 0 calc(25% - 10px);
+  min-width: 0;
   font-size: 1.3rem;
   font-weight: 700;
-  padding: 16px;
+  padding: 14px 8px;
   border: 3px solid var(--nq-primary-light);
   border-radius: 14px;
   background: var(--nq-card);
@@ -215,9 +218,10 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
 
 /* ── Start screen ── */
 .note-quest-wrapper .start-screen {
-  justify-content: center;
-  gap: 20px;
+  justify-content: flex-start;
+  gap: 16px;
   text-align: center;
+  padding-top: 20px;
   padding-bottom: 40px;
 }
 
@@ -230,49 +234,80 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
 .note-quest-wrapper .difficulty-btns {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 16px;
   width: 100%;
   max-width: 460px;
 }
 
-.note-quest-wrapper .diff-btn {
-  font-size: 1.4rem;
+/* ── Level category groups ── */
+.note-quest-wrapper .level-category {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.note-quest-wrapper .category-header {
+  font-size: 0.75rem;
   font-weight: 700;
-  padding: 18px 20px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  margin: 0;
+  padding: 0 4px;
+  text-align: left;
+}
+
+.note-quest-wrapper .category-header.easy {
+  color: #16a34a;
+}
+
+.note-quest-wrapper .category-header.medium {
+  color: #d97706;
+}
+
+.note-quest-wrapper .category-header.hard {
+  color: #dc2626;
+}
+
+/* ── Level buttons ── */
+.note-quest-wrapper .level-btn {
+  font-size: 1rem;
+  font-weight: 700;
+  padding: 12px 16px;
   border: none;
-  border-radius: 14px;
+  border-radius: 12px;
   color: white;
   cursor: pointer;
   transition: transform 0.15s, box-shadow 0.15s;
   -webkit-tap-highlight-color: transparent;
+  text-align: left;
 }
 
-.note-quest-wrapper .diff-btn:hover {
+.note-quest-wrapper .level-btn:hover {
   transform: translateY(-2px);
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
 }
 
-.note-quest-wrapper .diff-btn:active {
+.note-quest-wrapper .level-btn:active {
   transform: scale(0.97);
 }
 
-.note-quest-wrapper .diff-btn.easy {
+.note-quest-wrapper .level-btn.easy {
   background: linear-gradient(135deg, #22c55e, #16a34a);
 }
 
-.note-quest-wrapper .diff-btn.medium {
+.note-quest-wrapper .level-btn.medium {
   background: linear-gradient(135deg, #f59e0b, #d97706);
 }
 
-.note-quest-wrapper .diff-btn.hard {
+.note-quest-wrapper .level-btn.hard {
   background: linear-gradient(135deg, #ef4444, #dc2626);
 }
 
-.note-quest-wrapper .diff-btn small {
+.note-quest-wrapper .level-btn small {
   font-weight: 400;
   opacity: 0.85;
   display: block;
-  font-size: 1rem;
+  font-size: 0.85rem;
   margin-top: 2px;
 }
 
@@ -413,7 +448,7 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
 
   .note-quest-wrapper .choice-btn {
     font-size: 1.75rem;
-    padding: 24px;
+    padding: 20px 12px;
     border-radius: 16px;
   }
 
@@ -432,7 +467,7 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   }
 
   .note-quest-wrapper .start-screen {
-    gap: 24px;
+    gap: 20px;
     padding-bottom: 60px;
   }
 
@@ -441,18 +476,27 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   }
 
   .note-quest-wrapper .difficulty-btns {
-    gap: 16px;
+    gap: 20px;
   }
 
-  .note-quest-wrapper .diff-btn {
-    font-size: 1.8rem;
-    padding: 26px 28px;
-    border-radius: 16px;
+  .note-quest-wrapper .level-category {
+    gap: 10px;
   }
 
-  .note-quest-wrapper .diff-btn small {
+  .note-quest-wrapper .category-header {
+    font-size: 0.8rem;
+    letter-spacing: 2px;
+  }
+
+  .note-quest-wrapper .level-btn {
     font-size: 1.15rem;
-    margin-top: 4px;
+    padding: 14px 20px;
+    border-radius: 14px;
+  }
+
+  .note-quest-wrapper .level-btn small {
+    font-size: 0.95rem;
+    margin-top: 3px;
   }
 
   .note-quest-wrapper .results-screen {

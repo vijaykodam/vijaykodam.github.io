@@ -1,16 +1,22 @@
 document.addEventListener('DOMContentLoaded', function () {
-  const wrapper = document.querySelector('.note-quest-wrapper');
+  var wrapper = document.querySelector('.note-quest-wrapper');
   if (!wrapper) return;
 
-  const { Factory, Stave, StaveNote, Voice, Formatter, Renderer, StaveConnector } = VexFlow;
+  var Factory = VexFlow.Factory;
+  var Stave = VexFlow.Stave;
+  var StaveNote = VexFlow.StaveNote;
+  var Voice = VexFlow.Voice;
+  var Formatter = VexFlow.Formatter;
+  var Renderer = VexFlow.Renderer;
+  var StaveConnector = VexFlow.StaveConnector;
 
   // ── Note data ──
-  const NOTE_NAMES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
+  var NOTE_NAMES = ['C', 'D', 'E', 'F', 'G', 'A', 'B'];
 
-  const NOTES_DB = [];
+  var NOTES_DB = [];
 
   (function buildNotesDB() {
-    const trebleNotes = [
+    var trebleNotes = [
       { name: 'C', octave: 4, clef: 'treble' },
       { name: 'D', octave: 4, clef: 'treble' },
       { name: 'E', octave: 4, clef: 'treble' },
@@ -28,7 +34,7 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'C', octave: 6, clef: 'treble' },
     ];
 
-    const bassNotes = [
+    var bassNotes = [
       { name: 'E', octave: 2, clef: 'bass' },
       { name: 'F', octave: 2, clef: 'bass' },
       { name: 'G', octave: 2, clef: 'bass' },
@@ -44,42 +50,93 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'C', octave: 4, clef: 'bass' },
     ];
 
-    NOTES_DB.push(...bassNotes, ...trebleNotes);
+    NOTES_DB.push.apply(NOTES_DB, bassNotes);
+    NOTES_DB.push.apply(NOTES_DB, trebleNotes);
   })();
 
-  const DIFFICULTY = {
-    easy:   { min: 'C4', max: 'G5', clef: 'treble' },
-    medium: { min: 'A3', max: 'C6' },
-    hard:   { min: 'E2', max: 'C6' },
-  };
+  // ── Level configuration ──
+  var LEVELS = [
+    { level: 1,  name: 'First Notes',     category: 'easy',   min: 'C4', max: 'G4', clef: 'treble', labelMode: 'all' },
+    { level: 2,  name: 'Treble Basics',    category: 'easy',   min: 'C4', max: 'C5', clef: 'treble', labelMode: 'lines' },
+    { level: 3,  name: 'Treble Comfort',   category: 'easy',   min: 'C4', max: 'G5', clef: 'treble', labelMode: 'none' },
+    { level: 4,  name: 'Meet the Bass',    category: 'medium', min: 'F3', max: 'G4',                 labelMode: 'lines' },
+    { level: 5,  name: 'Grand Staff',      category: 'medium', min: 'C3', max: 'C5',                 labelMode: 'none' },
+    { level: 6,  name: 'Expanding Range',  category: 'medium', min: 'A2', max: 'D5',                 labelMode: 'none' },
+    { level: 7,  name: 'Full Staff',       category: 'medium', min: 'G2', max: 'E5',                 labelMode: 'none' },
+    { level: 8,  name: 'Ledger Lines',     category: 'hard',   min: 'E2', max: 'G5',                 labelMode: 'none' },
+    { level: 9,  name: 'Extended Range',   category: 'hard',   min: 'E2', max: 'A5',                 labelMode: 'none' },
+    { level: 10, name: 'Note Master',      category: 'hard',   min: 'E2', max: 'C6',                 labelMode: 'none' },
+  ];
+
+  var TOTAL_QUESTIONS = 10;
 
   function noteKey(n) { return n.name + n.octave; }
 
   function noteIndex(name, octave) {
-    const order = { C:0, D:1, E:2, F:3, G:4, A:5, B:6 };
+    var order = { C:0, D:1, E:2, F:3, G:4, A:5, B:6 };
     return octave * 7 + order[name];
   }
 
-  function getNotesForDifficulty(diff) {
-    const d = DIFFICULTY[diff];
-    const minIdx = noteIndex(d.min[0], parseInt(d.min.slice(1)));
-    const maxIdx = noteIndex(d.max[0], parseInt(d.max.slice(1)));
+  function getNotesForLevel(config) {
+    var minIdx = noteIndex(config.min[0], parseInt(config.min.slice(1)));
+    var maxIdx = noteIndex(config.max[0], parseInt(config.max.slice(1)));
 
-    let notes = NOTES_DB.filter(function (n) {
-      const idx = noteIndex(n.name, n.octave);
+    var notes = NOTES_DB.filter(function (n) {
+      var idx = noteIndex(n.name, n.octave);
       return idx >= minIdx && idx <= maxIdx;
     });
 
-    if (d.clef === 'treble') {
+    if (config.clef === 'treble') {
       notes = notes.filter(function (n) { return n.clef === 'treble'; });
     }
 
     return notes;
   }
 
+  function pickRandomNotes(pool, count) {
+    var result = [];
+    for (var i = 0; i < count; i++) {
+      var note;
+      do {
+        note = pool[Math.floor(Math.random() * pool.length)];
+      } while (result.length > 0 && noteKey(note) === noteKey(result[result.length - 1]));
+      result.push(note);
+    }
+    return result;
+  }
+
+  function interleaveNotes(bass, treble) {
+    var result = [];
+    var bi = 0, ti = 0;
+    var useBass = Math.random() < 0.5; // random start
+    while (bi < bass.length || ti < treble.length) {
+      if (useBass && bi < bass.length) {
+        result.push(bass[bi++]);
+      } else if (!useBass && ti < treble.length) {
+        result.push(treble[ti++]);
+      } else if (bi < bass.length) {
+        result.push(bass[bi++]);
+      } else {
+        result.push(treble[ti++]);
+      }
+      useBass = !useBass;
+    }
+    // Light neighbor-swaps for variety
+    for (var i = 0; i < result.length - 1; i++) {
+      if (Math.random() < 0.3) {
+        var tmp = result[i];
+        result[i] = result[i + 1];
+        result[i + 1] = tmp;
+        i++; // skip swapped pair
+      }
+    }
+    return result;
+  }
+
   // ── Game state ──
   var gameState = {
-    difficulty: 'easy',
+    level: 1,
+    levelConfig: LEVELS[0],
     notes: [],
     current: 0,
     score: 0,
@@ -124,11 +181,21 @@ document.addEventListener('DOMContentLoaded', function () {
   // ── VexFlow rendering (responsive) ──
   function getRendererWidth() {
     var container = qs('#nqStaffCard');
-    var available = container.clientWidth - 16; // account for card padding
+    var available = container.clientWidth - 16;
     return Math.min(420, Math.max(280, available));
   }
 
-  function renderNoteLabels(trebleStave, bassStave, div) {
+  function getEffectiveLabelMode() {
+    var config = gameState.levelConfig;
+    if (config.labelMode === 'all' || config.labelMode === 'lines') {
+      return config.labelMode;
+    }
+    // labelMode === 'none': show 'lines' only if checkbox is checked
+    if (gameState.showNoteNames) return 'lines';
+    return 'none';
+  }
+
+  function renderNoteLabels(trebleStave, bassStave, div, mode) {
     var svg = div.querySelector('svg');
     if (!svg) return;
 
@@ -137,33 +204,76 @@ document.addEventListener('DOMContentLoaded', function () {
     var trebleLineNames = ['F', 'D', 'B', 'G', 'E'];
     // Bass lines (top to bottom, lines 0→4): A3, F3, D3, B2, G2
     var bassLineNames = ['A', 'F', 'D', 'B', 'G'];
+    // Treble spaces (top to bottom, between lines): E5, C5, A4, F4
+    var trebleSpaceNames = ['E', 'C', 'A', 'F'];
+    // Bass spaces (top to bottom): G3, E3, C3, A2
+    var bassSpaceNames = ['G', 'E', 'C', 'A'];
 
     var labelX = 7;
+    var labelX2 = 20;
 
-    function addLabel(text, y) {
+    function addLabel(text, x, y, fontSize, fill, fontWeight) {
       var el = document.createElementNS(ns, 'text');
-      el.setAttribute('x', labelX);
+      el.setAttribute('x', x);
       el.setAttribute('y', y + 3);
       el.setAttribute('text-anchor', 'middle');
-      el.setAttribute('font-size', '10px');
+      el.setAttribute('font-size', fontSize);
       el.setAttribute('font-family', 'system-ui, sans-serif');
-      el.setAttribute('fill', '#444');
-      el.setAttribute('font-weight', '600');
+      el.setAttribute('fill', fill);
+      el.setAttribute('font-weight', fontWeight);
       el.textContent = text;
       svg.appendChild(el);
     }
 
-    for (var i = 0; i < 5; i++) {
-      addLabel(trebleLineNames[i], trebleStave.getYForLine(i));
-    }
-    // Middle C: first ledger line below treble staff (line 5)
-    addLabel('C', trebleStave.getYForLine(5));
+    var showBass = !gameState.levelConfig.clef || gameState.levelConfig.clef !== 'treble';
 
-    for (var j = 0; j < 5; j++) {
-      addLabel(bassLineNames[j], bassStave.getYForLine(j));
+    if (mode === 'all') {
+      // Two-column layout: lines at x=7, spaces at x=20
+      // Treble line labels
+      for (var i = 0; i < 5; i++) {
+        addLabel(trebleLineNames[i], labelX, trebleStave.getYForLine(i), '10px', '#444', '600');
+      }
+      // Middle C on treble side
+      addLabel('C', labelX, trebleStave.getYForLine(5), '10px', '#444', '600');
+
+      // Treble space labels (between lines)
+      for (var j = 0; j < 4; j++) {
+        var spaceY = (trebleStave.getYForLine(j) + trebleStave.getYForLine(j + 1)) / 2;
+        addLabel(trebleSpaceNames[j], labelX2, spaceY, '9px', '#777', '500');
+      }
+      // D4 space: between line 4 (E4) and Middle C ledger line
+      var d4Y = (trebleStave.getYForLine(4) + trebleStave.getYForLine(5)) / 2;
+      addLabel('D', labelX2, d4Y, '9px', '#777', '500');
+
+      if (showBass) {
+        // Bass line labels
+        for (var k = 0; k < 5; k++) {
+          addLabel(bassLineNames[k], labelX, bassStave.getYForLine(k), '10px', '#444', '600');
+        }
+        // Middle C on bass side
+        addLabel('C', labelX, bassStave.getYForLine(-1), '10px', '#444', '600');
+
+        // Bass space labels
+        for (var m = 0; m < 4; m++) {
+          var bassSpaceY = (bassStave.getYForLine(m) + bassStave.getYForLine(m + 1)) / 2;
+          addLabel(bassSpaceNames[m], labelX2, bassSpaceY, '9px', '#777', '500');
+        }
+      }
+    } else if (mode === 'lines') {
+      // Single column: 5 lines per staff + Middle C
+      for (var li = 0; li < 5; li++) {
+        addLabel(trebleLineNames[li], labelX, trebleStave.getYForLine(li), '10px', '#444', '600');
+      }
+      addLabel('C', labelX, trebleStave.getYForLine(5), '10px', '#444', '600');
+
+      if (showBass) {
+        for (var lj = 0; lj < 5; lj++) {
+          addLabel(bassLineNames[lj], labelX, bassStave.getYForLine(lj), '10px', '#444', '600');
+        }
+        addLabel('C', labelX, bassStave.getYForLine(-1), '10px', '#444', '600');
+      }
     }
-    // Middle C: first ledger line above bass staff (line -1)
-    addLabel('C', bassStave.getYForLine(-1));
+    // mode === 'none': no labels rendered
   }
 
   function renderStaff(note) {
@@ -179,8 +289,13 @@ document.addEventListener('DOMContentLoaded', function () {
     var context = renderer.getContext();
     context.scale(1, 1);
 
-    var staveX = gameState.showNoteNames
-      ? (rendererWidth < 340 ? 55 : 65)
+    var effectiveMode = getEffectiveLabelMode();
+    var needsLabelSpace = effectiveMode !== 'none';
+
+    var staveX = needsLabelSpace
+      ? (effectiveMode === 'all'
+        ? (rendererWidth < 340 ? 60 : 70)
+        : (rendererWidth < 340 ? 55 : 65))
       : (rendererWidth < 340 ? 40 : 50);
     var staveWidth = rendererWidth - staveX - 40;
 
@@ -215,12 +330,12 @@ document.addEventListener('DOMContentLoaded', function () {
     new Formatter().joinVoices([voice]).format([voice], staveWidth - 80);
     voice.draw(context, targetStave);
 
-    if (gameState.showNoteNames) {
-      renderNoteLabels(trebleStave, bassStave, div);
+    if (effectiveMode !== 'none') {
+      renderNoteLabels(trebleStave, bassStave, div, effectiveMode);
     }
   }
 
-  // ── Re-render on resize (orientation change, etc.) ──
+  // ── Re-render on resize ──
   var resizeTimer;
   window.addEventListener('resize', function () {
     clearTimeout(resizeTimer);
@@ -231,39 +346,13 @@ document.addEventListener('DOMContentLoaded', function () {
     }, 150);
   });
 
-  // ── Distractor generation ──
-  function generateChoices(correctNote) {
-    var choices = [correctNote.name];
-    var ci = NOTE_NAMES.indexOf(correctNote.name);
-
-    var candidates = [];
-    for (var offset = -3; offset <= 3; offset++) {
-      if (offset === 0) continue;
-      var idx = ((ci + offset) % 7 + 7) % 7;
-      candidates.push(NOTE_NAMES[idx]);
-    }
-
-    for (var i = candidates.length - 1; i > 0; i--) {
-      var j = Math.floor(Math.random() * (i + 1));
-      var tmp = candidates[i]; candidates[i] = candidates[j]; candidates[j] = tmp;
-    }
-
-    for (var k = 0; k < candidates.length; k++) {
-      if (choices.length >= 4) break;
-      if (choices.indexOf(candidates[k]) === -1) choices.push(candidates[k]);
-    }
-
-    for (var i2 = choices.length - 1; i2 > 0; i2--) {
-      var j2 = Math.floor(Math.random() * (i2 + 1));
-      var tmp2 = choices[i2]; choices[i2] = choices[j2]; choices[j2] = tmp2;
-    }
-
-    return choices;
-  }
-
   // ── Game logic ──
-  function startGame(difficulty) {
-    gameState.difficulty = difficulty;
+  function startGame(levelNumber) {
+    var config = LEVELS[levelNumber - 1];
+    if (!config) return;
+
+    gameState.level = levelNumber;
+    gameState.levelConfig = config;
     gameState.current = 0;
     gameState.score = 0;
     gameState.streak = 0;
@@ -272,22 +361,28 @@ document.addEventListener('DOMContentLoaded', function () {
     gameState.answered = false;
     gameState.currentNote = null;
 
-    // Easy always shows labels; Medium/Hard respect checkbox
-    if (difficulty === 'easy') {
+    // Auto-show labels for levels with 'all' or 'lines' labelMode
+    if (config.labelMode === 'all' || config.labelMode === 'lines') {
       gameState.showNoteNames = true;
     } else {
       gameState.showNoteNames = noteNamesCheckbox ? noteNamesCheckbox.checked : false;
     }
 
-    var available = getNotesForDifficulty(difficulty);
-    var notes = [];
+    var available = getNotesForLevel(config);
+    var notes;
 
-    for (var i = 0; i < 20; i++) {
-      var note;
-      do {
-        note = available[Math.floor(Math.random() * available.length)];
-      } while (notes.length > 0 && noteKey(note) === noteKey(notes[notes.length - 1]));
-      notes.push(note);
+    // If both clefs, balance bass/treble ~50/50
+    if (!config.clef) {
+      var bassPool = available.filter(function (n) { return n.clef === 'bass'; });
+      var treblePool = available.filter(function (n) { return n.clef === 'treble'; });
+      var halfCount = Math.floor(TOTAL_QUESTIONS / 2);
+      var bassCount = halfCount;
+      var trebleCount = TOTAL_QUESTIONS - halfCount;
+      var bassPicks = pickRandomNotes(bassPool, bassCount);
+      var treblePicks = pickRandomNotes(treblePool, trebleCount);
+      notes = interleaveNotes(bassPicks, treblePicks);
+    } else {
+      notes = pickRandomNotes(available, TOTAL_QUESTIONS);
     }
 
     gameState.notes = notes;
@@ -302,26 +397,20 @@ document.addEventListener('DOMContentLoaded', function () {
     gameState.answered = false;
     gameState.currentNote = note;
 
-    qs('#nqProgress').textContent = (gameState.current + 1) + ' / 20';
+    qs('#nqProgress').textContent = (gameState.current + 1) + ' / ' + TOTAL_QUESTIONS;
     qs('#nqScoreDisplay').textContent = gameState.score;
     qs('#nqStreakDisplay').textContent = gameState.streak;
 
     renderStaff(note);
 
-    var choices = generateChoices(note);
-    var choicesEl = qs('#nqChoices');
     if (document.activeElement && document.activeElement.classList &&
       document.activeElement.classList.contains('choice-btn')) {
       document.activeElement.blur();
     }
-    choicesEl.textContent = '';
 
-    choices.forEach(function (c) {
-      var btn = document.createElement('button');
-      btn.className = 'choice-btn';
-      btn.textContent = c;
-      btn.addEventListener('click', function () { handleAnswer(btn, c, note.name); });
-      choicesEl.appendChild(btn);
+    var allBtns = qsa('.choice-btn');
+    allBtns.forEach(function (btn) {
+      btn.classList.remove('correct', 'wrong', 'reveal', 'disabled');
     });
   }
 
@@ -340,7 +429,7 @@ document.addEventListener('DOMContentLoaded', function () {
       btn.classList.add('wrong');
       gameState.streak = 0;
       allBtns.forEach(function (b) {
-        if (b.textContent === correct) b.classList.add('reveal');
+        if (b.getAttribute('data-note') === correct) b.classList.add('reveal');
       });
     }
 
@@ -350,7 +439,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
     setTimeout(function () {
       gameState.current++;
-      if (gameState.current >= 20) {
+      if (gameState.current >= TOTAL_QUESTIONS) {
         showResults();
       } else {
         showQuestion();
@@ -379,25 +468,27 @@ document.addEventListener('DOMContentLoaded', function () {
     var elapsed = Math.floor((Date.now() - gameState.startTime) / 1000);
     var mins = Math.floor(elapsed / 60);
     var secs = elapsed % 60;
-    var accuracy = Math.round((gameState.score / 20) * 100);
+    var accuracy = Math.round((gameState.score / TOTAL_QUESTIONS) * 100);
 
     var starCount = 0;
-    if (gameState.score >= 18) starCount = 3;
-    else if (gameState.score >= 14) starCount = 2;
-    else if (gameState.score >= 10) starCount = 1;
+    if (gameState.score >= 9) starCount = 3;
+    else if (gameState.score >= 7) starCount = 2;
+    else if (gameState.score >= 5) starCount = 1;
 
     qs('#nqStarsDisplay').textContent =
       '\u2B50'.repeat(starCount) + '\u2606'.repeat(3 - starCount);
 
-    // Build results stats using safe DOM methods
+    var config = gameState.levelConfig;
+    var levelLabel = 'Level ' + gameState.level + ' \u2014 ' + config.name;
+
     var statsEl = qs('#nqResultsStats');
     statsEl.textContent = '';
     var statsData = [
-      ['Score', gameState.score + ' / 20'],
+      ['Score', gameState.score + ' / ' + TOTAL_QUESTIONS],
       ['Accuracy', accuracy + '%'],
       ['Time', mins + ':' + String(secs).padStart(2, '0')],
       ['Best Streak', String(gameState.bestStreak)],
-      ['Difficulty', gameState.difficulty.charAt(0).toUpperCase() + gameState.difficulty.slice(1)],
+      ['Level', levelLabel],
     ];
     statsData.forEach(function (row) {
       var div = document.createElement('div');
@@ -482,8 +573,19 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  qs('.diff-btn.easy').addEventListener('click', function () { startGame('easy'); });
-  qs('.diff-btn.medium').addEventListener('click', function () { startGame('medium'); });
-  qs('.diff-btn.hard').addEventListener('click', function () { startGame('hard'); });
+  qsa('.choice-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var chosen = btn.getAttribute('data-note');
+      handleAnswer(btn, chosen, gameState.currentNote.name);
+    });
+  });
+
+  qsa('.level-btn').forEach(function (btn) {
+    btn.addEventListener('click', function () {
+      var level = parseInt(btn.getAttribute('data-level'));
+      startGame(level);
+    });
+  });
+
   qs('.play-again-btn').addEventListener('click', function () { showStart(); });
 });
