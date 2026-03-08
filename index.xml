@@ -4,6 +4,10 @@
 &lt;script src="https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js"&gt;&lt;/script&gt;
 &lt;div class="note-quest-wrapper"&gt;
 &lt;div class="nq-screen start-screen active" id="nqStartScreen"&gt;
+&lt;label class="nq-helper-toggle"&gt;
+&lt;input type="checkbox" id="nqShowNoteNames"&gt; Show note names on staff
+&lt;small class="nq-helper-hint"&gt;Always on for Easy&lt;/small&gt;
+&lt;/label&gt;
 &lt;div class="difficulty-btns"&gt;
 &lt;button class="diff-btn easy"&gt;
 Easy &lt;small&gt;Treble clef &amp;middot; C4 to G5&lt;/small&gt;

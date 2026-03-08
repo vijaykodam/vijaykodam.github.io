@@ -276,6 +276,37 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   margin-top: 2px;
 }
 
+/* ── Helper toggle ── */
+.note-quest-wrapper .nq-helper-toggle {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: 1.05rem;
+  font-weight: 500;
+  color: var(--nq-text);
+  cursor: pointer;
+  user-select: none;
+  -webkit-tap-highlight-color: transparent;
+  background: var(--nq-card);
+  padding: 10px 18px;
+  border-radius: 12px;
+  box-shadow: var(--nq-shadow);
+}
+
+.note-quest-wrapper .nq-helper-toggle input[type="checkbox"] {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--nq-primary);
+  cursor: pointer;
+}
+
+.note-quest-wrapper .nq-helper-hint {
+  font-size: 0.8rem;
+  font-weight: 400;
+  color: var(--nq-text-light);
+  margin-left: auto;
+}
+
 /* ── Results screen ── */
 .note-quest-wrapper .results-screen {
   justify-content: center;

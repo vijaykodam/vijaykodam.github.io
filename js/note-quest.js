@@ -88,6 +88,7 @@ document.addEventListener('DOMContentLoaded', function () {
     startTime: 0,
     answered: false,
     currentNote: null,
+    showNoteNames: localStorage.getItem('nqShowNoteNames') === 'true',
   };
 
   // ── Scoped element queries ──
@@ -127,9 +128,47 @@ document.addEventListener('DOMContentLoaded', function () {
     return Math.min(420, Math.max(280, available));
   }
 
+  function renderNoteLabels(trebleStave, bassStave, div) {
+    var svg = div.querySelector('svg');
+    if (!svg) return;
+
+    var ns = 'http://www.w3.org/2000/svg';
+    // Treble lines (top to bottom, lines 0→4): F5, D5, B4, G4, E4
+    var trebleLineNames = ['F', 'D', 'B', 'G', 'E'];
+    // Bass lines (top to bottom, lines 0→4): A3, F3, D3, B2, G2
+    var bassLineNames = ['A', 'F', 'D', 'B', 'G'];
+
+    var labelX = 7;
+
+    function addLabel(text, y) {
+      var el = document.createElementNS(ns, 'text');
+      el.setAttribute('x', labelX);
+      el.setAttribute('y', y + 3);
+      el.setAttribute('text-anchor', 'middle');
+      el.setAttribute('font-size', '10px');
+      el.setAttribute('font-family', 'system-ui, sans-serif');
+      el.setAttribute('fill', '#444');
+      el.setAttribute('font-weight', '600');
+      el.textContent = text;
+      svg.appendChild(el);
+    }
+
+    for (var i = 0; i < 5; i++) {
+      addLabel(trebleLineNames[i], trebleStave.getYForLine(i));
+    }
+    // Middle C: first ledger line below treble staff (line 5)
+    addLabel('C', trebleStave.getYForLine(5));
+
+    for (var j = 0; j < 5; j++) {
+      addLabel(bassLineNames[j], bassStave.getYForLine(j));
+    }
+    // Middle C: first ledger line above bass staff (line -1)
+    addLabel('C', bassStave.getYForLine(-1));
+  }
+
   function renderStaff(note) {
     var container = qs('#nqStaffCard');
-    container.innerHTML = '';
+    container.textContent = '';
 
     var div = document.createElement('div');
     container.appendChild(div);
@@ -140,7 +179,9 @@ document.addEventListener('DOMContentLoaded', function () {
     var context = renderer.getContext();
     context.scale(1, 1);
 
-    var staveX = rendererWidth < 340 ? 40 : 50;
+    var staveX = gameState.showNoteNames
+      ? (rendererWidth < 340 ? 55 : 65)
+      : (rendererWidth < 340 ? 40 : 50);
     var staveWidth = rendererWidth - staveX - 40;
 
     var trebleStave = new Stave(staveX, 10, staveWidth);
@@ -173,6 +214,10 @@ document.addEventListener('DOMContentLoaded', function () {
     var targetStave = note.clef === 'treble' ? trebleStave : bassStave;
     new Formatter().joinVoices([voice]).format([voice], staveWidth - 80);
     voice.draw(context, targetStave);
+
+    if (gameState.showNoteNames) {
+      renderNoteLabels(trebleStave, bassStave, div);
+    }
   }
 
   // ── Re-render on resize (orientation change, etc.) ──
@@ -226,6 +271,13 @@ document.addEventListener('DOMContentLoaded', function () {
     gameState.startTime = Date.now();
     gameState.answered = false;
     gameState.currentNote = null;
+
+    // Easy always shows labels; Medium/Hard respect checkbox
+    if (difficulty === 'easy') {
+      gameState.showNoteNames = true;
+    } else {
+      gameState.showNoteNames = noteNamesCheckbox ? noteNamesCheckbox.checked : false;
+    }
 
     var available = getNotesForDifficulty(difficulty);
     var notes = [];
@@ -421,6 +473,15 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   // ── Wire up event listeners ──
+  var noteNamesCheckbox = qs('#nqShowNoteNames');
+  if (noteNamesCheckbox) {
+    noteNamesCheckbox.checked = gameState.showNoteNames;
+    noteNamesCheckbox.addEventListener('change', function () {
+      gameState.showNoteNames = noteNamesCheckbox.checked;
+      localStorage.setItem('nqShowNoteNames', gameState.showNoteNames);
+    });
+  }
+
   qs('.diff-btn.easy').addEventListener('click', function () { startGame('easy'); });
   qs('.diff-btn.medium').addEventListener('click', function () { startGame('medium'); });
   qs('.diff-btn.hard').addEventListener('click', function () { startGame('hard'); });
