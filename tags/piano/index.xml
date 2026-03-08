@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Piano on Vijay Kodam</title><link>https://vijay.eu/tags/piano/</link><description>Recent content in Piano on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Thu, 26 Feb 2026 00:00:00 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/piano/index.xml" rel="self" type="application/rss+xml"/><item><title>Note Quest</title><link>https://vijay.eu/projects/note-quest/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0200</pubDate><guid>https://vijay.eu/projects/note-quest/</guid><description>&lt;p&gt;Learn to read music notes on the grand staff! Pick the correct note name for each question.&lt;/p&gt;
-&lt;p&gt;Created using Claude Code CLI on 26th Feb 2026
+&lt;p&gt;Created using Claude Code CLI on 26th Feb 2026. V2 released on 8th Mar 2026.
 &lt;link rel="stylesheet" href="https://vijay.eu/css/note-quest.css"&gt;
 &lt;script src="https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js"&gt;&lt;/script&gt;
 &lt;div class="note-quest-wrapper"&gt;
