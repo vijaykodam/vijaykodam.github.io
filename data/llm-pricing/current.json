@@ -200,12 +200,6 @@
           "output": 1.5
         },
         {
-          "model": "Gemini 3 Pro Preview",
-          "input": 2.0,
-          "cache_input": 0.2,
-          "output": 12.0
-        },
-        {
           "model": "Gemini 3 Flash Preview",
           "input": 0.5,
           "cache_input": 0.05,
@@ -258,6 +252,12 @@
           "input": 0.075,
           "cache_input": null,
           "output": 0.3
+        },
+        {
+          "model": "Gemini Embedding 2 Preview",
+          "input": 12.0,
+          "cache_input": null,
+          "output": null
         },
         {
           "model": "Gemini Embedding",
