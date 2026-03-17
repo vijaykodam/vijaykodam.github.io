@@ -231,7 +231,8 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   max-width: 360px;
 }
 
-.note-quest-wrapper .difficulty-btns {
+/* ── Level grid ── */
+.note-quest-wrapper .level-grid {
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -239,76 +240,140 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   max-width: 460px;
 }
 
-/* ── Level category groups ── */
-.note-quest-wrapper .level-category {
+.note-quest-wrapper .level-row {
   display: flex;
-  flex-direction: column;
-  gap: 8px;
+  flex-direction: row;
+  align-items: center;
+  gap: 12px;
 }
 
-.note-quest-wrapper .category-header {
-  font-size: 0.75rem;
-  font-weight: 700;
+.note-quest-wrapper .row-label {
+  width: 60px;
+  flex-shrink: 0;
+  text-align: right;
   text-transform: uppercase;
-  letter-spacing: 1.5px;
-  margin: 0;
-  padding: 0 4px;
-  text-align: left;
-}
-
-.note-quest-wrapper .category-header.easy {
-  color: #16a34a;
-}
-
-.note-quest-wrapper .category-header.medium {
-  color: #d97706;
-}
-
-.note-quest-wrapper .category-header.hard {
-  color: #dc2626;
-}
-
-/* ── Level buttons ── */
-.note-quest-wrapper .level-btn {
-  font-size: 1rem;
+  font-size: 0.7rem;
   font-weight: 700;
-  padding: 12px 16px;
+  letter-spacing: 1.5px;
+}
+
+.note-quest-wrapper .row-label.easy { color: #16a34a; }
+.note-quest-wrapper .row-label.medium { color: #d97706; }
+.note-quest-wrapper .row-label.hard { color: #dc2626; }
+
+.note-quest-wrapper .level-boxes {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  flex: 1;
+  justify-content: center;
+  position: relative;
+}
+
+/* ── Square box (default) ── */
+.note-quest-wrapper .level-box {
+  width: 52px;
+  height: 52px;
+  min-width: 52px;
   border: none;
   border-radius: 12px;
   color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
   cursor: pointer;
-  transition: transform 0.15s, box-shadow 0.15s;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  white-space: nowrap;
+  transition: width 0.3s ease, border-radius 0.3s ease, box-shadow 0.15s, transform 0.15s;
   -webkit-tap-highlight-color: transparent;
-  text-align: left;
+  padding: 0;
 }
 
-.note-quest-wrapper .level-btn:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
-}
-
-.note-quest-wrapper .level-btn:active {
-  transform: scale(0.97);
-}
-
-.note-quest-wrapper .level-btn.easy {
+.note-quest-wrapper .level-box.easy {
   background: linear-gradient(135deg, #22c55e, #16a34a);
 }
 
-.note-quest-wrapper .level-btn.medium {
+.note-quest-wrapper .level-box.medium {
   background: linear-gradient(135deg, #f59e0b, #d97706);
 }
 
-.note-quest-wrapper .level-btn.hard {
+.note-quest-wrapper .level-box.hard {
   background: linear-gradient(135deg, #ef4444, #dc2626);
 }
 
-.note-quest-wrapper .level-btn small {
+.note-quest-wrapper .level-num {
+  flex-shrink: 0;
+}
+
+.note-quest-wrapper .level-detail {
+  opacity: 0;
+  max-width: 0;
+  overflow: hidden;
+  margin-left: 0;
+  font-size: 0.8rem;
   font-weight: 400;
-  opacity: 0.85;
-  display: block;
-  font-size: 0.85rem;
-  margin-top: 2px;
+  transition: opacity 0.2s ease 0.1s, max-width 0.3s ease, margin-left 0.3s ease;
+}
+
+/* ── Expanded state ── */
+.note-quest-wrapper .level-box.expanded {
+  width: auto;
+  padding: 0 16px;
+  border-radius: 26px;
+}
+
+.note-quest-wrapper .level-box.expanded .level-detail {
+  opacity: 1;
+  max-width: 280px;
+  margin-left: 8px;
+}
+
+/* ── Mobile overlay expansion ── */
+@media (max-width: 479px) {
+  .note-quest-wrapper .level-box.expanded {
+    position: absolute;
+    z-index: 10;
+    left: 50%;
+    transform: translateX(-50%);
+    max-width: calc(100vw - 48px);
+  }
+
+  .note-quest-wrapper .level-box.expanded .level-detail {
+    text-overflow: ellipsis;
+  }
+}
+
+/* ── Tiny screens ── */
+@media (max-width: 374px) {
+  .note-quest-wrapper .level-row {
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .note-quest-wrapper .row-label {
+    text-align: left;
+    width: auto;
+  }
+
+  .note-quest-wrapper .level-box {
+    width: 44px;
+    height: 44px;
+    min-width: 44px;
+  }
+}
+
+/* ── Hover effects (desktop only) ── */
+@media (hover: hover) {
+  .note-quest-wrapper .level-box:not(.expanded):hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+  }
+
+  .note-quest-wrapper .level-box:active {
+    transform: scale(0.95);
+  }
 }
 
 /* ── Helper toggle ── */
@@ -475,28 +540,17 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
     font-size: 1.1rem;
   }
 
-  .note-quest-wrapper .difficulty-btns {
-    gap: 20px;
-  }
-
-  .note-quest-wrapper .level-category {
-    gap: 10px;
-  }
-
-  .note-quest-wrapper .category-header {
-    font-size: 0.8rem;
-    letter-spacing: 2px;
-  }
-
-  .note-quest-wrapper .level-btn {
-    font-size: 1.15rem;
-    padding: 14px 20px;
+  .note-quest-wrapper .level-box {
+    width: 56px;
+    height: 56px;
+    min-width: 56px;
     border-radius: 14px;
+    font-size: 1.3rem;
   }
 
-  .note-quest-wrapper .level-btn small {
-    font-size: 0.95rem;
-    margin-top: 3px;
+  .note-quest-wrapper .row-label {
+    width: 70px;
+    font-size: 0.8rem;
   }
 
   .note-quest-wrapper .results-screen {

@@ -527,6 +527,7 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function showStart() {
+    collapseAll();
     showScreen('nqStartScreen');
   }
 
@@ -595,12 +596,49 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   });
 
-  qsa('.level-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var level = parseInt(btn.getAttribute('data-level'));
-      startGame(level);
+  var canHover = window.matchMedia('(hover: hover)').matches;
+  var expandedBox = null;
+
+  function collapseAll() {
+    if (expandedBox) {
+      expandedBox.classList.remove('expanded');
+      expandedBox = null;
+    }
+  }
+
+  function expandBox(box) {
+    collapseAll();
+    box.classList.add('expanded');
+    expandedBox = box;
+  }
+
+  qsa('.level-box').forEach(function (box) {
+    var level = parseInt(box.getAttribute('data-level'));
+    if (canHover) {
+      box.addEventListener('mouseenter', function () { expandBox(box); });
+      box.addEventListener('mouseleave', function () { collapseAll(); });
+      box.addEventListener('click', function () { startGame(level); });
+    } else {
+      box.addEventListener('click', function (e) {
+        e.preventDefault();
+        if (box.classList.contains('expanded')) {
+          startGame(level);
+        } else {
+          expandBox(box);
+        }
+      });
+    }
+    box.addEventListener('focus', function () { expandBox(box); });
+    box.addEventListener('blur', function () {
+      setTimeout(function () { if (expandedBox === box) collapseAll(); }, 150);
     });
   });
+
+  if (!canHover) {
+    document.addEventListener('click', function (e) {
+      if (!e.target.closest('.level-box')) collapseAll();
+    });
+  }
 
   qs('.play-again-btn').addEventListener('click', function () { showStart(); });
 });
