@@ -32,9 +32,15 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'A', octave: 5, clef: 'treble' },
       { name: 'B', octave: 5, clef: 'treble' },
       { name: 'C', octave: 6, clef: 'treble' },
+      { name: 'D', octave: 6, clef: 'treble' },
+      { name: 'E', octave: 6, clef: 'treble' },
     ];
 
     var bassNotes = [
+      { name: 'A', octave: 1, clef: 'bass' },
+      { name: 'B', octave: 1, clef: 'bass' },
+      { name: 'C', octave: 2, clef: 'bass' },
+      { name: 'D', octave: 2, clef: 'bass' },
       { name: 'E', octave: 2, clef: 'bass' },
       { name: 'F', octave: 2, clef: 'bass' },
       { name: 'G', octave: 2, clef: 'bass' },
@@ -56,16 +62,21 @@ document.addEventListener('DOMContentLoaded', function () {
 
   // ── Level configuration ──
   var LEVELS = [
-    { level: 1,  name: 'First Notes',     category: 'easy',   min: 'C4', max: 'G4', clef: 'treble', labelMode: 'all' },
-    { level: 2,  name: 'Treble Basics',    category: 'easy',   min: 'C4', max: 'C5', clef: 'treble', labelMode: 'lines' },
-    { level: 3,  name: 'Treble Comfort',   category: 'easy',   min: 'C4', max: 'G5', clef: 'treble', labelMode: 'none' },
-    { level: 4,  name: 'Meet the Bass',    category: 'medium', min: 'F3', max: 'G4',                 labelMode: 'lines' },
-    { level: 5,  name: 'Grand Staff',      category: 'medium', min: 'C3', max: 'C5',                 labelMode: 'none' },
-    { level: 6,  name: 'Expanding Range',  category: 'medium', min: 'A2', max: 'D5',                 labelMode: 'none' },
-    { level: 7,  name: 'Full Staff',       category: 'medium', min: 'G2', max: 'E5',                 labelMode: 'none' },
-    { level: 8,  name: 'Ledger Lines',     category: 'hard',   min: 'E2', max: 'G5',                 labelMode: 'none' },
-    { level: 9,  name: 'Extended Range',   category: 'hard',   min: 'E2', max: 'A5',                 labelMode: 'none' },
-    { level: 10, name: 'Note Master',      category: 'hard',   min: 'E2', max: 'C6',                 labelMode: 'none' },
+    { level: 1,  name: 'First Notes',         category: 'easy',   specificNotes: [
+        { name: 'F', octave: 3, clef: 'bass' },
+        { name: 'C', octave: 4, clef: 'bass' },
+        { name: 'C', octave: 4, clef: 'treble' },
+        { name: 'G', octave: 4, clef: 'treble' }
+      ], labelMode: 'all' },
+    { level: 2,  name: 'Staff Basics',        category: 'easy',   min: 'F3', max: 'G4', labelMode: 'lines' },
+    { level: 3,  name: 'Getting Comfortable', category: 'easy',   min: 'C3', max: 'C5', labelMode: 'none' },
+    { level: 4,  name: 'Wider Range',         category: 'medium', min: 'A2', max: 'E5', labelMode: 'lines' },
+    { level: 5,  name: 'Grand Staff',         category: 'medium', min: 'C2', max: 'C6', labelMode: 'none' },
+    { level: 6,  name: 'Expanding Range',     category: 'medium', min: 'A1', max: 'E6', labelMode: 'none' },
+    { level: 7,  name: 'Full Staff',       category: 'medium', min: 'E2', max: 'C6', labelMode: 'none' },
+    { level: 8,  name: 'Ledger Lines',     category: 'hard',   min: 'C2', max: 'E6', labelMode: 'none' },
+    { level: 9,  name: 'Extended Range',   category: 'hard',   min: 'B1', max: 'E6', labelMode: 'none' },
+    { level: 10, name: 'Note Master',      category: 'hard',   min: 'A1', max: 'E6', labelMode: 'none' },
   ];
 
   var TOTAL_QUESTIONS = 10;
@@ -78,6 +89,10 @@ document.addEventListener('DOMContentLoaded', function () {
   }
 
   function getNotesForLevel(config) {
+    if (config.specificNotes) {
+      return config.specificNotes;
+    }
+
     var minIdx = noteIndex(config.min[0], parseInt(config.min.slice(1)));
     var maxIdx = noteIndex(config.max[0], parseInt(config.max.slice(1)));
 
@@ -190,6 +205,8 @@ document.addEventListener('DOMContentLoaded', function () {
     if (config.labelMode === 'all' || config.labelMode === 'lines') {
       return config.labelMode;
     }
+    // Hard levels (8–10): never show labels regardless of checkbox
+    if (config.category === 'hard') return 'none';
     // labelMode === 'none': show 'lines' only if checkbox is checked
     if (gameState.showNoteNames) return 'lines';
     return 'none';
@@ -287,8 +304,6 @@ document.addEventListener('DOMContentLoaded', function () {
     var renderer = new Renderer(div, Renderer.Backends.SVG);
     renderer.resize(rendererWidth, 260);
     var context = renderer.getContext();
-    context.scale(1, 1);
-
     var effectiveMode = getEffectiveLabelMode();
     var needsLabelSpace = effectiveMode !== 'none';
 
@@ -408,8 +423,7 @@ document.addEventListener('DOMContentLoaded', function () {
       document.activeElement.blur();
     }
 
-    var allBtns = qsa('.choice-btn');
-    allBtns.forEach(function (btn) {
+    choiceBtns.forEach(function (btn) {
       btn.classList.remove('correct', 'wrong', 'reveal', 'disabled');
     });
   }
@@ -417,8 +431,6 @@ document.addEventListener('DOMContentLoaded', function () {
   function handleAnswer(btn, chosen, correct) {
     if (gameState.answered) return;
     gameState.answered = true;
-
-    var allBtns = qsa('.choice-btn');
 
     if (chosen === correct) {
       btn.classList.add('correct');
@@ -428,12 +440,12 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       btn.classList.add('wrong');
       gameState.streak = 0;
-      allBtns.forEach(function (b) {
+      choiceBtns.forEach(function (b) {
         if (b.getAttribute('data-note') === correct) b.classList.add('reveal');
       });
     }
 
-    allBtns.forEach(function (b) { b.classList.add('disabled'); });
+    choiceBtns.forEach(function (b) { b.classList.add('disabled'); });
     qs('#nqScoreDisplay').textContent = gameState.score;
     qs('#nqStreakDisplay').textContent = gameState.streak;
 
@@ -457,7 +469,7 @@ document.addEventListener('DOMContentLoaded', function () {
       var mins = Math.floor(elapsed / 60);
       var secs = elapsed % 60;
       qs('#nqTimerDisplay').textContent = mins + ':' + String(secs).padStart(2, '0');
-    }, 250);
+    }, 1000);
   }
 
   // Results
@@ -563,6 +575,9 @@ document.addEventListener('DOMContentLoaded', function () {
     animate();
   }
 
+  // ── Cached DOM elements ──
+  var choiceBtns = qsa('.choice-btn');
+
   // ── Wire up event listeners ──
   var noteNamesCheckbox = qs('#nqShowNoteNames');
   if (noteNamesCheckbox) {
@@ -573,7 +588,7 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
-  qsa('.choice-btn').forEach(function (btn) {
+  choiceBtns.forEach(function (btn) {
     btn.addEventListener('click', function () {
       var chosen = btn.getAttribute('data-note');
       handleAnswer(btn, chosen, gameState.currentNote.name);

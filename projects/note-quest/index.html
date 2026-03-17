@@ -2,31 +2,31 @@
 </a><input type=checkbox id=menu-toggle>
 <label class="menu-button float-right" for=menu-toggle><i class="fas fa-bars"></i></label><ul class=navigation-list><li class=navigation-item><a class=navigation-link href=https://vijay.eu/about/>About</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/posts/>Blog</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/ai-lab/>AI Lab</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/projects/>AI Projects</a></li><li class=navigation-item><a class=navigation-link href=https://vijay.eu/co-authored/>Co-Authored with AI</a></li></ul></section></nav><div class=content><section class="container page"><article><header><h1>Note Quest</h1></header><p>Learn to read music notes on the grand staff! Pick the correct note name for each question.</p><p>Created using Claude Code CLI on 26th Feb 2026. V2 released on 8th Mar 2026.
 <link rel=stylesheet href=/css/note-quest.css><script src=https://cdn.jsdelivr.net/npm/vexflow/build/cjs/vexflow.js></script><div class=note-quest-wrapper><div class="nq-screen start-screen active" id=nqStartScreen><label class=nq-helper-toggle><input type=checkbox id=nqShowNoteNames> Show note names on staff
-<small class=nq-helper-hint>Auto for Levels 1-2, 4</small></label><div class=difficulty-btns><div class=level-category><h3 class="category-header easy">Easy</h3><button class="level-btn easy" data-level=1>
-1 — First Notes <small>Treble · C4–G4</small>
+<small class=nq-helper-hint>Auto for Levels 1–2, 4 · Ignored for 8–10</small></label><div class=difficulty-btns><div class=level-category><h3 class="category-header easy">Easy</h3><button class="level-btn easy" data-level=1>
+1 — First Notes <small>Both clefs · F3,C4 / C4,G4</small>
 </button>
 <button class="level-btn easy" data-level=2>
-2 — Treble Basics <small>Treble · C4–C5</small>
+2 — Staff Basics <small>Both clefs · F3–G4</small>
 </button>
 <button class="level-btn easy" data-level=3>
-3 — Treble Comfort <small>Treble · C4–G5</small></button></div><div class=level-category><h3 class="category-header medium">Medium</h3><button class="level-btn medium" data-level=4>
-4 — Meet the Bass <small>Both clefs · F3–G4</small>
+3 — Getting Comfortable <small>Both clefs · C3–C5</small></button></div><div class=level-category><h3 class="category-header medium">Medium</h3><button class="level-btn medium" data-level=4>
+4 — Wider Range <small>Both clefs · A2–E5</small>
 </button>
 <button class="level-btn medium" data-level=5>
-5 — Grand Staff <small>Both clefs · C3–C5</small>
+5 — Grand Staff <small>Both clefs · C2–C6</small>
 </button>
 <button class="level-btn medium" data-level=6>
-6 — Expanding Range <small>Both clefs · A2–D5</small>
+6 — Expanding Range <small>Both clefs · A1–E6</small>
 </button>
 <button class="level-btn medium" data-level=7>
-7 — Full Staff <small>Both clefs · G2–E5</small></button></div><div class=level-category><h3 class="category-header hard">Hard</h3><button class="level-btn hard" data-level=8>
-8 — Ledger Lines <small>Both clefs · E2–G5</small>
+7 — Full Staff <small>Both clefs · E2–C6</small></button></div><div class=level-category><h3 class="category-header hard">Hard</h3><button class="level-btn hard" data-level=8>
+8 — Ledger Lines <small>Both clefs · C2–E6</small>
 </button>
 <button class="level-btn hard" data-level=9>
-9 — Extended Range <small>Both clefs · E2–A5</small>
+9 — Extended Range <small>Both clefs · B1–E6</small>
 </button>
 <button class="level-btn hard" data-level=10>
-10 — Note Master <small>Both clefs · E2–C6</small></button></div></div></div><div class=nq-screen id=nqGameScreen><div class=nq-header><div class=nq-logo>Note Quest</div><div class=nq-progress id=nqProgress>1 / 10</div></div><div class=nq-container><div class=staff-card id=nqStaffCard></div><div class=choices id=nqChoices><button class=choice-btn data-note=C>C</button>
+10 — Note Master <small>Both clefs · A1–E6</small></button></div></div></div><div class=nq-screen id=nqGameScreen><div class=nq-header><div class=nq-logo>Note Quest</div><div class=nq-progress id=nqProgress>1 / 10</div></div><div class=nq-container><div class=staff-card id=nqStaffCard></div><div class=choices id=nqChoices><button class=choice-btn data-note=C>C</button>
 <button class=choice-btn data-note=D>D</button>
 <button class=choice-btn data-note=E>E</button>
 <button class=choice-btn data-note=F>F</button>
