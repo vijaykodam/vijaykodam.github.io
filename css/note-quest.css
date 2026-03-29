@@ -231,6 +231,14 @@ body.colorscheme-dark .note-quest-wrapper .staff-card svg {
   max-width: 360px;
 }
 
+.note-quest-wrapper .nq-version {
+  align-self: flex-end;
+  font-size: 0.7rem;
+  color: var(--nq-text-light);
+  opacity: 0.6;
+  margin-top: 8px;
+}
+
 /* ── Level grid ── */
 .note-quest-wrapper .level-grid {
   display: flex;

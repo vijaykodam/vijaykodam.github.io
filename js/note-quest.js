@@ -54,6 +54,10 @@ document.addEventListener('DOMContentLoaded', function () {
       { name: 'A', octave: 3, clef: 'bass' },
       { name: 'B', octave: 3, clef: 'bass' },
       { name: 'C', octave: 4, clef: 'bass' },
+      { name: 'D', octave: 4, clef: 'bass' },
+      { name: 'E', octave: 4, clef: 'bass' },
+      { name: 'F', octave: 4, clef: 'bass' },
+      { name: 'G', octave: 4, clef: 'bass' },
     ];
 
     NOTES_DB.push.apply(NOTES_DB, bassNotes);
