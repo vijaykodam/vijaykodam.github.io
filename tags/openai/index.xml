@@ -1,36 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenAI on Vijay Kodam</title><link>https://vijay.eu/tags/openai/</link><description>Recent content in OpenAI on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 28 Dec 2025 00:00:00 +0000</lastBuildDate><atom:link href="https://vijay.eu/tags/openai/index.xml" rel="self" type="application/rss+xml"/><item><title>LLM Pricing Comparison</title><link>https://vijay.eu/projects/llm-pricing/</link><pubDate>Sun, 28 Dec 2025 00:00:00 +0000</pubDate><guid>https://vijay.eu/projects/llm-pricing/</guid><description>&lt;p&gt;Compare API pricing for text tokens across major Large Language Model providers. All prices are per 1 million tokens in USD.&lt;/p&gt;
-&lt;p&gt;Click on any column header to sort the table.&lt;/p&gt;
-&lt;div id="llm-pricing-container"&gt;
-&lt;div id="llm-pricing-loading"&gt;Loading pricing data...&lt;/div&gt;
-&lt;div id="llm-pricing-error" style="display: none;"&gt;
-&lt;p&gt;Failed to load pricing data. Please try again later.&lt;/p&gt;
-&lt;/div&gt;
-&lt;table id="llm-pricing-table" style="display: none;"&gt;
-&lt;thead&gt;
-&lt;tr&gt;
-&lt;th data-sort="provider" class="sortable"&gt;Provider&lt;/th&gt;
-&lt;th data-sort="model" class="sortable"&gt;Model&lt;/th&gt;
-&lt;th data-sort="input" class="sortable"&gt;Input / MTok&lt;/th&gt;
-&lt;th data-sort="cache_input" class="sortable"&gt;Cache Input / MTok&lt;/th&gt;
-&lt;th data-sort="output" class="sortable"&gt;Output / MTok&lt;/th&gt;
-&lt;/tr&gt;
-&lt;/thead&gt;
-&lt;tbody id="llm-pricing-tbody"&gt;
-&lt;/tbody&gt;
-&lt;/table&gt;
-&lt;div id="llm-pricing-metadata"&gt;
-&lt;p&gt;&lt;span id="llm-pricing-last-checked"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;p&gt;&lt;span id="llm-pricing-last-updated"&gt;&lt;/span&gt;&lt;/p&gt;
-&lt;/div&gt;
-&lt;div id="llm-pricing-sources"&gt;
-&lt;p&gt;&lt;strong&gt;Sources:&lt;/strong&gt;&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href="https://platform.openai.com/docs/pricing#text-tokens" target="_blank" rel="noopener"&gt;OpenAI API Pricing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://docs.anthropic.com/en/docs/about-claude/models" target="_blank" rel="noopener"&gt;Anthropic Claude Pricing&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href="https://ai.google.dev/gemini-api/docs/pricing" target="_blank" rel="noopener"&gt;Google Gemini API Pricing&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Running Deepseek R1 locally</title><link>https://vijay.eu/posts/running-deepseek-locally/</link><pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate><guid>https://vijay.eu/posts/running-deepseek-locally/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;&lt;/p&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>OpenAI on Vijay Kodam</title><link>https://vijay.eu/tags/openai/</link><description>Recent content in OpenAI on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Wed, 29 Jan 2025 22:12:06 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/openai/index.xml" rel="self" type="application/rss+xml"/><item><title>Running Deepseek R1 locally</title><link>https://vijay.eu/posts/running-deepseek-locally/</link><pubDate>Wed, 29 Jan 2025 22:12:06 +0200</pubDate><guid>https://vijay.eu/posts/running-deepseek-locally/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/snowdrop.webp" alt="snowdrop"&gt;&lt;/p&gt;
 &lt;p&gt;Here is a video of Deepseek R1 running locally on my Macbook.
 Now that everyone is amazed by the low level of resource utilization and open weight model of Deepseek R1, installed 8B model locally.&lt;/p&gt;
 &lt;p&gt;With the help of ollama it is as simple as running a single command -
