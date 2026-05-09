@@ -1,0 +1,19 @@
+{
+  "default": "modely",
+  "models": [
+    { "id": "modely",                  "label": "Model Y",                "year": "Original",          "hasTemplate": true, "hasGlb": true,
+      "credit": { "text": "3D mesh: \"2021 Tesla Model Y\" by tonielpro520, CC-BY 4.0",
+                  "href": "https://sketchfab.com/3d-models/2021-tesla-model-y-59e2ead369984b1a85c800ff6cf6789d" } },
+    { "id": "modely-2025-base",        "label": "Model Y",                "year": "2025 Base",         "hasTemplate": true, "hasGlb": false },
+    { "id": "modely-2025-premium",     "label": "Model Y",                "year": "2025 Premium",      "hasTemplate": true, "hasGlb": false },
+    { "id": "modely-2025-performance", "label": "Model Y",                "year": "2025 Performance",  "hasTemplate": true, "hasGlb": false },
+    { "id": "modely-l",                "label": "Model Y L",              "year": "",                  "hasTemplate": true, "hasGlb": false },
+    { "id": "model3",                  "label": "Model 3",                "year": "Original",          "hasTemplate": true, "hasGlb": false },
+    { "id": "model3-2024-base",        "label": "Model 3",                "year": "2024 Base",         "hasTemplate": true, "hasGlb": false },
+    { "id": "model3-2024-performance", "label": "Model 3",                "year": "2024 Performance",  "hasTemplate": true, "hasGlb": false },
+    { "id": "models-2021",             "label": "Model S",                "year": "2021",              "hasTemplate": true, "hasGlb": false },
+    { "id": "models-2025-plaid",       "label": "Model S",                "year": "2025 Plaid",        "hasTemplate": true, "hasGlb": false },
+    { "id": "modelx-2021",             "label": "Model X",                "year": "2021",              "hasTemplate": true, "hasGlb": false },
+    { "id": "cybertruck",              "label": "Cybertruck",             "year": "",                  "hasTemplate": true, "hasGlb": false }
+  ]
+}

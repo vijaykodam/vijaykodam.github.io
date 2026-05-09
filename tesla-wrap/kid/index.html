@@ -1,0 +1,106 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<title>Paint Box · Tesla Wrap Maker</title>
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="topbar">
+    <a class="back" href="../" aria-label="Back to home">&larr;</a>
+    <div class="topbar-title">
+      <h1>Paint Box</h1>
+      <span class="model-name" id="model-name" aria-live="polite"></span>
+    </div>
+    <div class="topbar-actions">
+      <button id="btn-guide" class="chip" aria-pressed="true">Show car</button>
+      <button id="btn-highlight" class="chip" aria-pressed="false" title="Highlight the areas of the wrap that will appear on the car">Highlight panels</button>
+      <button id="btn-3d" class="chip" hidden title="Spin the car around with this wrap applied">View in 3D</button>
+      <button id="btn-clear" class="chip danger">Clear</button>
+      <button id="btn-save" class="chip primary">Save Wrap</button>
+    </div>
+  </header>
+
+  <div class="stage">
+    <aside class="tools" aria-label="Tools">
+      <button class="tool" data-tool="brush" aria-pressed="true" title="Brush" aria-label="Brush">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c2 0 3-1 4-3l9-9-3-3-9 9c-2 1-3 2-3 4 0 1 1 2 2 2z" fill="currentColor"/></svg>
+        <span class="tool-label">Brush</span>
+      </button>
+      <button class="tool" data-tool="eraser" title="Eraser" aria-label="Eraser">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M14 4l6 6-9 9H6l-3-3 11-11z" fill="currentColor"/></svg>
+        <span class="tool-label">Eraser</span>
+      </button>
+      <button class="tool" data-tool="fill" title="Fill bucket" aria-label="Fill bucket">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l8-8 8 8-8 8-8-8zm15 4a2 2 0 100 4 2 2 0 000-4z" fill="currentColor"/></svg>
+        <span class="tool-label">Fill</span>
+      </button>
+      <button class="tool" data-tool="rainbow" title="Rainbow brush" aria-label="Rainbow brush">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 18a9 9 0 0118 0" stroke="red" stroke-width="2" fill="none"/><path d="M5 18a7 7 0 0114 0" stroke="orange" stroke-width="2" fill="none"/><path d="M7 18a5 5 0 0110 0" stroke="#22c55e" stroke-width="2" fill="none"/><path d="M9 18a3 3 0 016 0" stroke="#3b82f6" stroke-width="2" fill="none"/></svg>
+        <span class="tool-label">Rainbow</span>
+      </button>
+      <button class="tool" data-tool="line" title="Line" aria-label="Line">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 20L20 4" stroke="currentColor" stroke-width="3" fill="none"/></svg>
+        <span class="tool-label">Line</span>
+      </button>
+      <button class="tool" data-tool="rect" title="Rectangle" aria-label="Rectangle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" stroke="currentColor" stroke-width="3" fill="none"/></svg>
+        <span class="tool-label">Rect</span>
+      </button>
+      <button class="tool" data-tool="circle" title="Circle" aria-label="Circle">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8" stroke="currentColor" stroke-width="3" fill="none"/></svg>
+        <span class="tool-label">Circle</span>
+      </button>
+      <div class="tool-spacer"></div>
+      <button class="tool ghost" id="btn-undo" title="Undo" aria-label="Undo">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M4 10 H14 a5 5 0 0 1 0 10 H8" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M4 10 L8 6 M4 10 L8 14" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="tool-label">Undo</span>
+      </button>
+      <button class="tool ghost" id="btn-redo" title="Redo" aria-label="Redo">
+        <svg viewBox="0 0 24 24" aria-hidden="true">
+          <path d="M20 10 H10 a5 5 0 0 0 0 10 H16" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          <path d="M20 10 L16 6 M20 10 L16 14" stroke="currentColor" stroke-width="2.4" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="tool-label">Redo</span>
+      </button>
+    </aside>
+
+    <div class="canvas-wrap">
+      <canvas id="canvas" width="1024" height="1024" aria-label="Painting canvas"></canvas>
+      <img class="guide" id="guide" src="template.png" alt="" aria-hidden="true">
+      <div class="highlight" id="highlight" aria-hidden="true" hidden></div>
+      <div class="size-row">
+        <label>
+          <span class="size-label">Size</span>
+          <input id="size" type="range" min="4" max="96" value="24">
+        </label>
+      </div>
+    </div>
+
+    <aside class="palette" aria-label="Colors and stickers">
+      <div class="swatches" id="swatches"></div>
+      <input type="color" id="color-picker" value="#3b82f6" aria-label="All colors">
+      <h3>Stickers</h3>
+      <div class="stickers" id="stickers"></div>
+    </aside>
+  </div>
+
+  <dialog id="save-dialog" class="save-dialog">
+    <h2>Save your wrap</h2>
+    <p>Give it a name, then download the PNG for your USB drive.</p>
+    <input id="wrap-name" type="text" placeholder="My Cool Wrap" maxlength="40">
+    <div class="save-options">
+      <button id="save-download" class="primary">Download PNG</button>
+    </div>
+    <button id="save-close" class="ghost">Close</button>
+  </dialog>
+
+  <script src="stickers.js"></script>
+  <script src="../shared/models.js?v=3"></script>
+  <script src="app.js"></script>
+</body>
+</html>

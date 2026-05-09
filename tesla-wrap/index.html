@@ -1,0 +1,147 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Tesla Wrap Maker</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; padding: 0; min-height: 100%; background: #0b0d12; color: #f4f6fb; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  body { display: flex; flex-direction: column; align-items: center; padding: 24px; box-sizing: border-box; gap: 16px; }
+  h1 { font-size: clamp(28px, 5vw, 56px); margin: 16px 0 4px; letter-spacing: -0.02em; }
+  p.lede { max-width: 720px; text-align: center; margin: 0; opacity: 0.78; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; }
+
+  .picker {
+    width: min(900px, 100%);
+    background: #161a23;
+    border: 1px solid #232838;
+    border-radius: 16px;
+    padding: 16px 20px;
+    display: flex; flex-direction: column; gap: 12px;
+    margin-top: 12px;
+  }
+  .picker-label { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
+  .picker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
+  .picker-error { opacity: 0.6; }
+  .model-btn {
+    display: flex; flex-direction: column; align-items: flex-start;
+    padding: 12px; border-radius: 12px;
+    background: #1c2231; border: 1px solid #232838; color: inherit;
+    cursor: pointer; text-align: left;
+    font-family: inherit; font-size: 14px;
+    min-height: 56px;
+  }
+  .model-btn[aria-pressed="true"] { background: #1d2a44; border-color: #4a8cff; }
+  .model-btn .name { font-weight: 600; }
+  .model-btn .trim { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+
+  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; width: min(1100px, 100%); margin-top: 8px; }
+  a.card { display: flex; flex-direction: column; gap: 8px; padding: 24px 24px 28px; background: #161a23; border: 1px solid #232838; border-radius: 16px; text-decoration: none; color: inherit; transition: transform .12s ease, border-color .12s ease, background .12s ease; min-height: 168px; }
+  a.card:hover, a.card:active { transform: translateY(-2px); border-color: #4a8cff; background: #1c2231; }
+  a.card[hidden] { display: none; }
+  a.card .badge { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
+  a.card h2 { font-size: 24px; margin: 0; }
+  a.card p { margin: 0; opacity: 0.78; line-height: 1.4; }
+
+  footer { margin-top: 24px; opacity: 0.55; font-size: 13px; text-align: center; max-width: 720px; line-height: 1.5; }
+  footer code { background: #161a23; padding: 2px 6px; border-radius: 4px; }
+</style>
+</head>
+<body>
+  <h1>Tesla Wrap Maker</h1>
+  <p class="lede">Design custom wraps for your Tesla. Open this on the car's touchscreen, your iPad, or a laptop &mdash; it works everywhere.</p>
+
+  <section class="picker" aria-labelledby="picker-label">
+    <span id="picker-label" class="picker-label">Pick your Tesla</span>
+    <div id="picker-grid" class="picker-grid" role="radiogroup" aria-label="Tesla model"></div>
+  </section>
+
+  <div class="cards" id="cards">
+    <a class="card" data-target="kid/" href="kid/">
+      <span class="badge">Easy mode</span>
+      <h2>Paint Box</h2>
+      <p>Big buttons, sticker stamps, fill bucket. Built for finger painting on the Tesla touchscreen.</p>
+    </a>
+    <a class="card" data-target="advanced/" href="advanced/">
+      <span class="badge">Advanced</span>
+      <h2>Classic Paint</h2>
+      <p>Full MS-Paint-style editor with shapes, text, and selection tools.</p>
+    </a>
+    <a class="card" data-target="gallery/" href="gallery/">
+      <span class="badge">Inspiration</span>
+      <h2>Wrap Gallery</h2>
+      <p>12 procedural wraps you can download and drop straight onto a USB.</p>
+    </a>
+    <a class="card" data-target="3d/" href="3d/" id="card-3d" hidden>
+      <span class="badge">Preview</span>
+      <h2>View in 3D</h2>
+      <p>Spin the car around with your wrap applied. Shown only for models with a 3D mesh shipped.</p>
+    </a>
+  </div>
+
+  <footer>
+    Saved wraps are PNGs sized for Tesla's Paint Shop (1024&times;1024, &le;1&nbsp;MB). Drop them into a folder named <code>Wraps</code> on a USB drive, then load via Toybox &rarr; Paint Shop &rarr; Wraps.
+  </footer>
+
+  <script src="shared/models.js?v=3"></script>
+  <script>
+  (async () => {
+    const grid = document.getElementById('picker-grid');
+    const cards = document.querySelectorAll('#cards a.card');
+    const card3d = document.getElementById('card-3d');
+
+    let manifest;
+    try {
+      manifest = await TeslaModels.loadManifest();
+    } catch (e) {
+      const msg = document.createElement('p');
+      msg.className = 'picker-error';
+      msg.textContent = `Could not load model list: ${e.message}`;
+      grid.replaceChildren(msg);
+      return;
+    }
+
+    const active = await TeslaModels.resolveModel();
+
+    function refreshCardLinks(modelId) {
+      cards.forEach(card => {
+        const target = card.dataset.target;
+        card.href = TeslaModels.buildHref(target, modelId);
+      });
+      const entry = TeslaModels.findModel(manifest, modelId);
+      if (entry && entry.hasGlb) card3d.hidden = false;
+      else card3d.hidden = true;
+    }
+
+    function selectModel(modelId, btn) {
+      TeslaModels.storeModel(modelId);
+      grid.querySelectorAll('.model-btn').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
+      refreshCardLinks(modelId);
+    }
+
+    manifest.models.forEach(entry => {
+      const btn = document.createElement('button');
+      btn.type = 'button';
+      btn.className = 'model-btn';
+      btn.setAttribute('role', 'radio');
+      btn.setAttribute('aria-pressed', entry.id === active ? 'true' : 'false');
+      btn.dataset.modelId = entry.id;
+
+      const name = document.createElement('span');
+      name.className = 'name';
+      name.textContent = entry.label;
+
+      const trim = document.createElement('span');
+      trim.className = 'trim';
+      trim.textContent = entry.year || ' ';
+
+      btn.append(name, trim);
+      btn.addEventListener('click', () => selectModel(entry.id, btn));
+      grid.appendChild(btn);
+    });
+
+    refreshCardLinks(active);
+  })();
+  </script>
+</body>
+</html>

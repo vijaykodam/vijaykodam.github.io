@@ -1,0 +1,135 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wrap Gallery · Tesla Wrap Maker</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; min-height: 100%; background: #0b0d12; color: #f4f6fb; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
+  header { display: flex; align-items: center; gap: 16px; padding: 16px 24px; border-bottom: 1px solid #232838; background: #161a23; position: sticky; top: 0; }
+  header a.back { width: 56px; height: 56px; display: flex; align-items: center; justify-content: center; text-decoration: none; color: inherit; border-radius: 12px; background: #1c2231; font-size: 22px; }
+  header h1 { margin: 0; font-size: 22px; flex: 1; }
+  header p { margin: 0; opacity: 0.65; font-size: 14px; }
+  main { padding: 24px; }
+  .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; max-width: 1400px; margin: 0 auto; }
+  .card { background: #161a23; border: 1px solid #232838; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
+  .card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+  .card .meta { padding: 12px 14px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
+  .card .name { font-size: 14px; flex: 1 1 100%; }
+  .card .actions { display: flex; gap: 8px; flex: 1 1 100%; justify-content: flex-end; }
+  .card a.dl, .card button.view3d {
+    background: #4a8cff; color: #fff; text-decoration: none;
+    padding: 8px 12px; border-radius: 8px; font-size: 13px; font-weight: 600;
+    border: none; cursor: pointer; font-family: inherit;
+  }
+  .card button.view3d { background: #1c2231; border: 1px solid #232838; color: #f4f6fb; }
+  .card button.view3d:disabled { opacity: 0.4; cursor: not-allowed; }
+  .card a.dl:active, .card button.view3d:active { transform: scale(0.96); }
+</style>
+</head>
+<body>
+  <header>
+    <a id="back" class="back" href="../" aria-label="Back to home">&larr;</a>
+    <div>
+      <h1>Wrap Gallery <span id="model-suffix" style="opacity:.55;font-weight:400;font-size:14px;letter-spacing:.04em;"></span></h1>
+      <p>Tap any wrap to download the PNG. Drop it on a USB in a folder named <code>Wraps</code>.</p>
+    </div>
+  </header>
+  <main>
+    <div class="grid" id="grid"></div>
+  </main>
+
+  <script src="../shared/models.js?v=3"></script>
+  <script>
+    const WRAPS = [
+      'Hex_Honeycomb', 'Vaporwave_Sunset', 'Marble_Veins',
+      'Deep_Ocean', 'Galaxy_Nebula', 'Lava_Cracks',
+      'Comic_Halftone', 'Blueprint', 'Graffiti_Tag',
+      'Carbon_Fiber', 'Racing_Stripes', 'Neon_Edge'
+    ];
+
+    let activeModelId = null;
+    let activeModelEntry = null;
+
+    (async () => {
+      try {
+        activeModelId = await TeslaModels.resolveModel();
+        const manifest = await TeslaModels.loadManifest();
+        activeModelEntry = TeslaModels.findModel(manifest, activeModelId);
+        const display = TeslaModels.modelDisplayName(activeModelEntry);
+        if (display) document.getElementById('model-suffix').textContent = `· ${display}`;
+        document.getElementById('back').href = TeslaModels.buildHref('../', activeModelId);
+        if (activeModelEntry && activeModelEntry.hasGlb) {
+          // Reveal any "View 3D" buttons that were rendered hidden.
+          document.querySelectorAll('button.view3d').forEach(b => { b.hidden = false; });
+        }
+      } catch (_) { /* gallery still works without manifest */ }
+    })();
+
+    // Bridge: fetch the wrap PNG, stash as data URL in sessionStorage, navigate
+    // to the 3D viewer for the active model. Mirrors web/kid/app.js btn-3d.
+    async function viewWrapIn3D(name, button) {
+      if (!activeModelId) return;
+      const original = button.textContent;
+      button.disabled = true;
+      button.textContent = 'Loading…';
+      try {
+        const res = await fetch(`${name}.png`);
+        if (!res.ok) throw new Error(`fetch ${name}.png: ${res.status}`);
+        const blob = await res.blob();
+        const dataUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+        sessionStorage.setItem('tesla_wrap_dataurl', dataUrl);
+        window.location.href = window.TeslaModels
+          ? window.TeslaModels.buildHref('../3d/', activeModelId)
+          : `../3d/?model=${encodeURIComponent(activeModelId)}`;
+      } catch (e) {
+        console.error('viewWrapIn3D failed', e);
+        button.textContent = 'Failed';
+        setTimeout(() => { button.textContent = original; button.disabled = false; }, 1500);
+      }
+    }
+
+    const grid = document.getElementById('grid');
+    WRAPS.forEach(name => {
+      const card = document.createElement('div');
+      card.className = 'card';
+      const img = document.createElement('img');
+      img.src = `${name}.png`;
+      img.alt = name.replace(/_/g, ' ');
+      img.loading = 'lazy';
+      img.width = 256; img.height = 256;
+      const meta = document.createElement('div');
+      meta.className = 'meta';
+      const label = document.createElement('span');
+      label.className = 'name';
+      label.textContent = name.replace(/_/g, ' ');
+      const actions = document.createElement('div');
+      actions.className = 'actions';
+      const view3d = document.createElement('button');
+      view3d.className = 'view3d';
+      view3d.type = 'button';
+      view3d.textContent = 'View 3D';
+      view3d.hidden = true;  // revealed after manifest load if hasGlb
+      view3d.addEventListener('click', () => viewWrapIn3D(name, view3d));
+      const link = document.createElement('a');
+      link.className = 'dl';
+      link.href = `${name}.png`;
+      link.download = `${name}.png`;
+      link.textContent = 'Save';
+      actions.appendChild(view3d);
+      actions.appendChild(link);
+      meta.appendChild(label);
+      meta.appendChild(actions);
+      card.appendChild(img);
+      card.appendChild(meta);
+      grid.appendChild(card);
+    });
+  </script>
+</body>
+</html>

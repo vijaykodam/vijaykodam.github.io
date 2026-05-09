@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>3D Wrap Preview · Tesla Wrap Maker</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body { margin: 0; height: 100%; background: #0b0d12; color: #f4f6fb; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; overflow: hidden; }
+  header {
+    position: absolute; top: 0; left: 0; right: 0; z-index: 5;
+    display: flex; align-items: center; gap: 12px;
+    padding: 12px 16px; background: linear-gradient(to bottom, rgba(11,13,18,.85) 0%, rgba(11,13,18,0) 100%);
+  }
+  header a.back, header button.chip {
+    height: 44px; padding: 0 16px; border-radius: 10px;
+    background: rgba(28, 34, 49, .85); border: 1px solid #232838; color: inherit;
+    font-size: 14px; cursor: pointer; text-decoration: none;
+    display: inline-flex; align-items: center; justify-content: center;
+  }
+  header h1 { margin: 0; font-size: 18px; flex: 1; }
+  header h1 .model-name { opacity: .6; font-size: 13px; font-weight: 400; margin-left: 8px; letter-spacing: .04em; }
+  header button.chip[aria-pressed="true"] { border-color: #4a8cff; background: #1d2a44; }
+
+  #stage { position: absolute; inset: 0; }
+  #stage canvas { display: block; width: 100%; height: 100%; }
+
+  .status {
+    position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+    background: rgba(22, 26, 35, .92); border: 1px solid #232838;
+    padding: 16px 22px; border-radius: 12px; max-width: 480px; text-align: center;
+    line-height: 1.5;
+  }
+  .status[hidden] { display: none; }
+  .status code { background: #0b0d12; padding: 2px 6px; border-radius: 4px; }
+
+  .hint {
+    position: absolute; bottom: 16px; left: 50%; transform: translateX(-50%);
+    background: rgba(22, 26, 35, .85); border: 1px solid #232838;
+    padding: 8px 14px; border-radius: 999px; font-size: 12px; opacity: .85;
+  }
+  .credit {
+    position: absolute; bottom: 10px; right: 14px;
+    font-size: 11px; color: #cbd2dd; opacity: .85;
+    background: rgba(11,13,18,.55); padding: 4px 8px; border-radius: 6px;
+    max-width: 60vw;
+  }
+  .credit a { color: inherit; text-decoration: underline; }
+  .credit[hidden] { display: none; }
+</style>
+</head>
+<body>
+  <header>
+    <a class="back" id="back" href="../">&larr; Back</a>
+    <h1>3D Preview <span class="model-name" id="model-name"></span></h1>
+    <button class="chip" id="btn-rotate" aria-pressed="false">Auto-rotate</button>
+  </header>
+
+  <div id="stage">
+    <canvas id="three-canvas"></canvas>
+  </div>
+
+  <div class="status" id="status">Loading…</div>
+  <div class="hint">Drag to rotate · Scroll/pinch to zoom</div>
+  <div class="credit" id="credit" hidden></div>
+
+  <script type="importmap">
+  {
+    "imports": {
+      "three": "./vendor/three/three.module.js",
+      "three/addons/": "./vendor/three/addons/"
+    }
+  }
+  </script>
+  <script src="../shared/models.js?v=3"></script>
+  <script type="module" src="app.js?v=2"></script>
+</body>
+</html>
