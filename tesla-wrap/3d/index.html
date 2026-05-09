@@ -19,6 +19,10 @@
     font-size: 14px; cursor: pointer; text-decoration: none;
     display: inline-flex; align-items: center; justify-content: center;
   }
+  header button.chip:disabled {
+    opacity: .45;
+    cursor: not-allowed;
+  }
   header h1 { margin: 0; font-size: 18px; flex: 1; }
   header h1 .model-name { opacity: .6; font-size: 13px; font-weight: 400; margin-left: 8px; letter-spacing: .04em; }
   header button.chip[aria-pressed="true"] { border-color: #4a8cff; background: #1d2a44; }
@@ -54,6 +58,7 @@
   <header>
     <a class="back" id="back" href="../">&larr; Back</a>
     <h1>3D Preview <span class="model-name" id="model-name"></span></h1>
+    <button class="chip" id="btn-download" type="button" disabled>Download PNG</button>
     <button class="chip" id="btn-rotate" aria-pressed="false">Auto-rotate</button>
   </header>
 
