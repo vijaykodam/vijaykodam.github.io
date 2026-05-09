@@ -4,139 +4,1018 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>Tesla Wrap Maker</title>
+<link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght,SOFT@9..144,300,50&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
-  :root { color-scheme: dark; }
-  html, body { margin: 0; padding: 0; min-height: 100%; background: #0b0d12; color: #f4f6fb; font-family: system-ui, -apple-system, "Segoe UI", sans-serif; }
-  body { display: flex; flex-direction: column; align-items: center; padding: 24px; box-sizing: border-box; gap: 16px; }
-  h1 { font-size: clamp(28px, 5vw, 56px); margin: 16px 0 4px; letter-spacing: -0.02em; }
-  p.lede { max-width: 720px; text-align: center; margin: 0; opacity: 0.78; font-size: clamp(16px, 1.6vw, 20px); line-height: 1.45; }
+  :root {
+    color-scheme: dark;
+    --bg-0: #050507;
+    --bg-1: #0a0a0d;
+    --bg-2: #111116;
+    --bg-3: #181820;
+    --line: rgba(255,255,255,0.08);
+    --line-strong: rgba(255,255,255,0.16);
+    --ink: oklch(0.97 0.003 240);
+    --ink-1: oklch(0.85 0.005 240);
+    --ink-2: oklch(0.62 0.008 240);
+    --ink-3: oklch(0.42 0.008 240);
+    --accent: oklch(0.94 0.008 240);
+    --accent-dim: oklch(0.75 0.010 240);
+    --accent-blue: oklch(0.70 0.050 240);
+    --serif: "Fraunces", Georgia, serif;
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, Menlo, monospace;
+    --r-sm: 8px;
+    --r-md: 14px;
+    --r-lg: 18px;
+    --r-pill: 999px;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; min-height: 100%; background: var(--bg-1); color: var(--ink); }
+  body {
+    font-family: var(--sans);
+    font-feature-settings: "ss01", "cv11";
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  [hidden] { display: none !important; }
+  a { color: inherit; }
+  button { font: inherit; }
+  .tw-root { min-height: 100vh; background: var(--bg-1); overflow: hidden; }
 
-  .picker {
-    width: min(900px, 100%);
-    background: #161a23;
-    border: 1px solid #232838;
-    border-radius: 16px;
-    padding: 16px 20px;
-    display: flex; flex-direction: column; gap: 12px;
+  .topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    padding: 22px 56px;
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-1);
+  }
+  .topbar-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-family: var(--mono);
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: var(--ink-1);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .topbar-brand .dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 10px var(--accent);
+    animation: pulse 2.1s ease-in-out infinite;
+  }
+  .topbar-nav { display: flex; gap: 28px; font-size: 13px; color: var(--ink-2); }
+  .topbar-nav a { text-decoration: none; transition: color .15s ease; }
+  .topbar-nav a:hover { color: var(--ink); }
+  .topbar-tag {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr);
+    min-height: 880px;
+    border-bottom: 1px solid var(--line);
+  }
+  .hero-copy {
+    padding: 72px 56px 56px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border-right: 1px solid var(--line);
+    background: var(--bg-1);
+  }
+  .eyebrow {
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.4;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--ink-2);
+  }
+  .h-serif {
+    font-family: var(--serif);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 0.95;
+    font-style: normal;
+    color: var(--ink);
+    font-variation-settings: "SOFT" 50, "opsz" 144;
+    margin: 0;
+  }
+  .h-serif em { font-style: italic; font-weight: 300; color: var(--accent-dim); }
+  .hero h1 { font-size: 108px; margin: 28px 0; }
+  .lede {
+    font-size: 17px;
+    line-height: 1.55;
+    color: var(--ink-1);
+    max-width: 520px;
+    margin: 0 0 36px;
+  }
+
+  .model-select { position: relative; display: inline-block; margin-bottom: 28px; }
+  .model-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 20px;
+    min-width: 280px;
+    background: var(--bg-2);
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+  }
+  .model-trigger:hover { border-color: var(--line-strong); }
+  .model-trigger-main { flex: 1; min-width: 0; }
+  .model-trigger .now {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    margin-bottom: 4px;
+  }
+  .model-title { display: flex; align-items: baseline; gap: 8px; flex-wrap: wrap; }
+  .model-title strong { font-size: 18px; font-weight: 500; }
+  .model-title span { font-size: 14px; color: var(--ink-2); }
+  .chev { width: 10px; height: 6px; opacity: .6; transition: transform .18s ease; }
+  .model-select.open .chev { transform: rotate(180deg); }
+  .model-scrim { position: fixed; inset: 0; z-index: 40; display: none; }
+  .model-select.open .model-scrim { display: block; }
+  .model-menu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    z-index: 41;
+    display: none;
+    min-width: min(360px, calc(100vw - 32px));
+    padding: 8px;
+    border: 1px solid var(--line-strong);
+    border-radius: var(--r-md);
+    background: var(--bg-2);
+    box-shadow: 0 24px 56px rgba(0,0,0,.6), 0 0 0 1px rgba(255,255,255,.04) inset;
+  }
+  .model-select.open .model-menu { display: block; }
+  .model-menu-note {
+    padding: 8px 12px 10px;
+    margin-bottom: 6px;
+    border-bottom: 1px solid var(--line);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.45;
+    letter-spacing: 0.16em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+  .model-menu-note::before {
+    content: "";
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .model-option {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    gap: 12px;
+    padding: 10px 12px;
+    border: 0;
+    border-radius: var(--r-sm);
+    background: transparent;
+    color: var(--ink);
+    cursor: pointer;
+    text-align: left;
+  }
+  .model-option:hover { background: rgba(255,255,255,.025); }
+  .model-option[aria-selected="true"] { background: rgba(255,255,255,.04); }
+  .model-option-text { flex: 1; }
+  .model-option-name { font-size: 14px; font-weight: 500; line-height: 1.2; }
+  .model-option-year { margin-top: 2px; font-size: 12px; color: var(--ink-2); }
+  .paint-only {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+  }
+
+  .actions { display: flex; gap: 12px; align-items: center; flex-wrap: wrap; }
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    min-height: 44px;
+    padding: 12px 22px;
+    border-radius: var(--r-pill);
+    border: 1px solid var(--line-strong);
+    background: var(--bg-2);
+    color: var(--ink);
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+    cursor: pointer;
+    transition: transform .18s ease, border-color .18s ease, background .18s ease, filter .18s ease;
+  }
+  .btn:hover { border-color: rgba(255,255,255,.3); background: var(--bg-3); transform: translateY(-1px); }
+  .btn-primary {
+    background: linear-gradient(180deg, oklch(0.96 0.005 240), oklch(0.86 0.008 240));
+    color: #0a0a0d;
+    border-color: rgba(255,255,255,.4);
+    box-shadow: 0 1px 0 rgba(255,255,255,.5) inset, 0 8px 24px rgba(0,0,0,.3);
+  }
+  .btn-primary:hover { filter: brightness(1.06); }
+  .btn-ghost { background: transparent; border-color: var(--line); color: var(--ink-1); }
+
+  .chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 10px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-pill);
+    background: rgba(255,255,255,.02);
+    color: var(--ink-2);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    white-space: nowrap;
+  }
+  .chip.live::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: oklch(0.78 0.18 145);
+    box-shadow: 0 0 8px oklch(0.78 0.18 145);
+    animation: pulse 1.8s ease-in-out infinite;
+  }
+  .chip.threed {
+    color: var(--ink);
+    border-color: rgba(255,255,255,.25);
+    background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+  }
+  .chip.threed::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 6px var(--accent);
+  }
+  .hero-chips { display: flex; gap: 8px; flex-wrap: wrap; margin-top: 56px; }
+
+  .stage-wrap { position: relative; min-height: 560px; }
+  .stage {
+    position: absolute;
+    inset: 0;
+    overflow: hidden;
+    isolation: isolate;
+    background:
+      radial-gradient(ellipse 80% 60% at 50% 38%, oklch(0.18 0.005 240) 0%, transparent 60%),
+      radial-gradient(ellipse 120% 50% at 50% 100%, oklch(0.08 0.005 240) 0%, transparent 70%),
+      linear-gradient(180deg, #07070a 0%, #04040a 100%);
+  }
+  .stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 35% 80% at 50% -10%, rgba(255,255,255,.06), transparent 70%);
+    pointer-events: none;
+  }
+  .stage::after {
+    content: "";
+    position: absolute;
+    left: 8%;
+    right: 8%;
+    bottom: 28%;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,.18), transparent);
+    pointer-events: none;
+  }
+  .stage canvas {
+    position: absolute;
+    inset: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+  }
+  .stage-floor {
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 28%;
+    background: linear-gradient(180deg, transparent 0%, rgba(255,255,255,.025) 50%, transparent 100%);
+    pointer-events: none;
+    z-index: 2;
+  }
+  .stage-floor::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: repeating-linear-gradient(90deg, transparent 0, transparent 60px, rgba(255,255,255,.02) 60px, rgba(255,255,255,.02) 61px);
+    mask: linear-gradient(180deg, rgba(0,0,0,.4), transparent);
+  }
+  .reg {
+    position: absolute;
+    z-index: 4;
+    width: 22px;
+    height: 22px;
+    border-color: rgba(255,255,255,.2);
+    pointer-events: none;
+  }
+  .reg.tl { top: 18px; left: 18px; border-top: 1px solid; border-left: 1px solid; }
+  .reg.tr { top: 18px; right: 18px; border-top: 1px solid; border-right: 1px solid; }
+  .reg.bl { bottom: 18px; left: 18px; border-bottom: 1px solid; border-left: 1px solid; }
+  .reg.br { bottom: 18px; right: 18px; border-bottom: 1px solid; border-right: 1px solid; }
+  .stage-meta {
+    position: absolute;
+    z-index: 5;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1;
+    letter-spacing: 0.08em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    pointer-events: none;
+  }
+  .stage-meta.tl { top: 22px; left: 32px; }
+  .stage-meta.tr { top: 22px; right: 32px; text-align: right; }
+  .stage-meta.bl { bottom: 22px; left: 32px; }
+  .stage-meta.br { bottom: 22px; right: 32px; text-align: right; }
+  .stage-live-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: oklch(0.78 0.18 145);
+    box-shadow: 0 0 8px oklch(0.78 0.18 145);
+    margin-right: 8px;
+    vertical-align: middle;
+  }
+  .stage-status {
+    position: absolute;
+    z-index: 5;
+    left: 50%;
+    top: 54%;
+    transform: translateX(-50%);
+    max-width: min(520px, calc(100% - 48px));
+    padding: 6px 14px;
+    border: 1px dashed rgba(255,255,255,.18);
+    border-radius: var(--r-pill);
+    background: rgba(0,0,0,.3);
+    backdrop-filter: blur(2px);
+    color: rgba(255,255,255,.5);
+    font-family: var(--mono);
+    font-size: 10px;
+    line-height: 1.4;
+    letter-spacing: 0.18em;
+    text-align: center;
+    text-transform: uppercase;
+  }
+  .stage-status[hidden] { display: none; }
+  .orbit-hint {
+    position: absolute;
+    z-index: 5;
+    bottom: 22px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.18em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .orbit-hint::before {
+    content: "";
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--accent);
+    box-shadow: 0 0 12px var(--accent);
+    animation: pulse 2.4s ease-in-out infinite;
+  }
+  .orbit-hint[hidden] { display: none; }
+
+  .meta-strip {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    border-bottom: 1px solid var(--line);
+    background: var(--bg-1);
+  }
+  .stat { padding: 36px 40px; border-right: 1px solid var(--line); }
+  .stat:last-child { border-right: 0; }
+  .stat-num { font-size: 56px; color: var(--ink); }
+  .stat-label {
     margin-top: 12px;
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-2);
   }
-  .picker-label { font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase; opacity: 0.6; }
-  .picker-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 8px; }
-  .picker-error { opacity: 0.6; }
-  .model-btn {
-    display: flex; flex-direction: column; align-items: flex-start;
-    padding: 12px; border-radius: 12px;
-    background: #1c2231; border: 1px solid #232838; color: inherit;
-    cursor: pointer; text-align: left;
-    font-family: inherit; font-size: 14px;
-    min-height: 56px;
+
+  .project-note {
+    padding: 88px 56px;
+    border-bottom: 1px solid var(--line);
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 80px;
+    background: var(--bg-0);
   }
-  .model-btn[aria-pressed="true"] { background: #1d2a44; border-color: #4a8cff; }
-  .model-btn .name { font-weight: 600; }
-  .model-btn .trim { font-size: 12px; opacity: 0.7; margin-top: 2px; }
+  .note-caption {
+    margin-top: 18px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.7;
+    letter-spacing: 0.14em;
+    color: var(--ink-3);
+    text-transform: uppercase;
+  }
+  .quote {
+    font-size: 38px;
+    line-height: 1.25;
+    font-weight: 300;
+    margin: 0 0 28px;
+  }
+  .maker { display: flex; align-items: center; gap: 14px; }
+  .avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    border: 1px solid var(--line-strong);
+    background: linear-gradient(135deg, oklch(0.55 0.02 240), oklch(0.35 0.02 240));
+  }
+  .maker-name { font-size: 14px; color: var(--ink); font-weight: 500; }
+  .maker-role {
+    font-family: var(--mono);
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+  }
 
-  .cards { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 16px; width: min(1100px, 100%); margin-top: 8px; }
-  a.card { display: flex; flex-direction: column; gap: 8px; padding: 24px 24px 28px; background: #161a23; border: 1px solid #232838; border-radius: 16px; text-decoration: none; color: inherit; transition: transform .12s ease, border-color .12s ease, background .12s ease; min-height: 168px; }
-  a.card:hover, a.card:active { transform: translateY(-2px); border-color: #4a8cff; background: #1c2231; }
-  a.card[hidden] { display: none; }
-  a.card .badge { font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase; opacity: 0.6; }
-  a.card h2 { font-size: 24px; margin: 0; }
-  a.card p { margin: 0; opacity: 0.78; line-height: 1.4; }
+  .loop, .gallery-section { padding: 90px 56px; background: var(--bg-1); }
+  .section-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 32px;
+    margin-bottom: 48px;
+  }
+  .section-head h2 { font-size: 72px; max-width: 800px; }
+  .section-kicker {
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.45;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--ink-3);
+    max-width: 240px;
+    text-align: right;
+  }
+  .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+  .card {
+    min-height: 380px;
+    display: flex;
+    flex-direction: column;
+    padding: 28px;
+    border: 1px solid var(--line);
+    border-radius: var(--r-lg);
+    background: var(--bg-2);
+    color: inherit;
+    text-decoration: none;
+    cursor: pointer;
+    transition: border-color .2s ease, transform .2s ease;
+  }
+  .card:hover { border-color: var(--line-strong); }
+  .card:focus-visible {
+    outline: 2px solid var(--accent);
+    outline-offset: 3px;
+  }
+  .card-top { display: flex; justify-content: space-between; align-items: flex-start; gap: 12px; margin-bottom: 80px; }
+  .tag-num {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 22px;
+    height: 22px;
+    border-radius: 50%;
+    background: var(--accent);
+    color: var(--bg-0);
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+  }
+  .card h3 { font-size: 44px; margin-bottom: 14px; }
+  .card p { margin: 0; font-size: 15px; line-height: 1.55; color: var(--ink-1); }
+  .rail {
+    margin-top: auto;
+    padding-top: 24px;
+    font-family: var(--mono);
+    font-size: 11px;
+    color: var(--ink-2);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .rail-line { flex: 1; height: 1px; background: var(--line); }
 
-  footer { margin-top: 24px; opacity: 0.55; font-size: 13px; text-align: center; max-width: 720px; line-height: 1.5; }
-  footer code { background: #161a23; padding: 2px 6px; border-radius: 4px; }
+  .gallery-section { border-top: 1px solid var(--line); }
+  .gallery-section .section-head { margin-bottom: 36px; }
+  .gallery-section h2 { font-size: 64px; }
+  .gallery-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  .gallery-tile img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    border: 1px solid var(--line);
+    border-radius: var(--r-md);
+    background: var(--bg-3);
+  }
+  .gallery-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    margin-top: 10px;
+    font-size: 12px;
+    color: var(--ink-2);
+  }
+  .gallery-meta span:first-child {
+    font-family: var(--mono);
+    letter-spacing: 0.06em;
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  .gallery-meta span:last-child {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--ink-3);
+  }
+
+  .footer {
+    border-top: 1px solid var(--line);
+    padding: 28px 56px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 28px;
+    font-family: var(--mono);
+    font-size: 11px;
+    line-height: 1.5;
+    letter-spacing: 0.08em;
+    color: var(--ink-2);
+    text-transform: uppercase;
+  }
+  .footer a { color: var(--ink-2); text-decoration: none; transition: color .15s ease; }
+  .footer a:hover { color: var(--ink); }
+  .footer-sep::before { content: "·"; margin: 0 12px; opacity: .5; }
+
+  @keyframes pulse {
+    0%, 100% { opacity: .4; }
+    50% { opacity: 1; }
+  }
+
+  @media (max-width: 1050px) {
+    .topbar { padding: 20px 28px; }
+    .topbar-nav { display: none; }
+    .hero { grid-template-columns: 1fr; min-height: 0; }
+    .hero-copy { border-right: 0; padding: 56px 28px 36px; }
+    .hero h1 { font-size: clamp(58px, 13vw, 96px); }
+    .stage-wrap { min-height: 68vh; border-top: 1px solid var(--line); }
+    .meta-strip, .cards, .gallery-grid { grid-template-columns: repeat(2, 1fr); }
+    .project-note { grid-template-columns: 1fr; gap: 32px; padding: 70px 28px; }
+    .loop, .gallery-section { padding: 70px 28px; }
+    .footer { padding: 28px; align-items: flex-start; flex-direction: column; }
+  }
+  @media (max-width: 680px) {
+    .topbar { padding: 18px 18px; }
+    .topbar-tag { display: none; }
+    .hero-copy { padding: 44px 18px 30px; }
+    .hero h1 { font-size: clamp(48px, 17vw, 72px); }
+    .lede { font-size: 16px; }
+    .model-trigger { width: 100%; min-width: 0; }
+    .model-select { display: block; }
+    .actions { align-items: stretch; }
+    .actions .btn { width: 100%; }
+    .stage-wrap { min-height: 72vh; }
+    .stage-meta { font-size: 9px; }
+    .stage-meta.tl, .stage-meta.bl { left: 20px; }
+    .stage-meta.tr, .stage-meta.br { right: 20px; }
+    .orbit-hint { width: calc(100% - 40px); justify-content: center; font-size: 9px; letter-spacing: 0.12em; }
+    .meta-strip, .cards, .gallery-grid { grid-template-columns: 1fr; }
+    .stat { border-right: 0; border-bottom: 1px solid var(--line); padding: 30px 24px; }
+    .stat:last-child { border-bottom: 0; }
+    .quote { font-size: 30px; }
+    .section-head { display: block; }
+    .section-head h2, .gallery-section h2 { font-size: 46px; }
+    .section-kicker { margin-top: 18px; text-align: left; }
+    .card { min-height: 320px; }
+    .card-top { margin-bottom: 54px; }
+  }
 </style>
 </head>
 <body>
-  <h1>Tesla Wrap Maker</h1>
-  <p class="lede">Design custom wraps for your Tesla. Open this on the car's touchscreen, your iPad, or a laptop &mdash; it works everywhere.</p>
-
-  <section class="picker" aria-labelledby="picker-label">
-    <span id="picker-label" class="picker-label">Pick your Tesla</span>
-    <div id="picker-grid" class="picker-grid" role="radiogroup" aria-label="Tesla model"></div>
-  </section>
-
-  <div class="cards" id="cards">
-    <a class="card" data-target="kid/" href="kid/">
-      <span class="badge">Easy mode</span>
-      <h2>Paint Box</h2>
-      <p>Big buttons, sticker stamps, fill bucket. Built for finger painting on the Tesla touchscreen.</p>
+<div class="tw-root">
+  <header class="topbar">
+    <a class="topbar-brand" href="./" aria-label="Tesla Wrap Maker home">
+      <span class="dot"></span>
+      <span>TESLA WRAP MAKER</span>
     </a>
-    <a class="card" data-target="gallery/" href="gallery/">
-      <span class="badge">Inspiration</span>
-      <h2>Wrap Gallery</h2>
-      <p>12 procedural wraps you can download and drop straight onto a USB.</p>
-    </a>
-    <a class="card" data-target="3d/" href="3d/" id="card-3d" hidden>
-      <span class="badge">Preview</span>
-      <h2>View in 3D</h2>
-      <p>Spin the car around with your wrap applied. Shown only for models with a 3D mesh shipped.</p>
-    </a>
-  </div>
+    <nav class="topbar-nav" aria-label="Primary">
+      <a href="./">Studio</a>
+      <a data-link="kid/" href="kid/">Paint Box</a>
+      <a data-link="gallery/" href="gallery/">Gallery</a>
+      <a href="#loop">How it works</a>
+    </nav>
+  </header>
 
-  <footer>
-    Saved wraps are PNGs sized for Tesla's Paint Shop (1024&times;1024, &le;1&nbsp;MB). Drop them into a folder named <code>Wraps</code> on a USB drive, then load via Toybox &rarr; Paint Shop &rarr; Wraps.
+  <main>
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-copy">
+        <div>
+          <div class="eyebrow">A wrap studio for Tesla cars · v03 · weekend project</div>
+          <h1 id="hero-title" class="h-serif">Paint your<br>Tesla. <em>From</em><br>the dashboard.</h1>
+          <p class="lede">A browser-based wrap maker. Open it on the touchscreen, on an iPad, on your laptop &mdash; same studio, same files. Save a PNG, drop it onto a USB, and the car shows up wearing your design on the next drive.</p>
+
+          <div class="model-select" id="model-select">
+            <button class="model-trigger" id="model-trigger" type="button" aria-haspopup="listbox" aria-expanded="false">
+              <span class="model-trigger-main">
+                <span class="now">Now showing</span>
+                <span class="model-title">
+                  <strong id="selected-model-label">Model Y</strong>
+                  <span id="selected-model-year">Original</span>
+                </span>
+              </span>
+              <span class="chip threed" id="selected-model-3d">3D</span>
+              <svg class="chev" viewBox="0 0 10 6" fill="none" aria-hidden="true">
+                <path d="M1 1L5 5L9 1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+              </svg>
+            </button>
+            <div class="model-scrim" id="model-scrim"></div>
+            <div class="model-menu" role="listbox" id="model-menu" aria-label="Tesla model">
+              <div class="model-menu-note">3D preview ships for Model Y · Original. More models en route.</div>
+            </div>
+          </div>
+
+          <div class="actions">
+            <a class="btn btn-primary" data-link="kid/" href="kid/">
+              Open the studio
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" aria-hidden="true">
+                <path d="M3 7H11M11 7L7 3M11 7L7 11" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+            </a>
+            <a class="btn btn-ghost" data-link="kid/" href="kid/">Paint Box (touch)</a>
+            <a class="btn btn-ghost" data-link="gallery/" href="gallery/">Wrap gallery</a>
+          </div>
+        </div>
+
+        <div class="hero-chips">
+          <span class="chip live">Open · Live</span>
+          <span class="chip">Hugo · GitHub Pages</span>
+          <span class="chip">MIT · No tracking</span>
+        </div>
+      </div>
+
+      <div class="stage-wrap">
+        <div class="stage" id="hero-stage">
+          <canvas id="hero-three-canvas" aria-label="3D Model Y preview"></canvas>
+          <span class="reg tl"></span>
+          <span class="reg tr"></span>
+          <span class="reg bl"></span>
+          <span class="reg br"></span>
+          <div class="stage-meta tl" id="stage-meta-live"><span class="stage-live-dot"></span>LIVE 3D · WEBGL · 60FPS</div>
+          <div class="stage-meta tr" id="stage-meta-model">MODEL Y · ORIGINAL</div>
+          <div class="stage-meta bl" id="stage-meta-fov">FOV 35° · ORBIT</div>
+          <div class="stage-meta br" id="stage-meta-cam">CAM ↻ AUTO</div>
+          <div class="stage-floor"></div>
+          <div class="stage-status" id="hero-stage-status">Loading 3D model...</div>
+          <div class="orbit-hint" id="hero-orbit-hint">Auto-rotating · Click to take control</div>
+        </div>
+      </div>
+    </section>
+
+    <section class="meta-strip" aria-label="Project stats">
+      <div class="stat">
+        <div class="h-serif stat-num">12</div>
+        <div class="stat-label">Tesla models supported</div>
+      </div>
+      <div class="stat">
+        <div class="h-serif stat-num">1</div>
+        <div class="stat-label">Live 3D preview · Model Y Original</div>
+      </div>
+      <div class="stat">
+        <div class="h-serif stat-num">100%</div>
+        <div class="stat-label">Browser-based · no install</div>
+      </div>
+      <div class="stat">
+        <div class="h-serif stat-num">1024×1024</div>
+        <div class="stat-label">PNG output · Tesla Paint Shop ready</div>
+      </div>
+    </section>
+
+    <section class="project-note">
+      <div>
+        <div class="eyebrow">Project note · 2026.05.09</div>
+        <div class="note-caption">Why this exists</div>
+      </div>
+      <div>
+        <p class="h-serif quote">"I built this because I wanted to paint my own car &mdash; from the car. <em>The Paint Shop UI is fine, but it's not a studio.</em> So I made one that is, and made it run inside the same browser my Tesla already has."</p>
+        <div class="maker">
+          <div class="avatar" aria-hidden="true"></div>
+          <div>
+            <div class="maker-name">Vijay</div>
+            <div class="maker-role">Maker · vijay.eu</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="loop" id="loop">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:18px">The loop · 03 steps</div>
+          <h2 class="h-serif">Design, <em>preview</em>, drive.</h2>
+        </div>
+        <div class="section-kicker">three minutes from blank canvas to a wrapped Model Y</div>
+      </div>
+      <div class="cards">
+        <a class="card" data-link="kid/" href="kid/" aria-label="Open Paint Box">
+          <div class="card-top"><span class="tag-num">01</span><span class="chip">Studio · Paint Box</span></div>
+          <h3 class="h-serif">Paint.</h3>
+          <p>Big buttons, sticker stamps, fill bucket. Made for finger-painting on the Tesla touchscreen &mdash; but works on any browser.</p>
+          <div class="rail"><span>OPEN</span><span class="rail-line"></span><span>→</span></div>
+        </a>
+        <a class="card" data-link="3d/" href="3d/" aria-label="Open 3D Preview">
+          <div class="card-top"><span class="tag-num">02</span><span class="chip">Live 3D</span></div>
+          <h3 class="h-serif">Preview.</h3>
+          <p>See the wrap on a real 3D Model Y before you commit. Spin it, light it, second-guess yourself, then commit.</p>
+          <div class="rail"><span>OPEN</span><span class="rail-line"></span><span>→</span></div>
+        </a>
+        <a class="card" data-link="gallery/" href="gallery/" aria-label="Open Wrap Gallery">
+          <div class="card-top"><span class="tag-num">03</span><span class="chip">Tesla Paint Shop</span></div>
+          <h3 class="h-serif">Drive.</h3>
+          <p>Save the PNG (1024×1024, ≤1 MB), drop it into /Wraps on a USB, plug it into the car. Done. The wrap is on.</p>
+          <div class="rail"><span>OPEN</span><span class="rail-line"></span><span>→</span></div>
+        </a>
+      </div>
+    </section>
+
+    <section class="gallery-section">
+      <div class="section-head">
+        <div>
+          <div class="eyebrow" style="margin-bottom:18px">Wrap gallery · 12 procedurals</div>
+          <h2 class="h-serif">Steal these as a starting point.</h2>
+        </div>
+        <a class="btn btn-ghost" data-link="gallery/" href="gallery/">Browse all 12 →</a>
+      </div>
+      <div class="gallery-grid" id="gallery-grid"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div>
+      <span>Built by Vijay Kodam</span><span class="footer-sep"></span><a href="https://vijay.eu">vijay.eu</a>
+    </div>
+    <div style="text-align:right;max-width:520px">Not affiliated with Tesla, Inc. Tesla and model names referenced for descriptive use only.</div>
   </footer>
+</div>
 
-  <script src="shared/models.js?v=3"></script>
-  <script>
-  (async () => {
-    const grid = document.getElementById('picker-grid');
-    const cards = document.querySelectorAll('#cards a.card');
-    const card3d = document.getElementById('card-3d');
+<script type="importmap">
+{
+  "imports": {
+    "three": "./3d/vendor/three/three.module.js",
+    "three/addons/": "./3d/vendor/three/addons/"
+  }
+}
+</script>
+<script src="shared/models.js?v=4"></script>
+<script type="module">
+import { initTeslaWrapViewer } from './3d/viewer.js?v=1';
 
-    let manifest;
-    try {
-      manifest = await TeslaModels.loadManifest();
-    } catch (e) {
-      const msg = document.createElement('p');
-      msg.className = 'picker-error';
-      msg.textContent = `Could not load model list: ${e.message}`;
-      grid.replaceChildren(msg);
+const select = document.getElementById('model-select');
+const trigger = document.getElementById('model-trigger');
+const scrim = document.getElementById('model-scrim');
+const menu = document.getElementById('model-menu');
+const label = document.getElementById('selected-model-label');
+const year = document.getElementById('selected-model-year');
+const chip3d = document.getElementById('selected-model-3d');
+const status = document.getElementById('hero-stage-status');
+const canvas = document.getElementById('hero-three-canvas');
+const orbitHint = document.getElementById('hero-orbit-hint');
+const stageMetaLive = document.getElementById('stage-meta-live');
+const stageMetaModel = document.getElementById('stage-meta-model');
+const stageMetaFov = document.getElementById('stage-meta-fov');
+const stageMetaCam = document.getElementById('stage-meta-cam');
+
+const galleryItems = [
+  ['Carbon_Fiber.png', 'Carbon Fiber'],
+  ['Racing_Stripes.png', 'Racing Stripes'],
+  ['Vaporwave_Sunset.png', 'Vaporwave Sunset'],
+  ['Neon_Edge.png', 'Neon Edge'],
+  ['Marble_Veins.png', 'Marble Veins'],
+  ['Comic_Halftone.png', 'Comic Halftone'],
+  ['Hex_Honeycomb.png', 'Hex Honeycomb'],
+  ['Blueprint.png', 'Blueprint']
+];
+
+let manifest;
+let activeModelId;
+let viewer;
+let renderSeq = 0;
+
+function displayYear(entry) {
+  return entry.year || '—';
+}
+
+function displayStageName(entry) {
+  const suffix = entry.year ? ` · ${entry.year}` : '';
+  return `${entry.label}${suffix}`.toUpperCase();
+}
+
+function setDropdownOpen(open) {
+  select.classList.toggle('open', open);
+  trigger.setAttribute('aria-expanded', String(open));
+}
+
+function refreshLinks(modelId) {
+  document.querySelectorAll('[data-link]').forEach(link => {
+    link.href = TeslaModels.buildHref(link.dataset.link, modelId);
+  });
+}
+
+function updateTrigger(entry) {
+  label.textContent = entry.label;
+  year.textContent = displayYear(entry);
+  chip3d.hidden = !entry.hasGlb;
+  stageMetaModel.textContent = displayStageName(entry);
+}
+
+function setPaintOnlyStage(entry) {
+  if (viewer) {
+    viewer.dispose();
+    viewer = null;
+  }
+  canvas.hidden = true;
+  status.hidden = false;
+  status.textContent = '2D paint shop only · 3D coming';
+  orbitHint.hidden = true;
+  stageMetaLive.textContent = 'PAINT MODE · 2D';
+  stageMetaFov.textContent = 'TEMPLATE · 1024²';
+  stageMetaCam.textContent = 'CAM · OFF';
+  stageMetaModel.textContent = displayStageName(entry);
+}
+
+async function set3dStage(entry) {
+  const seq = ++renderSeq;
+  if (viewer) {
+    viewer.dispose();
+    viewer = null;
+  }
+  canvas.hidden = false;
+  status.hidden = false;
+  status.textContent = 'Loading 3D model...';
+  orbitHint.hidden = false;
+  stageMetaLive.innerHTML = '<span class="stage-live-dot"></span>LIVE 3D · WEBGL · 60FPS';
+  stageMetaFov.textContent = 'FOV 35° · ORBIT';
+  stageMetaCam.textContent = 'CAM ↻ AUTO';
+  stageMetaModel.textContent = displayStageName(entry);
+
+  try {
+    const nextViewer = await initTeslaWrapViewer({
+      canvas,
+      status,
+      modelId: entry.id,
+      requireWrap: false,
+      autoRotate: true,
+      transparent: true,
+      disableAutoOnInteract: true,
+      onAutoRotateChange(enabled) {
+        if (seq !== renderSeq) return;
+        stageMetaCam.textContent = enabled ? 'CAM ↻ AUTO' : 'CAM · MANUAL';
+        orbitHint.hidden = !enabled;
+      }
+    });
+    if (seq !== renderSeq) {
+      nextViewer.dispose();
       return;
     }
+    viewer = nextViewer;
+  } catch (err) {
+    if (seq !== renderSeq) return;
+    canvas.hidden = true;
+    status.hidden = false;
+    status.textContent = `3D preview unavailable: ${err.message}`;
+    orbitHint.hidden = true;
+  }
+}
 
-    const active = await TeslaModels.resolveModel();
+function selectModel(modelId) {
+  const entry = TeslaModels.findModel(manifest, modelId) || TeslaModels.findModel(manifest, manifest.default);
+  if (!entry) return;
+  activeModelId = entry.id;
+  TeslaModels.storeModel(entry.id);
+  updateTrigger(entry);
+  refreshLinks(entry.id);
+  menu.querySelectorAll('.model-option').forEach(btn => {
+    btn.setAttribute('aria-selected', String(btn.dataset.modelId === entry.id));
+  });
+  setDropdownOpen(false);
+  if (entry.hasGlb) set3dStage(entry);
+  else setPaintOnlyStage(entry);
+}
 
-    function refreshCardLinks(modelId) {
-      cards.forEach(card => {
-        const target = card.dataset.target;
-        card.href = TeslaModels.buildHref(target, modelId);
-      });
-      const entry = TeslaModels.findModel(manifest, modelId);
-      if (entry && entry.hasGlb) card3d.hidden = false;
-      else card3d.hidden = true;
-    }
+function buildModelMenu() {
+  manifest.models.forEach(entry => {
+    const btn = document.createElement('button');
+    btn.type = 'button';
+    btn.className = 'model-option';
+    btn.setAttribute('role', 'option');
+    btn.dataset.modelId = entry.id;
+    btn.innerHTML = `
+      <span class="model-option-text">
+        <span class="model-option-name"></span>
+        <span class="model-option-year"></span>
+      </span>
+      ${entry.hasGlb ? '<span class="chip threed">3D + Paint</span>' : '<span class="paint-only">Paint only</span>'}
+    `;
+    btn.querySelector('.model-option-name').textContent = entry.label;
+    btn.querySelector('.model-option-year').textContent = displayYear(entry);
+    btn.addEventListener('click', () => selectModel(entry.id));
+    menu.appendChild(btn);
+  });
+}
 
-    function selectModel(modelId, btn) {
-      TeslaModels.storeModel(modelId);
-      grid.querySelectorAll('.model-btn').forEach(b => b.setAttribute('aria-pressed', b === btn ? 'true' : 'false'));
-      refreshCardLinks(modelId);
-    }
+function buildGallery() {
+  const grid = document.getElementById('gallery-grid');
+  galleryItems.forEach(([file, name], index) => {
+    const item = document.createElement('div');
+    item.className = 'gallery-tile';
+    item.innerHTML = `
+      <img loading="lazy" alt="">
+      <div class="gallery-meta"><span></span><span>1024²</span></div>
+    `;
+    item.querySelector('img').src = `gallery/${file}`;
+    item.querySelector('img').alt = `${name} wrap preview`;
+    item.querySelector('.gallery-meta span:first-child').textContent = `${String(index + 1).padStart(2, '0')} · ${name}`;
+    grid.appendChild(item);
+  });
+}
 
-    manifest.models.forEach(entry => {
-      const btn = document.createElement('button');
-      btn.type = 'button';
-      btn.className = 'model-btn';
-      btn.setAttribute('role', 'radio');
-      btn.setAttribute('aria-pressed', entry.id === active ? 'true' : 'false');
-      btn.dataset.modelId = entry.id;
+async function main() {
+  manifest = await TeslaModels.loadManifest();
+  activeModelId = await TeslaModels.resolveModel();
+  if (!TeslaModels.findModel(manifest, activeModelId)) activeModelId = manifest.default;
+  buildModelMenu();
+  buildGallery();
+  trigger.addEventListener('click', () => setDropdownOpen(!select.classList.contains('open')));
+  scrim.addEventListener('click', () => setDropdownOpen(false));
+  document.addEventListener('keydown', event => {
+    if (event.key === 'Escape') setDropdownOpen(false);
+  });
+  selectModel(activeModelId);
+}
 
-      const name = document.createElement('span');
-      name.className = 'name';
-      name.textContent = entry.label;
-
-      const trim = document.createElement('span');
-      trim.className = 'trim';
-      trim.textContent = entry.year || ' ';
-
-      btn.append(name, trim);
-      btn.addEventListener('click', () => selectModel(entry.id, btn));
-      grid.appendChild(btn);
-    });
-
-    refreshCardLinks(active);
-  })();
-  </script>
+main().catch(err => {
+  console.error(err);
+  status.hidden = false;
+  status.textContent = `Could not load homepage: ${err.message}`;
+});
+</script>
 </body>
 </html>
