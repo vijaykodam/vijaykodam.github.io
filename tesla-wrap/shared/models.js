@@ -7,7 +7,7 @@
   const STORAGE_KEY = 'tesla_wrap_model';
   const DEFAULT_MODEL = 'modely';
   const APP_ROOT_DIRS = ['web', 'tesla-wrap'];
-  const PAGE_DIRS = ['kid', 'gallery', 'advanced', '3d'];
+  const PAGE_DIRS = ['kid', 'gallery', '3d'];
   let cachedManifest = null;
 
   async function loadManifest() {
