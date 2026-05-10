@@ -744,7 +744,7 @@
         <div class="stat-label">Browser-based · no install</div>
       </div>
       <div class="stat">
-        <div class="h-serif stat-num">1024×1024</div>
+        <div class="h-serif stat-num">1024x1024</div>
         <div class="stat-label">PNG output · Tesla Paint Shop ready</div>
       </div>
     </section>
@@ -790,7 +790,7 @@
         <a class="card" data-link="gallery/" href="gallery/" aria-label="Open Wrap Gallery">
           <div class="card-top"><span class="tag-num">03</span><span class="chip">Tesla Paint Shop</span></div>
           <h3 class="h-serif">Drive.</h3>
-          <p>Save the PNG (1024×1024, ≤1 MB), drop it into /Wraps on a USB, plug it into the car. Done. The wrap is on.</p>
+          <p>Save the PNG (1024x1024, ≤1 MB), drop it into /Wraps on a USB, plug it into the car. Done. The wrap is on.</p>
           <div class="rail"><span>OPEN</span><span class="rail-line"></span><span>→</span></div>
         </a>
       </div>
@@ -896,7 +896,7 @@ function setPaintOnlyStage(entry) {
   status.textContent = '2D paint shop only · 3D coming';
   orbitHint.hidden = true;
   stageMetaLive.textContent = 'PAINT MODE · 2D';
-  stageMetaFov.textContent = 'TEMPLATE · 1024²';
+  stageMetaFov.textContent = 'TEMPLATE · 1024x1024';
   stageMetaCam.textContent = 'CAM · OFF';
   stageMetaModel.textContent = displayStageName(entry);
 }
@@ -988,7 +988,7 @@ function buildGallery() {
     item.className = 'gallery-tile';
     item.innerHTML = `
       <img loading="lazy" alt="">
-      <div class="gallery-meta"><span></span><span>1024²</span></div>
+      <div class="gallery-meta"><span></span><span>1024x1024</span></div>
     `;
     item.querySelector('img').src = `gallery/${file}`;
     item.querySelector('img').alt = `${name} wrap preview`;
