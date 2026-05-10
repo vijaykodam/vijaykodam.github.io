@@ -14,7 +14,7 @@
   main { padding: 24px; }
   .grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; max-width: 1400px; margin: 0 auto; }
   .card { background: #161a23; border: 1px solid #232838; border-radius: 16px; overflow: hidden; display: flex; flex-direction: column; }
-  .card img { width: 100%; aspect-ratio: 1 / 1; object-fit: cover; display: block; }
+  .card img { width: 100%; aspect-ratio: 1 / 1; object-fit: contain; display: block; background: #f4f6fb; }
   .card .meta { padding: 12px 14px 14px; display: flex; align-items: center; justify-content: space-between; gap: 8px; flex-wrap: wrap; }
   .card .name { font-size: 14px; flex: 1 1 100%; }
   .card .actions { display: flex; gap: 8px; flex: 1 1 100%; justify-content: flex-end; }
@@ -42,15 +42,9 @@
 
   <script src="../shared/models.js?v=3"></script>
   <script>
-    const WRAPS = [
-      'Hex_Honeycomb', 'Vaporwave_Sunset', 'Marble_Veins',
-      'Deep_Ocean', 'Galaxy_Nebula', 'Lava_Cracks',
-      'Comic_Halftone', 'Blueprint', 'Graffiti_Tag',
-      'Carbon_Fiber', 'Racing_Stripes', 'Neon_Edge'
-    ];
-
     let activeModelId = null;
     let activeModelEntry = null;
+    let presets = [];
 
     (async () => {
       try {
@@ -65,18 +59,52 @@
           document.querySelectorAll('button.view3d').forEach(b => { b.hidden = false; });
         }
       } catch (_) { /* gallery still works without manifest */ }
+      await loadPresets();
+      renderGallery();
     })();
+
+    async function loadPresets() {
+      try {
+        const res = await fetch('presets.json', { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`presets ${res.status}`);
+        presets = await res.json();
+      } catch (err) {
+        console.warn('Preset manifest failed, using fallback gallery list', err);
+        presets = [
+          { name: 'Racing stripe', filename: 'Racing_Stripe.png' },
+          { name: 'Side blade', filename: 'Side_Blade.png' },
+          { name: 'Two-tone', filename: 'Two_Tone.png' },
+          { name: 'Pinstripe', filename: 'Pinstripe.png' },
+          { name: 'Number plate', filename: 'Number_Plate.png' },
+          { name: 'Rally livery', filename: 'Rally_Livery.png' },
+          { name: 'Dazzle', filename: 'Dazzle.png' },
+          { name: 'Carbon hood', filename: 'Carbon_Hood.png' },
+          { name: 'Roof rack', filename: 'Roof_Rack.png' },
+          { name: 'Gradient fade', filename: 'Gradient_Fade.png' },
+          { name: 'Color block', filename: 'Color_Block.png' },
+          { name: 'Decals only', filename: 'Decals_Only.png' }
+        ];
+      }
+    }
+
+    function imagePath(filename) {
+      return activeModelId ? `${activeModelId}/${filename}` : filename;
+    }
+
+    function view3DImagePath(filename) {
+      return activeModelId === 'modely' ? `modely-3d/${filename}` : imagePath(filename);
+    }
 
     // Bridge: fetch the wrap PNG, stash as data URL in sessionStorage, navigate
     // to the 3D viewer for the active model. Mirrors web/kid/app.js btn-3d.
-    async function viewWrapIn3D(name, button) {
+    async function viewWrapIn3D(filename, button) {
       if (!activeModelId) return;
       const original = button.textContent;
       button.disabled = true;
       button.textContent = 'Loading…';
       try {
-        const res = await fetch(`${name}.png`);
-        if (!res.ok) throw new Error(`fetch ${name}.png: ${res.status}`);
+        const res = await fetch(view3DImagePath(filename));
+        if (!res.ok) throw new Error(`fetch ${filename}: ${res.status}`);
         const blob = await res.blob();
         const dataUrl = await new Promise((resolve, reject) => {
           const reader = new FileReader();
@@ -96,40 +124,44 @@
     }
 
     const grid = document.getElementById('grid');
-    WRAPS.forEach(name => {
-      const card = document.createElement('div');
-      card.className = 'card';
-      const img = document.createElement('img');
-      img.src = `${name}.png`;
-      img.alt = name.replace(/_/g, ' ');
-      img.loading = 'lazy';
-      img.width = 256; img.height = 256;
-      const meta = document.createElement('div');
-      meta.className = 'meta';
-      const label = document.createElement('span');
-      label.className = 'name';
-      label.textContent = name.replace(/_/g, ' ');
-      const actions = document.createElement('div');
-      actions.className = 'actions';
-      const view3d = document.createElement('button');
-      view3d.className = 'view3d';
-      view3d.type = 'button';
-      view3d.textContent = 'View 3D';
-      view3d.hidden = true;  // revealed after manifest load if hasGlb
-      view3d.addEventListener('click', () => viewWrapIn3D(name, view3d));
-      const link = document.createElement('a');
-      link.className = 'dl';
-      link.href = `${name}.png`;
-      link.download = `${name}.png`;
-      link.textContent = 'Save';
-      actions.appendChild(view3d);
-      actions.appendChild(link);
-      meta.appendChild(label);
-      meta.appendChild(actions);
-      card.appendChild(img);
-      card.appendChild(meta);
-      grid.appendChild(card);
-    });
+    function renderGallery() {
+      grid.replaceChildren();
+      presets.forEach(preset => {
+        const filename = preset.filename;
+        const card = document.createElement('div');
+        card.className = 'card';
+        const img = document.createElement('img');
+        img.src = imagePath(filename);
+        img.alt = `${preset.name} wrap preview`;
+        img.loading = 'lazy';
+        img.width = 256; img.height = 256;
+        const meta = document.createElement('div');
+        meta.className = 'meta';
+        const label = document.createElement('span');
+        label.className = 'name';
+        label.textContent = preset.name;
+        const actions = document.createElement('div');
+        actions.className = 'actions';
+        const view3d = document.createElement('button');
+        view3d.className = 'view3d';
+        view3d.type = 'button';
+        view3d.textContent = 'View 3D';
+        view3d.hidden = !(activeModelEntry && activeModelEntry.hasGlb);
+        view3d.addEventListener('click', () => viewWrapIn3D(filename, view3d));
+        const link = document.createElement('a');
+        link.className = 'dl';
+        link.href = imagePath(filename);
+        link.download = filename;
+        link.textContent = 'Save';
+        actions.appendChild(view3d);
+        actions.appendChild(link);
+        meta.appendChild(label);
+        meta.appendChild(actions);
+        card.appendChild(img);
+        card.appendChild(meta);
+        grid.appendChild(card);
+      });
+    }
   </script>
 </body>
 </html>

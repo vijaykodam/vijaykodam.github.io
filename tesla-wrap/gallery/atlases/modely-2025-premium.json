@@ -1,0 +1,207 @@
+{
+  "modelId": "modely-2025-premium",
+  "width": 1024,
+  "height": 1024,
+  "panels": [
+    {
+      "name": "front_01",
+      "x": 245,
+      "y": 9,
+      "w": 532,
+      "h": 109,
+      "role": "front",
+      "group": "lower",
+      "area": 38406
+    },
+    {
+      "name": "hood_02",
+      "x": 375,
+      "y": 110,
+      "w": 270,
+      "h": 229,
+      "role": "hood",
+      "group": "upper",
+      "area": 49215
+    },
+    {
+      "name": "fender_03",
+      "x": 111,
+      "y": 114,
+      "w": 220,
+      "h": 253,
+      "role": "fender",
+      "group": "upper",
+      "area": 19042
+    },
+    {
+      "name": "fender_04",
+      "x": 694,
+      "y": 114,
+      "w": 218,
+      "h": 254,
+      "role": "fender",
+      "group": "upper",
+      "area": 19136
+    },
+    {
+      "name": "accent_05",
+      "x": 342,
+      "y": 347,
+      "w": 46,
+      "h": 464,
+      "role": "accent",
+      "group": "accent",
+      "area": 8092
+    },
+    {
+      "name": "accent_06",
+      "x": 632,
+      "y": 347,
+      "w": 47,
+      "h": 465,
+      "role": "accent",
+      "group": "accent",
+      "area": 8097
+    },
+    {
+      "name": "side_07",
+      "x": 82,
+      "y": 348,
+      "w": 177,
+      "h": 247,
+      "role": "side",
+      "group": "lower",
+      "area": 36987
+    },
+    {
+      "name": "side_08",
+      "x": 762,
+      "y": 350,
+      "w": 176,
+      "h": 246,
+      "role": "side",
+      "group": "lower",
+      "area": 36694
+    },
+    {
+      "name": "accent_09",
+      "x": 680,
+      "y": 367,
+      "w": 69,
+      "h": 40,
+      "role": "accent",
+      "group": "accent",
+      "area": 2213
+    },
+    {
+      "name": "accent_10",
+      "x": 272,
+      "y": 368,
+      "w": 70,
+      "h": 39,
+      "role": "accent",
+      "group": "accent",
+      "area": 2221
+    },
+    {
+      "name": "side_11",
+      "x": 69,
+      "y": 570,
+      "w": 166,
+      "h": 222,
+      "role": "side",
+      "group": "lower",
+      "area": 29528
+    },
+    {
+      "name": "side_12",
+      "x": 784,
+      "y": 573,
+      "w": 166,
+      "h": 223,
+      "role": "side",
+      "group": "lower",
+      "area": 29428
+    },
+    {
+      "name": "quarter_13",
+      "x": 124,
+      "y": 779,
+      "w": 141,
+      "h": 171,
+      "role": "quarter",
+      "group": "lower",
+      "area": 16654
+    },
+    {
+      "name": "quarter_14",
+      "x": 757,
+      "y": 783,
+      "w": 141,
+      "h": 170,
+      "role": "quarter",
+      "group": "lower",
+      "area": 16587
+    },
+    {
+      "name": "rear_15",
+      "x": 302,
+      "y": 814,
+      "w": 55,
+      "h": 148,
+      "role": "rear",
+      "group": "lower",
+      "area": 3165
+    },
+    {
+      "name": "rear_16",
+      "x": 667,
+      "y": 816,
+      "w": 52,
+      "h": 148,
+      "role": "rear",
+      "group": "lower",
+      "area": 3155
+    },
+    {
+      "name": "rear_17",
+      "x": 357,
+      "y": 874,
+      "w": 307,
+      "h": 55,
+      "role": "rear",
+      "group": "lower",
+      "area": 14940
+    },
+    {
+      "name": "quarter_18",
+      "x": 55,
+      "y": 885,
+      "w": 119,
+      "h": 129,
+      "role": "quarter",
+      "group": "lower",
+      "area": 11235
+    },
+    {
+      "name": "quarter_19",
+      "x": 853,
+      "y": 888,
+      "w": 116,
+      "h": 129,
+      "role": "quarter",
+      "group": "lower",
+      "area": 10914
+    },
+    {
+      "name": "rear_20",
+      "x": 396,
+      "y": 939,
+      "w": 235,
+      "h": 75,
+      "role": "rear",
+      "group": "lower",
+      "area": 16897
+    }
+  ]
+}

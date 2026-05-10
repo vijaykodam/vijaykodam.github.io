@@ -1,0 +1,197 @@
+{
+  "modelId": "models-2025-plaid",
+  "width": 1024,
+  "height": 1024,
+  "panels": [
+    {
+      "name": "front_01",
+      "x": 286,
+      "y": 7,
+      "w": 448,
+      "h": 136,
+      "role": "front",
+      "group": "lower",
+      "area": 29244
+    },
+    {
+      "name": "fender_02",
+      "x": 114,
+      "y": 94,
+      "w": 140,
+      "h": 211,
+      "role": "fender",
+      "group": "upper",
+      "area": 14089
+    },
+    {
+      "name": "fender_03",
+      "x": 770,
+      "y": 94,
+      "w": 140,
+      "h": 211,
+      "role": "fender",
+      "group": "upper",
+      "area": 13878
+    },
+    {
+      "name": "hood_04",
+      "x": 375,
+      "y": 130,
+      "w": 273,
+      "h": 242,
+      "role": "hood",
+      "group": "upper",
+      "area": 52091
+    },
+    {
+      "name": "accent_05",
+      "x": 74,
+      "y": 243,
+      "w": 36,
+      "h": 361,
+      "role": "accent",
+      "group": "accent",
+      "area": 9151
+    },
+    {
+      "name": "accent_06",
+      "x": 919,
+      "y": 247,
+      "w": 36,
+      "h": 361,
+      "role": "accent",
+      "group": "accent",
+      "area": 9176
+    },
+    {
+      "name": "accent_07",
+      "x": 631,
+      "y": 256,
+      "w": 59,
+      "h": 403,
+      "role": "accent",
+      "group": "accent",
+      "area": 7463
+    },
+    {
+      "name": "accent_08",
+      "x": 334,
+      "y": 257,
+      "w": 59,
+      "h": 402,
+      "role": "accent",
+      "group": "accent",
+      "area": 7687
+    },
+    {
+      "name": "side_09",
+      "x": 114,
+      "y": 295,
+      "w": 123,
+      "h": 190,
+      "role": "side",
+      "group": "lower",
+      "area": 22952
+    },
+    {
+      "name": "side_10",
+      "x": 789,
+      "y": 297,
+      "w": 123,
+      "h": 190,
+      "role": "side",
+      "group": "lower",
+      "area": 22887
+    },
+    {
+      "name": "accent_11",
+      "x": 279,
+      "y": 312,
+      "w": 58,
+      "h": 38,
+      "role": "accent",
+      "group": "accent",
+      "area": 1885
+    },
+    {
+      "name": "accent_12",
+      "x": 686,
+      "y": 312,
+      "w": 58,
+      "h": 38,
+      "role": "accent",
+      "group": "accent",
+      "area": 1877
+    },
+    {
+      "name": "side_13",
+      "x": 114,
+      "y": 482,
+      "w": 142,
+      "h": 186,
+      "role": "side",
+      "group": "lower",
+      "area": 21765
+    },
+    {
+      "name": "side_14",
+      "x": 772,
+      "y": 484,
+      "w": 141,
+      "h": 187,
+      "role": "side",
+      "group": "lower",
+      "area": 22184
+    },
+    {
+      "name": "side_15",
+      "x": 109,
+      "y": 614,
+      "w": 189,
+      "h": 271,
+      "role": "side",
+      "group": "lower",
+      "area": 23068
+    },
+    {
+      "name": "side_16",
+      "x": 726,
+      "y": 614,
+      "w": 189,
+      "h": 271,
+      "role": "side",
+      "group": "lower",
+      "area": 23348
+    },
+    {
+      "name": "rear_17",
+      "x": 367,
+      "y": 657,
+      "w": 290,
+      "h": 200,
+      "role": "rear",
+      "group": "upper",
+      "area": 22290
+    },
+    {
+      "name": "rear_18",
+      "x": 397,
+      "y": 862,
+      "w": 228,
+      "h": 57,
+      "role": "rear",
+      "group": "lower",
+      "area": 10165
+    },
+    {
+      "name": "rear_19",
+      "x": 281,
+      "y": 909,
+      "w": 462,
+      "h": 97,
+      "role": "rear",
+      "group": "lower",
+      "area": 29530
+    }
+  ]
+}

@@ -1,7 +1,8 @@
 (() => {
   'use strict';
 
-  const SIZE = 1024;
+  let canvasWidth = 1024;
+  let canvasHeight = 1024;
   const SVG_NS = 'http://www.w3.org/2000/svg';
   const MAX_HISTORY = 30;
   const PALETTE = [
@@ -35,7 +36,7 @@
   const saveClose = document.getElementById('save-close');
 
   ctx.fillStyle = '#ffffff';
-  ctx.fillRect(0, 0, SIZE, SIZE);
+  ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   ctx.lineCap = 'round';
   ctx.lineJoin = 'round';
 
@@ -59,6 +60,35 @@
   // manifest is unavailable (e.g. running this page outside web/).
   let activeModelId = (window.TeslaModels && window.TeslaModels.DEFAULT_MODEL) || 'modely';
   let activeModelEntry = null;
+  let activeTemplateUrl = 'template.png';
+  let modelyBboxMask = null;
+
+  function setCanvasDimensions(width, height) {
+    if (width === canvasWidth && height === canvasHeight) return;
+    canvasWidth = width;
+    canvasHeight = height;
+    canvas.width = width;
+    canvas.height = height;
+    canvas.style.aspectRatio = `${width} / ${height}`;
+    if (guide) guide.style.aspectRatio = `${width} / ${height}`;
+    if (highlight) highlight.style.aspectRatio = `${width} / ${height}`;
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
+    history.length = 0;
+    future.length = 0;
+    updateHistoryButtons();
+    fit();
+  }
+
+  async function loadTemplateDimensions(url) {
+    const img = new Image();
+    img.src = url;
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+    return { width: img.naturalWidth || 1024, height: img.naturalHeight || 1024 };
+  }
 
   async function initModel() {
     if (!window.TeslaModels) return;
@@ -68,6 +98,9 @@
       activeModelEntry = window.TeslaModels.findModel(manifest, activeModelId);
       const base = window.TeslaModels.modelAssetBase(activeModelId);
       const templateUrl = `${base}template.png`;
+      activeTemplateUrl = templateUrl;
+      const dims = await loadTemplateDimensions(templateUrl);
+      setCanvasDimensions(dims.width, dims.height);
       guide.src = templateUrl;
       // Override the hardcoded mask in styles.css with the model-specific
       // template so Highlight works correctly when the user changes model.
@@ -88,7 +121,7 @@
 
   if (btn3d) {
     btn3d.addEventListener('click', async () => {
-      const blob = await exportBlob();
+      const blob = await exportBlob({ for3d: true });
       if (!blob) return;
       const reader = new FileReader();
       reader.onload = () => {
@@ -109,7 +142,7 @@
 
   function pushHistory() {
     if (history.length >= MAX_HISTORY) history.shift();
-    history.push(ctx.getImageData(0, 0, SIZE, SIZE));
+    history.push(ctx.getImageData(0, 0, canvasWidth, canvasHeight));
     future.length = 0;
     updateHistoryButtons();
   }
@@ -124,14 +157,18 @@
 
   function undo() {
     if (!history.length) return;
-    future.push(ctx.getImageData(0, 0, SIZE, SIZE));
-    ctx.putImageData(history.pop(), 0, 0);
+    future.push(ctx.getImageData(0, 0, canvasWidth, canvasHeight));
+    const previous = history.pop();
+    if (previous.width !== canvasWidth || previous.height !== canvasHeight) return;
+    ctx.putImageData(previous, 0, 0);
     updateHistoryButtons();
   }
   function redo() {
     if (!future.length) return;
-    history.push(ctx.getImageData(0, 0, SIZE, SIZE));
-    ctx.putImageData(future.pop(), 0, 0);
+    history.push(ctx.getImageData(0, 0, canvasWidth, canvasHeight));
+    const next = future.pop();
+    if (next.width !== canvasWidth || next.height !== canvasHeight) return;
+    ctx.putImageData(next, 0, 0);
     updateHistoryButtons();
   }
 
@@ -208,14 +245,14 @@
     if (!confirm('Clear the whole canvas?')) return;
     pushHistory();
     ctx.fillStyle = '#ffffff';
-    ctx.fillRect(0, 0, SIZE, SIZE);
+    ctx.fillRect(0, 0, canvasWidth, canvasHeight);
   });
 
   // Drawing ------------------------------------------------------------
   function pointerPos(ev) {
     const rect = canvas.getBoundingClientRect();
-    const sx = SIZE / rect.width;
-    const sy = SIZE / rect.height;
+    const sx = canvasWidth / rect.width;
+    const sy = canvasHeight / rect.height;
     return { x: (ev.clientX - rect.left) * sx, y: (ev.clientY - rect.top) * sy };
   }
 
@@ -238,7 +275,7 @@
       return;
     }
     if (state.tool === 'line' || state.tool === 'rect' || state.tool === 'circle') {
-      state.snapshotBeforeShape = ctx.getImageData(0, 0, SIZE, SIZE);
+      state.snapshotBeforeShape = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
       return;
     }
     drawSegment(p, p);
@@ -321,10 +358,10 @@
 
   // Iterative scanline flood fill -------------------------------------
   function floodFill(sx, sy, hexColor) {
-    if (sx < 0 || sy < 0 || sx >= SIZE || sy >= SIZE) return;
-    const img = ctx.getImageData(0, 0, SIZE, SIZE);
+    if (sx < 0 || sy < 0 || sx >= canvasWidth || sy >= canvasHeight) return;
+    const img = ctx.getImageData(0, 0, canvasWidth, canvasHeight);
     const data = img.data;
-    const idx = (x, y) => (y * SIZE + x) * 4;
+    const idx = (x, y) => (y * canvasWidth + x) * 4;
     const r0 = data[idx(sx, sy)], g0 = data[idx(sx, sy) + 1], b0 = data[idx(sx, sy) + 2], a0 = data[idx(sx, sy) + 3];
     const target = parseHex(hexColor);
     if (r0 === target.r && g0 === target.g && b0 === target.b && a0 === 255) return;
@@ -344,14 +381,14 @@
       while (x >= 0 && matches(x, y)) x--;
       x++;
       let spanAbove = false, spanBelow = false;
-      while (x < SIZE && matches(x, y)) {
+      while (x < canvasWidth && matches(x, y)) {
         set(x, y);
         if (y > 0) {
           const above = matches(x, y - 1);
           if (!spanAbove && above) { stack.push([x, y - 1]); spanAbove = true; }
           else if (spanAbove && !above) spanAbove = false;
         }
-        if (y < SIZE - 1) {
+        if (y < canvasHeight - 1) {
           const below = matches(x, y + 1);
           if (!spanBelow && below) { stack.push([x, y + 1]); spanBelow = true; }
           else if (spanBelow && !below) spanBelow = false;
@@ -385,8 +422,69 @@
     return raw.replace(/[^A-Za-z0-9_-]+/g, '_').slice(0, 40) || 'MyWrap';
   }
 
-  async function exportBlob() {
-    return new Promise(resolve => canvas.toBlob(b => resolve(b), 'image/png'));
+  async function loadTemplateMask() {
+    const img = new Image();
+    img.src = activeTemplateUrl;
+    await new Promise((resolve, reject) => {
+      img.onload = resolve;
+      img.onerror = reject;
+    });
+    const maskCanvas = document.createElement('canvas');
+    maskCanvas.width = canvasWidth;
+    maskCanvas.height = canvasHeight;
+    const maskCtx = maskCanvas.getContext('2d', { willReadFrequently: true });
+    maskCtx.drawImage(img, 0, 0, canvasWidth, canvasHeight);
+    const mask = maskCtx.getImageData(0, 0, canvasWidth, canvasHeight);
+    const data = mask.data;
+    for (let i = 0; i < data.length; i += 4) {
+      const lum = 0.2126 * data[i] + 0.7152 * data[i + 1] + 0.0722 * data[i + 2];
+      const keep = data[i + 3] > 20 && lum > 170;
+      data[i] = data[i + 1] = data[i + 2] = 255;
+      data[i + 3] = keep ? 255 : 0;
+    }
+    maskCtx.putImageData(mask, 0, 0);
+    return maskCanvas;
+  }
+
+  async function loadModelyBboxMask() {
+    if (activeModelId !== 'modely') return null;
+    if (modelyBboxMask) return modelyBboxMask;
+    try {
+      const res = await fetch('../gallery/atlases/modely.json', { cache: 'no-cache' });
+      if (!res.ok) throw new Error(`atlas ${res.status}`);
+      const atlas = await res.json();
+      const maskCanvas = document.createElement('canvas');
+      maskCanvas.width = canvasWidth;
+      maskCanvas.height = canvasHeight;
+      const maskCtx = maskCanvas.getContext('2d');
+      maskCtx.fillStyle = '#ffffff';
+      for (const panel of atlas.panels || []) {
+        maskCtx.fillRect(panel.x, panel.y, panel.w, panel.h);
+      }
+      modelyBboxMask = maskCanvas;
+      return modelyBboxMask;
+    } catch (err) {
+      console.warn('Model Y bbox mask failed, using template mask', err);
+      return null;
+    }
+  }
+
+  async function exportBlob(options = {}) {
+    const out = document.createElement('canvas');
+    out.width = canvasWidth;
+    out.height = canvasHeight;
+    const outCtx = out.getContext('2d');
+    const maskCanvas = options.for3d
+      ? (await loadModelyBboxMask()) || await loadTemplateMask()
+      : await loadTemplateMask();
+    outCtx.drawImage(maskCanvas, 0, 0);
+    outCtx.globalCompositeOperation = 'source-in';
+    outCtx.drawImage(canvas, 0, 0);
+    outCtx.globalCompositeOperation = 'destination-over';
+    outCtx.fillStyle = '#ffffff';
+    outCtx.fillRect(0, 0, canvasWidth, canvasHeight);
+    outCtx.globalCompositeOperation = 'source-over';
+    return new Promise(resolve => out.toBlob(b => resolve(b), 'image/png'));
   }
 
   saveDownload.addEventListener('click', async () => {
@@ -402,16 +500,25 @@
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   });
 
-  // Resize for crisp drawing on HiDPI displays without changing internal SIZE.
+  // Resize for crisp drawing on HiDPI displays without changing export pixels.
   function fit() {
     const wrap = canvas.parentElement;
     const pad = 24;
     const maxW = wrap.clientWidth - pad;
     const maxH = wrap.clientHeight - 80;
-    const dim = Math.max(64, Math.min(maxW, maxH));
-    canvas.style.width = canvas.style.height = `${dim}px`;
-    if (guide && guide.style) guide.style.width = guide.style.height = `${dim}px`;
-    if (highlight && highlight.style) highlight.style.width = highlight.style.height = `${dim}px`;
+    const scale = Math.max(0.05, Math.min(maxW / canvasWidth, maxH / canvasHeight));
+    const w = Math.max(64, Math.floor(canvasWidth * scale));
+    const h = Math.max(48, Math.floor(canvasHeight * scale));
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    if (guide && guide.style) {
+      guide.style.width = `${w}px`;
+      guide.style.height = `${h}px`;
+    }
+    if (highlight && highlight.style) {
+      highlight.style.width = `${w}px`;
+      highlight.style.height = `${h}px`;
+    }
   }
   new ResizeObserver(fit).observe(document.body);
   window.addEventListener('load', fit);

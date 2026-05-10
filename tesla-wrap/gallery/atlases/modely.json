@@ -1,0 +1,177 @@
+{
+  "modelId": "modely",
+  "width": 1024,
+  "height": 1024,
+  "panels": [
+    {
+      "name": "front_bumper",
+      "x": 253,
+      "y": 8,
+      "w": 517,
+      "h": 142,
+      "role": "front",
+      "group": "lower",
+      "area": 54817
+    },
+    {
+      "name": "hood",
+      "x": 361,
+      "y": 151,
+      "w": 302,
+      "h": 241,
+      "role": "hood",
+      "group": "upper",
+      "area": 54749
+    },
+    {
+      "name": "LF_fender",
+      "x": 27,
+      "y": 9,
+      "w": 226,
+      "h": 277,
+      "role": "side",
+      "group": "lower",
+      "area": 22033
+    },
+    {
+      "name": "RF_fender",
+      "x": 769,
+      "y": 8,
+      "w": 226,
+      "h": 278,
+      "role": "side",
+      "group": "lower",
+      "area": 22288
+    },
+    {
+      "name": "LF_door",
+      "x": 29,
+      "y": 283,
+      "w": 176,
+      "h": 262,
+      "role": "side",
+      "group": "lower",
+      "area": 43614
+    },
+    {
+      "name": "RF_door",
+      "x": 821,
+      "y": 283,
+      "w": 176,
+      "h": 262,
+      "role": "side",
+      "group": "lower",
+      "area": 43616
+    },
+    {
+      "name": "L_mirror",
+      "x": 221,
+      "y": 406,
+      "w": 76,
+      "h": 41,
+      "role": "accent",
+      "group": "accent",
+      "area": 2578
+    },
+    {
+      "name": "R_mirror",
+      "x": 728,
+      "y": 406,
+      "w": 77,
+      "h": 41,
+      "role": "accent",
+      "group": "accent",
+      "area": 2611
+    },
+    {
+      "name": "L_cabin_sail",
+      "x": 322,
+      "y": 140,
+      "w": 34,
+      "h": 491,
+      "role": "accent",
+      "group": "upper",
+      "area": 10893
+    },
+    {
+      "name": "R_cabin_sail",
+      "x": 668,
+      "y": 140,
+      "w": 34,
+      "h": 491,
+      "role": "accent",
+      "group": "upper",
+      "area": 11048
+    },
+    {
+      "name": "LR_door",
+      "x": 28,
+      "y": 534,
+      "w": 194,
+      "h": 234,
+      "role": "side",
+      "group": "lower",
+      "area": 35803
+    },
+    {
+      "name": "RR_door",
+      "x": 804,
+      "y": 534,
+      "w": 194,
+      "h": 234,
+      "role": "side",
+      "group": "lower",
+      "area": 35815
+    },
+    {
+      "name": "trunk_lid",
+      "x": 302,
+      "y": 632,
+      "w": 419,
+      "h": 308,
+      "role": "rear",
+      "group": "upper",
+      "area": 59708
+    },
+    {
+      "name": "LR_quarter",
+      "x": 103,
+      "y": 761,
+      "w": 160,
+      "h": 185,
+      "role": "side",
+      "group": "lower",
+      "area": 21273
+    },
+    {
+      "name": "RR_quarter",
+      "x": 765,
+      "y": 762,
+      "w": 159,
+      "h": 184,
+      "role": "side",
+      "group": "lower",
+      "area": 21221
+    },
+    {
+      "name": "rear_plate",
+      "x": 388,
+      "y": 901,
+      "w": 239,
+      "h": 55,
+      "role": "rear",
+      "group": "lower",
+      "area": 9170
+    },
+    {
+      "name": "rear_bumper",
+      "x": 251,
+      "y": 890,
+      "w": 519,
+      "h": 127,
+      "role": "rear",
+      "group": "lower",
+      "area": 40723
+    }
+  ]
+}

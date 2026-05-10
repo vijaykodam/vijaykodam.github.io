@@ -560,10 +560,10 @@
     display: block;
     width: 100%;
     aspect-ratio: 4 / 3;
-    object-fit: cover;
+    object-fit: contain;
     border: 1px solid var(--line);
     border-radius: var(--r-md);
-    background: var(--bg-3);
+    background: #f4f6fb;
   }
   .gallery-meta {
     display: flex;
@@ -844,14 +844,14 @@ const stageMetaFov = document.getElementById('stage-meta-fov');
 const stageMetaCam = document.getElementById('stage-meta-cam');
 
 const galleryItems = [
-  ['Carbon_Fiber.png', 'Carbon Fiber'],
-  ['Racing_Stripes.png', 'Racing Stripes'],
-  ['Vaporwave_Sunset.png', 'Vaporwave Sunset'],
-  ['Neon_Edge.png', 'Neon Edge'],
-  ['Marble_Veins.png', 'Marble Veins'],
-  ['Comic_Halftone.png', 'Comic Halftone'],
-  ['Hex_Honeycomb.png', 'Hex Honeycomb'],
-  ['Blueprint.png', 'Blueprint']
+  ['Racing_Stripe.png', 'Racing stripe'],
+  ['Two_Tone.png', 'Two-tone'],
+  ['Carbon_Hood.png', 'Carbon hood'],
+  ['Roof_Rack.png', 'Roof rack'],
+  ['Side_Blade.png', 'Side blade'],
+  ['Rally_Livery.png', 'Rally livery'],
+  ['Dazzle.png', 'Dazzle'],
+  ['Gradient_Fade.png', 'Gradient fade']
 ];
 
 let manifest;
@@ -990,7 +990,7 @@ function buildGallery() {
       <img loading="lazy" alt="">
       <div class="gallery-meta"><span></span><span>1024x1024</span></div>
     `;
-    item.querySelector('img').src = `gallery/${file}`;
+    item.querySelector('img').src = `gallery/modely/${file}`;
     item.querySelector('img').alt = `${name} wrap preview`;
     item.querySelector('.gallery-meta span:first-child').textContent = `${String(index + 1).padStart(2, '0')} · ${name}`;
     grid.appendChild(item);

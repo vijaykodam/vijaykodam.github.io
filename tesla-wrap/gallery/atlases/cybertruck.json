@@ -1,0 +1,57 @@
+{
+  "modelId": "cybertruck",
+  "width": 1024,
+  "height": 768,
+  "panels": [
+    {
+      "name": "front_01",
+      "x": 1,
+      "y": 0,
+      "w": 1023,
+      "h": 256,
+      "role": "front",
+      "group": "lower",
+      "area": 153805
+    },
+    {
+      "name": "accent_02",
+      "x": 26,
+      "y": 210,
+      "w": 65,
+      "h": 348,
+      "role": "accent",
+      "group": "accent",
+      "area": 21474
+    },
+    {
+      "name": "side_03",
+      "x": 127,
+      "y": 210,
+      "w": 138,
+      "h": 348,
+      "role": "side",
+      "group": "lower",
+      "area": 39204
+    },
+    {
+      "name": "side_04",
+      "x": 919,
+      "y": 214,
+      "w": 98,
+      "h": 340,
+      "role": "side",
+      "group": "lower",
+      "area": 33644
+    },
+    {
+      "name": "rear_05",
+      "x": 1,
+      "y": 513,
+      "w": 1023,
+      "h": 255,
+      "role": "rear",
+      "group": "upper",
+      "area": 153170
+    }
+  ]
+}
