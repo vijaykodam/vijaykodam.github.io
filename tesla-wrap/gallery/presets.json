@@ -1,57 +1,21 @@
 [
   {
+    "id": "deep-ocean-metallic",
+    "name": "Deep Ocean Metallic",
+    "filename": "Deep_Ocean_Metallic.png",
+    "description": "Navy-to-black metallic body with subtle wave-line highlights"
+  },
+  {
+    "id": "kids-dino-dash",
+    "name": "Kids Dino Dash",
+    "filename": "Kids_Dino_Dash.png",
+    "description": "Green dinosaur silhouettes with playful rocker footprints"
+  },
+  {
     "id": "racing-stripe",
     "name": "Racing stripe",
     "filename": "Racing_Stripe.png",
     "description": "Twin stripes through the center panels"
-  },
-  {
-    "id": "side-blade",
-    "name": "Side blade",
-    "filename": "Side_Blade.png",
-    "description": "Lower-side accent panels"
-  },
-  {
-    "id": "two-tone",
-    "name": "Two-tone",
-    "filename": "Two_Tone.png",
-    "description": "Dark upper panels over a bright lower body"
-  },
-  {
-    "id": "pinstripe",
-    "name": "Pinstripe",
-    "filename": "Pinstripe.png",
-    "description": "Thin beltline striping with small door marks"
-  },
-  {
-    "id": "number-plate",
-    "name": "Number plate",
-    "filename": "Number_Plate.png",
-    "description": "Motorsport door-number graphic"
-  },
-  {
-    "id": "rally-livery",
-    "name": "Rally livery",
-    "filename": "Rally_Livery.png",
-    "description": "Asymmetric color blocks"
-  },
-  {
-    "id": "dazzle",
-    "name": "Dazzle",
-    "filename": "Dazzle.png",
-    "description": "Hard-edge black and white camo"
-  },
-  {
-    "id": "carbon-hood",
-    "name": "Carbon hood",
-    "filename": "Carbon_Hood.png",
-    "description": "Carbon weave on the hood/front upper panels"
-  },
-  {
-    "id": "roof-rack",
-    "name": "Roof rack",
-    "filename": "Roof_Rack.png",
-    "description": "Black upper-panel utility accent"
   },
   {
     "id": "gradient-fade",
@@ -60,15 +24,33 @@
     "description": "Front-to-rear color transition"
   },
   {
-    "id": "color-block",
-    "name": "Color block",
-    "filename": "Color_Block.png",
-    "description": "Distinct color per panel group"
+    "id": "aurora-shift",
+    "name": "Aurora Shift",
+    "filename": "Aurora_Shift.png",
+    "description": "Purple, blue, and green iridescent color-shift bands"
   },
   {
-    "id": "decals-only",
-    "name": "Decals only",
-    "filename": "Decals_Only.png",
-    "description": "Small mirror, handle, and panel accents"
+    "id": "kids-space-explorer",
+    "name": "Kids Space Explorer",
+    "filename": "Kids_Space_Explorer.png",
+    "description": "Navy space theme with planets, stars, and rocket trails"
+  },
+  {
+    "id": "kids-rainbow-bolt",
+    "name": "Kids Rainbow Bolt",
+    "filename": "Kids_Rainbow_Bolt.png",
+    "description": "White base with bright rainbow arcs and lightning graphics"
+  },
+  {
+    "id": "brushed-titanium",
+    "name": "Brushed Titanium",
+    "filename": "Brushed_Titanium.png",
+    "description": "Satin titanium with graphite lowers and technical pinlines"
+  },
+  {
+    "id": "midnight-teal-bronze",
+    "name": "Midnight Teal Bronze",
+    "filename": "Midnight_Teal_Bronze.png",
+    "description": "Deep metallic teal with refined bronze shoulder pinlines"
   }
 ]

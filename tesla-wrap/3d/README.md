@@ -127,8 +127,15 @@ simple) or extend the array.
 - `setPixelRatio(min(2, devicePixelRatio))` caps retina cost on phones.
 - `THREE.CanvasTexture` of a 1024x1024 PNG with anisotropy applied
   tested at 60 fps on M1 Air laptop, ~30 fps on a 2021 iPhone.
-- Tone mapping is `ACESFilmicToneMapping`, exposure 1.0. Increase
-  exposure if a particular GLB ships with very dark materials.
+- Tone mapping is `ACESFilmicToneMapping`. The viewer ships with a
+  Studio lighting profile that the user can fine-tune live via a
+  "Lighting ▾" popover on the `/3d/` page (5 sliders: Exposure,
+  Hemisphere, Key, Fill, Rim, plus Reset to Studio). Defaults live
+  in `STUDIO_DEFAULTS` in `viewer.js` (opaque: exposure 1.45 / hemi
+  1.25 / dir 1.85 / fill 0.95 / rim 0.75; transparent variant used
+  by the landing-page embedded preview, exposure 1.28 / hemi 1.45 /
+  dir 2.05 / fill 1.25 / rim 0.95). Adjustments reset on every page
+  load — no persistence.
 - An RGBELoader environment map would improve chrome reflections;
   intentionally omitted for now to keep CDN fetch surface small.
 

@@ -69,21 +69,8 @@
         if (!res.ok) throw new Error(`presets ${res.status}`);
         presets = await res.json();
       } catch (err) {
-        console.warn('Preset manifest failed, using fallback gallery list', err);
-        presets = [
-          { name: 'Racing stripe', filename: 'Racing_Stripe.png' },
-          { name: 'Side blade', filename: 'Side_Blade.png' },
-          { name: 'Two-tone', filename: 'Two_Tone.png' },
-          { name: 'Pinstripe', filename: 'Pinstripe.png' },
-          { name: 'Number plate', filename: 'Number_Plate.png' },
-          { name: 'Rally livery', filename: 'Rally_Livery.png' },
-          { name: 'Dazzle', filename: 'Dazzle.png' },
-          { name: 'Carbon hood', filename: 'Carbon_Hood.png' },
-          { name: 'Roof rack', filename: 'Roof_Rack.png' },
-          { name: 'Gradient fade', filename: 'Gradient_Fade.png' },
-          { name: 'Color block', filename: 'Color_Block.png' },
-          { name: 'Decals only', filename: 'Decals_Only.png' }
-        ];
+        console.error('Failed to load presets.json', err);
+        presets = [];
       }
     }
 
@@ -126,6 +113,12 @@
     const grid = document.getElementById('grid');
     function renderGallery() {
       grid.replaceChildren();
+      if (!presets.length) {
+        const msg = document.createElement('p');
+        msg.textContent = 'Could not load the wrap gallery. Please try again later.';
+        grid.appendChild(msg);
+        return;
+      }
       presets.forEach(preset => {
         const filename = preset.filename;
         const card = document.createElement('div');

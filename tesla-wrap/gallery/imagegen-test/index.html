@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Imagegen Pair Test · Tesla Wrap Maker</title>
+<style>
+  :root { color-scheme: dark; }
+  html, body {
+    margin: 0;
+    min-height: 100%;
+    background: #0b0d12;
+    color: #f4f6fb;
+    font-family: system-ui, -apple-system, "Segoe UI", sans-serif;
+  }
+  header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    padding: 16px 24px;
+    border-bottom: 1px solid #232838;
+    background: #161a23;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+  }
+  header a.back {
+    width: 56px;
+    height: 56px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: inherit;
+    border-radius: 12px;
+    background: #1c2231;
+    font-size: 22px;
+  }
+  header h1 { margin: 0; font-size: 22px; }
+  header p { margin: 4px 0 0; opacity: 0.68; font-size: 14px; }
+  main {
+    width: min(1280px, calc(100% - 32px));
+    margin: 0 auto;
+    padding: 24px 0 32px;
+  }
+  .toolbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 16px;
+    flex-wrap: wrap;
+  }
+  .status {
+    font-size: 13px;
+    color: #aeb8cc;
+  }
+  .actions {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+  }
+  button, a.button {
+    appearance: none;
+    border: 1px solid #30384b;
+    border-radius: 8px;
+    background: #1c2231;
+    color: #f4f6fb;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 14px;
+    font: 700 13px/1 system-ui, -apple-system, "Segoe UI", sans-serif;
+    text-decoration: none;
+  }
+  button.primary { background: #4a8cff; border-color: #4a8cff; color: #fff; }
+  button:disabled, a.button[aria-disabled="true"] { opacity: 0.45; cursor: not-allowed; }
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+  }
+  .panel {
+    background: #161a23;
+    border: 1px solid #232838;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  .panel figure { margin: 0; }
+  .panel img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: contain;
+    display: block;
+    background: #05070a;
+  }
+  .meta {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    padding: 12px 14px 14px;
+    border-top: 1px solid #232838;
+  }
+  .meta h2 { margin: 0; font-size: 15px; }
+  .meta code { color: #aeb8cc; font-size: 12px; word-break: break-all; }
+  .badge {
+    white-space: nowrap;
+    border-radius: 999px;
+    padding: 5px 9px;
+    background: #2a3143;
+    color: #c6cede;
+    font-size: 12px;
+    font-weight: 700;
+  }
+  .badge.ok { background: #123923; color: #9de7b6; }
+  .badge.fail { background: #48202a; color: #ffb1bf; }
+  @media (max-width: 760px) {
+    header { align-items: flex-start; padding: 14px 16px; }
+    header a.back { width: 48px; height: 48px; }
+    .grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+  <header>
+    <a id="back" class="back" href="../" aria-label="Back to gallery">&larr;</a>
+    <div>
+      <h1>Imagegen Pair Test</h1>
+      <p>Drop a generated wrap pair into this page's inbox, then test the bbox PNG in the Model Y 3D viewer.</p>
+    </div>
+  </header>
+  <main>
+    <div class="toolbar">
+      <div id="overall" class="status">Checking image pair...</div>
+      <div class="actions">
+        <button id="flicker" type="button" disabled title="Alternate bbox image with template at ~2 Hz to spot differences">Flicker A/B</button>
+        <button id="view3d" class="primary" type="button" disabled>View bbox in 3D</button>
+        <a id="download" class="button" href="#" aria-disabled="true">Download template</a>
+      </div>
+    </div>
+
+    <div class="grid">
+      <section class="panel">
+        <figure>
+          <img id="template-img" alt="Official template fit">
+          <figcaption class="meta">
+            <div>
+              <h2>Official Template</h2>
+              <code id="template-path"></code>
+            </div>
+            <span id="template-status" class="badge">Checking</span>
+          </figcaption>
+        </figure>
+      </section>
+      <section class="panel">
+        <figure>
+          <img id="bbox-img" alt="Bbox fit for local 3D">
+          <figcaption class="meta">
+            <div>
+              <h2>Website 3D Bbox</h2>
+              <code id="bbox-path"></code>
+            </div>
+            <span id="bbox-status" class="badge">Checking</span>
+          </figcaption>
+        </figure>
+      </section>
+    </div>
+    <div class="toolbar" style="margin-top: 16px;">
+      <div id="sameness" class="status">Sameness check pending image load.</div>
+      <span id="sameness-badge" class="badge">Pending</span>
+    </div>
+  </main>
+
+  <script src="../../shared/models.js?v=3"></script>
+  <script>
+    const params = new URLSearchParams(location.search);
+    const rawSlug = params.get('slug') || 'kids-dino-dash';
+    const slug = /^[a-z0-9-]+$/i.test(rawSlug) ? rawSlug.toLowerCase() : 'kids-dino-dash';
+    const displayName = slug.split('-').map(part => part.charAt(0).toUpperCase() + part.slice(1)).join(' ');
+    const files = {
+      template: `inbox/${slug}_template.png`,
+      bbox: `inbox/${slug}_bbox.png`
+    };
+    const state = { template: false, bbox: false };
+    const overall = document.getElementById('overall');
+    const view3d = document.getElementById('view3d');
+    const download = document.getElementById('download');
+    const templateImg = document.getElementById('template-img');
+    const bboxImg = document.getElementById('bbox-img');
+
+    document.title = `${displayName} Imagegen Pair Test · Tesla Wrap Maker`;
+    document.getElementById('template-path').textContent = files.template;
+    document.getElementById('bbox-path').textContent = files.bbox;
+    templateImg.alt = `${displayName} official template fit`;
+    bboxImg.alt = `${displayName} bbox fit for local 3D`;
+    download.href = files.template;
+    download.download = `${slug}_template.png`;
+    templateImg.src = files.template;
+    bboxImg.src = files.bbox;
+
+    function setBadge(id, ok, text) {
+      const badge = document.getElementById(id);
+      badge.classList.toggle('ok', ok);
+      badge.classList.toggle('fail', !ok);
+      badge.textContent = text;
+    }
+
+    function updateActions() {
+      const ready = state.template && state.bbox;
+      view3d.disabled = !state.bbox;
+      download.setAttribute('aria-disabled', String(!state.template));
+      overall.textContent = ready
+        ? 'Pair loaded. Template is ready for download; bbox is ready for local Model Y 3D testing.'
+        : `Waiting for ${slug}_template.png and ${slug}_bbox.png in web/gallery/imagegen-test/inbox/.`;
+    }
+
+    function inspectImage(kind, img, statusId) {
+      const ok = img.naturalWidth === 1024 && img.naturalHeight === 1024;
+      state[kind] = ok;
+      setBadge(statusId, ok, ok ? '1024x1024' : `${img.naturalWidth}x${img.naturalHeight}`);
+      updateActions();
+    }
+
+    templateImg.addEventListener('load', event => {
+      inspectImage('template', event.currentTarget, 'template-status');
+    });
+    templateImg.addEventListener('error', () => {
+      state.template = false;
+      setBadge('template-status', false, 'Missing');
+      updateActions();
+    });
+    bboxImg.addEventListener('load', event => {
+      inspectImage('bbox', event.currentTarget, 'bbox-status');
+    });
+    bboxImg.addEventListener('error', () => {
+      state.bbox = false;
+      setBadge('bbox-status', false, 'Missing');
+      updateActions();
+    });
+
+    view3d.addEventListener('click', async () => {
+      const original = view3d.textContent;
+      view3d.disabled = true;
+      view3d.textContent = 'Loading...';
+      try {
+        const res = await fetch(files.bbox, { cache: 'no-cache' });
+        if (!res.ok) throw new Error(`bbox ${res.status}`);
+        const blob = await res.blob();
+        const dataUrl = await new Promise((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result);
+          reader.onerror = reject;
+          reader.readAsDataURL(blob);
+        });
+        sessionStorage.setItem('tesla_wrap_dataurl', dataUrl);
+        window.location.href = window.TeslaModels
+          ? TeslaModels.buildHref('../../3d/', 'modely')
+          : '../../3d/?model=modely';
+      } catch (err) {
+        console.error(err);
+        view3d.textContent = 'Failed';
+        setTimeout(() => {
+          view3d.textContent = original;
+          updateActions();
+        }, 1400);
+      }
+    });
+
+    if (templateImg.complete) inspectImage('template', templateImg, 'template-status');
+    if (bboxImg.complete) inspectImage('bbox', bboxImg, 'bbox-status');
+    updateActions();
+
+    // Flicker A/B: swap the bbox panel's src between bbox and template at ~2 Hz
+    // so the user can spot pixel-level differences in the painted island region.
+    const flickerBtn = document.getElementById('flicker');
+    let flickerTimer = null;
+    let flickerOn = false;
+    function setFlicker(state) {
+      flickerOn = state;
+      flickerBtn.textContent = state ? 'Stop flicker' : 'Flicker A/B';
+      flickerBtn.classList.toggle('primary', state);
+      if (!state) {
+        if (flickerTimer) { clearInterval(flickerTimer); flickerTimer = null; }
+        bboxImg.src = files.bbox;
+        return;
+      }
+      let showTemplate = true;
+      bboxImg.src = files.template;
+      flickerTimer = setInterval(() => {
+        showTemplate = !showTemplate;
+        bboxImg.src = showTemplate ? files.template : files.bbox;
+      }, 500);
+    }
+    flickerBtn.addEventListener('click', () => setFlicker(!flickerOn));
+    window.addEventListener('beforeunload', () => setFlicker(false));
+
+    // Quantitative sameness: mean per-pixel sum-of-RGB-delta between template
+    // and bbox, sampled only inside the official template island region.
+    // Threshold mirrors verify_imagegen_pair.py --bbox-mode outpaint (default 30).
+    const TEMPLATE_GUIDE = '../../models/modely/template.png';
+    const SAMENESS_TOL = 30;
+    async function computeSameness() {
+      if (!state.template || !state.bbox) return;
+      const samenessEl = document.getElementById('sameness');
+      const badgeEl = document.getElementById('sameness-badge');
+      samenessEl.textContent = 'Computing template-vs-bbox sameness inside islands...';
+      badgeEl.textContent = 'Working';
+      badgeEl.classList.remove('ok', 'fail');
+      try {
+        const [tImg, bImg, gImg] = await Promise.all([
+          loadImage(files.template),
+          loadImage(files.bbox),
+          loadImage(TEMPLATE_GUIDE),
+        ]);
+        const w = 1024, h = 1024;
+        const tData = imageData(tImg, w, h);
+        const bData = imageData(bImg, w, h);
+        const gData = imageData(gImg, w, h);
+        let total = 0, count = 0;
+        for (let i = 0; i < tData.length; i += 4) {
+          // Use the official template guide's alpha + luminance to define the
+          // "inside island" region. This mirrors template_mask() in Python.
+          const alpha = gData[i + 3];
+          const lum = (gData[i] * 0.2126 + gData[i + 1] * 0.7152 + gData[i + 2] * 0.0722) | 0;
+          if (alpha > 20 && lum > 170) {
+            total += Math.abs(tData[i] - bData[i])
+                  + Math.abs(tData[i + 1] - bData[i + 1])
+                  + Math.abs(tData[i + 2] - bData[i + 2]);
+            count++;
+          }
+        }
+        const delta = count ? total / count : 0;
+        const ok = delta <= SAMENESS_TOL;
+        badgeEl.textContent = `delta ${delta.toFixed(1)}`;
+        badgeEl.classList.toggle('ok', ok);
+        badgeEl.classList.toggle('fail', !ok);
+        samenessEl.textContent = ok
+          ? `Template and bbox match inside template islands (delta ${delta.toFixed(1)} <= ${SAMENESS_TOL}). Safe to import as outpaint pair.`
+          : `Template and bbox differ inside template islands (delta ${delta.toFixed(1)} > ${SAMENESS_TOL}). The bbox is not an outpaint of the template; importing with --outpaint will fail.`;
+      } catch (err) {
+        console.error(err);
+        samenessEl.textContent = 'Sameness check failed; see console.';
+        badgeEl.textContent = 'Error';
+        badgeEl.classList.add('fail');
+      }
+    }
+    function loadImage(src) {
+      return new Promise((resolve, reject) => {
+        const img = new Image();
+        img.crossOrigin = 'anonymous';
+        img.onload = () => resolve(img);
+        img.onerror = reject;
+        img.src = src;
+      });
+    }
+    function imageData(img, w, h) {
+      const canvas = document.createElement('canvas');
+      canvas.width = w;
+      canvas.height = h;
+      const ctx = canvas.getContext('2d');
+      ctx.drawImage(img, 0, 0, w, h);
+      return ctx.getImageData(0, 0, w, h).data;
+    }
+    let samenessRan = false;
+    function maybeRunExtras() {
+      flickerBtn.disabled = !(state.template && state.bbox);
+      if (state.template && state.bbox && !samenessRan && !flickerOn) {
+        samenessRan = true;
+        computeSameness();
+      }
+    }
+    templateImg.addEventListener('load', maybeRunExtras);
+    bboxImg.addEventListener('load', maybeRunExtras);
+    templateImg.addEventListener('error', maybeRunExtras);
+    bboxImg.addEventListener('error', maybeRunExtras);
+    maybeRunExtras();
+  </script>
+</body>
+</html>

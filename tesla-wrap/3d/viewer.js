@@ -82,6 +82,7 @@ export async function initTeslaWrapViewer(options) {
     modelName,
     back,
     rotateButton,
+    lighting,
     credit,
     modelId,
     requireWrap = true,
@@ -114,7 +115,6 @@ export async function initTeslaWrapViewer(options) {
   renderer.setSize(canvas.clientWidth || 1, canvas.clientHeight || 1, false);
   renderer.outputColorSpace = THREE.SRGBColorSpace;
   renderer.toneMapping = THREE.ACESFilmicToneMapping;
-  renderer.toneMappingExposure = 1.0;
   if (transparent) renderer.setClearColor(0x000000, 0);
 
   let wrapTexture = null;
@@ -136,14 +136,31 @@ export async function initTeslaWrapViewer(options) {
   }
 
   const camera = new THREE.PerspectiveCamera(35, (canvas.clientWidth || 1) / (canvas.clientHeight || 1), 0.1, 200);
-  const hemi = new THREE.HemisphereLight(0xffffff, 0x223344, transparent ? 1.05 : 0.9);
+  const hemi = new THREE.HemisphereLight(0xffffff, 0x223344, 1);
   scene.add(hemi);
-  const dir = new THREE.DirectionalLight(0xffffff, transparent ? 1.7 : 1.4);
+  const dir = new THREE.DirectionalLight(0xffffff, 1);
   dir.position.set(6, 10, 4);
   scene.add(dir);
-  const fill = new THREE.DirectionalLight(0xc8d8ff, transparent ? 0.55 : 0.25);
+  const fill = new THREE.DirectionalLight(0xc8d8ff, 1);
   fill.position.set(-5, 3, -5);
   scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 1);
+  rim.position.set(-3, 4, 6);
+  scene.add(rim);
+
+  const STUDIO_DEFAULTS = {
+    opaque:      { exposure: 1.45, hemi: 1.25, dir: 1.85, fill: 0.95, rim: 0.75 },
+    transparent: { exposure: 1.28, hemi: 1.45, dir: 2.05, fill: 1.25, rim: 0.95 }
+  };
+  const lightingDefaults = transparent ? STUDIO_DEFAULTS.transparent : STUDIO_DEFAULTS.opaque;
+  function applyLighting(preset) {
+    renderer.toneMappingExposure = preset.exposure;
+    hemi.intensity = preset.hemi;
+    dir.intensity = preset.dir;
+    fill.intensity = preset.fill;
+    rim.intensity = preset.rim;
+  }
+  applyLighting(lightingDefaults);
 
   const controls = new OrbitControls(camera, canvas);
   controls.enableDamping = true;
@@ -171,6 +188,66 @@ export async function initTeslaWrapViewer(options) {
       rotateButton.setAttribute('aria-pressed', String(controls.autoRotate));
       onAutoRotateChange && onAutoRotateChange(controls.autoRotate);
     });
+  }
+
+  let onChipClick = null;
+  let onDocumentClick = null;
+  const sliderHandlers = [];
+  let onResetClick = null;
+  if (lighting && lighting.chip && lighting.panel && lighting.sliders) {
+    const { chip, panel, sliders, values, reset } = lighting;
+    const closePanel = () => {
+      panel.hidden = true;
+      chip.setAttribute('aria-expanded', 'false');
+    };
+    const openPanel = () => {
+      panel.hidden = false;
+      chip.setAttribute('aria-expanded', 'true');
+    };
+    onChipClick = (evt) => {
+      evt.stopPropagation();
+      panel.hidden ? openPanel() : closePanel();
+    };
+    onDocumentClick = (evt) => {
+      if (panel.hidden) return;
+      if (panel.contains(evt.target) || chip.contains(evt.target)) return;
+      closePanel();
+    };
+    chip.addEventListener('click', onChipClick);
+    document.addEventListener('click', onDocumentClick);
+
+    // UI key -> scene knob mapping. Sliders use "key" for the main directional light (named `dir` in the scene).
+    const apply = (uiKey, num) => {
+      if (uiKey === 'exposure') renderer.toneMappingExposure = num;
+      else if (uiKey === 'hemi') hemi.intensity = num;
+      else if (uiKey === 'key')  dir.intensity  = num;
+      else if (uiKey === 'fill') fill.intensity = num;
+      else if (uiKey === 'rim')  rim.intensity  = num;
+      if (values && values[uiKey]) values[uiKey].textContent = num.toFixed(2);
+    };
+    const sliderValueFor = (uiKey, preset) => uiKey === 'key' ? preset.dir : preset[uiKey];
+    const initialise = (preset) => {
+      for (const uiKey of ['exposure', 'hemi', 'key', 'fill', 'rim']) {
+        const num = sliderValueFor(uiKey, preset);
+        if (sliders[uiKey]) sliders[uiKey].value = String(num);
+        apply(uiKey, num);
+      }
+    };
+    initialise(lightingDefaults);
+    for (const uiKey of ['exposure', 'hemi', 'key', 'fill', 'rim']) {
+      const slider = sliders[uiKey];
+      if (!slider) continue;
+      const handler = () => {
+        const num = parseFloat(slider.value);
+        if (Number.isFinite(num)) apply(uiKey, num);
+      };
+      slider.addEventListener('input', handler);
+      sliderHandlers.push([slider, handler]);
+    }
+    if (reset) {
+      onResetClick = () => initialise(lightingDefaults);
+      reset.addEventListener('click', onResetClick);
+    }
   }
 
   setStatus(status, 'Loading 3D model...');
@@ -237,6 +314,10 @@ export async function initTeslaWrapViewer(options) {
       cancelAnimationFrame(raf);
       observer.disconnect();
       controls.removeEventListener('start', disableAuto);
+      if (lighting && lighting.chip && onChipClick) lighting.chip.removeEventListener('click', onChipClick);
+      if (onDocumentClick) document.removeEventListener('click', onDocumentClick);
+      for (const [slider, handler] of sliderHandlers) slider.removeEventListener('input', handler);
+      if (lighting && lighting.reset && onResetClick) lighting.reset.removeEventListener('click', onResetClick);
       controls.dispose();
       scene.traverse(obj => {
         if (!obj.isMesh) return;
