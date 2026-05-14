@@ -71,6 +71,13 @@
     background: rgba(22, 26, 35, .85); border: 1px solid #232838;
     padding: 8px 14px; border-radius: 999px; font-size: 12px; opacity: .85;
   }
+  .model-note {
+    position: absolute; bottom: 52px; left: 50%; transform: translateX(-50%);
+    background: rgba(22, 26, 35, .85); border: 1px solid #232838;
+    padding: 8px 14px; border-radius: 999px; font-size: 12px; opacity: .85;
+    max-width: min(560px, calc(100vw - 24px)); text-align: center; line-height: 1.4;
+  }
+  .model-note[hidden] { display: none; }
   .credit {
     position: absolute; bottom: 10px; right: 14px;
     font-size: 11px; color: #cbd2dd; opacity: .85;
@@ -124,6 +131,7 @@
   </div>
 
   <div class="status" id="status">Loading…</div>
+  <div class="model-note" id="model-note" hidden>3D preview uses a generic Model Y body, so it shows a separate wrap version with different dimensions than the flat gallery design.</div>
   <div class="hint">Drag to rotate · Scroll/pinch to zoom</div>
   <div class="credit" id="credit" hidden></div>
 

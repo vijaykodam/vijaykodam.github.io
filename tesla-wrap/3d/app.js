@@ -56,6 +56,15 @@ function initDownloadButton() {
 
 initDownloadButton();
 
+(async () => {
+  const note = document.getElementById('model-note');
+  if (!note) return;
+  const modelId = window.TeslaModels
+    ? await TeslaModels.resolveModel()
+    : new URLSearchParams(location.search).get('model');
+  if (modelId === 'modely') note.hidden = false;
+})();
+
 initTeslaWrapViewer({
   canvas,
   status,
