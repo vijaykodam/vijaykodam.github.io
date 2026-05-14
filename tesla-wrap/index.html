@@ -826,7 +826,7 @@
 </script>
 <script src="shared/models.js?v=4"></script>
 <script type="module">
-import { initTeslaWrapViewer } from './3d/viewer.js?v=3';
+import { initTeslaWrapViewer } from './3d/viewer.js?v=4';
 
 const select = document.getElementById('model-select');
 const trigger = document.getElementById('model-trigger');
@@ -921,6 +921,7 @@ async function set3dStage(entry) {
       canvas,
       status,
       modelId: entry.id,
+      wrapUrl: 'gallery/modely-3d/Aurora_Shift.png',
       requireWrap: false,
       autoRotate: true,
       transparent: true,

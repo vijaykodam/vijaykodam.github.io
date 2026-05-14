@@ -1,4 +1,4 @@
-import { initTeslaWrapViewer } from './viewer.js?v=3';
+import { initTeslaWrapViewer } from './viewer.js?v=4';
 
 const SESSION_WRAP_KEY = 'tesla_wrap_dataurl';
 

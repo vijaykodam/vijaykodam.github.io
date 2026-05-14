@@ -22,12 +22,12 @@ function disposeMaterial(material) {
   material.dispose();
 }
 
-async function loadWrapTexture(renderer) {
-  const wrapDataUrl = sessionStorage.getItem(SESSION_WRAP_KEY);
-  if (!wrapDataUrl) return null;
+async function loadWrapTexture(renderer, wrapUrl) {
+  const wrapSrc = wrapUrl || sessionStorage.getItem(SESSION_WRAP_KEY);
+  if (!wrapSrc) return null;
 
   const wrapImage = new Image();
-  wrapImage.src = wrapDataUrl;
+  wrapImage.src = wrapSrc;
   await new Promise((resolve, reject) => {
     wrapImage.onload = resolve;
     wrapImage.onerror = reject;
@@ -85,6 +85,7 @@ export async function initTeslaWrapViewer(options) {
     lighting,
     credit,
     modelId,
+    wrapUrl = null,
     requireWrap = true,
     autoRotate = false,
     transparent = false,
@@ -119,7 +120,7 @@ export async function initTeslaWrapViewer(options) {
 
   let wrapTexture = null;
   try {
-    wrapTexture = await loadWrapTexture(renderer);
+    wrapTexture = await loadWrapTexture(renderer, wrapUrl);
   } catch (err) {
     renderer.dispose();
     throw new Error(`Could not load wrap texture: ${err.message}`);
