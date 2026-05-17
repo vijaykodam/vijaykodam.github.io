@@ -5,6 +5,11 @@
   let canvasHeight = 1024;
   const SVG_NS = 'http://www.w3.org/2000/svg';
   const MAX_HISTORY = 30;
+  // Override at runtime by setting window.WRAP_WORKER_BASE before app.js
+  // loads (used by local dev pointing at `wrangler dev`).
+  const WORKER_BASE = (typeof window !== 'undefined' && window.WRAP_WORKER_BASE)
+    || 'https://tesla-wrap-uploader.vijaykk.workers.dev';
+  const MAX_UPLOAD_BYTES = 1_500_000;
   const PALETTE = [
     '#000000', '#ffffff', '#9aa0a6', '#5b6166',
     '#ef4444', '#f97316', '#facc15', '#84cc16',
@@ -33,7 +38,16 @@
   const saveDialog = document.getElementById('save-dialog');
   const wrapName = document.getElementById('wrap-name');
   const saveDownload = document.getElementById('save-download');
+  const saveQr = document.getElementById('save-qr');
   const saveClose = document.getElementById('save-close');
+  const qrPanel = document.getElementById('qr-panel');
+  const qrCanvas = document.getElementById('qr-canvas');
+  const qrFilename = document.getElementById('qr-filename');
+  const qrExpiry = document.getElementById('qr-expiry');
+  const qrOpen = document.getElementById('qr-open');
+  const qrAgain = document.getElementById('qr-again');
+  const qrError = document.getElementById('qr-error');
+  let qrCountdownTimer = null;
 
   ctx.fillStyle = '#ffffff';
   ctx.fillRect(0, 0, canvasWidth, canvasHeight);
@@ -412,10 +426,27 @@
       const tag = activeModelId ? `_${activeModelId}` : '';
       wrapName.value = `MyWrap${tag}_${stamp}`;
     }
+    applyTeslaSaveLayout();
+    resetQrPanel();
     if (typeof saveDialog.showModal === 'function') saveDialog.showModal();
     else saveDialog.setAttribute('open', '');
   });
-  saveClose.addEventListener('click', () => saveDialog.close());
+  saveClose.addEventListener('click', () => {
+    stopQrCountdown();
+    saveDialog.close();
+  });
+
+  function applyTeslaSaveLayout() {
+    const onTesla = typeof window.isTeslaBrowser === 'function' && window.isTeslaBrowser();
+    if (onTesla) {
+      // Tesla in-car browser cannot save downloads; promote QR, hide direct download.
+      saveDownload.hidden = true;
+      saveQr.classList.add('primary');
+    } else {
+      saveDownload.hidden = false;
+      saveQr.classList.remove('primary');
+    }
+  }
 
   function safeName() {
     const raw = (wrapName.value || 'MyWrap').trim();
@@ -499,6 +530,118 @@
     a.remove();
     setTimeout(() => URL.revokeObjectURL(url), 60_000);
   });
+
+  // QR share flow -----------------------------------------------------
+  saveQr.addEventListener('click', uploadAndShowQr);
+  qrAgain.addEventListener('click', () => {
+    resetQrPanel();
+    saveQr.disabled = false;
+  });
+
+  async function uploadAndShowQr() {
+    resetQrPanel();
+    saveQr.disabled = true;
+    saveQr.textContent = 'Uploading…';
+    try {
+      const blob = await exportBlob();
+      if (!blob) throw new Error('Could not build the wrap image. Try again.');
+      if (blob.size > MAX_UPLOAD_BYTES) {
+        throw new Error('Image too large for upload. Try fewer details.');
+      }
+      const form = new FormData();
+      form.set('file', blob, `${safeName()}.png`);
+      form.set('modelId', activeModelId || '');
+      const base = WORKER_BASE.replace(/\/$/, '');
+      const res = await fetch(`${base}/upload`, { method: 'POST', body: form });
+      if (res.status === 429) throw new Error('Daily limit reached (20). Try again tomorrow.');
+      if (res.status === 413) throw new Error('Image too large.');
+      if (!res.ok) throw new Error(`Upload failed (${res.status}). Try again.`);
+      const data = await res.json();
+      // Defence-in-depth: don't trust the server's landingUrl string — rebuild
+      // it from WORKER_BASE + a regex-validated id so a compromised Worker
+      // can't slip a `javascript:` or off-origin URL into the QR / link.
+      if (!data || typeof data.id !== 'string' || !/^\d{8}_[0-9a-f]{24}$/.test(data.id)) {
+        throw new Error('Unexpected server response.');
+      }
+      const landingUrl = `${base}/w/${data.id}`;
+      renderQrInto(qrCanvas, landingUrl);
+      qrFilename.textContent = `MyWrap_${(activeModelId || 'tesla')}_${new Date().toISOString().slice(0,10)}.png`;
+      qrOpen.href = landingUrl;
+      startQrCountdown(data.expiresAt);
+      qrPanel.hidden = false;
+    } catch (err) {
+      showQrError(err && err.message ? err.message : 'Network error. Try again.');
+    } finally {
+      saveQr.disabled = false;
+      saveQr.textContent = 'Share via QR';
+    }
+  }
+
+  function renderQrInto(canvasEl, text) {
+    // qrcode-generator: typeNumber 0 = auto-size, level L = ~7% ECC (max capacity).
+    const qr = window.qrcode(0, 'L');
+    qr.addData(text);
+    qr.make();
+    const modules = qr.getModuleCount();
+    const size = canvasEl.width;
+    const cell = Math.floor(size / modules);
+    const offset = Math.floor((size - cell * modules) / 2);
+    const c = canvasEl.getContext('2d');
+    c.fillStyle = '#ffffff';
+    c.fillRect(0, 0, size, size);
+    c.fillStyle = '#000000';
+    for (let r = 0; r < modules; r++) {
+      for (let col = 0; col < modules; col++) {
+        if (qr.isDark(r, col)) c.fillRect(offset + col * cell, offset + r * cell, cell, cell);
+      }
+    }
+  }
+
+  function showQrError(msg) {
+    qrError.textContent = msg;
+    qrError.hidden = false;
+    qrPanel.hidden = false;
+  }
+
+  function resetQrPanel() {
+    stopQrCountdown();
+    qrError.hidden = true;
+    qrError.textContent = '';
+    qrFilename.textContent = '';
+    qrExpiry.textContent = '';
+    qrOpen.removeAttribute('href');
+    qrPanel.hidden = true;
+    const c = qrCanvas.getContext('2d');
+    c.clearRect(0, 0, qrCanvas.width, qrCanvas.height);
+  }
+
+  function startQrCountdown(expiresAtIso) {
+    const expiresAt = Date.parse(expiresAtIso);
+    if (Number.isNaN(expiresAt)) {
+      qrExpiry.textContent = 'Expires in ~24h';
+      return;
+    }
+    function tick() {
+      const ms = expiresAt - Date.now();
+      if (ms <= 0) {
+        qrExpiry.textContent = 'Expired';
+        stopQrCountdown();
+        return;
+      }
+      const hrs = Math.floor(ms / 3_600_000);
+      const mins = Math.floor((ms % 3_600_000) / 60_000);
+      qrExpiry.textContent = `Expires in ${hrs}h ${mins}m`;
+    }
+    tick();
+    qrCountdownTimer = setInterval(tick, 30_000);
+  }
+
+  function stopQrCountdown() {
+    if (qrCountdownTimer) {
+      clearInterval(qrCountdownTimer);
+      qrCountdownTimer = null;
+    }
+  }
 
   // Resize for crisp drawing on HiDPI displays without changing export pixels.
   function fit() {

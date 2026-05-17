@@ -95,12 +95,28 @@
     <input id="wrap-name" type="text" placeholder="My Cool Wrap" maxlength="40">
     <div class="save-options">
       <button id="save-download" class="primary">Download PNG</button>
+      <button id="save-qr">Share via QR</button>
     </div>
+    <section id="qr-panel" class="qr-panel" hidden aria-live="polite">
+      <p class="qr-hint">Scan with your phone to download the PNG, then move it to <code>USB:/Wraps/</code>.</p>
+      <canvas id="qr-canvas" width="256" height="256" aria-label="QR code for the uploaded wrap"></canvas>
+      <div class="qr-meta">
+        <div class="qr-filename" id="qr-filename"></div>
+        <div class="qr-expiry" id="qr-expiry"></div>
+      </div>
+      <div class="qr-actions">
+        <a id="qr-open" class="qr-link" target="_blank" rel="noopener">Open landing page</a>
+        <button id="qr-again" class="ghost" type="button">Upload another</button>
+      </div>
+      <div class="qr-error" id="qr-error" role="alert" hidden></div>
+    </section>
     <button id="save-close" class="ghost">Close</button>
   </dialog>
 
   <script src="stickers.js"></script>
   <script src="../shared/models.js?v=3"></script>
-  <script src="app.js?v=3"></script>
+  <script src="../shared/tesla-ua.js?v=1"></script>
+  <script src="../shared/vendor/qrcode-generator.js?v=1"></script>
+  <script src="app.js?v=4"></script>
 </body>
 </html>
