@@ -1,0 +1,271 @@
+/* Retro Racer - 3D racing game rendered with three.js */
+
+.retro-racer {
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 16px;
+    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: #e2e8f0;
+}
+
+.racer-title {
+    margin: 0 0 4px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #f8fafc;
+    text-align: center;
+}
+
+.racer-subtitle {
+    margin: 0 0 16px;
+    font-size: 14px;
+    color: #94a3b8;
+    text-align: center;
+}
+
+.racer-frame {
+    position: relative;
+    width: min(100%, calc(78vh * 1.6));
+    margin: 0 auto;
+    aspect-ratio: 16 / 10;
+    background: #0b1026;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+}
+
+#racerCanvas {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    height: 100%;
+    display: block;
+    touch-action: none;
+}
+
+/* HUD */
+
+.racer-hud {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.hud-item {
+    background: rgba(2, 6, 23, 0.72);
+    border: 1px solid rgba(148, 163, 184, 0.25);
+    padding: 6px 12px;
+    border-radius: 999px;
+    font-size: 14px;
+    font-variant-numeric: tabular-nums;
+    white-space: nowrap;
+}
+
+/* Overlays (start / results) */
+
+.racer-overlay {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    text-align: center;
+    background: rgba(2, 6, 23, 0.8);
+    padding: 24px;
+}
+
+.racer-overlay h2 {
+    margin: 0;
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: 0.04em;
+    color: #fbbf24;
+    text-transform: uppercase;
+}
+
+.racer-overlay p {
+    margin: 0;
+    max-width: 420px;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #cbd5e1;
+}
+
+.racer-best {
+    font-size: 14px;
+    color: #94a3b8;
+    font-variant-numeric: tabular-nums;
+}
+
+.racer-result-time {
+    font-size: 26px;
+    font-weight: 700;
+    color: #f8fafc;
+    font-variant-numeric: tabular-nums;
+}
+
+.racer-btn {
+    min-height: 48px;
+    padding: 12px 32px;
+    font-size: 18px;
+    font-weight: 700;
+    border: none;
+    border-radius: 999px;
+    background: #f59e0b;
+    color: #1f2937;
+    cursor: pointer;
+    transition: background 0.15s ease, transform 0.1s ease;
+}
+
+.racer-btn:hover {
+    background: #fbbf24;
+}
+
+.racer-btn:active {
+    transform: scale(0.97);
+}
+
+.racer-btn:disabled {
+    background: #475569;
+    color: #94a3b8;
+    cursor: wait;
+    transform: none;
+}
+
+.racer-loading {
+    font-size: 13px;
+    color: #94a3b8;
+    font-variant-numeric: tabular-nums;
+}
+
+/* countdown / GO banner over the 3D view */
+
+.racer-banner {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 18%;
+    pointer-events: none;
+    font-size: clamp(64px, 16vw, 120px);
+    font-weight: 800;
+    color: rgba(248, 250, 252, 0.95);
+    text-shadow: 0 4px 24px rgba(2, 6, 23, 0.6);
+    letter-spacing: 0.04em;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* Touch controls (coarse pointers only) */
+
+.racer-touch {
+    display: none;
+    margin: 12px auto 0;
+    max-width: 520px;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 10px;
+}
+
+@media (pointer: coarse) {
+    .racer-touch {
+        display: grid;
+    }
+}
+
+.touch-btn {
+    min-height: 56px;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+    border-radius: 12px;
+    background: rgba(30, 41, 59, 0.9);
+    color: #e2e8f0;
+    font-size: 22px;
+    font-weight: 700;
+    cursor: pointer;
+    touch-action: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+
+.touch-btn:active,
+.touch-btn.pressed {
+    background: #f59e0b;
+    color: #1f2937;
+    border-color: #f59e0b;
+}
+
+.touch-btn--gas {
+    background: rgba(22, 101, 52, 0.9);
+}
+
+.touch-btn--brake {
+    background: rgba(127, 29, 29, 0.9);
+}
+
+.racer-note {
+    margin: 16px auto 0;
+    max-width: 640px;
+    font-size: 13px;
+    line-height: 1.5;
+    color: #94a3b8;
+    text-align: center;
+}
+
+.racer-note a {
+    color: #cbd5e1;
+    text-decoration: underline;
+}
+
+.racer-note a:hover {
+    color: #f8fafc;
+}
+
+/* Small screens */
+
+@media (max-width: 480px) {
+    .retro-racer {
+        padding: 10px;
+    }
+
+    .racer-title {
+        font-size: 22px;
+    }
+
+    .hud-item {
+        font-size: 12px;
+        padding: 5px 9px;
+    }
+
+    .racer-overlay h2 {
+        font-size: 24px;
+    }
+
+    .racer-overlay p {
+        font-size: 13px;
+    }
+}
+
+/* Short landscape phones: keep the frame inside the viewport */
+
+@media (max-height: 480px) and (orientation: landscape) {
+    .racer-frame {
+        width: min(100%, calc(70vh * 1.6));
+    }
+
+    .racer-touch {
+        margin-top: 8px;
+    }
+
+    .touch-btn {
+        min-height: 48px;
+    }
+}
