@@ -22,10 +22,16 @@ const MAX_SPEED = SEGMENT_LENGTH / STEP;
 const ACCEL = MAX_SPEED / 5;
 const BRAKING = -MAX_SPEED;
 const DECEL = -MAX_SPEED / 5;
-const OFF_ROAD_DECEL = -MAX_SPEED / 2;
-const OFF_ROAD_LIMIT = MAX_SPEED / 4;
+const OFF_ROAD_DECEL = DECEL;              // same as coasting (was -MAX_SPEED / 2)
+const OFF_ROAD_LIMIT = MAX_SPEED * 0.65;   // was MAX_SPEED / 4
 const CENTRIFUGAL = 0.3;             // how hard curves pull the car outward
-const TOTAL_CARS = 30;
+const STEER_RESPONSE = 8;            // steering ease-in/out rate (higher = snappier)
+const OPPONENT_COUNT = 2;                  // player + 2 = 3 cars, one per lane
+const LANE_OFFSETS = [-2 / 3, 0, 2 / 3];   // lane centers in playerX units (lane dashes sit at +-1/3)
+const OPPONENT_CRUISE = [0.80, 0.87];      // cruise speed as fraction of MAX_SPEED
+const CAR_GAP = 1300;                      // min nose-to-tail spacing, ~one car length in world units
+const FOLLOW_GAP = 2400;                   // opponent matches player speed inside this range
+const RUBBER_BAND = 0.08;                  // max +-8% cruise adjustment to keep the race close
 const COUNTDOWN_SECONDS = 3;
 const BEST_TIME_KEY = 'retro-racer-best-time';
 
@@ -132,6 +138,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let countdown = 0;
     let goTimer = 0;
     let bounceTimer = 0;
+    let steerInput = 0;              // smoothed steer, -1..1 (+1 = left, matches playerX)
     let bestTime = loadBestTime();
     let assetsReady = false;
 
@@ -149,8 +156,7 @@ document.addEventListener('DOMContentLoaded', () => {
             p1y: lastY(),
             p2y: y,
             curve: curve,
-            sprites: [],
-            cars: []
+            sprites: []
         });
     }
 
@@ -245,19 +251,16 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function resetCars() {
         cars = [];
-        for (const segment of segments) { segment.cars = []; }
-        for (let n = 0; n < TOTAL_CARS; n++) {
-            const car = {
-                // keep the first stretch clear so the start isn't a pile-up
-                z: Math.floor(20 + Math.random() * (segments.length - 40)) * SEGMENT_LENGTH,
-                offset: (Math.random() * 1.6) - 0.8,
-                speed: MAX_SPEED / 4 + Math.random() * MAX_SPEED / 3,
-                color: CAR_COLORS[n % CAR_COLORS.length],
+        for (let n = 0; n < OPPONENT_COUNT; n++) {
+            cars.push({
+                z: PLAYER_Z,                            // three abreast with the player at the line
+                offset: LANE_OFFSETS[n === 0 ? 0 : 2],  // left and right lanes; player keeps center
+                speed: 0,
+                cruise: MAX_SPEED * OPPONENT_CRUISE[n],
+                finished: false,
+                color: CAR_COLORS[n + 1],               // skip index 0 (red, matches player Miata)
                 mesh: null
-            };
-            car.segment = findSegment(car.z);
-            car.segment.cars.push(car);
-            cars.push(car);
+            });
         }
     }
 
@@ -267,16 +270,34 @@ document.addEventListener('DOMContentLoaded', () => {
         return segments[clamp(Math.floor(z / SEGMENT_LENGTH), 0, segments.length - 1)];
     }
 
-    // ----- physics update (fixed timestep, ported unchanged) -----
+    // ----- physics update (fixed timestep) -----
     function updateCars(dt) {
+        if (state !== 'racing' && state !== 'finished') { return; }   // grid holds until GO
+        const playerZ = position + PLAYER_Z;
         for (const car of cars) {
-            const oldSegment = car.segment;
-            car.z = increase(car.z, dt * car.speed, trackLength);
-            car.segment = findSegment(car.z);
-            if (oldSegment !== car.segment) {
-                oldSegment.cars.splice(oldSegment.cars.indexOf(car), 1);
-                car.segment.cars.push(car);
+            if (car.finished) {
+                // coast to a stop in the run-off, like the player
+                car.speed = Math.max(0, accelerate(car.speed, BRAKING, dt));
+            } else {
+                // gentle rubber-band: trail the player -> slightly faster, lead -> slightly slower
+                const band = clamp(1 + ((playerZ - car.z) / trackLength) * 2 * RUBBER_BAND,
+                    1 - RUBBER_BAND, 1 + RUBBER_BAND);
+                const target = car.cruise * band;
+                car.speed = car.speed < target
+                    ? Math.min(target, accelerate(car.speed, ACCEL, dt))
+                    : Math.max(target, accelerate(car.speed, DECEL, dt));
             }
+            car.z += dt * car.speed;
+            // follow, don't pass: an opponent closing on the player's rear bumper in the
+            // same lane matches speed; the hard z-clamp is what guarantees no pass-through
+            // even at equal speeds (float creep)
+            const gap = playerZ - car.z;
+            if (gap >= 0 && gap < FOLLOW_GAP && overlap(playerX, 0.6, car.offset, 0.6)) {
+                car.speed = Math.min(car.speed, speed);
+                if (gap < CAR_GAP) { car.z = playerZ - CAR_GAP; }
+            }
+            if (!car.finished && car.z >= trackLength) { car.finished = true; }
+            car.z = Math.min(car.z, trackLength + (EXTENSION_SEGMENTS - 25) * SEGMENT_LENGTH);
         }
     }
 
@@ -287,7 +308,6 @@ document.addEventListener('DOMContentLoaded', () => {
                 state = 'racing';
                 goTimer = 0.9;
             }
-            updateCars(dt);
             return;
         }
 
@@ -316,8 +336,9 @@ document.addEventListener('DOMContentLoaded', () => {
         position += dt * speed;
         raceDistance += dt * speed;
 
-        if (keys.left) { playerX += dx; }
-        else if (keys.right) { playerX -= dx; }
+        const steerTarget = keys.left ? 1 : keys.right ? -1 : 0;
+        steerInput += (steerTarget - steerInput) * (1 - Math.exp(-STEER_RESPONSE * dt));
+        playerX += dx * steerInput;
         playerX -= dx * speedPercent * playerSegment.curve * CENTRIFUGAL;
 
         if (keys.faster) { speed = accelerate(speed, ACCEL, dt); }
@@ -328,11 +349,12 @@ document.addEventListener('DOMContentLoaded', () => {
             speed = accelerate(speed, OFF_ROAD_DECEL, dt);
         }
 
-        // rear-end collisions with traffic in the player's segment
-        for (const car of playerSegment.cars) {
-            if (speed > car.speed && overlap(playerX, 0.6, car.offset, 0.6)) {
-                speed = car.speed * (car.speed / speed);
-                position = Math.max(0, car.z - PLAYER_Z);
+        // rear-end collisions: soft -- match the car's speed and hold a stand-off gap
+        for (const car of cars) {
+            const gap = car.z - (position + PLAYER_Z);
+            if (gap >= 0 && gap < CAR_GAP && speed > car.speed && overlap(playerX, 0.6, car.offset, 0.6)) {
+                speed = car.speed;
+                position = Math.max(0, Math.min(position, car.z - CAR_GAP - PLAYER_Z));
                 break;
             }
         }
@@ -738,6 +760,24 @@ document.addEventListener('DOMContentLoaded', () => {
         return geo;
     }
 
+    // thin strip across the road at an arbitrary track distance (finish line edges)
+    function buildCrossStrip(dist, length, yLift) {
+        const s0 = sampleCenterline(dist);
+        const x0 = s0.x, y0 = s0.y, z0 = s0.z, rx0 = s0.rightX, rz0 = s0.rightZ;
+        const s1 = sampleCenterline(dist + length);
+        const positions = new Float32Array([
+            x0 - rx0 * ROAD_WIDTH, y0 + yLift, z0 - rz0 * ROAD_WIDTH,
+            x0 + rx0 * ROAD_WIDTH, y0 + yLift, z0 + rz0 * ROAD_WIDTH,
+            s1.x - s1.rightX * ROAD_WIDTH, s1.y + yLift, s1.z - s1.rightZ * ROAD_WIDTH,
+            s1.x + s1.rightX * ROAD_WIDTH, s1.y + yLift, s1.z + s1.rightZ * ROAD_WIDTH
+        ]);
+        const geo = new THREE.BufferGeometry();
+        geo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+        geo.setIndex([0, 2, 1, 2, 3, 1]);   // same winding as buildPartialRibbon
+        geo.computeVertexNormals();
+        return geo;
+    }
+
     function checkerTexture() {
         const c = document.createElement('canvas');
         c.width = 256;
@@ -753,6 +793,52 @@ document.addEventListener('DOMContentLoaded', () => {
         const tex = new THREE.CanvasTexture(c);
         tex.colorSpace = THREE.SRGBColorSpace;
         return tex;
+    }
+
+    function finishBannerTexture() {
+        const c = document.createElement('canvas');
+        c.width = 1024;
+        c.height = 128;
+        const g = c.getContext('2d');
+        g.fillStyle = '#0f172a';
+        g.fillRect(0, 0, c.width, c.height);
+        const cell = 16;   // checker bands along top and bottom edges
+        for (let x = 0; x < c.width / cell; x++) {
+            for (const y of [0, 1, 6, 7]) {
+                g.fillStyle = (x + y) % 2 ? '#0f172a' : '#f8fafc';
+                g.fillRect(x * cell, y * cell, cell, cell);
+            }
+        }
+        g.fillStyle = '#f8fafc';
+        g.font = 'bold 72px sans-serif';
+        g.textAlign = 'center';
+        g.textBaseline = 'middle';
+        g.fillText('FINISH', c.width / 2, c.height / 2);
+        const tex = new THREE.CanvasTexture(c);
+        tex.colorSpace = THREE.SRGBColorSpace;
+        return tex;
+    }
+
+    function buildFinishGantry() {
+        const p = sampleCenterline(trackLength);
+        const gantry = new THREE.Group();
+        gantry.position.set(p.x, p.y, p.z);
+        gantry.rotation.y = p.yaw;   // local +X = the road's lateral basis, +Z = down-track
+        const postMat = new THREE.MeshStandardMaterial({ color: 0x1f2937, roughness: 0.5, metalness: 0.4 });
+        const postGeo = new THREE.BoxGeometry(60, 1100, 60);
+        for (const side of [-1, 1]) {
+            const post = new THREE.Mesh(postGeo, postMat);
+            post.position.set(side * (ROAD_WIDTH + 180), 550, 0);
+            gantry.add(post);
+        }
+        const banner = new THREE.Mesh(
+            new THREE.PlaneGeometry((ROAD_WIDTH + 180) * 2, 320),
+            new THREE.MeshBasicMaterial({ map: finishBannerTexture(), side: THREE.DoubleSide })
+        );
+        banner.position.y = 920;
+        banner.rotation.y = Math.PI;   // lateral basis points screen-left; face the text at the player
+        gantry.add(banner);
+        trackGroup.add(gantry);
     }
 
     function buildTrackMeshes() {
@@ -835,10 +921,16 @@ document.addEventListener('DOMContentLoaded', () => {
         const checkerLats = [-ROAD_WIDTH, ROAD_WIDTH];
         trackGroup.add(new THREE.Mesh(buildPartialRibbon(1, 5, checkerLats, 4, 10, 3), checkerMat));
         trackGroup.add(new THREE.Mesh(
-            buildPartialRibbon(segments.length - 5, segments.length - 1, checkerLats, 4, 10, 3),
+            buildPartialRibbon(segments.length - 2, segments.length, checkerLats, 4, 10, 2),
             checkerMat
         ));
 
+        // white edge lines bracketing the finish checker
+        const edgeMat = new THREE.MeshStandardMaterial({ color: 0xf8fafc, roughness: 0.6 });
+        trackGroup.add(new THREE.Mesh(buildCrossStrip(trackLength - 460, 60, 5), edgeMat));
+        trackGroup.add(new THREE.Mesh(buildCrossStrip(trackLength, 60, 5), edgeMat));
+
+        buildFinishGantry();
         buildSceneryMeshes();
     }
 
@@ -1013,7 +1105,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     function updateScene(frameDt) {
         const speedPercent = speed / MAX_SPEED;
-        const steer = (keys.left ? -1 : keys.right ? 1 : 0) * speedPercent;
+        const steer = -steerInput * speedPercent;
 
         // player car
         const playerDist = position + PLAYER_Z;
@@ -1092,6 +1184,7 @@ document.addEventListener('DOMContentLoaded', () => {
         elapsed = 0;
         goTimer = 0;
         bounceTimer = 0;
+        steerInput = 0;
         camLateral = 0;
         countdown = COUNTDOWN_SECONDS;
         clearTrafficMeshes();
