@@ -1,37 +1,100 @@
-/* Retro Racer - 3D racing game rendered with three.js */
+/* ============================================================
+   Retro Racer - "Modern Retro Fusion" UI
+   A Forza-style premium HUD fused with a retro sunset palette.
+   Visual layer only - all IDs/classes the game JS drives are kept.
+   Fonts (Chakra Petch + Sora) are linked from the page template.
+   ============================================================ */
 
 .retro-racer {
-    max-width: 960px;
+    /* ---- design tokens ---- */
+    --rr-bg:          #0a0612;                 /* deep violet-black */
+    --rr-frame:       #0c0818;                 /* frame backdrop base */
+    --rr-ink:         #f6f1ff;                 /* warm near-white */
+    --rr-muted:       #b6a9cf;                 /* lavender-gray */
+    --rr-faint:       #8579a0;                 /* dim label gray */
+
+    --rr-orange:      #ff8a3d;
+    --rr-pink:        #ff3d77;
+    --rr-purple:      #7c3aed;
+
+    /* sunset ramp - the hero accent */
+    --rr-grad:        linear-gradient(100deg, #ff8a3d 0%, #ff3d77 50%, #7c3aed 100%);
+    --rr-grad-soft:   linear-gradient(100deg, #ffab63 0%, #ff6a98 52%, #9a64ee 100%);
+
+    --rr-glass:        rgba(20, 13, 33, 0.52);
+    --rr-glass-strong: rgba(14, 9, 24, 0.80);
+    --rr-line:         rgba(255, 255, 255, 0.12);
+
+    --rr-gas:         #28c76f;                  /* accelerate (kept green) */
+    --rr-brake:       #ff4d4d;                  /* brake (kept red) */
+
+    --rr-glow-pink:   rgba(255, 61, 119, 0.45);
+    --rr-glow-orange: rgba(255, 138, 61, 0.40);
+
+    max-width: 1000px;
     margin: 0 auto;
     padding: 16px;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
-    color: #e2e8f0;
+    font-family: "Sora", ui-sans-serif, system-ui, -apple-system, "Segoe UI", sans-serif;
+    color: var(--rr-ink);
 }
 
+/* ---------- title ---------- */
+
 .racer-title {
-    margin: 0 0 4px;
-    font-size: 28px;
+    margin: 0 0 6px;
+    font-family: "Chakra Petch", ui-sans-serif, system-ui, sans-serif;
+    font-size: clamp(34px, 6vw, 52px);
     font-weight: 700;
-    color: #f8fafc;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
     text-align: center;
+    background: var(--rr-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 6px 26px rgba(255, 61, 119, 0.35));
 }
 
 .racer-subtitle {
-    margin: 0 0 16px;
+    margin: 0 0 22px;
     font-size: 14px;
-    color: #94a3b8;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+    color: var(--rr-muted);
     text-align: center;
 }
+
+/* ---------- game frame ---------- */
 
 .racer-frame {
     position: relative;
     width: min(100%, calc(78vh * 1.6));
     margin: 0 auto;
     aspect-ratio: 16 / 10;
-    background: #0b1026;
-    border-radius: 12px;
+    /* sunset sky -> warm horizon: shown while the 3D canvas loads */
+    background:
+        linear-gradient(180deg, #271743 0%, #5a2a55 42%, #b04d45 70%, #e89351 100%);
+    border-radius: 18px;
     overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.45);
+    border: 1px solid rgba(255, 255, 255, 0.10);
+    box-shadow:
+        0 28px 70px -26px rgba(0, 0, 0, 0.85),
+        0 0 60px -22px var(--rr-glow-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
+}
+
+/* faint sunset rim-glow hugging the frame */
+.racer-frame::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: inherit;
+    pointer-events: none;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.06);
+    background:
+        radial-gradient(120% 80% at 50% -10%, rgba(255, 138, 61, 0.10), transparent 55%);
+    z-index: 4;
 }
 
 #racerCanvas {
@@ -41,139 +104,243 @@
     height: 100%;
     display: block;
     touch-action: none;
+    z-index: 1;
 }
 
-/* HUD */
+/* ---------- HUD ---------- */
 
 .racer-hud {
     position: absolute;
-    top: 10px;
-    left: 10px;
-    right: 10px;
+    top: 14px;
+    left: 14px;
+    right: 14px;
     display: flex;
     justify-content: space-between;
-    gap: 8px;
+    align-items: flex-start;
+    gap: 10px;
     pointer-events: none;
+    z-index: 5;
 }
 
 .hud-item {
-    background: rgba(2, 6, 23, 0.72);
-    border: 1px solid rgba(148, 163, 184, 0.25);
-    padding: 6px 12px;
-    border-radius: 999px;
-    font-size: 14px;
-    font-variant-numeric: tabular-nums;
-    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    min-width: 78px;
+    padding: 9px 15px;
+    border-radius: 14px;
+    background: var(--rr-glass);
+    border: 1px solid var(--rr-line);
+    -webkit-backdrop-filter: blur(16px) saturate(150%);
+    backdrop-filter: blur(16px) saturate(150%);
+    box-shadow:
+        0 10px 26px -14px rgba(0, 0, 0, 0.85),
+        inset 0 1px 0 rgba(255, 255, 255, 0.10);
 }
 
-/* Overlays (start / results) */
+.hud-item:last-child {
+    align-items: flex-end;
+    text-align: right;
+}
+
+.hud-label {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 10px;
+    font-weight: 600;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--rr-faint);
+}
+
+.hud-value {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 19px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--rr-ink);
+    font-variant-numeric: tabular-nums;
+}
+
+/* speed is the hero readout - gradient fill + a tinted panel */
+.hud-item--speed {
+    align-items: center;
+    text-align: center;
+    border-color: rgba(255, 61, 119, 0.40);
+    box-shadow:
+        0 10px 26px -14px rgba(0, 0, 0, 0.85),
+        0 0 26px -10px var(--rr-glow-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.12);
+}
+
+.hud-item--speed .hud-value {
+    font-size: 22px;
+    background: var(--rr-grad-soft);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+/* ---------- overlays (start / results) ---------- */
 
 .racer-overlay {
     position: absolute;
     inset: 0;
+    z-index: 6;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 14px;
+    gap: 16px;
     text-align: center;
-    background: rgba(2, 6, 23, 0.8);
-    padding: 24px;
+    padding: 28px;
+    background:
+        radial-gradient(125% 90% at 50% 0%, rgba(124, 58, 237, 0.28), transparent 55%),
+        radial-gradient(120% 90% at 50% 100%, rgba(255, 61, 119, 0.18), transparent 55%),
+        rgba(8, 5, 16, 0.82);
+    -webkit-backdrop-filter: blur(12px) saturate(135%);
+    backdrop-filter: blur(12px) saturate(135%);
 }
 
 .racer-overlay h2 {
     margin: 0;
-    font-size: 32px;
-    font-weight: 800;
-    letter-spacing: 0.04em;
-    color: #fbbf24;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(30px, 6vw, 46px);
+    font-weight: 700;
+    letter-spacing: 0.06em;
     text-transform: uppercase;
+    background: var(--rr-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 4px 22px rgba(255, 61, 119, 0.38));
 }
 
 .racer-overlay p {
     margin: 0;
-    max-width: 420px;
+    max-width: 440px;
     font-size: 15px;
-    line-height: 1.5;
-    color: #cbd5e1;
+    line-height: 1.55;
+    color: var(--rr-muted);
 }
 
 .racer-best {
+    font-family: "Chakra Petch", sans-serif;
     font-size: 14px;
-    color: #94a3b8;
+    letter-spacing: 0.04em;
+    color: var(--rr-muted);
     font-variant-numeric: tabular-nums;
 }
 
 .racer-result-time {
-    font-size: 26px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(28px, 5vw, 40px);
     font-weight: 700;
-    color: #f8fafc;
+    letter-spacing: 0.02em;
+    color: var(--rr-ink);
     font-variant-numeric: tabular-nums;
+    text-shadow: 0 4px 30px rgba(255, 138, 61, 0.35);
 }
 
+/* ---------- primary button ---------- */
+
 .racer-btn {
-    min-height: 48px;
-    padding: 12px 32px;
-    font-size: 18px;
+    position: relative;
+    min-height: 52px;
+    padding: 14px 38px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 16px;
     font-weight: 700;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
     border: none;
-    border-radius: 999px;
-    background: #f59e0b;
-    color: #1f2937;
+    border-radius: 13px;
+    color: #1a0c12;
+    background: var(--rr-grad);
     cursor: pointer;
-    transition: background 0.15s ease, transform 0.1s ease;
+    box-shadow:
+        0 12px 32px -10px var(--rr-glow-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.45);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
 }
 
 .racer-btn:hover {
-    background: #fbbf24;
+    transform: translateY(-2px);
+    filter: brightness(1.06) saturate(1.05);
+    box-shadow:
+        0 18px 42px -10px var(--rr-glow-pink),
+        inset 0 1px 0 rgba(255, 255, 255, 0.55);
 }
 
 .racer-btn:active {
-    transform: scale(0.97);
+    transform: translateY(0) scale(0.98);
 }
 
 .racer-btn:disabled {
-    background: #475569;
-    color: #94a3b8;
+    background: rgba(255, 255, 255, 0.07);
+    color: var(--rr-faint);
     cursor: wait;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.10);
     transform: none;
+    filter: none;
 }
 
 .racer-loading {
+    font-family: "Chakra Petch", sans-serif;
     font-size: 13px;
-    color: #94a3b8;
+    letter-spacing: 0.06em;
+    color: var(--rr-faint);
     font-variant-numeric: tabular-nums;
+    animation: rr-pulse 1.5s ease-in-out infinite;
 }
 
-/* countdown / GO banner over the 3D view */
+@keyframes rr-pulse {
+    0%, 100% { opacity: 0.55; }
+    50%      { opacity: 1; }
+}
+
+/* ---------- countdown / GO banner ---------- */
 
 .racer-banner {
     position: absolute;
     inset: 0;
+    z-index: 6;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-bottom: 18%;
+    padding-bottom: 16%;
     pointer-events: none;
-    font-size: clamp(64px, 16vw, 120px);
-    font-weight: 800;
-    color: rgba(248, 250, 252, 0.95);
-    text-shadow: 0 4px 24px rgba(2, 6, 23, 0.6);
-    letter-spacing: 0.04em;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(72px, 17vw, 150px);
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    background: var(--rr-grad-soft);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 8px 34px rgba(255, 61, 119, 0.55));
+}
+
+.racer-banner:not(.hidden) {
+    animation: rr-pop 0.35s cubic-bezier(0.2, 0.9, 0.3, 1.2);
+}
+
+@keyframes rr-pop {
+    from { transform: scale(0.72); opacity: 0; }
+    to   { transform: scale(1);    opacity: 1; }
 }
 
 .hidden {
     display: none !important;
 }
 
-/* Touch controls (coarse pointers only) */
+/* ---------- touch controls ---------- */
 
 .racer-touch {
     display: none;
-    margin: 12px auto 0;
-    max-width: 520px;
+    margin: 14px auto 0;
+    max-width: 540px;
     grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 10px;
+    gap: 11px;
 }
 
 @media (pointer: coarse) {
@@ -183,53 +350,87 @@
 }
 
 .touch-btn {
-    min-height: 56px;
-    border: 1px solid rgba(148, 163, 184, 0.35);
-    border-radius: 12px;
-    background: rgba(30, 41, 59, 0.9);
-    color: #e2e8f0;
-    font-size: 22px;
+    min-height: 60px;
+    border: 1px solid var(--rr-line);
+    border-radius: 15px;
+    background: var(--rr-glass-strong);
+    color: var(--rr-ink);
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 20px;
     font-weight: 700;
+    letter-spacing: 0.06em;
     cursor: pointer;
     touch-action: none;
     -webkit-user-select: none;
     user-select: none;
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    transition: transform 0.08s ease, box-shadow 0.15s ease;
 }
 
+/* arrows light up with the sunset accent */
 .touch-btn:active,
 .touch-btn.pressed {
-    background: #f59e0b;
-    color: #1f2937;
-    border-color: #f59e0b;
+    background: var(--rr-grad);
+    color: #1a0c12;
+    border-color: transparent;
+    box-shadow: 0 0 26px -4px var(--rr-glow-pink);
+    transform: translateY(1px);
 }
 
 .touch-btn--gas {
-    background: rgba(22, 101, 52, 0.9);
+    background: linear-gradient(180deg, rgba(40, 199, 111, 0.30), rgba(20, 120, 66, 0.42));
+    border-color: rgba(40, 199, 111, 0.45);
+    color: #dffaeb;
 }
 
 .touch-btn--brake {
-    background: rgba(127, 29, 29, 0.9);
+    background: linear-gradient(180deg, rgba(255, 77, 77, 0.30), rgba(150, 30, 30, 0.42));
+    border-color: rgba(255, 77, 77, 0.45);
+    color: #ffe3e3;
 }
 
+.touch-btn--gas:active,
+.touch-btn--gas.pressed {
+    background: linear-gradient(180deg, #34e07d, #159b54);
+    color: #062013;
+    border-color: transparent;
+    box-shadow: 0 0 26px -4px rgba(40, 199, 111, 0.65);
+}
+
+.touch-btn--brake:active,
+.touch-btn--brake.pressed {
+    background: linear-gradient(180deg, #ff6b6b, #c62222);
+    color: #2a0606;
+    border-color: transparent;
+    box-shadow: 0 0 26px -4px rgba(255, 77, 77, 0.6);
+}
+
+/* ---------- footer note ---------- */
+
 .racer-note {
-    margin: 16px auto 0;
-    max-width: 640px;
-    font-size: 13px;
-    line-height: 1.5;
-    color: #94a3b8;
+    margin: 18px auto 0;
+    max-width: 660px;
+    font-size: 12.5px;
+    line-height: 1.6;
+    color: var(--rr-faint);
     text-align: center;
 }
 
 .racer-note a {
-    color: #cbd5e1;
+    color: var(--rr-muted);
     text-decoration: underline;
+    text-decoration-color: rgba(255, 138, 61, 0.5);
+    text-underline-offset: 2px;
+    transition: color 0.15s ease;
 }
 
 .racer-note a:hover {
-    color: #f8fafc;
+    color: var(--rr-orange);
 }
 
-/* Small screens */
+/* ---------- small screens ---------- */
 
 @media (max-width: 480px) {
     .retro-racer {
@@ -237,16 +438,30 @@
     }
 
     .racer-title {
-        font-size: 22px;
+        font-size: 30px;
+    }
+
+    .racer-subtitle {
+        font-size: 13px;
+        margin-bottom: 16px;
     }
 
     .hud-item {
-        font-size: 12px;
-        padding: 5px 9px;
+        min-width: 0;
+        padding: 7px 11px;
     }
 
-    .racer-overlay h2 {
-        font-size: 24px;
+    .hud-label {
+        font-size: 9px;
+        letter-spacing: 0.16em;
+    }
+
+    .hud-value {
+        font-size: 15px;
+    }
+
+    .hud-item--speed .hud-value {
+        font-size: 17px;
     }
 
     .racer-overlay p {
@@ -254,8 +469,7 @@
     }
 }
 
-/* Short landscape phones: keep the frame inside the viewport */
-
+/* short landscape phones: keep the frame inside the viewport */
 @media (max-height: 480px) and (orientation: landscape) {
     .racer-frame {
         width: min(100%, calc(70vh * 1.6));
@@ -267,5 +481,12 @@
 
     .touch-btn {
         min-height: 48px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .racer-loading,
+    .racer-banner:not(.hidden) {
+        animation: none;
     }
 }
