@@ -449,21 +449,44 @@
 
 /* ---------- touch controls ---------- */
 
+/* Two-thumb layout: drive cluster pinned to the left edge (left thumb holds
+   gas/brake), steer cluster pinned to the right edge (right thumb rocks the
+   arrows). space-between leaves a clear centre gap separating the thumb zones. */
 .racer-touch {
     display: none;
     margin: 14px auto 0;
-    max-width: 540px;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
-    gap: 11px;
+    width: 100%;
+    justify-content: space-between;
+    align-items: stretch;
+    gap: 10px;
 }
 
 @media (pointer: coarse) {
     .racer-touch {
-        display: grid;
+        display: flex;
     }
 }
 
+.touch-cluster {
+    display: flex;
+    flex: 1;
+    max-width: 48%;
+    gap: 10px;
+}
+
+.touch-cluster--drive {
+    justify-content: flex-start;
+}
+
+.touch-cluster--steer {
+    justify-content: flex-end;
+}
+
 .touch-btn {
+    flex: 1;
+    min-width: 0;
+    max-width: 150px;
+    padding: 0 8px;
     min-height: 60px;
     border: 1px solid var(--rr-line);
     border-radius: 15px;
@@ -494,6 +517,7 @@
 }
 
 .touch-btn--gas {
+    flex: 1.4;
     background: linear-gradient(180deg, rgba(40, 199, 111, 0.30), rgba(20, 120, 66, 0.42));
     border-color: rgba(40, 199, 111, 0.45);
     color: #dffaeb;
@@ -580,6 +604,21 @@
 
     .racer-overlay p {
         font-size: 13px;
+    }
+
+    /* narrower flex buttons: shrink the label so "BRAKE" still fits */
+    .racer-touch {
+        gap: 8px;
+    }
+
+    .touch-cluster {
+        gap: 8px;
+    }
+
+    .touch-btn {
+        font-size: 16px;
+        letter-spacing: 0.03em;
+        padding: 0 4px;
     }
 
     .racer-flyby-label {

@@ -21,7 +21,7 @@
 &lt;div class="racer-overlay" id="racerStart"&gt;
 &lt;h2&gt;Retro Racer&lt;/h2&gt;
 &lt;p&gt;Complete one lap as fast as you can. Dodge traffic and stay on the road - grass and crashes will slow you down.&lt;/p&gt;
-&lt;p&gt;Arrow keys or WASD to drive. On touch devices, use the buttons below the track.&lt;/p&gt;
+&lt;p&gt;Arrow keys or WASD to drive. On touch devices, hold gas/brake with your left thumb and steer with your right.&lt;/p&gt;
 &lt;button class="racer-btn" id="racerStartBtn" type="button" disabled&gt;Start Race&lt;/button&gt;
 &lt;p class="racer-loading" id="racerLoading"&gt;Loading 3D assets...&lt;/p&gt;
 &lt;p class="racer-best" id="racerStartBest"&gt;&lt;/p&gt;
@@ -43,10 +43,14 @@
 &lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="racer-touch"&gt;
-&lt;button class="touch-btn" id="racerBtnLeft" type="button" aria-label="Steer left"&gt;&amp;larr;&lt;/button&gt;
-&lt;button class="touch-btn touch-btn--brake" id="racerBtnBrake" type="button" aria-label="Brake"&gt;BRAKE&lt;/button&gt;
+&lt;div class="touch-cluster touch-cluster--drive" aria-label="Speed controls (left thumb)"&gt;
 &lt;button class="touch-btn touch-btn--gas" id="racerBtnGas" type="button" aria-label="Accelerate"&gt;GAS&lt;/button&gt;
-&lt;button class="touch-btn" id="racerBtnRight" type="button" aria-label="Steer right"&gt;&amp;rarr;&lt;/button&gt;
+&lt;button class="touch-btn touch-btn--brake" id="racerBtnBrake" type="button" aria-label="Brake"&gt;BRAKE&lt;/button&gt;
+&lt;/div&gt;
+&lt;div class="touch-cluster touch-cluster--steer" aria-label="Steering controls (right thumb)"&gt;
+&lt;button class="touch-btn touch-btn--arrow" id="racerBtnLeft" type="button" aria-label="Steer left"&gt;&amp;larr;&lt;/button&gt;
+&lt;button class="touch-btn touch-btn--arrow" id="racerBtnRight" type="button" aria-label="Steer right"&gt;&amp;rarr;&lt;/button&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;p class="racer-note"&gt;Built with vanilla JavaScript and &lt;a href="https://threejs.org/" rel="noopener"&gt;three.js&lt;/a&gt;. Car models "&lt;a href="https://sketchfab.com/3d-models/mazda-miata-mx-5-na-d51fcd44b74f4daf8012c41e0400c041" rel="noopener"&gt;Mazda Miata MX-5 NA&lt;/a&gt;" and "&lt;a href="https://sketchfab.com/3d-models/toyota-ae86-trueno-fe02fba6302e450ea8424591493341ea" rel="noopener"&gt;Toyota AE86 Trueno&lt;/a&gt;" by Lexyc16 on Sketchfab (CC-BY 4.0). Textures and lighting from &lt;a href="https://polyhaven.com/" rel="noopener"&gt;Poly Haven&lt;/a&gt; (CC0). Your best lap time is stored locally in your browser.&lt;/p&gt;
 &lt;/div&gt;</description></item><item><title>Note Quest</title><link>https://vijay.eu/projects/note-quest/</link><pubDate>Thu, 26 Feb 2026 00:00:00 +0200</pubDate><guid>https://vijay.eu/projects/note-quest/</guid><description>&lt;p&gt;Learn to read music notes on the grand staff! Pick the correct note name for each question.&lt;/p&gt;
