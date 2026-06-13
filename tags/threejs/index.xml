@@ -32,6 +32,15 @@
 &lt;p class="racer-best" id="racerResultBest"&gt;&lt;/p&gt;
 &lt;button class="racer-btn" id="racerAgainBtn" type="button"&gt;Race Again&lt;/button&gt;
 &lt;/div&gt;
+&lt;div class="racer-cinematic hidden" id="racerCinematic" aria-hidden="true"&gt;
+&lt;div class="racer-letterbox racer-letterbox--top"&gt;&lt;/div&gt;
+&lt;div class="racer-letterbox racer-letterbox--bottom"&gt;&lt;/div&gt;
+&lt;div class="racer-flyby-label"&gt;
+&lt;span class="racer-flyby-name"&gt;Mazda Miata&lt;/span&gt;
+&lt;span class="racer-flyby-sub"&gt;MX-5 NA&lt;/span&gt;
+&lt;/div&gt;
+&lt;button class="racer-skip-btn" id="racerSkipBtn" type="button"&gt;Skip &amp;rsaquo;&amp;rsaquo;&lt;/button&gt;
+&lt;/div&gt;
 &lt;/div&gt;
 &lt;div class="racer-touch"&gt;
 &lt;button class="touch-btn" id="racerBtnLeft" type="button" aria-label="Steer left"&gt;&amp;larr;&lt;/button&gt;

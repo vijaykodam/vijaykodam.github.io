@@ -329,6 +329,120 @@
     to   { transform: scale(1);    opacity: 1; }
 }
 
+/* ---------- cinematic intro flyby ---------- */
+
+/* full-frame chrome shown only during the pre-race camera sweep.
+   sits above the HUD (z 5) so the letterbox bars cover it; the
+   container ignores pointer events so only the Skip button is clickable. */
+.racer-cinematic {
+    position: absolute;
+    inset: 0;
+    z-index: 7;
+    display: block;
+    pointer-events: none;
+}
+
+.racer-letterbox {
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: 11%;
+    background: #000;
+}
+
+.racer-letterbox--top {
+    top: 0;
+    animation: rr-bar-top 0.5s ease both;
+}
+
+.racer-letterbox--bottom {
+    bottom: 0;
+    animation: rr-bar-bottom 0.5s ease both;
+}
+
+@keyframes rr-bar-top {
+    from { transform: translateY(-100%); }
+    to   { transform: translateY(0); }
+}
+
+@keyframes rr-bar-bottom {
+    from { transform: translateY(100%); }
+    to   { transform: translateY(0); }
+}
+
+/* car nameplate, lower-left, rising into view inside the bottom bar gutter */
+.racer-flyby-label {
+    position: absolute;
+    left: 26px;
+    bottom: calc(11% + 18px);
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    animation: rr-fade-up 0.7s ease 0.25s both;
+}
+
+.racer-flyby-name {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(22px, 4.4vw, 38px);
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    background: var(--rr-grad);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+    filter: drop-shadow(0 6px 26px rgba(255, 61, 119, 0.4));
+}
+
+.racer-flyby-sub {
+    font-family: "Chakra Petch", sans-serif;
+    font-size: clamp(11px, 1.8vw, 14px);
+    font-weight: 600;
+    letter-spacing: 0.34em;
+    text-transform: uppercase;
+    color: var(--rr-muted);
+}
+
+@keyframes rr-fade-up {
+    from { opacity: 0; transform: translateY(16px); }
+    to   { opacity: 1; transform: translateY(0); }
+}
+
+/* skip control, lower-right, smaller sibling of .racer-btn */
+.racer-skip-btn {
+    position: absolute;
+    right: 22px;
+    bottom: calc(11% + 18px);
+    pointer-events: auto;
+    min-height: 44px;
+    padding: 10px 22px;
+    font-family: "Chakra Petch", sans-serif;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    border: 1px solid var(--rr-line);
+    border-radius: 12px;
+    color: var(--rr-ink);
+    background: var(--rr-glass-strong);
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    cursor: pointer;
+    box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.10);
+    transition: transform 0.12s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    animation: rr-fade-up 0.7s ease 0.25s both;
+}
+
+.racer-skip-btn:hover {
+    filter: brightness(1.1);
+    box-shadow: 0 0 24px -6px var(--rr-glow-pink), inset 0 1px 0 rgba(255, 255, 255, 0.18);
+}
+
+.racer-skip-btn:active {
+    transform: scale(0.97);
+}
+
 .hidden {
     display: none !important;
 }
@@ -467,6 +581,18 @@
     .racer-overlay p {
         font-size: 13px;
     }
+
+    .racer-flyby-label {
+        left: 14px;
+        bottom: calc(11% + 12px);
+    }
+
+    .racer-skip-btn {
+        right: 12px;
+        bottom: calc(11% + 12px);
+        padding: 9px 16px;
+        letter-spacing: 0.08em;
+    }
 }
 
 /* short landscape phones: keep the frame inside the viewport */
@@ -482,11 +608,25 @@
     .touch-btn {
         min-height: 48px;
     }
+
+    /* thinner bars so the car still reads in a short viewport */
+    .racer-letterbox {
+        height: 8%;
+    }
+
+    .racer-flyby-label,
+    .racer-skip-btn {
+        bottom: calc(8% + 10px);
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .racer-loading,
-    .racer-banner:not(.hidden) {
+    .racer-banner:not(.hidden),
+    .racer-letterbox--top,
+    .racer-letterbox--bottom,
+    .racer-flyby-label,
+    .racer-skip-btn {
         animation: none;
     }
 }

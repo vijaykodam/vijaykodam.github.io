@@ -44,6 +44,19 @@ const TRAFFIC_CAR_LENGTH = 1250;     // world units (AE86)
 const CAM_DISTANCE = 1800;           // chase camera distance behind the player
 const CAM_HEIGHT = 680;
 const BASE_FOV = 62;
+
+// ----- cinematic intro flyby (tuning knobs) -----
+// angle is measured around the car relative to its heading: 0 = in front,
+// PI = directly behind (the chase position). We start front-left and low,
+// then sweep ~270deg; the final FLYBY_SETTLE fraction blends into the exact
+// chase pose so the handoff into the countdown has no visible snap.
+const FLYBY_DURATION = 4;                       // seconds
+const FLYBY_SETTLE = 0.25;                       // last 25% blends orbit -> chase
+const FLYBY_START_ANGLE = -0.85;                 // front-quarter (left)
+const FLYBY_END_ANGLE = FLYBY_START_ANGLE + (3 * Math.PI) / 2;  // +270deg sweep
+const FLYBY_RADIUS_START = 1100;                 // close & dramatic
+const FLYBY_HEIGHT_START = 130;                  // low to the ground
+const FLYBY_AIM_HEIGHT = 150;                    // look at the car body, not the wheels
 const FOG_DENSITY = 0.000055;
 const FOG_COLOR = 0xc9a285;          // warm sunset haze, matches the HDRI horizon
 const SUN_DIR = new THREE.Vector3(-0.55, 0.22, -0.8).normalize();
@@ -110,6 +123,9 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultTime = document.getElementById('racerResultTime');
     const resultBest = document.getElementById('racerResultBest');
     const againBtn = document.getElementById('racerAgainBtn');
+    const cinematic = document.getElementById('racerCinematic');
+    const skipBtn = document.getElementById('racerSkipBtn');
+    const hud = document.querySelector('.racer-hud');
 
     if (!canvas || !hudTime || !startOverlay || !startBtn || !resultsOverlay || !againBtn) {
         return; // game markup is not on this page
@@ -129,7 +145,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let segments = [];
     let trackLength = 0;             // raceable distance (excludes run-off)
     let cars = [];
-    let state = 'ready';             // ready | countdown | racing | finished
+    let state = 'ready';             // ready | flyby | countdown | racing | finished
     let position = 0;                // camera z position along the track
     let speed = 0;
     let playerX = 0;                 // -1 .. 1 spans the road width
@@ -137,6 +153,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let elapsed = 0;
     let countdown = 0;
     let goTimer = 0;
+    let flybyTimer = 0;              // seconds elapsed in the cinematic intro sweep
     let bounceTimer = 0;
     let steerInput = 0;              // smoothed steer, -1..1 (+1 = left, matches playerX)
     let bestTime = loadBestTime();
@@ -1092,6 +1109,8 @@ document.addEventListener('DOMContentLoaded', () => {
     let camFov = BASE_FOV;
     const camPos = new THREE.Vector3();
     const camTarget = new THREE.Vector3();
+    const orbitPos = new THREE.Vector3();      // flyby: camera position on the orbit
+    const orbitTarget = new THREE.Vector3();   // flyby: point the camera looks at
 
     function placeCar(wrapper, dist, lateralUnits, steerLean) {
         const p = sampleCenterline(dist);
@@ -1120,35 +1139,85 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
-        // chase camera: trails the player, smoothed laterally, FOV widens with speed
-        const alpha = 1 - Math.exp(-6 * frameDt);
-        camLateral += ((playerX * ROAD_WIDTH * 0.72) - camLateral) * alpha;
-        const camSample = sampleCenterline(playerDist - CAM_DISTANCE);
-        camPos.set(
-            camSample.x + camSample.rightX * camLateral,
-            camSample.y + CAM_HEIGHT,
-            camSample.z + camSample.rightZ * camLateral
-        );
-        camera.position.lerp(camPos, state === 'ready' ? 1 : alpha * 1.6);
-        const aheadSample = sampleCenterline(playerDist + 1000);
-        camTarget.set(
-            aheadSample.x + aheadSample.rightX * playerX * ROAD_WIDTH * 0.85,
-            aheadSample.y + 230,
-            aheadSample.z + aheadSample.rightZ * playerX * ROAD_WIDTH * 0.85
-        );
-        camera.lookAt(camTarget);
-        camera.rotateZ(-steer * 0.04);
+        if (state === 'flyby') {
+            updateFlybyCamera(frameDt, playerDist);
+        } else {
+            // chase camera: trails the player, smoothed laterally, FOV widens with speed
+            const alpha = 1 - Math.exp(-6 * frameDt);
+            camLateral += ((playerX * ROAD_WIDTH * 0.72) - camLateral) * alpha;
+            computeChaseCam(playerDist, camPos, camTarget);
+            camera.position.lerp(camPos, state === 'ready' ? 1 : alpha * 1.6);
+            camera.lookAt(camTarget);
+            camera.rotateZ(-steer * 0.04);
 
-        const targetFov = BASE_FOV + 9 * speedPercent;
-        camFov += (targetFov - camFov) * alpha;
-        if (Math.abs(camera.fov - camFov) > 0.01) {
-            camera.fov = camFov;
-            camera.updateProjectionMatrix();
+            const targetFov = BASE_FOV + 9 * speedPercent;
+            camFov += (targetFov - camFov) * alpha;
+            if (Math.abs(camera.fov - camFov) > 0.01) {
+                camera.fov = camFov;
+                camera.updateProjectionMatrix();
+            }
         }
 
         // keep the sun and its tight shadow frustum centered on the player
         sun.position.copy(playerCar.position).addScaledVector(SUN_DIR, 12000);
         sun.target.position.copy(playerCar.position);
+    }
+
+    // geometric chase pose for a given track distance; shared by the normal
+    // follow-cam and the flyby's settle blend so they agree exactly.
+    function computeChaseCam(playerDist, outPos, outTarget) {
+        const camSample = sampleCenterline(playerDist - CAM_DISTANCE);
+        outPos.set(
+            camSample.x + camSample.rightX * camLateral,
+            camSample.y + CAM_HEIGHT,
+            camSample.z + camSample.rightZ * camLateral
+        );
+        const aheadSample = sampleCenterline(playerDist + 1000);
+        outTarget.set(
+            aheadSample.x + aheadSample.rightX * playerX * ROAD_WIDTH * 0.85,
+            aheadSample.y + 230,
+            aheadSample.z + aheadSample.rightZ * playerX * ROAD_WIDTH * 0.85
+        );
+    }
+
+    // cinematic intro: orbit the parked car, then blend into the chase pose
+    function updateFlybyCamera(frameDt, playerDist) {
+        flybyTimer += frameDt;
+        const raw = Math.min(1, flybyTimer / FLYBY_DURATION);
+
+        // car resting pose - read out now (sampleCenterline reuses one object)
+        const car = sampleCenterline(playerDist);
+        const cx = car.x, cy = car.y, cz = car.z, yaw = car.yaw;
+
+        // eased orbit: angle swings ~270deg while the camera pulls back and rises
+        const ang = easeInOut(FLYBY_START_ANGLE, FLYBY_END_ANGLE, raw);
+        const radius = easeInOut(FLYBY_RADIUS_START, CAM_DISTANCE, raw);
+        const height = easeInOut(FLYBY_HEIGHT_START, CAM_HEIGHT, raw);
+        orbitPos.set(
+            cx + Math.sin(yaw + ang) * radius,
+            cy + height,
+            cz + Math.cos(yaw + ang) * radius
+        );
+        orbitTarget.set(cx, cy + FLYBY_AIM_HEIGHT, cz);
+
+        // blend orbit -> exact chase pose over the final FLYBY_SETTLE fraction,
+        // so the camera arrives where the follow-cam expects with no snap
+        const settleStart = 1 - FLYBY_SETTLE;
+        const settle = raw <= settleStart ? 0 : easeInOut(0, 1, (raw - settleStart) / FLYBY_SETTLE);
+        computeChaseCam(playerDist, camPos, camTarget);
+
+        camera.position.copy(orbitPos).lerp(camPos, settle);
+        orbitTarget.lerp(camTarget, settle);
+        camera.lookAt(orbitTarget);
+
+        // ease FOV to base so the countdown's chase cam continues seamlessly
+        camFov += (BASE_FOV - camFov) * (1 - Math.exp(-6 * frameDt));
+        if (Math.abs(camera.fov - camFov) > 0.01) {
+            camera.fov = camFov;
+            camera.updateProjectionMatrix();
+        }
+
+        if (flybyTimer >= FLYBY_DURATION) { endFlyby(); }
     }
 
     function updateBanner() {
@@ -1175,7 +1244,9 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // ----- game flow -----
-    function startRace() {
+    // withFlyby plays the cinematic intro sweep before the countdown (fresh
+    // starts from the start screen); "Race Again" passes false for fast retries.
+    function startRace(withFlyby) {
         if (!assetsReady) { return; }
         position = 0;
         speed = 0;
@@ -1189,9 +1260,33 @@ document.addEventListener('DOMContentLoaded', () => {
         countdown = COUNTDOWN_SECONDS;
         clearTrafficMeshes();
         resetCars();
-        spawnTrafficMeshes();
         startOverlay.classList.add('hidden');
         resultsOverlay.classList.add('hidden');
+        if (withFlyby) {
+            // keep the grid empty so the flyby is a clean hero shot of the
+            // Miata; opponents appear when the countdown starts (see endFlyby)
+            beginFlyby();
+        } else {
+            spawnTrafficMeshes();
+            state = 'countdown';
+        }
+    }
+
+    function beginFlyby() {
+        flybyTimer = 0;
+        state = 'flyby';
+        if (cinematic) { cinematic.classList.remove('hidden'); }
+        if (hud) { hud.classList.add('hidden'); }    // clean cinematic frame
+    }
+
+    // ends the flyby (natural completion or skip), drops the opponents onto
+    // the grid, and rolls into the countdown
+    function endFlyby() {
+        if (state !== 'flyby') { return; }
+        if (cinematic) { cinematic.classList.add('hidden'); }
+        if (hud) { hud.classList.remove('hidden'); }
+        spawnTrafficMeshes();
+        countdown = COUNTDOWN_SECONDS;
         state = 'countdown';
     }
 
@@ -1210,9 +1305,20 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     document.addEventListener('keydown', (event) => {
-        if (event.key === 'Enter' && (state === 'ready' || state === 'finished')) {
+        if (state === 'flyby') {
+            // any key skips the cinematic intro straight into the countdown
             event.preventDefault();
-            startRace();
+            endFlyby();
+            return;
+        }
+        if (event.key === 'Enter' && state === 'ready') {
+            event.preventDefault();
+            startRace(true);
+            return;
+        }
+        if (event.key === 'Enter' && state === 'finished') {
+            event.preventDefault();
+            startRace(false);
             return;
         }
         const action = KEY_MAP[event.key];
@@ -1252,8 +1358,13 @@ document.addEventListener('DOMContentLoaded', () => {
     bindTouchButton('racerBtnGas', 'faster');
     bindTouchButton('racerBtnBrake', 'slower');
 
-    startBtn.addEventListener('click', startRace);
-    againBtn.addEventListener('click', startRace);
+    startBtn.addEventListener('click', () => startRace(true));
+    againBtn.addEventListener('click', () => startRace(false));
+    if (skipBtn) { skipBtn.addEventListener('click', endFlyby); }
+    // tapping anywhere on the track also skips the flyby (touch-friendly)
+    canvas.addEventListener('pointerdown', () => {
+        if (state === 'flyby') { endFlyby(); }
+    });
 
     // ----- sizing -----
     function resize() {
