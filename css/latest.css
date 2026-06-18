@@ -1,0 +1,138 @@
+/* Section badges — used on the /latest/ feed and the homepage Featured block. */
+.section-badge {
+  display: inline-block;
+  /* Default color for any badge type without a specific rule below
+     (e.g. external "talk"/"link" entries curated via the featured menu). */
+  color: #555;
+  font-size: 1.2rem;
+  line-height: 1;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 0.2em 0.55em;
+  margin: 0 0.4em;
+  border-radius: 999px;
+  vertical-align: middle;
+  border: 1px solid currentColor;
+  white-space: nowrap;
+}
+
+.section-badge.section-posts {
+  color: #2563eb;
+}
+
+.section-badge.section-projects {
+  color: #c2410c;
+}
+
+.section-badge.section-co-authored {
+  color: #7c3aed;
+}
+
+/* /latest/ feed: keep each row aligned and let the badge sit between date and title. */
+.list.latest ul li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+}
+
+.list.latest ul li .date {
+  flex: 0 0 auto;
+}
+
+.list.latest ul li .title {
+  flex: 1 1 12rem;
+}
+
+/* Homepage Featured block — lives inside the centered .about column.
+   Selectors are prefixed with `.centered` so they outrank the theme's
+   `.centered .about ul li a` rule (which forces uppercase 1.6rem social-icon
+   styling on every link in the about column). */
+.centered .about .featured {
+  margin: 2.5rem auto 0;
+  width: 100%;
+  max-width: 60rem;
+  text-align: center;
+}
+
+.centered .about .featured h2 {
+  font-size: 2rem;
+  margin: 0 0 1.2rem 0;
+  padding-bottom: 0.6rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.centered .about .featured ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+/* Block list rows with normal inline flow so the badge always trails the
+   title's last line instead of being pushed onto its own row (which a flex
+   row with flex-wrap does once the title + badge exceed the width). */
+.centered .about .featured ul li {
+  display: block;
+  margin: 0.7rem 0;
+  line-height: 1.5;
+}
+
+/* Reset the theme's social-icon link styling for featured titles. */
+.centered .about .featured ul li a {
+  display: inline;
+  color: #1565c0;
+  text-transform: none;
+  font-size: 1.6rem;
+  margin: 0 0.4rem 0 0;
+}
+
+.centered .about .featured ul li a:hover,
+.centered .about .featured ul li a:focus {
+  text-decoration: underline;
+}
+
+.centered .about .featured .featured-more {
+  display: inline-block;
+  margin-top: 1.4rem;
+  font-size: 1.4rem;
+  color: #1565c0;
+  text-transform: none;
+}
+
+/* Dark mode: brighten badge colors for contrast against the dark background. */
+body.dark .section-badge.section-posts,
+body.colorscheme-dark .section-badge.section-posts {
+  color: #60a5fa;
+}
+
+body.dark .section-badge.section-projects,
+body.colorscheme-dark .section-badge.section-projects {
+  color: #fb923c;
+}
+
+body.dark .section-badge.section-co-authored,
+body.colorscheme-dark .section-badge.section-co-authored {
+  color: #a78bfa;
+}
+
+/* Dark mode: brighten the featured links and soften the heading divider. */
+body.dark .centered .about .featured h2,
+body.colorscheme-dark .centered .about .featured h2 {
+  border-bottom-color: rgba(255, 255, 255, 0.12);
+}
+
+body.dark .centered .about .featured ul li a,
+body.colorscheme-dark .centered .about .featured ul li a,
+body.dark .centered .about .featured .featured-more,
+body.colorscheme-dark .centered .about .featured .featured-more {
+  color: #42a5f5;
+}
+
+@media (max-width: 480px) {
+  .about .featured {
+    margin-top: 1.5rem;
+  }
+  .section-badge {
+    margin-left: 0;
+  }
+}
