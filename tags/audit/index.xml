@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Audit on Vijay Kodam</title><link>https://vijay.eu/tags/audit/</link><description>Recent content in Audit on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 04 Jul 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/audit/index.xml" rel="self" type="application/rss+xml"/><item><title>model-audit Claude Code SKILL</title><link>https://vijay.eu/projects/model-audit/</link><pubDate>Sat, 04 Jul 2026 10:00:00 +0300</pubDate><guid>https://vijay.eu/projects/model-audit/</guid><description>&lt;p&gt;A Claude Code skill, installable as a plugin, that audits which Claude model handled your sessions. Use it to confirm your coding requests ran on the model you selected (Fable 5, Opus 4.8, and so on) and were not silently served by a different one.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/model-audit-skill.png" alt="model-audit skill README on GitHub"&gt;&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/vijaykodam/model-audit" class="button"&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id="why"&gt;Why&lt;/h2&gt;
+&lt;p&gt;Claude Code&amp;rsquo;s built-in commands do not answer &amp;ldquo;which model produced this response?&amp;rdquo;. &lt;code&gt;/usage&lt;/code&gt; shows plan quota, &lt;code&gt;/cost&lt;/code&gt; shows spend, &lt;code&gt;/context&lt;/code&gt; shows tokens — none report model provenance.&lt;/p&gt;
+&lt;p&gt;The ground truth is already on your machine. Claude Code writes every session transcript to &lt;code&gt;~/.claude/projects/&lt;/code&gt;, and every assistant message carries a &lt;code&gt;&amp;quot;model&amp;quot;&lt;/code&gt; field with the exact model ID that generated it. model-audit reads that per-message audit trail and rolls it up per session.&lt;/p&gt;
+&lt;h2 id="install"&gt;Install&lt;/h2&gt;
+&lt;p&gt;As a plugin (recommended):&lt;/p&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;/plugin marketplace add vijaykodam/model-audit
+/plugin install model-audit@model-audit
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Or from your shell, outside a session:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude plugin marketplace add vijaykodam/model-audit
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude plugin install model-audit@model-audit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Run &lt;code&gt;/reload-plugins&lt;/code&gt; (or restart Claude Code) to activate.&lt;/p&gt;
+&lt;h2 id="use"&gt;Use&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;/model-audit # audit the last 7 days (default)
+/model-audit 30 # any number of days
+/model-audit all # full session history
+&lt;/code&gt;&lt;/pre&gt;&lt;h2 id="example-output"&gt;Example output&lt;/h2&gt;
+&lt;pre tabindex="0"&gt;&lt;code&gt;Claude Code sessions active in the last 7 day(s)
+LAST ACTIVE PROJECT SESSION MODELS (responses)
+2026-07-03 09:47 -vijay-projects-project3 85f5d9a6-ec9f-4dc2-... claude-fable-5(24)
+2026-07-02 11:18 -vijay-projects-project1 4a347153-4458-47f8-... claude-fable-5(278)
+2026-07-02 07:53 -vijay-projects-project1 1a89419d/agent-ab3a2f9e5caae claude-opus-4-8(21)
+2026-06-30 18:06 -vijay-projects-project3 a4b9c607-b1e8-4c92-... claude-opus-4-8(128)
+Totals across all sessions:
+598 claude-fable-5
+504 claude-opus-4-8
+51 claude-haiku-4-5-20251001
+&lt;/code&gt;&lt;/pre&gt;&lt;p&gt;Model counts are per response, so a session that changed model mid-way shows both models with their proportions. A silent downgrade shows up as an unexpected model count inside a session you expected to be on one model. Subagents appear as separate rows (the &lt;code&gt;SESSION&lt;/code&gt; looks like &lt;code&gt;1a89419d/agent-...&lt;/code&gt;) — they legitimately run on different models but never handle the main conversation turns.&lt;/p&gt;
+&lt;h2 id="notes"&gt;Notes&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Everything runs locally. It is a small shell script reading files on your own machine; nothing is sent over the internet.&lt;/li&gt;
+&lt;li&gt;No dependencies beyond standard tools (bash, find, grep, sed, awk). Works on macOS and Linux.&lt;/li&gt;
+&lt;li&gt;Apache-2.0 licensed.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;For full documentation and the source, see the &lt;a href="https://github.com/vijaykodam/model-audit"&gt;GitHub repo&lt;/a&gt;.&lt;/p&gt;</description></item></channel></rss>
