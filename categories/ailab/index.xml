@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>AILab on Vijay Kodam</title><link>https://vijay.eu/categories/ailab/</link><description>Recent content in AILab on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sat, 04 Jul 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/categories/ailab/index.xml" rel="self" type="application/rss+xml"/><item><title>Catch silent model downgrades in Claude Code</title><link>https://vijay.eu/posts/model-audit-skill/</link><pubDate>Sat, 04 Jul 2026 10:00:00 +0300</pubDate><guid>https://vijay.eu/posts/model-audit-skill/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/model-audit-skill.png" alt="model-audit skill README on GitHub"&gt;&lt;/p&gt;
 &lt;p&gt;How do you know Claude Code doesn&amp;rsquo;t silently downgrade Fable 5 to Opus for some of your tasks?&lt;/p&gt;
-&lt;p&gt;I started debugging with that question a few days ago. The built-in commands don&amp;rsquo;t answer it. &lt;code&gt;/usage&lt;/code&gt; shows quota, &lt;code&gt;/cost&lt;/code&gt; shows spend, &lt;code&gt;/context&lt;/code&gt; shows tokens, but none of them tell you which model actually produced each response.&lt;/p&gt;
+&lt;p&gt;Recently Anthropic restored access to Fable 5 with a twist. From their &lt;a href="https://www.anthropic.com/news/redeploying-fable-5"&gt;blog post&lt;/a&gt; understood that some requests might get blocked and requests sent to Opus 4.8.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/fable5.png" alt="Fable5"&gt;&lt;/p&gt;
+&lt;p&gt;How do you know how many requests were sent to Opus 4.8 when the model is set to Fable5? I started debugging with that question in mind a few days ago. The built-in commands don&amp;rsquo;t answer it. &lt;code&gt;/usage&lt;/code&gt; shows quota, &lt;code&gt;/cost&lt;/code&gt; shows spend, &lt;code&gt;/context&lt;/code&gt; shows tokens, but none of them tell you which model actually produced each response.&lt;/p&gt;
 &lt;p&gt;The ground truth is already sitting on your machine. Claude Code writes every session transcript to ~/.claude/projects/, and every assistant message in those files carries a &amp;ldquo;model&amp;rdquo; field with the exact model ID that generated it. A per-message audit trail, hiding in plain sight.&lt;/p&gt;
 &lt;p&gt;I turned that debugging session into a Claude Code skill called model-audit.&lt;/p&gt;
 &lt;p&gt;It scans your session history and reports which models handled your work, with main agent and subagents listed separately. Subagents legitimately run on different models, Haiku for cheap scans and so on, but your main conversation turns should stay on the model you selected. If a session was downgraded midway, you see it immediately as mixed model counts in a single row.&lt;/p&gt;
@@ -8,10 +10,63 @@
 &lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plugin marketplace add vijaykodam/model-audit
 &lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;/plugin install model-audit@model-audit
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Then run &lt;code&gt;/model-audit&lt;/code&gt; to audit the last 7 days, which is the default. You can pass any number of days, or &lt;code&gt;all&lt;/code&gt; for your full session history.&lt;/p&gt;
+&lt;h3 id="example-output"&gt;Example output&lt;/h3&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Claude Code sessions active in the last &lt;span style="color:#ae81ff"&gt;7&lt;/span&gt; day&lt;span style="color:#f92672"&gt;(&lt;/span&gt;s&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;LAST ACTIVE PROJECT SESSION MODELS &lt;span style="color:#f92672"&gt;(&lt;/span&gt;responses&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2026-07-03 09:47 -vijay-projects-project3 85f5d9a6-ec9f-4dc2-... claude-fable-5&lt;span style="color:#f92672"&gt;(&lt;/span&gt;24&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2026-07-02 11:18 -vijay-projects-project1 4a347153-4458-47f8-... claude-fable-5&lt;span style="color:#f92672"&gt;(&lt;/span&gt;278&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2026-07-02 07:53 -vijay-projects-projecy1 1a89419d/agent-ab3a2f9e5caae8685 claude-opus-4-8&lt;span style="color:#f92672"&gt;(&lt;/span&gt;21&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;2026-06-30 18:06 -vijay-projects-project3 a4b9c607-b1e8-4c92-... claude-opus-4-8&lt;span style="color:#f92672"&gt;(&lt;/span&gt;128&lt;span style="color:#f92672"&gt;)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;Totals across all sessions:
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ae81ff"&gt;598&lt;/span&gt; claude-fable-5
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ae81ff"&gt;504&lt;/span&gt; claude-opus-4-8
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt; &lt;span style="color:#ae81ff"&gt;51&lt;/span&gt; claude-haiku-4-5-20251001
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h2 id="reading-the-results"&gt;Reading the results&lt;/h2&gt;
+&lt;p&gt;When invoked as a skill, &lt;code&gt;/model-audit&lt;/code&gt; runs the audit and presents the
+session table and totals with these interpretation rules applied; they hold
+equally if you read the script output yourself.&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;MODELS counts are per response, so a session that changed model mid-way
+shows both models with their proportions. A downgrade shows up as
+&lt;code&gt;claude-opus-4-8&lt;/code&gt; (or another model) counts inside a session you expected
+to be Fable 5.&lt;/li&gt;
+&lt;li&gt;Subagent work appears as separate rows (SESSION looks like
+&lt;code&gt;1a89419d/agent-...&lt;/code&gt;, prefixed with the parent session that spawned it).
+Subagents legitimately run on different models but never handle the main
+conversation turns — so a main-session row showing 100% one model means
+every conversation turn ran on that model.&lt;/li&gt;
+&lt;li&gt;Resumed or forked sessions get a new session file that includes a copy
+of the prior history, so the same responses can appear in two rows
+(same message IDs in both files). Totals across sessions therefore
+overcount conversations that were resumed; per-session rows are still
+accurate.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;&amp;quot;model&amp;quot;:&amp;quot;&amp;lt;synthetic&amp;gt;&amp;quot;&lt;/code&gt; entries in transcripts are harness-injected error
+messages, not real model responses; the audit filters them out.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="related-built-in-tools"&gt;Related built-in tools&lt;/h2&gt;
+&lt;p&gt;Claude Code&amp;rsquo;s built-in usage commands were checked first, but none of them
+report model provenance — which model actually produced each response. That
+is the gap &lt;code&gt;/model-audit&lt;/code&gt; fills. How each differs:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;/usage&lt;/code&gt; shows plan quota consumption (session/weekly limits) — no model
+IDs, no per-project or per-session breakdown.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/cost&lt;/code&gt; and &lt;code&gt;/context&lt;/code&gt; show token and cost figures for the current session
+only — no history across sessions, no model provenance.&lt;/li&gt;
+&lt;li&gt;The &lt;code&gt;session-report&lt;/code&gt; plugin aggregates token usage by project, skill, and
+subagent type from the same transcripts — but does not report model IDs.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;/model-audit&lt;/code&gt; reads the per-message &lt;code&gt;&amp;quot;model&amp;quot;&lt;/code&gt; field from the transcripts:
+per-session, per-response model IDs across all projects and any time
+window.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="note"&gt;Note&lt;/h2&gt;
 &lt;p&gt;Two things I cared about while building it:&lt;/p&gt;
 &lt;p&gt;Everything runs locally. It is a small shell script reading files on your own machine, and nothing is sent over the internet.&lt;/p&gt;
 &lt;p&gt;No dependencies beyond standard bash, grep, and awk. Works on macOS and Linux.&lt;/p&gt;
+&lt;h2 id="final-thoughts"&gt;Final Thoughts&lt;/h2&gt;
 &lt;p&gt;For what it&amp;rsquo;s worth, my audit showed no silent downgrades. But now I can verify that instead of assuming it.&lt;/p&gt;
+&lt;p&gt;Give it a try and let me know if you have any feature requests.&lt;/p&gt;
 &lt;p&gt;Repo: &lt;a href="https://github.com/vijaykodam/model-audit"&gt;https://github.com/vijaykodam/model-audit&lt;/a&gt;&lt;/p&gt;</description></item><item><title>Ornith 35B writes its own training scaffold: I put the self-improving coding model to the test on a Mac Mini M4 Pro</title><link>https://vijay.eu/posts/ornith-self-scaffolding-llm/</link><pubDate>Tue, 30 Jun 2026 18:38:33 +0300</pubDate><guid>https://vijay.eu/posts/ornith-self-scaffolding-llm/</guid><description>&lt;p&gt;I spent the last few days running &lt;strong&gt;Ornith 1.0 (35B MoE)&lt;/strong&gt; locally with &lt;strong&gt;Ollama and Claude Code&lt;/strong&gt;. No cloud, no API keys. It claimed to surpass even Qwen3.5-397B on Terminal-Bench 2.1 (64.2 vs 53.5). Those are tall claims for a 35B model, and I intended to find out. Here are my first impressions, the good and the painful.&lt;/p&gt;
 &lt;h2 id="first-impressions-fast-local-and-properly-agentic"&gt;First impressions: fast, local, and properly agentic&lt;/h2&gt;
 &lt;p&gt;Setup was genuinely easy. Install Ollama, run &lt;code&gt;ollama pull ornith:35b&lt;/code&gt;, then &lt;code&gt;ollama launch claude&lt;/code&gt; to wire it straight into Claude Code. That was all it took.&lt;/p&gt;
