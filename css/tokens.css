@@ -1,0 +1,94 @@
+/* Design tokens — ported verbatim from plans/redesign-mockup-spec/tokens.css (approved). */
+:root {
+  --font-sans: 'IBM Plex Sans', 'Segoe UI', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'SF Mono', Menlo, monospace;
+
+  --bg: #faf9f7;
+  --surface: #ffffff;
+  --surface-2: #f3f1ed;
+  --border: #e7e4de;
+  --border-strong: #d5d1c9;
+  --fg: #1f2328;
+  --muted: #59616b;
+  --faint: #8b939e;
+
+  --accent: #0879a8;
+  --accent-strong: #065f87;
+  --accent-soft: #e2f2fa;
+  --accent-contrast: #ffffff;
+
+  --amber: #b45309;
+  --amber-soft: #fbeedd;
+  --green: #1a7f4b;
+  --green-soft: #e0f2e8;
+  --violet: #6d4fc2;
+  --violet-soft: #ece7f9;
+
+  --code-bg: #12181f;
+  --code-fg: #d9e1e8;
+  --code-border: #12181f;
+  --inline-code-bg: #edf0f3;
+
+  --shadow: 0 4px 18px rgba(31, 35, 40, 0.07);
+  --r-sm: 6px;
+  --r-md: 10px;
+  --r-lg: 16px;
+}
+
+html[data-theme='dark'] {
+  --bg: #0d1117;
+  --surface: #151b23;
+  --surface-2: #1c232d;
+  --border: #29313c;
+  --border-strong: #3a4450;
+  --fg: #e6ebf1;
+  --muted: #9aa4b2;
+  --faint: #6b7686;
+
+  --accent: #45c4ff;
+  --accent-strong: #7dd3fc;
+  --accent-soft: rgba(69, 196, 255, 0.12);
+  --accent-contrast: #06202e;
+
+  --amber: #fbbf24;
+  --amber-soft: rgba(251, 191, 36, 0.14);
+  --green: #4ade80;
+  --green-soft: rgba(74, 222, 128, 0.13);
+  --violet: #b3a1f7;
+  --violet-soft: rgba(179, 161, 247, 0.14);
+
+  --code-bg: #10151c;
+  --code-fg: #d9e1e8;
+  --code-border: #29313c;
+  --inline-code-bg: #1e2630;
+
+  --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+}
+
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) {
+    --bg: #0d1117;
+    --surface: #151b23;
+    --surface-2: #1c232d;
+    --border: #29313c;
+    --border-strong: #3a4450;
+    --fg: #e6ebf1;
+    --muted: #9aa4b2;
+    --faint: #6b7686;
+    --accent: #45c4ff;
+    --accent-strong: #7dd3fc;
+    --accent-soft: rgba(69, 196, 255, 0.12);
+    --accent-contrast: #06202e;
+    --amber: #fbbf24;
+    --amber-soft: rgba(251, 191, 36, 0.14);
+    --green: #4ade80;
+    --green-soft: rgba(74, 222, 128, 0.13);
+    --violet: #b3a1f7;
+    --violet-soft: rgba(179, 161, 247, 0.14);
+    --code-bg: #10151c;
+    --code-fg: #d9e1e8;
+    --code-border: #29313c;
+    --inline-code-bg: #1e2630;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.45);
+  }
+}

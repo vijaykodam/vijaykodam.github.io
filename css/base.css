@@ -1,0 +1,382 @@
+/* base.css — re-skins the hugo-coder theme onto the redesign tokens + fonts.
+   Loads after tokens.css/fonts.css. px values are ported as-is from the mockup
+   spec (site html is 62.5%, so px here render at their literal size).
+   Two documented !important uses live in the code-block section (inline chroma
+   styles can only be overridden with !important); see notes there. */
+
+/* ---- Body / base ---- */
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-sans);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.25s ease, color 0.25s ease;
+}
+
+a {
+  color: var(--accent-strong);
+  font-weight: inherit;
+}
+a:hover,
+a:focus {
+  color: var(--accent-strong);
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+}
+
+/* ---- Headings ---- */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-sans);
+  font-weight: 700;
+  color: var(--fg);
+  letter-spacing: -0.01em;
+}
+h1 {
+  letter-spacing: -0.02em;
+}
+
+/* ---- Rule / misc ---- */
+hr {
+  border: 0;
+  border-top: 1px solid var(--border);
+  margin: 2.4rem 0;
+}
+
+/* ---- Tables ---- */
+table {
+  border-collapse: collapse;
+}
+table th,
+table td {
+  border: 1px solid var(--border);
+  padding: 10px 14px;
+}
+table thead th,
+table tr:first-child th {
+  background: var(--surface-2);
+  color: var(--fg);
+  text-align: left;
+  border-top: 1px solid var(--border);
+}
+table tr td:first-child,
+table tr th:first-child {
+  border-left: 1px solid var(--border);
+}
+table tr td:last-child,
+table tr th:last-child {
+  border-right: 1px solid var(--border);
+}
+
+/* ---- Blockquote ---- */
+blockquote {
+  margin: 0 0 22px;
+  padding: 14px 20px;
+  border-left: 3px solid var(--accent);
+  background: var(--surface-2);
+  border-radius: 0 10px 10px 0;
+  color: var(--muted);
+  font-style: normal;
+  font-weight: 400;
+}
+blockquote p {
+  margin: 0;
+}
+
+/* ---- Post body prose (absorbed from legacy blog-posts.css, retokenized) ----
+   The theme renders posts as `section.post > article > div > {.Content}`. The old
+   blog-posts.css styled these with hardcoded #1565c0 links, checkmark "card" lists
+   and white gradients that were dark-illegible; the redesign uses the token-driven
+   element styles above (links via `a`, blockquotes/tables below) plus this minimal,
+   scheme-neutral prose spacing that matches the approved post mockup (plain bullets,
+   20px paragraph rhythm). Reading measure + type scale ported from the mockup's
+   .article/.article-body spec: 720px column, 17px/1.75 body, clamped title, 24px h2. */
+.post article {
+  max-width: 720px;
+  margin: 0 auto;
+}
+.post h1.title {
+  font-size: clamp(30px, 4.5vw, 40px);
+  line-height: 1.15;
+}
+.post article > div {
+  font-size: 17px;
+  line-height: 1.75;
+}
+.post article > div h2 {
+  font-size: 24px;
+  margin: 40px 0 14px;
+}
+.post p {
+  margin: 0 0 20px;
+}
+.post ul,
+.post ol {
+  margin: 0 0 20px;
+  padding-left: 24px;
+}
+.post li {
+  margin-bottom: 8px;
+}
+
+/* ---- Layout width ---- */
+.container {
+  max-width: 112rem; /* 1120px at 62.5% root — matches mockup .container */
+  padding-left: 2.4rem;
+  padding-right: 2.4rem;
+}
+
+/* ---- Navigation (theme classes restyled to the mockup .site-nav look) ---- */
+.navigation {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  height: 64px;
+  background: color-mix(in srgb, var(--bg) 84%, transparent);
+  -webkit-backdrop-filter: blur(12px);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--border);
+}
+.navigation .container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+  gap: 16px;
+}
+.navigation a,
+.navigation span {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  line-height: 1.2;
+  color: var(--muted);
+}
+/* Mono logotype */
+.navigation .navigation-title {
+  font-family: var(--font-mono);
+  font-weight: 600;
+  font-size: 15px;
+  letter-spacing: -0.01em;
+  text-transform: none;
+  color: var(--fg);
+  white-space: nowrap;
+}
+.navigation .navigation-list {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  float: none;
+}
+.navigation .navigation-item {
+  float: none;
+  margin: 0;
+}
+.navigation .navigation-link {
+  display: inline-block;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14.5px;
+  font-weight: 500;
+  color: var(--muted);
+  white-space: nowrap;
+  line-height: 1.2;
+  transition: color 0.15s, background 0.15s;
+}
+.navigation .navigation-link:hover,
+.navigation .navigation-link:focus {
+  color: var(--fg);
+  background: var(--surface-2);
+  text-decoration: none;
+}
+.navigation .navigation-title:hover,
+.navigation .navigation-title:focus {
+  color: var(--accent-strong);
+  text-decoration: none;
+}
+.navigation .logo-tilde {
+  color: var(--accent);
+}
+.navigation .menu-button {
+  color: var(--muted);
+}
+
+/* Theme toggle button (mockup .theme-toggle) */
+.theme-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  margin-left: 6px;
+  flex: none;
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+  padding: 0;
+  transition: color 0.15s, border-color 0.15s, background 0.15s;
+}
+.theme-toggle:hover {
+  color: var(--fg);
+  border-color: var(--border-strong);
+  background: var(--surface-2);
+}
+.theme-toggle svg {
+  width: 16px;
+  height: 16px;
+}
+/* Icon visibility: moon in light, sun in dark; system fallback when unset */
+.theme-toggle .icon-sun { display: none; }
+.theme-toggle .icon-moon { display: inline-flex; }
+html[data-theme='dark'] .theme-toggle .icon-sun { display: inline-flex; }
+html[data-theme='dark'] .theme-toggle .icon-moon { display: none; }
+@media (prefers-color-scheme: dark) {
+  html:not([data-theme]) .theme-toggle .icon-sun { display: inline-flex; }
+  html:not([data-theme]) .theme-toggle .icon-moon { display: none; }
+}
+
+/* Mobile: keep the theme's checkbox-hamburger dropdown mechanism; just stack */
+@media only screen and (max-width: 768px) {
+  .navigation .container {
+    height: auto;
+    min-height: 56px;
+    flex-wrap: wrap;
+  }
+  .navigation .navigation-list {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+  }
+  .navigation .navigation-item {
+    text-align: center;
+  }
+  .theme-toggle {
+    margin: 8px auto;
+  }
+}
+
+/* ---- Footer ---- */
+.footer {
+  border-top: 1px solid var(--border);
+  margin-top: 56px;
+  padding: 34px 0;
+  text-align: center;
+  color: var(--faint);
+  font-family: var(--font-mono);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.footer a {
+  color: var(--muted);
+}
+.footer a:hover,
+.footer a:focus {
+  color: var(--accent-strong);
+}
+
+/* ---- List rows (projects / latest / ai-lab share the theme .list markup) ---- */
+/* The theme hardcodes these to #212121 / link-blue, which is low-contrast when
+   toggled to dark. Tokenize so every list page stays legible in both schemes. */
+/* Generic taxonomy/tag term-list rows: keep date + title on one line
+   (absorbed from legacy blog-posts.css; /latest/ overrides this via .list.latest
+   in components.css to allow wrapping with a section badge). */
+.list ul li {
+  display: flex;
+  align-items: baseline;
+  gap: 0.25rem 0.5rem;
+  white-space: nowrap;
+}
+.list ul li .title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-width: 0;
+  color: var(--fg);
+}
+.list ul li .title:hover,
+.list ul li .title:focus {
+  color: var(--accent-strong);
+}
+.list ul li .date {
+  flex-shrink: 0;
+  color: var(--faint);
+}
+.list ul li .ai-tool {
+  color: var(--accent-strong);
+}
+
+/* ---- Pagination ---- */
+.pagination {
+  margin-top: 60px;
+  text-align: center;
+  font-family: var(--font-mono);
+}
+.pagination li a,
+.pagination li span {
+  color: var(--muted);
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+}
+.pagination li a:hover,
+.pagination li .current {
+  color: var(--accent-strong);
+  background: var(--surface-2);
+  text-decoration: none;
+}
+
+/* ---- Inline code ---- */
+code {
+  font-family: var(--font-mono);
+  font-size: 0.86em;
+  font-weight: 400;
+  background: var(--inline-code-bg);
+  color: var(--fg);
+  padding: 2px 6px;
+  border-radius: 6px;
+}
+
+/* ---- Code blocks: always dark in both schemes, tokenized ---- */
+/* Non-highlighted (raw) pre blocks. */
+pre {
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  background: var(--code-bg);
+  color: var(--code-fg);
+  border: 1px solid var(--code-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  overflow-x: auto;
+}
+/* Chroma-highlighted blocks carry INLINE styles on <pre> (background + color)
+   and on token <span>s. Inline styles can only be overridden with !important,
+   so the two below are the only !important uses in this file. They retint the
+   block chrome to --code-bg/--code-fg while leaving per-token span colors
+   (Monokai) intact for syntax highlighting. */
+.highlight {
+  margin: 0 0 22px;
+}
+.highlight pre {
+  background: var(--code-bg) !important;   /* overrides inline background-color */
+  color: var(--code-fg) !important;        /* overrides inline color (untokenized text) */
+  border: 1px solid var(--code-border);
+  border-radius: 12px;
+  padding: 18px 20px;
+  font-family: var(--font-mono);
+  font-size: 13.5px;
+  line-height: 1.65;
+  overflow-x: auto;
+}
+pre code,
+.highlight pre code {
+  background: none;
+  padding: 0;
+  font-size: inherit;
+  font-family: inherit;
+  color: inherit;
+}

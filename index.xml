@@ -3290,24 +3290,26 @@ kubectl create -f auth-service.yaml
 &lt;p&gt;Now go to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;It should automatically redirect you to Keycloak page for logging in.
 Enter your &amp;ldquo;test&amp;rdquo; user credentials. After successful login it should automatically redirect you to &lt;code&gt;http://&amp;lt;Ambassador IP-or-URL&amp;gt;/httpbin&lt;/code&gt; page.&lt;/p&gt;
-&lt;p&gt;We have successfully integrated Keycloak with Ambassador API GW and tested API Authentication.&lt;/p&gt;</description></item><item><title>About Me</title><link>https://vijay.eu/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vijay.eu/about/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/Community-Builder-1500px.png" alt="AWS Community Builder"&gt;&lt;/p&gt;
-&lt;h2 id="who-am-i"&gt;Who am I&lt;/h2&gt;
-&lt;p&gt;I’m &lt;strong&gt;Vijay Kumar Kodam&lt;/strong&gt;, a techie building solutions and architectures using Amazon Web Services, cloud architecture, software development, and system design. I currently work as a Principal Engineer in Cloud Technology at Nokia, Finland.&lt;/p&gt;
-&lt;h2 id="my-tech-journey-so-far"&gt;My Tech Journey so far&lt;/h2&gt;
-&lt;p&gt;My career journey has been a blend of deep telecom expertise and cutting-edge cloud computing skills.&lt;/p&gt;
-&lt;p&gt;I began by developing software for 2G CDMA systems, progressed to building 3G 1x-EVDO RNC solutions, and then transitioned to deploying 4G/5G Virtual Network Functions (VNFs) on Telco Cloud using platforms like AWS, containers and Kubernetes.&lt;/p&gt;
-&lt;p&gt;Over the years, I’ve expanded my focus to &lt;strong&gt;Amazon Web Service(AWS), Systems Design, Solution Architecture and Kubernetes&lt;/strong&gt;, specializing in Amazon EKS to build scalable and resilient cloud-native solutions for telecom applications.&lt;/p&gt;
-&lt;p&gt;Lately dabbling with Generative AI concepts like RAG, Agents, MCP and Agentic coding CLIs.&lt;/p&gt;
-&lt;h2 id="what-am-i-doing-now"&gt;What am I doing now&lt;/h2&gt;
-&lt;p&gt;Currently, I’m leading and executing the end-to-end architecture and migration of a &lt;strong&gt;Private 5G platform&lt;/strong&gt; into AWS. This involves designing, implementing, and managing solutions using Amazon EKS, various AWS services, Cassandra, Grafana, Prometheus, and containerized applications. My role encompasses Cloud Architecture, SRE, DevOps, GitOps, and Systems Design, enabling me to deliver robust, scalable, and high-performing cloud-native solutions from start to finish.&lt;/p&gt;
-&lt;h2 id="worth-mentioning"&gt;Worth mentioning&lt;/h2&gt;
-&lt;p&gt;Got into &lt;strong&gt;AWS Community Builders program&lt;/strong&gt; for year 2025. Looking forward to learn and contribute.&lt;/p&gt;
-&lt;p&gt;In my free time, I keep up with Generative AI and LLMs development by building solutions which you can find in the &lt;a href="https://vijay.eu/projects/"&gt;AI Projects&lt;/a&gt; section of this blog.&lt;/p&gt;
-&lt;h2 id="certs"&gt;Certs&lt;/h2&gt;
-&lt;p&gt;Here are my latest certs and skill badges with clickable links to verify them at Credly. Got into AWS Community Builders program for year 2025.&lt;/p&gt;
-&lt;p&gt;&lt;a href="https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url"&gt;&lt;img src="https://vijay.eu/images/aicert.png" alt="AI Cert"&gt;&lt;/a&gt;
-&lt;a href="https://www.credly.com/badges/1f064197-4fc3-40cd-a67f-ec4f99eb48ea/public_url"&gt;&lt;img src="https://vijay.eu/images/ai-early-adopter.png" alt="AI Early Adopter"&gt;&lt;/a&gt;
-&lt;a href="https://www.credly.com/badges/4e67da8b-0e62-4a81-8bfd-914eaed218c9/public_url"&gt;&lt;img src="https://vijay.eu/images/eks-skillbadge.png" alt="EKS Skill Badge"&gt;&lt;/a&gt;
-&lt;img src="https://vijay.eu/images/cka.png" alt="CKA"&gt;&lt;/p&gt;
-&lt;h2 id="my-opinions"&gt;My opinions&lt;/h2&gt;
-&lt;p&gt;The thoughts and opinions shared here are solely my own and do not reflect the views of my employer.&lt;/p&gt;</description></item></channel></rss>
+&lt;p&gt;We have successfully integrated Keycloak with Ambassador API GW and tested API Authentication.&lt;/p&gt;</description></item><item><title>About</title><link>https://vijay.eu/about/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://vijay.eu/about/</guid><description>&lt;p class="hero-meta about-lead"&gt;Principal Engineer, Cloud Technology · Nokia · Helsinki, Finland&lt;/p&gt;
+&lt;p&gt;I am Vijay Kumar Kodam, a Principal Engineer in Cloud Technology at Nokia. I design and run production systems on AWS and Kubernetes, and I build production AI systems on top of them. I am authorized to work across the EU.&lt;/p&gt;
+&lt;p&gt;My work spans deep telecom engineering and cloud-native architecture. I started out building software for 2G CDMA systems, moved on to 3G 1x-EVDO RNC solutions, and then to deploying 4G and 5G Virtual Network Functions on Telco Cloud using AWS, containers, and Kubernetes. Today I lead the end-to-end architecture and migration of a Private 5G platform into AWS, built on Amazon EKS with Cassandra, Grafana, Prometheus, and containerized applications, covering cloud architecture, SRE, DevOps, GitOps, and systems design.&lt;/p&gt;
+&lt;h2 id="focus-areas"&gt;Focus areas&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;Kubernetes and Amazon EKS.&lt;/strong&gt; Building scalable, resilient, cloud-native platforms and running them in production.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;AWS cloud architecture and systems design.&lt;/strong&gt; Leading end-to-end migrations and the operations that keep them healthy.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Generative AI and agentic systems.&lt;/strong&gt; Working hands-on with RAG, agents, MCP, and agentic coding CLIs, and shipping the results as small production apps.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="highlights"&gt;Highlights&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;AWS Community Builder&lt;/strong&gt; for 2025.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Won the &lt;a href="https://vijay.eu/posts/won-q-coding-challenge/"&gt;Amazon Q Coding Challenge&lt;/a&gt;.&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Speaking.&lt;/strong&gt; I talk at community events on Kubernetes, AWS, and running AI in production. Most recently on Amazon EKS Auto Mode at the AWS Helsinki Meetup. See the &lt;a href="https://vijay.eu/speaking/"&gt;Speaking&lt;/a&gt; page.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Building in the open.&lt;/strong&gt; I keep up with GenAI and LLM development by shipping small apps, collected in the &lt;a href="https://vijay.eu/projects/"&gt;Projects&lt;/a&gt; section.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Certifications.&lt;/strong&gt; &lt;a href="https://vijay.eu/images/cka.png"&gt;Certified Kubernetes Administrator&lt;/a&gt;, &lt;a href="https://www.credly.com/badges/4e67da8b-0e62-4a81-8bfd-914eaed218c9/public_url"&gt;Amazon EKS skill badge&lt;/a&gt;, and AWS AI certifications (&lt;a href="https://www.credly.com/badges/fe2052fb-5377-4e64-802a-ebae831ac54c/public_url"&gt;AI cert&lt;/a&gt;, &lt;a href="https://www.credly.com/badges/1f064197-4fc3-40cd-a67f-ec4f99eb48ea/public_url"&gt;AI Early Adopter&lt;/a&gt;).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;div class="hero-ctas about-ctas"&gt;
+&lt;a class="btn btn-primary" href="https://github.com/vijaykodam/"&gt;GitHub&lt;/a&gt;
+&lt;a class="btn btn-outline" href="https://www.linkedin.com/in/vijaykodam/"&gt;LinkedIn&lt;/a&gt;
+&lt;a class="btn btn-outline" href="https://vijay.eu/speaking/"&gt;Speaking&lt;/a&gt;
+&lt;/div&gt;
+&lt;p class="about-note"&gt;The thoughts and opinions shared on this site are solely my own and do not reflect the views of my employer.&lt;/p&gt;</description></item></channel></rss>
