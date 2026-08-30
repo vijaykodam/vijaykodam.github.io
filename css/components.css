@@ -80,6 +80,7 @@
   gap: 8px;
   padding: 10px 18px;
   border-radius: 10px;
+  font-family: inherit;
   font-weight: 600;
   font-size: 14.5px;
   border: 1px solid transparent;
@@ -87,6 +88,10 @@
   transition: transform 0.15s, box-shadow 0.15s, background 0.15s, border-color 0.15s;
 }
 .btn:hover { transform: translateY(-1px); }
+/* .btn sets display:inline-flex, an author rule that outranks the UA's
+   zero-specificity [hidden]{display:none}. Without this, el.hidden = true
+   reports true but the button stays on screen (see newsletter-embed.js). */
+.btn[hidden] { display: none; }
 .btn-primary { background: var(--accent); color: var(--accent-contrast); }
 .btn-primary:hover { box-shadow: var(--shadow); color: var(--accent-contrast); }
 .btn-outline { border-color: var(--border-strong); color: var(--fg); background: var(--surface); }
@@ -150,6 +155,68 @@
 .card-title { font-size: 16.5px; font-weight: 600; line-height: 1.35; margin: 0; color: var(--fg); }
 .card-desc { font-size: 14px; color: var(--muted); line-height: 1.55; margin: 0; }
 .card-foot { margin-top: auto; padding-top: 6px; font-family: var(--font-mono); font-size: 12.5px; color: var(--accent-strong); }
+
+/* ---- Newsletter CTA (homepage #newsletter) ---- */
+.cta-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 26px 28px;
+  background: linear-gradient(120deg, var(--accent-soft), var(--surface) 60%);
+  border: 1px solid var(--border);
+  border-radius: var(--r-lg);
+}
+.cta-copy { min-width: 0; }
+.cta-lead {
+  font-size: 17px;
+  line-height: 1.5;
+  color: var(--fg);
+  max-width: 46ch;
+  margin: 0 0 8px;
+  text-wrap: pretty;
+}
+.cta-sub {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--faint);
+  margin: 0;
+}
+.cta-action {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  flex-shrink: 0;
+}
+.cta-privacy {
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  line-height: 1.5;
+  color: var(--faint);
+  max-width: 32ch;
+  margin: 0;
+}
+/* The white here is deliberate and must NOT be tokenised. .cta-embed wraps a
+   cross-origin Substack iframe that always renders on its own light background;
+   color-scheme:light stops the browser from promising it a dark canvas. Framing
+   it as an explicit light inset panel makes it read as intentional in dark mode
+   instead of looking like a broken white slab. */
+.cta-embed {
+  width: 100%;
+  max-width: 480px;
+  padding: 6px;
+  background: #ffffff;
+  color-scheme: light;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--r-md);
+}
+.cta-embed iframe {
+  display: block;
+  width: 100%;
+  min-height: 150px;
+  border: 0;
+}
 
 /* ---- List page head (Phase 3: /posts/, /co-authored/, /ai-lab/, /latest/) ---- */
 .page-head { padding: 60px 0 8px; max-width: 780px; }
@@ -291,6 +358,14 @@
   .post-date { min-width: 88px; font-size: 12px; }
   /* Accessibility: keep CTA buttons a >=44px touch target on mobile. */
   .btn { min-height: 44px; }
+  .cta-card {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 18px;
+    padding: 22px 20px;
+  }
+  .cta-action { align-self: stretch; }
+  .cta-embed { max-width: none; }
   .talk-card { flex-direction: column; gap: 10px; }
 }
 @media (max-width: 480px) {
