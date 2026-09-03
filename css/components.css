@@ -300,6 +300,46 @@
 .talk-link:hover { border-color: var(--accent); }
 .talk-empty { font-family: var(--font-mono); font-size: 13.5px; color: var(--muted); margin: 28px 0 8px; }
 
+/* ---- Talk cards: cover thumbnail + stats strip ----
+   /speaking/ moved from data/talks.toml to the `speaking` content section, so each card
+   now links to a talk page and carries a cover image. The thumbnail is the card's first
+   flex child (where .talk-date used to sit); .talk-date moved inside .talk-main, so its
+   old left-rail sizing is reset here rather than edited above. */
+.talk-media { flex: 0 0 auto; display: block; line-height: 0; }
+.talk-thumb { width: 160px; height: 90px; object-fit: cover; border-radius: var(--r-md); border: 1px solid var(--border); background: var(--surface-2); display: block; }
+.talk-thumb-fallback { display: flex; align-items: center; justify-content: center; font-family: var(--font-mono); font-size: 26px; color: var(--faint); line-height: 1; }
+.talk-card .talk-date { min-width: 0; padding-top: 0; margin-bottom: 7px; }
+/* Stretched title anchor makes the whole card one link (and one large touch target).
+   .talk-links must stay above the overlay so its external links remain clickable. */
+.talk-card { position: relative; }
+.talk-title a { color: inherit; }
+.talk-title a::after { content: ""; position: absolute; inset: 0; border-radius: var(--r-lg); }
+.talk-card:hover .talk-title a { color: var(--accent-strong); }
+.talk-links { position: relative; z-index: 1; }
+.talk-stats { font-family: var(--font-mono); font-size: 13px; color: var(--faint); margin: 14px 0 0; }
+.talk-stats-sep { color: var(--border-strong); padding: 0 3px; }
+
+/* ---- Talk single page (layouts/speaking/single.html) ----
+   base.css scopes post prose to `.post article > div`, which the speaking section never
+   matches, so the reading measure and type scale are restated here to match posts. */
+.talk-single { max-width: 76rem; margin-left: auto; margin-right: auto; }
+.talk-single .page-title { margin: 0; font-size: clamp(26px, 4vw, 34px); line-height: 1.2; }
+.talk-single .talk-head { margin-top: 8px; }
+.talk-single-meta { font-size: 14px; color: var(--muted); margin: 14px 0 0; }
+.talk-single-event { font-weight: 600; color: var(--fg); }
+.talk-single-links { margin-top: 18px; }
+.talk-single-body { font-size: 17px; line-height: 1.75; margin-top: 28px; }
+.talk-single-body h2 { font-size: 24px; margin: 40px 0 14px; }
+.talk-single-body p { margin: 0 0 20px; }
+.talk-single-body ul, .talk-single-body ol { margin: 0 0 20px; padding-left: 24px; }
+.talk-single-body li { margin-bottom: 8px; }
+.talk-single-body img { border-radius: var(--r-md); border: 1px solid var(--border); margin: 24px 0; }
+.talk-nav { display: flex; gap: 20px; justify-content: space-between; margin: 44px 0 0; padding-top: 22px; border-top: 1px solid var(--border); }
+.talk-nav-slot { flex: 1 1 0; min-width: 0; font-size: 14px; }
+.talk-nav-next { text-align: right; }
+.talk-nav-label { display: block; font-family: var(--font-mono); font-size: 11.5px; color: var(--faint); margin-bottom: 4px; }
+.talk-back { font-family: var(--font-mono); font-size: 13px; margin: 28px 0 0; }
+
 /* ---- About page (reuses .hero-meta / .hero-ctas / .btn) ---- */
 .about-lead { margin: 0 0 22px; }
 .about-ctas { margin: 26px 0 10px; }
@@ -367,6 +407,11 @@
   .cta-action { align-self: stretch; }
   .cta-embed { max-width: none; }
   .talk-card { flex-direction: column; gap: 10px; }
+  .talk-media { align-self: stretch; }
+  .talk-thumb { width: 100%; height: auto; aspect-ratio: 16 / 9; }
+  .talk-link { min-height: 44px; display: inline-flex; align-items: center; }
+  .talk-nav { flex-direction: column; gap: 20px; }
+  .talk-nav-next { text-align: left; }
 }
 @media (max-width: 480px) {
   .section-badge { margin-left: 0; }
