@@ -220,6 +220,10 @@
 
 /* ---- List page head (Phase 3: /posts/, /co-authored/, /ai-lab/, /latest/) ---- */
 .page-head { padding: 60px 0 8px; max-width: 780px; }
+/* Opt-in for sections whose intro prose is long enough that the 780px measure
+   leaves an obviously ragged gutter next to a full-width grid (see /projects/).
+   Falls back to the container width, so it stays aligned with the grid below. */
+.page-head-wide { max-width: none; }
 .page-kicker { font-family: var(--font-mono); font-size: 13px; color: var(--accent-strong); margin: 0; }
 .page-title { font-size: clamp(30px, 4.5vw, 42px); letter-spacing: -0.02em; margin: 10px 0 14px; font-weight: 700; }
 .page-intro { font-size: 17px; line-height: 1.65; color: var(--muted); margin: 0 0 4px; text-wrap: pretty; }
@@ -279,6 +283,8 @@
 .proj-link::after { content: ""; position: absolute; inset: 0; z-index: 0; }
 .proj-desc { font-size: 13.5px; color: var(--muted); line-height: 1.5; margin: 0; }
 .proj-foot { margin-top: auto; padding-top: 10px; display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+.proj-meta { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
+.proj-date { font-family: var(--font-mono); font-size: 11px; color: var(--faint); white-space: nowrap; }
 .chip-tool { font-family: var(--font-mono); font-size: 11px; color: var(--muted); background: var(--surface-2); border: 1px solid var(--border); padding: 3px 8px; border-radius: 6px; white-space: nowrap; }
 .gh-link { position: relative; z-index: 1; font-family: var(--font-mono); font-size: 12.5px; color: var(--accent-strong); }
 .gh-link:hover { text-decoration: underline; }
