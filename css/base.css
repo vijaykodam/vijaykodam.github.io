@@ -279,12 +279,12 @@ html[data-theme='dark'] .theme-toggle .icon-moon { display: none; }
   color: var(--accent-strong);
 }
 
-/* ---- List rows (projects / latest / ai-lab share the theme .list markup) ---- */
+/* ---- List rows (theme .list markup: taxonomy / term pages) ---- */
 /* The theme hardcodes these to #212121 / link-blue, which is low-contrast when
    toggled to dark. Tokenize so every list page stays legible in both schemes. */
 /* Generic taxonomy/tag term-list rows: keep date + title on one line
-   (absorbed from legacy blog-posts.css; /latest/ overrides this via .list.latest
-   in components.css to allow wrapping with a section badge). */
+   (absorbed from legacy blog-posts.css). Section list pages (/posts/, /latest/,
+   /ai-lab/, /co-authored/) do NOT use this markup — they use .post-row. */
 .list ul li {
   display: flex;
   align-items: baseline;

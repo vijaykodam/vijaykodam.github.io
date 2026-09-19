@@ -18,7 +18,7 @@
 &lt;p&gt;It was a good day, and a memorable one for me. The lineup included a lot of people whose work I have followed for years.&lt;/p&gt;
 &lt;h2 id="thanks"&gt;Thanks&lt;/h2&gt;
 &lt;p&gt;Thanks to the organising team, Sebastian Bille, Andreas Casen, Anurag Kale, Caroline Cah and Marcus Karlsson, and to the AWS Community Nordics volunteers.&lt;/p&gt;</description></item><item><title>AI Agents for Kubernetes Ops: Live incident recovery with MCP</title><link>https://vijay.eu/speaking/agentcon-helsinki-2025/</link><pubDate>Wed, 01 Oct 2025 10:30:00 +0300</pubDate><guid>https://vijay.eu/speaking/agentcon-helsinki-2025/</guid><description>&lt;p&gt;&lt;img src="https://vijay.eu/images/speaking/agentcon-helsinki-2025/on-stage.webp" alt="Presenting at AgentCon Helsinki in front of a slide reading &amp;ldquo;What if incident response could be autonomous?&amp;rdquo;"&gt;&lt;/p&gt;
-&lt;p&gt;I presented &amp;ldquo;AI Agents for Kubernetes Ops: Live incident recovery with MCP&amp;rdquo; at AgentCon Helsinki. The live demo ran without any hiccups, thanks to Claude Sonnet 4 for not hallucinating too much.&lt;/p&gt;
+&lt;p&gt;I presented &amp;ldquo;AI Agents for Kubernetes Ops: Live incident recovery with MCP&amp;rdquo; at Microsoft AgentCon Helsinki. The live demo ran without any hiccups, thanks to Claude Sonnet 4 for not hallucinating too much.&lt;/p&gt;
 &lt;p&gt;The demo wired an agent built with the AWS Strands Agents SDK to a set of MCP servers and let it work a real incident on an Amazon EKS cluster end to end:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Inject a controlled pod error&lt;/li&gt;

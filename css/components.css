@@ -1,7 +1,8 @@
 /* components.css — redesign component styles. Ported px-for-px from
    plans/redesign-mockup-spec/shared.css (site html is 62.5%, so px render
    literally). Builds on tokens.css + base.css; does not duplicate base rules.
-   NOTE: .badge is a NEW class; legacy latest.css uses .section-badge — no clash.
+   NOTE: .badge is the single row-chip class site-wide; the legacy latest.css
+   .section-badge pill was removed when /latest/ moved onto .post-row.
 
    Phase 2 (homepage): hero, buttons, section heads, badges, cards, post-rows.
    Later phases append talk cards / project grid here. */
@@ -351,42 +352,6 @@
 .about-ctas { margin: 26px 0 10px; }
 .about-note { font-family: var(--font-mono); font-size: 12.5px; color: var(--faint); margin: 34px 0 0; }
 
-/* ---- Section badges (/latest/ feed rows; absorbed from legacy latest.css) ----
-   The /latest/ template (layouts/latest/list.html) tags each row with
-   `.section-badge.section-<section>`. This is a distinct outlined-pill style (not
-   the filled .badge chips) kept for the mixed posts/projects/co-authored feed.
-   Retokenized so both schemes stay legible without the old body.colorscheme-dark
-   overrides. */
-.section-badge {
-  display: inline-block;
-  color: var(--muted); /* default for any untyped entry (external talk/link) */
-  font-size: 1.2rem;
-  line-height: 1;
-  text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 0.2em 0.55em;
-  margin: 0 0.4em;
-  border-radius: 999px;
-  vertical-align: middle;
-  border: 1px solid currentColor;
-  white-space: nowrap;
-}
-.section-badge.section-posts { color: var(--accent-strong); }
-.section-badge.section-projects { color: var(--amber); }
-.section-badge.section-co-authored { color: var(--violet); }
-
-/* /latest/ rows: date + badge + title on a wrapping baseline row. Overrides the
-   generic nowrap `.list ul li` rule in base.css so long titles can wrap. */
-.list.latest ul li {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: baseline;
-  gap: 0.25rem 0.5rem;
-  white-space: normal;
-}
-.list.latest ul li .date { flex: 0 0 auto; }
-.list.latest ul li .title { flex: 1 1 12rem; }
-
 /* ---- Responsive ---- */
 @media (max-width: 920px) {
   .card-grid, .proj-grid { grid-template-columns: repeat(2, 1fr); }
@@ -418,7 +383,4 @@
   .talk-link { min-height: 44px; display: inline-flex; align-items: center; }
   .talk-nav { flex-direction: column; gap: 20px; }
   .talk-nav-next { text-align: left; }
-}
-@media (max-width: 480px) {
-  .section-badge { margin-left: 0; }
 }
