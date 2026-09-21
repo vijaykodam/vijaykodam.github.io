@@ -1,132 +1,84 @@
-# Vijay Kodam's Tech Blog
+# Vijay Kodam
 
-> Principal Engineer @ Nokia | AWS Community Builder | Expert in AWS, Kubernetes, EKS, and AI/ML | Hands-on technical content covering cloud architecture, DevOps, and emerging AI tooling. Co-author of deep-dives on LLM inference internals and local AI development on Apple Silicon.
+> Personal site of Vijay Kumar Kodam, Principal Engineer in Cloud Technology at Nokia in Helsinki, Finland, AWS Community Builder for 2025 and 2026, and author of the Substack newsletter Notes on Kubernetes, AWS and agentic AI. Practical writing on cloud platforms, AI agents, coding tools, and local LLM inference, alongside projects and conference talks.
 
-## About
+Vijay designs and operates production AWS and Kubernetes platforms, including a private 5G platform spanning five regions across three continents. His writing combines production experience with hands-on experiments in AI systems and software development.
 
-This is the personal blog of Vijay Kumar Kodam, a Principal Engineer specializing in cloud technology at Nokia, Finland, and an AWS Community Builder for 2025. The blog focuses on practical insights from production deployments of AWS services, Kubernetes, Amazon EKS, AI/ML technologies, and hands-on technical projects.
+Projects document the progression of AI-assisted coding since August 2024, with build dates and tools recorded on the project cards. They include browser applications, games, and developer tools.
 
-Vijay has extensive experience migrating enterprise 5G platforms to AWS, implementing cloud-native solutions, and building scalable systems using Amazon EKS, containers, and various AWS services. His expertise spans Cloud Architecture, SRE, DevOps, GitOps, and Systems Design.
+Articles in the co-authored section were written with AI assistance: Vijay provided direction, context, and review. Technical observations reflect the versions and conditions at publication time. Views expressed are his own and do not represent his employer.
 
-## Core Technical Areas
+## Explore the site
 
-### AWS & Cloud Architecture
-- Amazon EKS implementation and optimization
-- AWS service architecture and best practices  
-- Cloud migration strategies for telecom workloads
-- Production 5G platform deployment on AWS
+- [Blog](https://vijay.eu/posts/): Regular and AI-co-authored articles, newest first.
+- [AI Lab](https://vijay.eu/ai-lab/): AI experiments and technical posts selected from the blog.
+- [Projects](https://vijay.eu/projects/): A chronological record of what AI coding tools could build, from early experiments to recent applications.
+- [Speaking](https://vijay.eu/speaking/): Conference talks and meetups, with slides, recordings, and related resources where available.
+- [About](https://vijay.eu/about/): Professional background, focus areas, certifications, and community involvement.
+- [Latest](https://vijay.eu/latest/): Combined chronological feed of blog posts, AI-co-authored articles, and projects.
 
-### Kubernetes & Container Orchestration
-- EKS Auto Mode implementation and insights
-- Kubernetes cluster management and optimization
-- Container orchestration for telecom applications
-- Production Kubernetes deployment patterns
+## Recent writing
 
-### AI/ML & Emerging Technologies
-- Large Language Model (LLM) deployment on AWS
-- Model Context Protocol (MCP) server development
-- AI/ML infrastructure on Kubernetes with GPU support
-- Generative AI application development
+- [Catch silent model downgrades in Claude Code](https://vijay.eu/posts/model-audit-skill/): Published 2026-07-04. Introducing model-audit, a local transcript audit that reports model IDs for main sessions and subagents.
+- [Ornith 35B: testing a self-improving coding model on a Mac Mini M4 Pro](https://vijay.eu/posts/ornith-self-scaffolding-llm/): Published 2026-06-30. Hands-on experience with Ollama and Claude Code, including context-window limits, memory use, and task performance.
+- [API Gateway vs Gateway API](https://vijay.eu/posts/api-gw-vs-gw-api/): Published 2026-01-09. Explaining the distinction between an API gateway and Kubernetes Gateway API, with a comparison diagram.
+- [2025 Year in Review](https://vijay.eu/posts/2025-year-in-review/): Published 2025-12-30. Reflections on building agents and MCP servers, speaking at conferences, community participation, and AI learning.
 
-### Interactive Web Development
-- Custom JavaScript applications and games
-- Progressive web apps with real-time functionality
-- Educational tools and calculators
-- Browser-based audio/visual applications
+## AWS, Kubernetes, and EKS
 
-## Featured Posts
+- [Amazon EKS Capabilities](https://vijay.eu/posts/eks-capabilities/): Published 2025-12-01. Managed Argo CD, ACK, and kro, with discussion of operational benefits, customization limits, and cost trade-offs.
+- [First Impressions of EKS Auto Mode](https://vijay.eu/posts/eks-auto-first-impressions/): Published 2024-12-04. Initial experience with EKS Auto Mode and its approach to node management.
+- [EKS Auto Mode's 21-day maximum node lifetime](https://vijay.eu/posts/eks-auto-max-node-lifetime/): Published 2024-12-12. Understanding enforced node replacement when planning workload operations.
+- [Surprising side effect of running EKS Auto Mode](https://vijay.eu/posts/surprising-side-effect-eks-auto/): Published 2025-01-21. An operational observation from adopting EKS Auto Mode.
+- [Pod Disruption Budget vs NodePool Disruption Budget](https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/): Published 2025-03-02. Comparing Kubernetes pod disruption controls with Karpenter node disruption controls.
+- [ARC Zonal Shift in EKS](https://vijay.eu/posts/eks-arc-zonal-shift/): Published 2024-12-30. An introduction to zonal shift for EKS availability.
+- [How to get into AWS Community Builders Program](https://vijay.eu/posts/how-to-get-into-aws-community-builders/): Published 2025-05-23. An overview of the program and application advice drawn from Vijay's experience joining in 2025.
+- [Fastest and Cheapest Ways to Delete Millions of Files from Amazon S3](https://vijay.eu/posts/s3-delete-millions-of-files/): Published 2024-10-14. Comparing bulk object deletion approaches, including CLI tools, s5cmd, and lifecycle policies, with speed and cost considerations.
+- [Where Should I Deploy My K8s Cluster?](https://vijay.eu/posts/deploy-k8s/): Published 2020-05-17. Comparing on-premises, hybrid cloud, self-managed, managed, and local Kubernetes deployment options available at the time.
+- [How to login securely to your Amazon EC2 Instance?](https://vijay.eu/posts/how-to-login-securely-to-amazon-ec2/): Published 2020-05-12. Discussing SSH access, bastion hosts, and AWS Systems Manager Session Manager for accessing EC2 instances.
 
-### EKS & Kubernetes
-- [First Impressions of EKS Auto Mode](https://vijay.eu/posts/eks-auto-first-impressions/) - Production review of EKS Auto Mode: node provisioning, Karpenter integration, and workload compatibility
-- [EKS Auto Mode: 21-Day Maximum Node Lifetime](https://vijay.eu/posts/eks-auto-max-node-lifetime/) - How EKS Auto enforces node rotation and what it means for stateful workloads
-- [Surprising Side Effect of Running EKS Auto Mode](https://vijay.eu/posts/surprising-side-effect-eks-auto/) - Unexpected behavior discovered in production when adopting EKS Auto Mode
-- [ARC Zonal Shift in EKS](https://vijay.eu/posts/eks-arc-zonal-shift/) - Using AWS ARC Zonal Shift for high availability failover in EKS clusters
-- [Pod Disruption Budget vs NodePool Disruption Budget](https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/) - Key differences between PDB and Karpenter NodePool disruption budget for safe node draining
-- [Amazon EKS Capabilities](https://vijay.eu/posts/eks-capabilities/) - EKS managed service for ArgoCD, ACK, and kro with pricing and trade-off analysis
+## AI agents, MCP, and inference
 
-### LLM Deployment & Inference
-- [Deploying LLMs on Amazon EKS using NVIDIA GPUs](https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/) - End-to-end guide deploying Mistral 7B on EKS with Ray Serve and vLLM on GPU nodes
-- [Running DeepSeek R1 Locally](https://vijay.eu/posts/running-deepseek-locally/) - Running DeepSeek R1 locally using Ollama with performance observations on Apple Silicon
-- [New Metric to Measure the Efficiency of AI Models](https://vijay.eu/posts/new-llm-metric/) - Analysis of a new efficiency metric for comparing LLM performance beyond benchmark scores
+- [Deploying LLMs on Amazon EKS using NVIDIA GPUs](https://vijay.eu/posts/deploying-llm-on-eks-and-nvidia-gpu/): Published 2025-05-11. Workshop experience deploying Mistral 7B with Ray Serve, vLLM, KubeRay, Open WebUI, and GPU monitoring.
+- [Built my first MCP Server for Kubernetes](https://vijay.eu/posts/building-my-first-mcp-server/): Published 2025-05-14. Building a read-only Kubernetes server for the Model Context Protocol.
+- [Built an AI Agent using Strands Agents SDK](https://vijay.eu/posts/built-an-ai-agent/): Published 2025-07-07. Combining an AI agent with MCP to investigate Kubernetes issues.
+- [First impressions of the official EKS MCP Server](https://vijay.eu/posts/official-eks-mcp-server/): Published 2025-05-30. Hands-on observations of AWS's EKS MCP tooling.
+- [Generate AWS architecture diagrams using MCP and Amazon Q CLI](https://vijay.eu/posts/mcp-amazon-q-cli/): Published 2025-05-04. Using MCP tools and a coding assistant to generate architecture diagrams.
+- [My Capstone project for Google GenAI course](https://vijay.eu/posts/google-genai-capstone-project/): Published 2025-04-19. Building a vegetarian recipe agent with LangGraph and Gemini, using few-shot prompting and structured tool outputs.
+- [Creating decibel meter using Claude Code Agentic tool](https://vijay.eu/posts/decibel-meter-using-claude-code/): Published 2025-03-13. An early hands-on account of building a browser-based decibel meter with Claude Code for child-friendly voice-level guidance.
+- [MLOps 101](https://vijay.eu/posts/mlops-101/): Published 2025-03-04. An introduction to the machine learning lifecycle, covering data management, model development, deployment, and monitoring.
+- [Classic Snake Game using LLMs](https://vijay.eu/posts/snake-game/): Published 2025-02-16. Comparing the effort of building a Snake game with Claude, Gemini, and ChatGPT, and reflecting on progress since the author's August 2024 experiments.
 
-### MCP & AI Agents
-- [Built my first MCP Server for Kubernetes](https://vijay.eu/posts/building-my-first-mcp-server/) - Building a secure read-only Kubernetes MCP server from scratch
-- [Official EKS MCP Server First Impressions](https://vijay.eu/posts/official-eks-mcp-server/) - Hands-on review of AWS's official EKS MCP Server capabilities
-- [Generate AWS Architecture Diagrams using MCP and Amazon Q CLI](https://vijay.eu/posts/mcp-amazon-q-cli/) - Using AWS MCP server with Amazon Q CLI to auto-generate architecture diagrams
-- [Built an AI Agent using Strands Agents SDK](https://vijay.eu/posts/built-an-ai-agent/) - AI agent that debugs Kubernetes issues using Strands SDK and MCP server
+## Articles co-authored with AI
 
-### Claude Code & Local AI Tooling
-- [Claude Code Agentic CLI Demo](https://vijay.eu/posts/claude-code-demo/) - Hands-on demo of Claude Code CLI with cost analysis and impressions on local LLM alternatives
-- [Creating a Decibel Meter using Claude Code](https://vijay.eu/posts/decibel-meter-using-claude-code/) - Building an interactive browser-based decibel meter with Claude Code assistance
-- [My Honest Take on Kiro, AI IDE from AWS](https://vijay.eu/posts/my-honest-take-on-kiro/) - Unbiased review of AWS's Kiro AI IDE compared to other AI coding tools
+- [Monitoring Claude Code with Apple Containers Instead of Docker](https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/): Published 2026-02-20. A local Prometheus, Grafana, and OpenTelemetry setup, with resource comparisons against Docker Desktop.
+- [I Ran an 80B Coding Model Locally with Claude Code](https://vijay.eu/co-authored/80b-coding-model-locally-claude-code-ollama/): Published 2026-02-14. Investigating a slow Claude Code and Ollama setup and the bottlenecks in local inference.
+- [LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon](https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/): Published 2026-02-14. Explaining inference mechanics, memory requirements, and tuning considerations.
 
-## Co-authored Posts
+## Selected projects
 
-- [I Ran an 80B Coding Model Locally with Claude Code](https://vijay.eu/co-authored/80b-coding-model-locally-claude-code-ollama/) - Troubleshooting a slow Claude Code + Ollama setup on Apple Silicon: diagnosing bottlenecks and optimizing local LLM inference
-- [LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon](https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/) - Deep dive into LLM inference mechanics: KV cache math, attention complexity, and tuning inference engines on Apple Silicon
-- [Monitoring Claude Code with Apple Containers Instead of Docker](https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/) - Setting up Prometheus, Grafana, and OpenTelemetry for Claude Code using Apple Containers on macOS
+- [model-audit](https://vijay.eu/projects/model-audit/): July 2026. A Claude Code skill and plugin that reports model IDs recorded in local session transcripts.
+- [Retro Racer](https://vijay.eu/projects/retro-racer/): June 2026. A browser-based 3D racing game with traffic, real car models, and timed laps.
+- [Tesla Wrap Maker](https://vijay.eu/projects/tesla-wrap/): May 2026. Design Tesla wraps, export PNGs for Paint Shop, and preview supported models in 3D.
+- [Note Quest](https://vijay.eu/projects/note-quest/): February 2026. A music-reading quiz for learning notes on the grand staff, with ten difficulty levels.
+- [Hand-Gesture 3D Car Viewer](https://vijay.eu/projects/car-concept/): January 2026. Rotate, move, and zoom a 3D car using hand tracking.
+- [Hand-Gesture Cricket](https://vijay.eu/projects/cricket-bowling/): January 2026. A webcam-controlled 3D cricket bowling game.
+- [Decibel Meter](https://vijay.eu/projects/decibel-meter/): March 2025. A microphone-based sound-level tool with audio processing in the browser.
+- [Classic Snake Game](https://vijay.eu/projects/snake-game/): February 2025. A browser game from the site's earlier AI coding experiments.
+- [Flag Game](https://vijay.eu/projects/flag-game/): August 2024. A country-flag quiz from the beginning of the project chronology.
 
-## Interactive Projects
+## Selected talks
 
-The blog features unique interactive web applications built with vanilla JavaScript:
+- [skill-up: How to Make Claude Work Your Way](https://vijay.eu/speaking/claude-code-meetup-helsinki-2026/): Claude Code Meetup Helsinki, March 2026. Agent Skills, their relationship to MCP, hooks, and plugins, and a live slide-generation demo.
+- [From Prompt to Deployment in EKS](https://vijay.eu/speaking/aws-community-day-nordics-2025/): AWS Community Day Nordics, October 2025. A live deployment workflow using Amazon Q CLI and MCP servers.
+- [AI Agents for Kubernetes Ops: Live incident recovery with MCP](https://vijay.eu/speaking/agentcon-helsinki-2025/): Microsoft AgentCon Helsinki, October 2025. Investigating an EKS incident and delivering a proposed fix through Argo CD.
+- [Autonomous Troubleshooting on Amazon EKS with Strands Agents and MCP](https://vijay.eu/speaking/aws-summit-zurich-2025/): AWS Summit Zurich, September 2025. An end-to-end Kubernetes troubleshooting demonstration.
 
-- **[Decibel Meter](https://vijay.eu/projects/decibel-meter/)** - Real-time audio level measurement tool with child-friendly voice level guidance
-- **[Fitness Calculator](https://vijay.eu/projects/fitness-calculator/)** - Comprehensive health and fitness calculation suite
-- **[Flag Game](https://vijay.eu/projects/flag-game/)** - Educational country flag identification game with 200+ flags
-- **[Markdown Editor](https://vijay.eu/projects/markdown-editor/)** - Live markdown editor with real-time preview
-- **[Snake Game](https://vijay.eu/projects/snake-game/)** - Classic snake game implementation
-- **[Medal Tally](https://vijay.eu/projects/medal-tally/)** - Olympic medal tracking system
-- **[My IP](https://vijay.eu/projects/my-ip/)** - Check your public IP address and network info
-- **[Tic Tac Toe](https://vijay.eu/projects/tic-tac-toe/)** - Playable tic tac toe game
-- **[Word Ladder](https://vijay.eu/projects/word-ladder/)** - Word puzzle game
+## Open source and contact
 
-## Professional Context
-
-- **Current Role**: Principal Engineer, Cloud Technology @ Nokia, Finland
-- **AWS Community Builder** for 2025 (Containers & Serverless)
-- **Certifications**: AWS Solutions Architect Associate, CKA, CKAD, AI/ML certifications
-- **Industry Focus**: Telecom, 5G, Cloud-Native Applications, Enterprise AI/ML
-
-## Technical Approach
-
-Content emphasizes:
-- Production-ready implementations over theoretical concepts
-- Hands-on tutorials with working code examples
-- Real-world challenges and solutions from enterprise deployments
-- Performance optimization and cost management strategies
-- Security best practices for cloud-native applications
-
-## Contact & Links
-
-- **Blog**: https://vijay.eu
-- **GitHub**: https://github.com/vijaykodam/
-- **LinkedIn**: https://www.linkedin.com/in/vijaykodam/
-- **DEV Community**: https://dev.to/vijaykodam
-
----
-
-## Machine-readable index
-
-[BEGIN JSONL]
-{"url":"https://vijay.eu/posts/eks-auto-first-impressions/","title":"First Impressions of EKS Auto Mode","section":"posts","date":"2024-12-04","tags":["EKS","Kubernetes","AWS","EKSAuto"],"summary":"Production review of EKS Auto Mode covering node provisioning, Karpenter integration, and workload compatibility observations."}
-{"url":"https://vijay.eu/posts/eks-auto-max-node-lifetime/","title":"EKS Auto Mode: 21-Day Maximum Node Lifetime","section":"posts","date":"2024-12-12","tags":["EKS","Kubernetes","AWS","EKSAuto"],"summary":"How EKS Auto Mode enforces a 21-day maximum node lifetime and what this means for stateful workloads in production."}
-{"url":"https://vijay.eu/posts/surprising-side-effect-eks-auto/","title":"Surprising Side Effect of Running EKS Auto Mode","section":"posts","date":"2025-01-21","tags":["EKS","Kubernetes","AWS","EKSAuto"],"summary":"Unexpected behavior discovered in production when adopting EKS Auto Mode, with analysis and workarounds."}
-{"url":"https://vijay.eu/posts/eks-arc-zonal-shift/","title":"ARC Zonal Shift in EKS","section":"posts","date":"2024-12-30","tags":["EKS","Kubernetes","AWS","HighAvailability"],"summary":"Using AWS Application Recovery Controller Zonal Shift for high availability failover in EKS clusters."}
-{"url":"https://vijay.eu/posts/pod-disruption-budget-vs-nodepool-disruption-budget/","title":"Pod Disruption Budget vs NodePool Disruption Budget","section":"posts","date":"2025-03-02","tags":["EKS","Kubernetes","Karpenter","NodePool"],"summary":"Key differences between Kubernetes PDB and Karpenter NodePool disruption budget for controlling safe node draining."}
-{"url":"https://vijay.eu/posts/eks-capabilities/","title":"Amazon EKS Capabilities","section":"posts","date":"2025-12-01","tags":["EKS","Kubernetes","AWS"],"summary":"Comprehensive overview of Amazon EKS feature set and capabilities across networking, storage, security, and operations."}
-{"url":"https://vijay.eu/ai-lab/deploying-llm-on-eks-and-nvidia-gpu/","title":"Deploying LLMs on Amazon EKS using NVIDIA GPUs","section":"ai-lab","date":"2025-05-11","tags":["EKS","LLM","NVIDIA","GPU","vLLM","RayServe"],"summary":"End-to-end guide for deploying Mistral 7B on Amazon EKS using NVIDIA GPU nodes, Ray Serve, and vLLM for inference."}
-{"url":"https://vijay.eu/posts/running-deepseek-locally/","title":"Running DeepSeek R1 Locally","section":"posts","date":"2025-01-29","tags":["LLM","DeepSeek","Ollama","LocalAI"],"summary":"Running DeepSeek R1 locally using Ollama with performance observations and configuration tips for Apple Silicon."}
-{"url":"https://vijay.eu/posts/new-llm-metric/","title":"New Metric to Measure the Efficiency of AI Models","section":"posts","date":"2025-01-28","tags":["LLM","AI","Benchmarks","Efficiency"],"summary":"Analysis of a new efficiency metric for comparing LLM performance that goes beyond standard benchmark scores."}
-{"url":"https://vijay.eu/posts/building-my-first-mcp-server/","title":"Built my first MCP Server for Kubernetes","section":"posts","date":"2025-05-14","tags":["MCP","Kubernetes","AI","Agents"],"summary":"Building a secure read-only Kubernetes MCP server from scratch using the Model Context Protocol specification."}
-{"url":"https://vijay.eu/posts/official-eks-mcp-server/","title":"Official EKS MCP Server First Impressions","section":"posts","date":"2025-05-30","tags":["MCP","EKS","AWS","Agents"],"summary":"Hands-on review of AWS's official EKS MCP Server: capabilities, limitations, and comparison with a custom-built server."}
-{"url":"https://vijay.eu/posts/mcp-amazon-q-cli/","title":"Generate AWS Architecture Diagrams using MCP and Amazon Q CLI","section":"posts","date":"2025-05-04","tags":["MCP","AmazonQ","AWS","Diagrams"],"summary":"Using the AWS MCP server with Amazon Q CLI to automatically generate AWS architecture diagrams from natural language."}
-{"url":"https://vijay.eu/posts/built-an-ai-agent/","title":"Built an AI Agent using Strands Agents SDK","section":"posts","date":"2025-07-07","tags":["AI","Agents","AWS","StrandsSDK"],"summary":"AI agent that debugs Kubernetes issues using AWS Strands Agents SDK and the Kubernetes MCP server."}
-{"url":"https://vijay.eu/posts/claude-code-demo/","title":"Claude Code Agentic CLI Demo","section":"posts","date":"2025-02-24","tags":["ClaudeCode","AI","CLI","Agents"],"summary":"Demonstrating Claude Code's agentic capabilities for real-world software engineering tasks via the CLI."}
-{"url":"https://vijay.eu/posts/decibel-meter-using-claude-code/","title":"Creating a Decibel Meter using Claude Code","section":"posts","date":"2025-03-13","tags":["ClaudeCode","JavaScript","WebAudio","AI"],"summary":"Building an interactive browser-based decibel meter with real-time audio visualization using Claude Code assistance."}
-{"url":"https://vijay.eu/posts/my-honest-take-on-kiro/","title":"My Honest Take on Kiro, AI IDE from AWS","section":"posts","date":"2025-07-17","tags":["Kiro","AWS","AI","IDE"],"summary":"Unbiased review of AWS's Kiro AI IDE: features, strengths, limitations, and how it compares to other AI coding tools."}
-{"url":"https://vijay.eu/co-authored/80b-coding-model-locally-claude-code-ollama/","title":"I Ran an 80B Coding Model Locally with Claude Code","section":"co-authored","date":"2026-02-14","tags":["ClaudeCode","Ollama","LLM","AppleSilicon","LocalAI"],"summary":"Troubleshooting a slow Claude Code + Ollama setup running an 80B model on Apple Silicon: diagnosing inference bottlenecks and optimizing throughput."}
-{"url":"https://vijay.eu/co-authored/llm-inference-internals-apple-silicon/","title":"LLM Inference Internals: KV Cache, Flash Attention, and Optimizing for Apple Silicon","section":"co-authored","date":"2026-02-14","tags":["LLM","Inference","KVCache","FlashAttention","AppleSilicon"],"summary":"Deep dive into LLM inference mechanics: KV cache math, attention complexity, and tuning vLLM and Ollama for Apple Silicon unified memory."}
-{"url":"https://vijay.eu/co-authored/claude-code-monitoring-apple-containers/","title":"Monitoring Claude Code with Apple Containers Instead of Docker","section":"co-authored","date":"2026-02-20","tags":["ClaudeCode","AppleContainers","Prometheus","Grafana","OpenTelemetry"],"summary":"Setting up a local Prometheus, Grafana, and OpenTelemetry monitoring stack for Claude Code using Apple Containers on macOS instead of Docker Desktop."}
-[END JSONL]
-
-The views and opinions expressed in this blog are solely those of Vijay Kodam and do not reflect the views of his employer.
+- [Kubernetes Read-Only MCP](https://github.com/vijaykodam/kubernetes-readonly-mcp): Source code for Vijay's read-only Kubernetes MCP server.
+- [model-audit source](https://github.com/vijaykodam/model-audit): Installation instructions and source code for the local model audit tool.
+- [Notes on Kubernetes, AWS and agentic AI — Substack newsletter](https://vijaykodam.substack.com/): Free, occasional notes drawn from Vijay's production experience with Kubernetes, AWS, and agentic AI.
+- [GitHub](https://github.com/vijaykodam/): Source code and projects.
+- [LinkedIn](https://www.linkedin.com/in/vijaykodam/): Professional profile and updates.
+- [DEV Community](https://dev.to/vijaykodam): Technical articles published on DEV.
