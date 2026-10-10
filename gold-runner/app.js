@@ -172,19 +172,48 @@
     drawActor(game.player, false);
   }
   function resize() {
-    var field = document.getElementById('playfield'), width = window.innerWidth, height = window.innerHeight;
-    document.body.classList.toggle('short-screen', height < 640 && height > width);
-    field.style.width = ''; field.style.height = '';
-    if (width > height && height <= 850) {
-      var available = Math.max(100, height - (height > 550 ? 133 : 91)), w = Math.min(field.parentNode.clientWidth - 208, available * 22 / 18);
-      field.style.width = Math.floor(w) + 'px'; field.style.height = Math.floor(w * 18 / 22) + 'px';
-    } else if (height < 640 && height > width) {
-      var outside = document.querySelector('.arcade').offsetHeight - field.offsetHeight;
-      var boardHeight = Math.max(130, Math.min(field.offsetHeight, height - outside - 4));
-      field.style.width = Math.floor(boardHeight * 22 / 18) + 'px'; field.style.height = Math.floor(boardHeight) + 'px';
+    var field = document.getElementById('playfield'), machine = field.parentNode, arcade = document.querySelector('.arcade');
+    // visualViewport follows Safari's browser bars; older Safari uses innerHeight.
+    // Leave pinch zoom to the browser instead of shrinking the game under a finger.
+    var viewport = window.visualViewport;
+    if (viewport && viewport.scale !== 1) return;
+    var height = viewport ? viewport.height : window.innerHeight;
+    var width = window.innerWidth, landscape = width > height && height <= 850;
+    if (lastWidth !== width || lastHeight !== height) clearInput();
+    lastWidth = width; lastHeight = height;
+    document.body.classList.toggle('landscape', landscape);
+    document.body.classList.toggle('small-landscape', landscape && height <= 500);
+    document.body.classList.toggle('tight-landscape', landscape && height <= 290);
+    document.body.classList.toggle('compact-portrait', !landscape && height < 760);
+    document.body.classList.remove('compact-menu');
+    field.style.width = ''; field.style.height = ''; machine.style.height = '';
+    var arcadeStyle = window.getComputedStyle(arcade), machineStyle = window.getComputedStyle(machine);
+    var arcadePadding = parseFloat(arcadeStyle.paddingTop) + parseFloat(arcadeStyle.paddingBottom);
+    var availableWidth = machine.clientWidth - parseFloat(machineStyle.paddingLeft) - parseFloat(machineStyle.paddingRight);
+    var availableHeight;
+    if (landscape) {
+      machine.style.height = Math.max(232, Math.floor(height - arcadePadding)) + 'px';
+      availableHeight = machine.clientHeight - parseFloat(machineStyle.paddingTop) - parseFloat(machineStyle.paddingBottom);
+    } else {
+      // Measure all chrome and the full controller before fitting the board.
+      var outside = arcade.offsetHeight - field.offsetHeight;
+      availableHeight = width > 1024 && !navigator.maxTouchPoints ? availableWidth * 18 / 22 : Math.max(80, height - outside - 2);
     }
+    var boardWidth = Math.floor(Math.min(availableWidth, availableHeight * 22 / 18));
+    field.style.width = boardWidth + 'px'; field.style.height = Math.floor(boardWidth * 18 / 22) + 'px';
+    document.body.classList.toggle('compact-menu', field.clientHeight < 280);
   }
-  window.addEventListener('resize', resize);
+  var resizeFrame = 0, lastWidth = window.innerWidth, lastHeight = window.innerHeight;
+  function scheduleResize() {
+    if (resizeFrame) return;
+    resizeFrame = window.requestAnimationFrame(function () {
+      resizeFrame = 0;
+      // Rotation/reflow must not leave a runner moving after a control shifts.
+      resize();
+    });
+  }
+  window.addEventListener('resize', scheduleResize);
+  if (window.visualViewport) window.visualViewport.addEventListener('resize', scheduleResize);
   window.addEventListener('orientationchange', function () { suspend(); window.setTimeout(resize, 180); });
   function frame(now) {
     window.requestAnimationFrame(frame);

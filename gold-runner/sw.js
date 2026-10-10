@@ -1,5 +1,5 @@
 /* Optional offline cache; no game or account data is stored here. */
-var CACHE = 'gold-runner-vijay-v2';
+var CACHE = 'gold-runner-vijay-v3';
 // Hugo serves the directory URL and redirects index.html to it.
 var FILES = ['./', './style.css', './engine.js', './app.js', './icon.svg', './apple-touch-icon.png', './manifest.json'];
 self.addEventListener('install', function (event) {
