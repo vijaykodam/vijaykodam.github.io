@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Ai-Agents on Vijay Kodam</title><link>https://vijay.eu/tags/ai-agents/</link><description>Recent content in Ai-Agents on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Sun, 12 Apr 2026 10:00:00 +0300</lastBuildDate><atom:link href="https://vijay.eu/tags/ai-agents/index.xml" rel="self" type="application/rss+xml"/><item><title>OpenClaw Skill for Finland's Helmet Library</title><link>https://vijay.eu/projects/helmet/</link><pubDate>Sun, 12 Apr 2026 10:00:00 +0300</pubDate><guid>https://vijay.eu/projects/helmet/</guid><description>&lt;p&gt;An OpenClaw SKILL for the Finnish public library Helmet (Helsinki Metropolitan Area libraries). With it, you can ask your OpenClaw agent from WhatsApp: &amp;ldquo;Is anything overdue for the kids at the library?&amp;rdquo; or &amp;ldquo;Place a hold on AI Engineering by Chip Huyen&amp;rdquo;.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/projects/helmet.webp" alt="A WhatsApp chat with the OpenClaw agent about overdue library loans, next to the Helmet CLI commands that answer it"&gt;&lt;/p&gt;
+&lt;h2 id="demo"&gt;Demo&lt;/h2&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/9fbVeMAD6SA?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Demo of the Helmet OpenClaw skill"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="why"&gt;Why&lt;/h2&gt;
+&lt;p&gt;I had recently set up OpenClaw and wanted it to simplify my daily life. My kids and I read a lot of books, and we borrow them from Helmet.&lt;/p&gt;
+&lt;p&gt;Helmet had no CLI or API to manage your library account. It has an open API to search books, but nothing for loans, holds, or fines. So I built the Helmet CLI first, and then a SKILL so that my OpenClaw agent can use it.&lt;/p&gt;
+&lt;h2 id="what-the-cli-does"&gt;What the CLI does&lt;/h2&gt;
+&lt;ul&gt;
+&lt;li&gt;Check loans, and renew one item or all renewable items.&lt;/li&gt;
+&lt;li&gt;List, place, and cancel holds, with pickup deadline and queue position.&lt;/li&gt;
+&lt;li&gt;Show fines and a full account summary.&lt;/li&gt;
+&lt;li&gt;Search the Helmet catalog without a login.&lt;/li&gt;
+&lt;li&gt;Keep several library cards as profiles, so one command can cover the whole family.&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;Every command accepts &lt;code&gt;--json&lt;/code&gt;, which makes the output easy for an agent to read.&lt;/p&gt;
+&lt;h2 id="install"&gt;Install&lt;/h2&gt;
+&lt;p&gt;Install the CLI from npm, then save a library card:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npm install -g @helmet-ai/helmet
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;helmet login
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Install the SKILL from &lt;a href="https://clawhub.ai/vijaykodam/helmet"&gt;ClawHub&lt;/a&gt;, or with the &lt;code&gt;skills&lt;/code&gt; CLI:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;npx skills add vijaykodam/helmet
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;&lt;a href="https://github.com/vijaykodam/helmet" class="button"&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
