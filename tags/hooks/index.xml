@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Hooks on Vijay Kodam</title><link>https://vijay.eu/tags/hooks/</link><description>Recent content in Hooks on Vijay Kodam</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 09 Mar 2026 10:00:00 +0200</lastBuildDate><atom:link href="https://vijay.eu/tags/hooks/index.xml" rel="self" type="application/rss+xml"/><item><title>url-logger Claude Code Plugin</title><link>https://vijay.eu/projects/url-logger/</link><pubDate>Mon, 09 Mar 2026 10:00:00 +0200</pubDate><guid>https://vijay.eu/projects/url-logger/</guid><description>&lt;p&gt;A Claude Code plugin that logs all &lt;code&gt;WebSearch&lt;/code&gt; and &lt;code&gt;WebFetch&lt;/code&gt; URLs to &lt;code&gt;.claude/web-access.log&lt;/code&gt;, with session IDs and timestamps.&lt;/p&gt;
+&lt;p&gt;&lt;img src="https://vijay.eu/images/projects/url-logger.webp" alt="A Claude Code session that searches and fetches web pages, next to a terminal that shows the same URLs in the url-logger log file"&gt;&lt;/p&gt;
+&lt;h2 id="demo"&gt;Demo&lt;/h2&gt;
+&lt;div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;"&gt;
+&lt;iframe allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen" loading="eager" referrerpolicy="strict-origin-when-cross-origin" src="https://www.youtube-nocookie.com/embed/uGmm0YHIa2E?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" title="Demo of the url-logger Claude Code plugin"&gt;&lt;/iframe&gt;
+&lt;/div&gt;
+&lt;h2 id="why"&gt;Why&lt;/h2&gt;
+&lt;p&gt;When you do research or ask Claude Code CLI to search the Internet, it opens many websites. I wanted a way to log all those URLs in a log file.&lt;/p&gt;
+&lt;p&gt;Claude Code has no setting for this. Claude stores session history in JSONL files, which can contain URLs. But those URLs are mixed with a lot of other information, and they are spread across several session files.&lt;/p&gt;
+&lt;p&gt;The next option was a hook. But Claude Code&amp;rsquo;s &lt;code&gt;/hookify&lt;/code&gt; cannot write log files; it can only show a warning in the Claude session. This was the perfect use case to build my own hook and publish it as a plugin.&lt;/p&gt;
+&lt;h2 id="install"&gt;Install&lt;/h2&gt;
+&lt;p&gt;Run these two commands:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Add the marketplace (one-time)&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude plugin marketplace add vijaykodam/url-logger
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;&lt;span style="color:#75715e"&gt;# Install the plugin&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;claude plugin install url-logger
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;Restart Claude Code CLI after the install. The plugin starts to work only after the restart.&lt;/p&gt;
+&lt;h2 id="log-format"&gt;Log format&lt;/h2&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-text" data-lang="text"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[2026-03-07T14:23:01Z] session=abc123 tool=WebSearch query=&amp;#34;claude code plugins&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;[2026-03-07T14:23:05Z] session=abc123 tool=WebFetch url=&amp;#34;https://example.com/docs&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;By default, the plugin writes the log to &lt;code&gt;.claude/web-access.log&lt;/code&gt; in your working directory. To use one log for all projects, set &lt;code&gt;URL_LOGGER_PATH&lt;/code&gt;:&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"&gt;&lt;code class="language-bash" data-lang="bash"&gt;&lt;span style="display:flex;"&gt;&lt;span&gt;export URL_LOGGER_PATH&lt;span style="color:#f92672"&gt;=&lt;/span&gt;~/.claude/web-access.log
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;The plugin uses a Claude Code &lt;code&gt;PreToolUse&lt;/code&gt; hook. It works only in Claude Code CLI, not in Claude.ai or the Claude Desktop app.&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://github.com/vijaykodam/url-logger" class="button"&gt;View on GitHub&lt;/a&gt;&lt;/p&gt;</description></item></channel></rss>
